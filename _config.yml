@@ -1,0 +1,21 @@
+# Site settings
+title: 零博客
+description: >- # this means to ignore newlines until "baseurl:"
+  Read blog on demand.
+baseurl: "/blog" # the subpath of your site, e.g. /blog
+url: "https://agora0.gitlab.io" # the hostname & protocol, e.g. http://example.com
+github_username: agorahub
+
+# Build settings
+timezone: Asia/Hong_Kong
+theme: minima
+exclude:
+  - _posts/2020-11*
+  - _posts/2020-10*
+  - _posts/2020-0*
+  - _posts/201*
+paginate: 50
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+
