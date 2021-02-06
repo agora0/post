@@ -32,6 +32,8 @@ $ JEKYLL_ENV=production bundle exec jekyll build
 - [x] Batch and Automate - Check out the [issue comment](https://github.com/agorahub/news0/issues/1#issuecomment-597540617)
 - [x] Comment and Review - Check out the [issue comment](https://github.com/agorahub/blog0/issues/3#issuecomment-726799802)
 
+{% include archives.html %}
+
 {% include comments.html %}
 
 ## Disclaimer
