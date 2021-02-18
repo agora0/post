@@ -1,0 +1,163 @@
+---
+layout: post
+title: Machine Learning - 近年來我們不可忽略的AI公司 - Gartner評價為最具願景(VISIONARIES)的公司之一 - H2O.AI
+  介紹與官網文件整理 - 幫助大家快速查詢需要的功能...
+date: 2021-02-18 12:13:11.000000000 +00:00
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<h1><br></h1><p>嗨嗨，對於強大的 H2O，相信大家看了上篇後，跟我一樣都躍躍欲試了，那就讓我們一起安裝與啟用 H2O吧</p><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/fa923ab6-588b-4f6f-b78c-0037435c7670.webp" onerror="this.srcset='https://assets.matters.news/embed/fa923ab6-588b-4f6f-b78c-0037435c7670.jpeg'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/fa923ab6-588b-4f6f-b78c-0037435c7670.jpeg" onerror="this.srcset='https://assets.matters.news/embed/fa923ab6-588b-4f6f-b78c-0037435c7670.jpeg'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/fa923ab6-588b-4f6f-b78c-0037435c7670.webp">
+
+        <img src="https://assets.matters.news/embed/fa923ab6-588b-4f6f-b78c-0037435c7670.jpeg" srcset="https://assets.matters.news/processed/540w/embed/fa923ab6-588b-4f6f-b78c-0037435c7670.jpeg" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>攝影師：George Morina，連結：Pexels</span></figcaption></figure><p><br></p><h2><strong>1. Python 環境中如何安裝</strong></h2><h3><strong>Step 1: 先到下載頁面 - </strong><a href="https://www.h2o.ai/download/" target="_blank"><strong>https://www.h2o.ai/download/</strong></a><strong>，如圖點選紅色圓圈圈起來的地方，或可以自己選擇要下載的版本或方式</strong></h3><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/2c5d7d9a-825d-4300-9952-fbf7e27af507.webp" onerror="this.srcset='https://assets.matters.news/embed/2c5d7d9a-825d-4300-9952-fbf7e27af507.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/2c5d7d9a-825d-4300-9952-fbf7e27af507.png" onerror="this.srcset='https://assets.matters.news/embed/2c5d7d9a-825d-4300-9952-fbf7e27af507.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/2c5d7d9a-825d-4300-9952-fbf7e27af507.webp">
+
+        <img src="https://assets.matters.news/embed/2c5d7d9a-825d-4300-9952-fbf7e27af507.png" srcset="https://assets.matters.news/processed/540w/embed/2c5d7d9a-825d-4300-9952-fbf7e27af507.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><h3><strong>Step 2: 點選 INSTALL IN PYTHON</strong></h3><p>大家可以根據自己習慣用的程式語言來找對應的官方教學喔</p><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/de3d9a20-07c1-428a-ad0b-409dade6bf6b.webp" onerror="this.srcset='https://assets.matters.news/embed/de3d9a20-07c1-428a-ad0b-409dade6bf6b.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/de3d9a20-07c1-428a-ad0b-409dade6bf6b.png" onerror="this.srcset='https://assets.matters.news/embed/de3d9a20-07c1-428a-ad0b-409dade6bf6b.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/de3d9a20-07c1-428a-ad0b-409dade6bf6b.webp">
+
+        <img src="https://assets.matters.news/embed/de3d9a20-07c1-428a-ad0b-409dade6bf6b.png" srcset="https://assets.matters.news/processed/540w/embed/de3d9a20-07c1-428a-ad0b-409dade6bf6b.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><h3><strong>Step 3: 打開 Anaconda Prompt，執行指令</strong></h3><p><br></p><p>1.下載所需的套件</p><pre class="ql-syntax">pip install request
+pip install tabulate
+pip install "colorama>=0.3.8"
+pip install future
+</pre><p>2.下載 H2O</p><pre class="ql-syntax"># 移除掉現有 Python版本 的 H2O 模組
+pip uninstall h2o
+​
+# 安裝最新版本的 H2O Python 模組
+pip install http://h2o-release.s3.amazonaws.com/h2o/rel-zermelo/2/Python/h2o-3.32.0.2-py2.py3-none-any.whl
+​
+</pre><p>小叮嚀：這邊大家要小心，因為未來可能會有更新的 H2O 版本出現，所以最後一個用來下載 H2O Python 版本的指令會需要更新喔，但大家也不用擔心，只要點進 Step 2 我所提到的頁面，就能知道官網最新版本的下載指令喔</p><h2><br></h2><h2><br></h2><p><strong>2. 如何在 Python 中啟動 H2O.AI</strong></p><pre class="ql-syntax">## 導入H2O套件
+import h2o
+​
+​
+## 初始化和啟動H2O
+h2o.init()
+​
+</pre><p>執行結果</p><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/049ddde0-21e7-4255-bbf7-9f9bdc498756.webp" onerror="this.srcset='https://assets.matters.news/embed/049ddde0-21e7-4255-bbf7-9f9bdc498756.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/049ddde0-21e7-4255-bbf7-9f9bdc498756.png" onerror="this.srcset='https://assets.matters.news/embed/049ddde0-21e7-4255-bbf7-9f9bdc498756.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/049ddde0-21e7-4255-bbf7-9f9bdc498756.webp">
+
+        <img src="https://assets.matters.news/embed/049ddde0-21e7-4255-bbf7-9f9bdc498756.png" srcset="https://assets.matters.news/processed/540w/embed/049ddde0-21e7-4255-bbf7-9f9bdc498756.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p>執行結果會顯示各種系統資訊喔，如果大家點擊啟動後開啟的server - localhost:54321 連結，就會連到 H2O.AI 內建的 Web UI 介面 - FLOW</p><p>這樣也就能確定有安裝好 H2O.AI喔</p><h2><strong>3. h2o.init() 參數介紹</strong></h2><ul><li>小叮嚀: init()為初始化 H2O 的方法，裡面擁有眾多可以調整的參數，但大部分的使用情況下，使用者只需要寫 h2o.ini()即可，不需要額外的設定參數</li></ul><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/588d4df5-931e-4371-872f-bbe05f9e942b.webp" onerror="this.srcset='https://assets.matters.news/embed/588d4df5-931e-4371-872f-bbe05f9e942b.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/588d4df5-931e-4371-872f-bbe05f9e942b.png" onerror="this.srcset='https://assets.matters.news/embed/588d4df5-931e-4371-872f-bbe05f9e942b.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/588d4df5-931e-4371-872f-bbe05f9e942b.webp">
+
+        <img src="https://assets.matters.news/embed/588d4df5-931e-4371-872f-bbe05f9e942b.png" srcset="https://assets.matters.news/processed/540w/embed/588d4df5-931e-4371-872f-bbe05f9e942b.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/ea310f25-e367-49ea-a10d-d8ccb7f26d25.webp" onerror="this.srcset='https://assets.matters.news/embed/ea310f25-e367-49ea-a10d-d8ccb7f26d25.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/ea310f25-e367-49ea-a10d-d8ccb7f26d25.png" onerror="this.srcset='https://assets.matters.news/embed/ea310f25-e367-49ea-a10d-d8ccb7f26d25.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/ea310f25-e367-49ea-a10d-d8ccb7f26d25.webp">
+
+        <img src="https://assets.matters.news/embed/ea310f25-e367-49ea-a10d-d8ccb7f26d25.png" srcset="https://assets.matters.news/processed/540w/embed/ea310f25-e367-49ea-a10d-d8ccb7f26d25.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/dbfe051f-4d3f-4843-ad7f-89405d5974a4.webp" onerror="this.srcset='https://assets.matters.news/embed/dbfe051f-4d3f-4843-ad7f-89405d5974a4.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/dbfe051f-4d3f-4843-ad7f-89405d5974a4.png" onerror="this.srcset='https://assets.matters.news/embed/dbfe051f-4d3f-4843-ad7f-89405d5974a4.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/dbfe051f-4d3f-4843-ad7f-89405d5974a4.webp">
+
+        <img src="https://assets.matters.news/embed/dbfe051f-4d3f-4843-ad7f-89405d5974a4.png" srcset="https://assets.matters.news/processed/540w/embed/dbfe051f-4d3f-4843-ad7f-89405d5974a4.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><h2><br></h2><p><strong>4. 補充: 客制化 - 初始化時設定一些系統資訊</strong></p><p>今天我們希望配置一塊指定的內存大小，與指定的線程數給 H2O 使用，我們就需要修改 init() 裡面的參數</p><ul><li>程式碼範例: 我們想提供 H2O 實列 6GB 的內存空間，並且它只能使用四個內核</li></ul><pre class="ql-syntax">import h2o
+​
+h2o.init(nthreads = 4, max_mem_size = 6)
+</pre><p><br></p><h2><strong>5. 如何安裝 H2O.AI 的編譯器 FLOW?</strong></h2><h3><strong>Step 1: 先到下載頁面 - </strong><a href="https://www.h2o.ai/downloads/" target="_blank"><strong>https://www.h2o.ai/downloads/</strong></a><strong>，如圖點選紅色圈圈起來的地方</strong></h3><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/d2fdf927-4ecd-4122-82fc-2d05bf5dd114.webp" onerror="this.srcset='https://assets.matters.news/embed/d2fdf927-4ecd-4122-82fc-2d05bf5dd114.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/d2fdf927-4ecd-4122-82fc-2d05bf5dd114.png" onerror="this.srcset='https://assets.matters.news/embed/d2fdf927-4ecd-4122-82fc-2d05bf5dd114.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/d2fdf927-4ecd-4122-82fc-2d05bf5dd114.webp">
+
+        <img src="https://assets.matters.news/embed/d2fdf927-4ecd-4122-82fc-2d05bf5dd114.png" srcset="https://assets.matters.news/processed/540w/embed/d2fdf927-4ecd-4122-82fc-2d05bf5dd114.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><h3><strong>Step 2: 點選 Download</strong></h3><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/95e97df6-4270-4343-a612-d094395dc3b9.webp" onerror="this.srcset='https://assets.matters.news/embed/95e97df6-4270-4343-a612-d094395dc3b9.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/95e97df6-4270-4343-a612-d094395dc3b9.png" onerror="this.srcset='https://assets.matters.news/embed/95e97df6-4270-4343-a612-d094395dc3b9.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/95e97df6-4270-4343-a612-d094395dc3b9.webp">
+
+        <img src="https://assets.matters.news/embed/95e97df6-4270-4343-a612-d094395dc3b9.png" srcset="https://assets.matters.news/processed/540w/embed/95e97df6-4270-4343-a612-d094395dc3b9.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><h3><strong>Step 3: </strong></h3><p>打開命令提示字元(cmd)，切換(cd)到下載下來的壓縮檔目錄，並執行解壓縮</p><p>解壓縮指令</p><pre class="ql-syntax">unzip h2o-3.32.0.1.zip
+</pre><p>當然也可以手動解壓縮喔</p><p><strong>小叮嚀: 大家要根據自己下載下來的壓縮檔名稱修改上面的指令喔</strong></p><h3><strong>Step 4: </strong></h3><p>切換(cd)到解壓縮完的資料夾目錄裡 ex. cd h2o-3.32.0.1，接下來執行下面的指令</p><pre class="ql-syntax">java -jar h2o.jar
+</pre><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/3c9fed97-11fd-400e-b0be-c1c153a1a1f2.webp" onerror="this.srcset='https://assets.matters.news/embed/3c9fed97-11fd-400e-b0be-c1c153a1a1f2.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/3c9fed97-11fd-400e-b0be-c1c153a1a1f2.png" onerror="this.srcset='https://assets.matters.news/embed/3c9fed97-11fd-400e-b0be-c1c153a1a1f2.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/3c9fed97-11fd-400e-b0be-c1c153a1a1f2.webp">
+
+        <img src="https://assets.matters.news/embed/3c9fed97-11fd-400e-b0be-c1c153a1a1f2.png" srcset="https://assets.matters.news/processed/540w/embed/3c9fed97-11fd-400e-b0be-c1c153a1a1f2.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><h3><strong>Step 5:</strong></h3><p>打開瀏覽器，進到 <a href="http://localhost:54321/" target="_blank">http://localhost:54321</a></p><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/e8545a0b-3cae-496e-a597-e44048cb9207.webp" onerror="this.srcset='https://assets.matters.news/embed/e8545a0b-3cae-496e-a597-e44048cb9207.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/e8545a0b-3cae-496e-a597-e44048cb9207.png" onerror="this.srcset='https://assets.matters.news/embed/e8545a0b-3cae-496e-a597-e44048cb9207.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/e8545a0b-3cae-496e-a597-e44048cb9207.webp">
+
+        <img src="https://assets.matters.news/embed/e8545a0b-3cae-496e-a597-e44048cb9207.png" srcset="https://assets.matters.news/processed/540w/embed/e8545a0b-3cae-496e-a597-e44048cb9207.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p>進到這個頁面就算安裝完成囉</p><h3><strong>補充: FLOW 的內建教學怎麼使用</strong></h3><h4><strong>Step 6: 點選右邊的 Browse installed packs</strong></h4><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/054403ae-e12f-4674-a17f-2ed868cde10c.webp" onerror="this.srcset='https://assets.matters.news/embed/054403ae-e12f-4674-a17f-2ed868cde10c.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/054403ae-e12f-4674-a17f-2ed868cde10c.png" onerror="this.srcset='https://assets.matters.news/embed/054403ae-e12f-4674-a17f-2ed868cde10c.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/054403ae-e12f-4674-a17f-2ed868cde10c.webp">
+
+        <img src="https://assets.matters.news/embed/054403ae-e12f-4674-a17f-2ed868cde10c.png" srcset="https://assets.matters.news/processed/540w/embed/054403ae-e12f-4674-a17f-2ed868cde10c.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><h4><strong>Step 7: 點選 examples -> 點選大家需要的 AI 範例</strong></h4><p>這邊我點選 K-Means 來試試，就會出現非常詳細地如何使用 K-Means 教學，非常好用!!</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/2100716c-8f2a-4255-89f4-9d5ddd89c8fd.webp" onerror="this.srcset='https://assets.matters.news/embed/2100716c-8f2a-4255-89f4-9d5ddd89c8fd.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/2100716c-8f2a-4255-89f4-9d5ddd89c8fd.png" onerror="this.srcset='https://assets.matters.news/embed/2100716c-8f2a-4255-89f4-9d5ddd89c8fd.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/2100716c-8f2a-4255-89f4-9d5ddd89c8fd.webp">
+
+        <img src="https://assets.matters.news/embed/2100716c-8f2a-4255-89f4-9d5ddd89c8fd.png" srcset="https://assets.matters.news/processed/540w/embed/2100716c-8f2a-4255-89f4-9d5ddd89c8fd.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p>FLOW 的範例中詳細地記載了 AI 算法的使用步驟，真的太方便了!!執行方式也和 Jupyter Notebook看起來非常相似</p><p>確定安裝好後，也可以在 Python 環境中啟動 H2O.AI 後，我們就能開啟在 H2O.AI 的旅程，我也非常期待接下來要如何運用，那就希望大家能期待接下來的教學文了!!</p><h2><strong>Reference</strong></h2><p><a href="https://www.h2o.ai/" target="_blank">https://www.h2o.ai/</a></p><p><a href="https://docs.h2o.ai/h2o/latest-stable/h2o-docs/index.html" target="_blank">https://docs.h2o.ai/h2o/latest-stable/h2o-docs/index.html</a></p>
