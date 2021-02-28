@@ -1,0 +1,232 @@
+---
+layout: post
+title: Machine Learning 機器學習 - H2O.AI - AutoML (Automatic Machine Learning) 自動機器學習
+  - 不知道手邊數據該使用什麼模型來分析嗎? - 讓H2OAutoML來幫助您 - ...
+date: 2021-02-28 05:05:19.000000000 +00:00
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<h1><br></h1><p><a href="https://github.com/chwang12341/Machine-Learning/blob/master/H2O.AI/AutoML/AutoML.ipynb" target="_blank">Github連結</a></p><p><br></p><h2><strong>1. 動機</strong></h2><p>嗨~~ 今天來跟大家介紹我最近學習的一個超強大的方法 - AutoML (Automatic Machine Learning)，我們過去要建立機器學習模型時，總是要好好思考著這個數據到底需要用什麼演算法來分析好，而終於選則好演算法，也訓練好後，卻不知道它是不是最佳的解，但難道要我們一個一個演算法去嘗試看看嗎，看誰的效能最好嗎?</p><h2><br></h2><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/09bd552e-3d3e-4e93-b698-68dc3e88baf3.webp" onerror="this.srcset='https://assets.matters.news/embed/09bd552e-3d3e-4e93-b698-68dc3e88baf3.jpeg'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/09bd552e-3d3e-4e93-b698-68dc3e88baf3.jpeg" onerror="this.srcset='https://assets.matters.news/embed/09bd552e-3d3e-4e93-b698-68dc3e88baf3.jpeg'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/09bd552e-3d3e-4e93-b698-68dc3e88baf3.webp">
+
+        <img src="https://assets.matters.news/embed/09bd552e-3d3e-4e93-b698-68dc3e88baf3.jpeg" srcset="https://assets.matters.news/processed/540w/embed/09bd552e-3d3e-4e93-b698-68dc3e88baf3.jpeg" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>攝影師：Simon Berger，連結：Pexels</span></figcaption></figure><h2><br></h2><p><br></p><p><br></p><h2><strong>2. AutoML (Automatic Machine Learning) 自動機器學習</strong></h2><ul><li>簡單來說它幫助我們一次性的比較各類型演算法模型的表現，並根據評估指標進行排名，讓我們可以清楚地瞭解應該用什麼機器學習的演算法模型</li><li>讓非專業的人士也能夠輕鬆進行機器學習實驗</li></ul><h2><br></h2><h2><br></h2><p><strong>3. H2OAutoML() 參數介紹</strong></p><ul><li>H2OAutoML() 函式</li></ul><h3><strong>必須有的停止參數</strong></h3><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/1c653315-a186-42f0-af20-844f2b563493.webp" onerror="this.srcset='https://assets.matters.news/embed/1c653315-a186-42f0-af20-844f2b563493.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/1c653315-a186-42f0-af20-844f2b563493.png" onerror="this.srcset='https://assets.matters.news/embed/1c653315-a186-42f0-af20-844f2b563493.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/1c653315-a186-42f0-af20-844f2b563493.webp">
+
+        <img src="https://assets.matters.news/embed/1c653315-a186-42f0-af20-844f2b563493.png" srcset="https://assets.matters.news/processed/540w/embed/1c653315-a186-42f0-af20-844f2b563493.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><strong>補充:</strong> Stacked Ensembles 是將很多不同的演算法組合，造就最佳的模型表現，所以它在 H2O 產出的排行榜都是第一</p><h3><strong>可選的參數</strong></h3><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/cf46c9b9-873c-4c07-965a-82cfa1c171f2.webp" onerror="this.srcset='https://assets.matters.news/embed/cf46c9b9-873c-4c07-965a-82cfa1c171f2.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/cf46c9b9-873c-4c07-965a-82cfa1c171f2.png" onerror="this.srcset='https://assets.matters.news/embed/cf46c9b9-873c-4c07-965a-82cfa1c171f2.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/cf46c9b9-873c-4c07-965a-82cfa1c171f2.webp">
+
+        <img src="https://assets.matters.news/embed/cf46c9b9-873c-4c07-965a-82cfa1c171f2.png" srcset="https://assets.matters.news/processed/540w/embed/cf46c9b9-873c-4c07-965a-82cfa1c171f2.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><ul><li>Auto: 預設情況下，logloss用於分類(classification)問題，deviance用於迴歸(regression)問題</li><li>deviance(平均殘餘偏差)</li><li>logloss</li><li>MSE</li><li>RMSE</li><li>MAE</li><li>RMSLE</li><li>AUC: 位於 ROC 曲線底下的面積</li><li>AUCPR: 位於 Precision-Recall曲線底下的面積</li><li>lift_top_group</li><li>misclassification</li><li>mean_per_class_error</li></ul><p><br></p><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/3806ec67-759a-4024-b829-8dafc1d43fc8.webp" onerror="this.srcset='https://assets.matters.news/embed/3806ec67-759a-4024-b829-8dafc1d43fc8.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/3806ec67-759a-4024-b829-8dafc1d43fc8.png" onerror="this.srcset='https://assets.matters.news/embed/3806ec67-759a-4024-b829-8dafc1d43fc8.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/3806ec67-759a-4024-b829-8dafc1d43fc8.webp">
+
+        <img src="https://assets.matters.news/embed/3806ec67-759a-4024-b829-8dafc1d43fc8.png" srcset="https://assets.matters.news/processed/540w/embed/3806ec67-759a-4024-b829-8dafc1d43fc8.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><ul><li>AUTO: 預設情況下，AUC會用二進制分類(binary classification)，mean_per_class_error 用在多項式迴歸，而 deviance 用在迴歸(regression)</li><li>deviance: 平均殘餘偏差 (mean residual deviance)</li><li>logloss</li><li>MSE</li><li>RMSE</li><li>MAE</li><li>RMSLE</li><li>AUC: 位於 ROC 曲線底下的面積</li><li>AUCPR: Precision-Recall 曲線底下的面積</li><li>mean_per_class_error</li></ul><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/0fb32a3a-0287-4a34-87fc-b13d89ca3972.webp" onerror="this.srcset='https://assets.matters.news/embed/0fb32a3a-0287-4a34-87fc-b13d89ca3972.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/0fb32a3a-0287-4a34-87fc-b13d89ca3972.png" onerror="this.srcset='https://assets.matters.news/embed/0fb32a3a-0287-4a34-87fc-b13d89ca3972.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/0fb32a3a-0287-4a34-87fc-b13d89ca3972.webp">
+
+        <img src="https://assets.matters.news/embed/0fb32a3a-0287-4a34-87fc-b13d89ca3972.png" srcset="https://assets.matters.news/processed/540w/embed/0fb32a3a-0287-4a34-87fc-b13d89ca3972.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><ul><li>DRF: 包含了隨機森林模型(Random Forest) 和極端隨機森林(XRT)模型</li><li>GLM</li><li>XGBoost (XGBoost GBM)</li><li>GBM (H2O GBM)</li><li>DeepLearning (Fully-connected multi-layer artificial neural network)</li><li>StackedEnsemble</li></ul><h2><br></h2><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/7ac2a0a6-94d0-434d-9323-1e5a5536e5c0.webp" onerror="this.srcset='https://assets.matters.news/embed/7ac2a0a6-94d0-434d-9323-1e5a5536e5c0.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/7ac2a0a6-94d0-434d-9323-1e5a5536e5c0.png" onerror="this.srcset='https://assets.matters.news/embed/7ac2a0a6-94d0-434d-9323-1e5a5536e5c0.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/7ac2a0a6-94d0-434d-9323-1e5a5536e5c0.webp">
+
+        <img src="https://assets.matters.news/embed/7ac2a0a6-94d0-434d-9323-1e5a5536e5c0.png" srcset="https://assets.matters.news/processed/540w/embed/7ac2a0a6-94d0-434d-9323-1e5a5536e5c0.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><h2><br></h2><p><strong>4. H2OAutoML.train() 參數介紹</strong></p><ul><li>H2OAutoML.train()</li></ul><h3><strong>必須有的參數</strong></h3><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/84e9b749-da6d-40ea-805b-f303b7e6473c.webp" onerror="this.srcset='https://assets.matters.news/embed/84e9b749-da6d-40ea-805b-f303b7e6473c.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/84e9b749-da6d-40ea-805b-f303b7e6473c.png" onerror="this.srcset='https://assets.matters.news/embed/84e9b749-da6d-40ea-805b-f303b7e6473c.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/84e9b749-da6d-40ea-805b-f303b7e6473c.webp">
+
+        <img src="https://assets.matters.news/embed/84e9b749-da6d-40ea-805b-f303b7e6473c.png" srcset="https://assets.matters.news/processed/540w/embed/84e9b749-da6d-40ea-805b-f303b7e6473c.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><h3><br></h3><h3><br></h3><p><strong>可選的參數</strong></p><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/453c99e4-e818-433a-8c25-622131d4a6c7.webp" onerror="this.srcset='https://assets.matters.news/embed/453c99e4-e818-433a-8c25-622131d4a6c7.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/453c99e4-e818-433a-8c25-622131d4a6c7.png" onerror="this.srcset='https://assets.matters.news/embed/453c99e4-e818-433a-8c25-622131d4a6c7.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/453c99e4-e818-433a-8c25-622131d4a6c7.webp">
+
+        <img src="https://assets.matters.news/embed/453c99e4-e818-433a-8c25-622131d4a6c7.png" srcset="https://assets.matters.news/processed/540w/embed/453c99e4-e818-433a-8c25-622131d4a6c7.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><h2><strong>5. 實作</strong></h2><h3><strong>STEP 1: 導入 H2O 套件與啟動(初始化) H2O</strong></h3><pre class="ql-syntax">## 導入H2O套件
+import h2o
+​
+## 導入H2O中的AutoML套件
+from h2o.automl import H2OAutoML
+​
+​
+## 初始化H2O
+h2o.init()
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/a32f35c2-58ab-48ce-b79b-d992d503d2bb.webp" onerror="this.srcset='https://assets.matters.news/embed/a32f35c2-58ab-48ce-b79b-d992d503d2bb.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/a32f35c2-58ab-48ce-b79b-d992d503d2bb.png" onerror="this.srcset='https://assets.matters.news/embed/a32f35c2-58ab-48ce-b79b-d992d503d2bb.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/a32f35c2-58ab-48ce-b79b-d992d503d2bb.webp">
+
+        <img src="https://assets.matters.news/embed/a32f35c2-58ab-48ce-b79b-d992d503d2bb.png" srcset="https://assets.matters.news/processed/540w/embed/a32f35c2-58ab-48ce-b79b-d992d503d2bb.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><h3><strong>STEP 2: 導入數據集，並把數據集中的自變量名稱裝入串列</strong></h3><ul><li>winequality-white.csv - 這是一個關於用各種特徵來預測紅酒品質的數據集喔，我會放在 Githuhb 中，大家可以自行下載</li></ul><p>網路上也可以找到下載連結 - <a href="https://archive.ics.uci.edu/ml/datasets/wine+quality" target="_blank">https://archive.ics.uci.edu/ml/datasets/wine+quality</a></p><pre class="ql-syntax">## 導入數據集
+wine_data = h2o.import_file("data/winequality-white.csv")
+​
+## 定義我們的預測變量，也就是自變量x
+predictors = wine_data.columns
+​
+## 將響應變量(目標值)，也就是應變量y拿掉
+predictors.remove('quality')
+
+## 顯示數據集
+wine_data
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/6f740ae3-9821-4723-8767-cef59695461f.webp" onerror="this.srcset='https://assets.matters.news/embed/6f740ae3-9821-4723-8767-cef59695461f.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/6f740ae3-9821-4723-8767-cef59695461f.png" onerror="this.srcset='https://assets.matters.news/embed/6f740ae3-9821-4723-8767-cef59695461f.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/6f740ae3-9821-4723-8767-cef59695461f.webp">
+
+        <img src="https://assets.matters.news/embed/6f740ae3-9821-4723-8767-cef59695461f.png" srcset="https://assets.matters.news/processed/540w/embed/6f740ae3-9821-4723-8767-cef59695461f.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><h3><br></h3><p><strong>STEP 3: 將數據集切割成訓練集與測試集</strong></p><ul><li>將數據集拆成訓練集與測試集，並設置比例為0.7</li></ul><pre class="ql-syntax">## 將數據集拆成訓練集與測試集，並設置比例為0.7，隨機種子設123456
+dataset_split = wine_data.split_frame(ratios = [0.7], seed = 123456)
+​
+## 顯示分割結果
+print(dataset_split)
+​
+## 設定對應的數據集給訓練集與測試集，70%給訓練集，30%給測試集
+wine_train = dataset_split[0]
+wine_test = dataset_split[1]
+​
+## 顯示訓練集與測試集大小
+print("Training Set: ", wine_train.shape)
+print("Test Set: ", wine_test.shape)
+​
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/0cf30b8e-2e3c-4fe4-bd75-e3b2cd5b9c7f.webp" onerror="this.srcset='https://assets.matters.news/embed/0cf30b8e-2e3c-4fe4-bd75-e3b2cd5b9c7f.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/0cf30b8e-2e3c-4fe4-bd75-e3b2cd5b9c7f.png" onerror="this.srcset='https://assets.matters.news/embed/0cf30b8e-2e3c-4fe4-bd75-e3b2cd5b9c7f.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/0cf30b8e-2e3c-4fe4-bd75-e3b2cd5b9c7f.webp">
+
+        <img src="https://assets.matters.news/embed/0cf30b8e-2e3c-4fe4-bd75-e3b2cd5b9c7f.png" srcset="https://assets.matters.news/processed/540w/embed/0cf30b8e-2e3c-4fe4-bd75-e3b2cd5b9c7f.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><h3><br></h3><h3><br></h3><p><strong>STEP 4: 導入 AutoML 套件與啟動它，來訓練各種模型</strong></p><ul><li>這邊我設定最大的模型數量(max_models)為20，最大的執行時間(max_runtimes_secs)為200，因為這邊是迴歸問題，所以我設定 sort_metric = "deviance"</li></ul><pre class="ql-syntax">## 導入AutoML套件
+from h2o.automl import H2OAutoML
+​
+## 設定H2OAutoML
+aml = H2OAutoML(max_models = 20, max_runtime_secs = 200, seed = 1, sort_metric = "deviance")
+​
+## 啟動H2OAutoML來訓練模型
+aml.train(x = predictors, y = 'quality', training_frame = wine_train, validation_frame = wine_test)
+​
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/8e05862e-4a35-445d-a499-99f60c46e6c7.webp" onerror="this.srcset='https://assets.matters.news/embed/8e05862e-4a35-445d-a499-99f60c46e6c7.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/8e05862e-4a35-445d-a499-99f60c46e6c7.png" onerror="this.srcset='https://assets.matters.news/embed/8e05862e-4a35-445d-a499-99f60c46e6c7.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/8e05862e-4a35-445d-a499-99f60c46e6c7.webp">
+
+        <img src="https://assets.matters.news/embed/8e05862e-4a35-445d-a499-99f60c46e6c7.png" srcset="https://assets.matters.news/processed/540w/embed/8e05862e-4a35-445d-a499-99f60c46e6c7.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><h3><br></h3><h3><br></h3><p><strong>STEP 5: 印出模型排行榜</strong></p><ul><li>小筆記: 最佳的模型會被存為 aml.leader 喔</li></ul><pre class="ql-syntax">## 印出模型排行榜
+lb = aml.leaderboard
+print(lb)
+​
+## 印出所有行數
+# lb.head(rows = lb.nrows)
+​
+## 顯示最佳模型資訊
+print(aml.leader)
+​
+## 顯示最佳模型的詳細資訊
+print(aml.leader.metalearner)
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/42ecc177-9f1a-41bc-9dee-dff9f0170433.webp" onerror="this.srcset='https://assets.matters.news/embed/42ecc177-9f1a-41bc-9dee-dff9f0170433.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/42ecc177-9f1a-41bc-9dee-dff9f0170433.png" onerror="this.srcset='https://assets.matters.news/embed/42ecc177-9f1a-41bc-9dee-dff9f0170433.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/42ecc177-9f1a-41bc-9dee-dff9f0170433.webp">
+
+        <img src="https://assets.matters.news/embed/42ecc177-9f1a-41bc-9dee-dff9f0170433.png" srcset="https://assets.matters.news/processed/540w/embed/42ecc177-9f1a-41bc-9dee-dff9f0170433.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p>結果: 排行第一名的模型為 model_id 是 StackedEnsemble_AllModles_AutoML的模型</p><h3><br></h3><h3><br></h3><p><strong>STEP 6: 視覺化 - 最佳模型底下的各種演算法模型的標準化係數比較</strong></p><pre class="ql-syntax">## 取得最佳模型的model_id，也就是模型資料中的 Model Key
+metalearner = h2o.get_model(aml.leader.metalearner()['name'])
+​
+## 視覺化: 最佳模型底下的各種演算法模型的標準化係數比較
+metalearner.std_coef_plot()
+</pre><p>執行結果</p><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/9bc1d83b-64c3-49c3-93fc-f26ef03eb818.webp" onerror="this.srcset='https://assets.matters.news/embed/9bc1d83b-64c3-49c3-93fc-f26ef03eb818.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/9bc1d83b-64c3-49c3-93fc-f26ef03eb818.png" onerror="this.srcset='https://assets.matters.news/embed/9bc1d83b-64c3-49c3-93fc-f26ef03eb818.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/9bc1d83b-64c3-49c3-93fc-f26ef03eb818.webp">
+
+        <img src="https://assets.matters.news/embed/9bc1d83b-64c3-49c3-93fc-f26ef03eb818.png" srcset="https://assets.matters.news/processed/540w/embed/9bc1d83b-64c3-49c3-93fc-f26ef03eb818.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><h3><strong>疑惑解答: 為什麼明明是抓取第一名的模型來視覺化標準化係數，裡面卻出現這麼多演算法模型的名稱，一個模型不是應該只有一種演算法?</strong></h3><p>重要筆記: 由於 Stacked Ensemble是組合了很多種的演算法來構建模型，所以它的分數也當然會比較好，下一步去印它裡面的標準化係數的大小比較圖時，才會出現那麼多的演算法名稱，一般的情況下，我們會選擇 Stacked Ensemble 以外的第一名演算法模型當成算法</p><h3><br></h3><h3><br></h3><p><strong>STEP 7:  拿表現最佳的模型來預測測試集，和評估最佳模型性能表現</strong></p><pre class="ql-syntax">## 拿最佳模型預測測試集資料
+preds = aml.leader.predict(wine_test)
+print(preds)
+​
+## 評估最佳模型的性能表現
+score = aml.leader.model_performance(wine_test)
+print(score)
+​
+## 關閉H2O
+h2o.shutdown()
+​
+</pre><p>執行結果</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/c88ac758-e76d-41a5-8891-f6a5e077bd74.webp" onerror="this.srcset='https://assets.matters.news/embed/c88ac758-e76d-41a5-8891-f6a5e077bd74.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/c88ac758-e76d-41a5-8891-f6a5e077bd74.png" onerror="this.srcset='https://assets.matters.news/embed/c88ac758-e76d-41a5-8891-f6a5e077bd74.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/c88ac758-e76d-41a5-8891-f6a5e077bd74.webp">
+
+        <img src="https://assets.matters.news/embed/c88ac758-e76d-41a5-8891-f6a5e077bd74.png" srcset="https://assets.matters.news/processed/540w/embed/c88ac758-e76d-41a5-8891-f6a5e077bd74.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><p><br></p><p>想要更詳細的 AutoML 用法，可以直接參考官網 - <a href="https://dos.h2o.ai/h2o/latest-stable/h2o-docs/automl.html?highlight=autml" target="_blank">https://dos.h2o.ai/h2o/latest-stable/h2o-docs/automl.html?highlight=autml</a>，但提醒大家一件事，因為我發現 H2O 會保留舊版的線上文檔，所以還是要確定一下版本喔，今天我們一起學習了好多東西，超級強大的 AutoML 會帶給我們非常多的幫助，感謝大家的閱讀喔</p><h2><br></h2><h2><br></h2><p><strong>Reference</strong></p><p><a href="https://dos.h2o.ai/h2o/latest-stable/h2o-docs/automl.html?highlight=autml" target="_blank">https://dos.h2o.ai/h2o/latest-stable/h2o-docs/automl.html?highlight=autml</a></p><p><a href="https://kknews.cc/zh-tw/tech/qgvjzzr.html" target="_blank">https://kknews.cc/zh-tw/tech/qgvjzzr.html</a></p><p><br></p>
