@@ -50,6 +50,8 @@ function createCommentEl( response ) {
 request.send();
 </script>
 
+{% include comment.html %}
+
 <div class="github-comments">
   <div id="add-new-comment" style="text-align:right"><a href="https://github.com/login?return_to=https://github.com/{{page.comments_repo}}/issues/{{page.comments_id}}%23issuecomment-new"><b>Add new comment</b></a></div>
   <h2>Comments</h2>
