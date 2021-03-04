@@ -6,6 +6,10 @@ comments_repo: agorahub/blog0
 comments_id: 1
 ---
 
+{% include comments.html %}
+
+{% include archives.html %}
+
 Read blog on demand.
 
 | Source  | Importer   | Update |

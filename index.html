@@ -11,7 +11,7 @@ layout: default
   <span style="font-size:20px"><a href="{{site.url}}{{site.baseurl}}{{post.url}}">{{ post.title }}</a></span>
   <p><span class="postdate">{{ post.date | date: "%Y-%m-%d %H:%M" }}</span>
    • <span class="category"><a href="{{site.url}}{{site.baseurl}}/{{post.categories.first}}"><b>{{ post.categories.first | upcase }}</b></a></span>
-   • <span class="comments"><a href="{{site.url}}{{site.baseurl}}/{{post.categories.first}}_comments/?[{{post.title}}]({{site.url}}{{site.baseurl}}/{{post.url}})"><b>💬</b></a></span>
+   • <span class="comments"><a href="{{site.url}}{{site.baseurl}}/readme/?[{{post.title}}]({{post.link}})"><b>💬</b></a></span>
   </p>
 </div>
 {% endfor %}
