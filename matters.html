@@ -9,7 +9,7 @@ permalink: /matters/
   <div class="card" style="background-color:#f6f6f6; padding:4px 4px 0 6px; border-radius:6px;">
     <span style="font-size:18px"><a href="{{site.url}}{{site.baseurl}}{{post.url}}">{{ post.title }}</a></span>
     <h5><span class="postdate">{{ post.date | date: "%Y-%m-%d %H:%M" }}</span>
-      • <span class="comments"><a href="{{site.url}}{{site.baseurl}}/{{post.categories.first}}_comments/?[{{post.title}}]({{site.url}}{{site.baseurl}}/{{post.url}})"><b>💬</b></a></span>
+      • <span class="comments"><a href="{{site.url}}{{site.baseurl}}/readme/?[{{post.title}}]({{post.link}})"><b>💬</b></a></span>
       {% if post.author != null %} • <span class="author">{{ post.author }}</span> {% endif %}
     </h5>
   </div>
