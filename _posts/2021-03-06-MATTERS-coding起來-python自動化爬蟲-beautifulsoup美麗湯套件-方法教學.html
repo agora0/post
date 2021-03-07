@@ -1,0 +1,245 @@
+---
+layout: post
+title: Coding起來-Python自動化爬蟲-BeautifulSoup美麗湯套件-方法教學
+date: 2021-03-06 07:18:18.000000000 +00:00
+link: https://matters.news/@CHWang/coding%25E8%25B5%25B7%25E4%25BE%2586-python%25E8%2587%25AA%25E5%258B%2595%25E5%258C%2596%25E7%2588%25AC%25E8%259F%25B2-beautiful-soup%25E7%25BE%258E%25E9%25BA%2597%25E6%25B9%25AF%25E5%25A5%2597%25E4%25BB%25B6-%25E6%2596%25B9%25E6%25B3%2595%25E6%2595%2599%25E5%25AD%25B8-bafyreiad6kpcuaax2lk3qlhpeeoh3spuo3yyftd3darf6br7icm2czcrqe
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<p><br class="smart"></p><p><a href="https://github.com/chwang12341/Learn-Python-/blob/master/BeautifulSoup/BeautifulSoup.ipynb" target="_blank">Github完整程式連結</a></p><p>哈囉，由於小弟非常喜歡亂逛線上電商平台，但又有點懶，每次都要手動自己滑觀看商品，所以今天來向大家介紹一個爬取網頁非常重要的套件-BeautifulSoup，有了它我們可以快速的爬取網頁上任何我們所需的資料，這樣一鍵就能搞定，省掉了很多時間，嘿嘿，很棒</p><h2>1. Beautiful Soup 套件是什麼?</h2><p>資料科學領域，在蒐集資料的過程中，我們常使用三種方式來得到資料，線下的方式直接蒐集(填問卷、購買紀錄、訪談等)，線上網站所提供的API，或是自己撰寫爬蟲程式從網頁html中萃取我們所需的資訊，我們先將網頁html載下來，並用BeautifulSoup套件進行萃取，這個套件幫助開發者快速的達到爬取網頁資料目的，非常好用</p><h2>2. BeautifulSoup套件安裝</h2><p><br class="smart">BeautifulSoup: 能夠使用其豐富的內鍵方法來解析載下來的html結構，幫助我們快速爬取所需資料</p><pre class="ql-syntax">pip install beautifulsoup4
+</pre><p>Request: 剛剛一直提到要先載入html結構，才能進行BeautifulSoup的進一步爬取，那這個套件就是幫助我們載入我們指定的網頁html結構</p><pre class="ql-syntax">pip install requests
+</pre><p><br class="smart"></p><h2>3. 載入頁面並透過BeautifulSoup解析</h2><p>我這邊採用自己的Medium頁面來為大家講解各種實作方法喔</p><p><br class="smart"></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/83810d90-c88e-49b4-ba81-b5123c78b049.webp" onerror="this.srcset='https://assets.matters.news/embed/83810d90-c88e-49b4-ba81-b5123c78b049.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/83810d90-c88e-49b4-ba81-b5123c78b049.png" onerror="this.srcset='https://assets.matters.news/embed/83810d90-c88e-49b4-ba81-b5123c78b049.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/83810d90-c88e-49b4-ba81-b5123c78b049.webp">
+
+        <img src="https://assets.matters.news/embed/83810d90-c88e-49b4-ba81-b5123c78b049.png" srcset="https://assets.matters.news/processed/540w/embed/83810d90-c88e-49b4-ba81-b5123c78b049.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br class="smart"></p><p><strong>Step 1: 使用request套件的get()方法，將網頁，來載入指定網頁的html結構</strong></p><pre class="ql-syntax">import requests
+request_html = requests.get("https://medium.com/@chwang12341")
+</pre><p><br class="smart"></p><p><strong>Step 2: 採用Beautiful套件裡解析html的方法來將傳回來的html結構字串，轉化為可以解析的結構與型態</strong></p><p><br class="smart">a. prettify()幫我們輸出成排好版的HTML架構內容</p><pre class="ql-syntax">from bs4 import BeautifulSoup
+soup = BeautifulSoup(request_html.text, “html.parser”)
+## 印出排好版的HTML架構
+print(soup.prettify())
+</pre><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f8995654-ca5d-4f78-96e4-783cdcaf096b.webp" onerror="this.srcset='https://assets.matters.news/embed/f8995654-ca5d-4f78-96e4-783cdcaf096b.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f8995654-ca5d-4f78-96e4-783cdcaf096b.png" onerror="this.srcset='https://assets.matters.news/embed/f8995654-ca5d-4f78-96e4-783cdcaf096b.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/f8995654-ca5d-4f78-96e4-783cdcaf096b.webp">
+
+        <img src="https://assets.matters.news/embed/f8995654-ca5d-4f78-96e4-783cdcaf096b.png" srcset="https://assets.matters.news/processed/540w/embed/f8995654-ca5d-4f78-96e4-783cdcaf096b.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br class="smart"></p><h2> 4.補充: 編碼問題</h2><p><br class="smart">a. 情況: 如果執行上面的指令後，發現解碼出來的內容中文的地方出現亂碼，才需要進行這個步驟</p><p><br class="smart">b. 原則上BeautifulSoup解析html會是以”utf-8"格式進行編碼，如果出現亂碼就是說我們需要改變編碼格式<br class="smart"><br class="smart"></p><p><strong>小叮嚀: 我這邊使用的網頁在utf-8下進行編碼，是不會出現亂碼的，所以如果改成”gb18030"就會出現亂碼，所以要先確定自己解析出來的內容喔</strong></p><p>c. 測試: <br class="smart"><strong>使用utf-8進行編碼</strong></p><pre class="ql-syntax">import requestsfrom bs4 import BeautifulSoup
+request_html = requests.get("https://medium.com/@chwang12341")
+print(request_html.encoding) ## 印出編碼方式
+soup = BeautifulSoup(request_html.text, "html.parser")print(soup.encoding)## 印出編碼方式
+## 印出排好版的HTML架構
+print(soup.prettify())
+</pre><p>結果: 擷取片段</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/8593030f-632d-4198-ace8-4ee29d6cd209.webp" onerror="this.srcset='https://assets.matters.news/embed/8593030f-632d-4198-ace8-4ee29d6cd209.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/8593030f-632d-4198-ace8-4ee29d6cd209.png" onerror="this.srcset='https://assets.matters.news/embed/8593030f-632d-4198-ace8-4ee29d6cd209.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/8593030f-632d-4198-ace8-4ee29d6cd209.webp">
+
+        <img src="https://assets.matters.news/embed/8593030f-632d-4198-ace8-4ee29d6cd209.png" srcset="https://assets.matters.news/processed/540w/embed/8593030f-632d-4198-ace8-4ee29d6cd209.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br class="smart"></p><p><strong>使用gb18030進行編碼</strong></p><pre class="ql-syntax">import requestsfrom bs4 import BeautifulSoup
+request_html = requests.get(“https://medium.com/@chwang12341")
+
+## 更改編碼方式
+request_html.encoding = ‘gb18030’
+print(request_html.encoding)## 印出編碼方式
+
+soup = BeautifulSoup(request_html.text, “html.parser”)
+print(soup.encoding)## 印出編碼方式
+
+## 印出排好版的HTML架構
+print(soup.prettify())
+</pre><p>結果: 擷取片段</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/604d5c16-0d78-4060-b8d0-ba6c4559fce4.webp" onerror="this.srcset='https://assets.matters.news/embed/604d5c16-0d78-4060-b8d0-ba6c4559fce4.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/604d5c16-0d78-4060-b8d0-ba6c4559fce4.png" onerror="this.srcset='https://assets.matters.news/embed/604d5c16-0d78-4060-b8d0-ba6c4559fce4.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/604d5c16-0d78-4060-b8d0-ba6c4559fce4.webp">
+
+        <img src="https://assets.matters.news/embed/604d5c16-0d78-4060-b8d0-ba6c4559fce4.png" srcset="https://assets.matters.news/processed/540w/embed/604d5c16-0d78-4060-b8d0-ba6c4559fce4.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br class="smart"></p><p><strong>d. 結論: 從兩個取片段的結果顯示，用了gb18030進行編碼會出現亂碼，而utf-8不會出現亂碼，大家遇到解碼問題的時候不彷試試不同解碼方式喔</strong></p><p><br class="smart"></p><h2>5. 利用HTML標籤或屬性來找尋我們需要的資料</h2><p><br class="smart"></p><p><strong>a. (解析好的變數).(tag) : 直接以標籤(tag)搜尋</strong><br class="smart">i. 它會將整個標籤印出來(ex. print(soup.title)、print(soup.h1))，如果想獲得裡面的文字內容就好，使用.text或.string，都能幫我們轉換成字串</p><p>ii. 舉例:</p><pre class="ql-syntax">## 查看我們title這個標題tag底下的文字內容
+print(soup.h1) ## Chwang
+print(soup.title) ## Chwang — Medium
+print(soup.title.text) ## Chwang — Medium
+print(soup.title.string) ## Chwang — Medium
+</pre><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/28afd91c-95f6-4bc6-919f-e0082f570e99.webp" onerror="this.srcset='https://assets.matters.news/embed/28afd91c-95f6-4bc6-919f-e0082f570e99.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/28afd91c-95f6-4bc6-919f-e0082f570e99.png" onerror="this.srcset='https://assets.matters.news/embed/28afd91c-95f6-4bc6-919f-e0082f570e99.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/28afd91c-95f6-4bc6-919f-e0082f570e99.webp">
+
+        <img src="https://assets.matters.news/embed/28afd91c-95f6-4bc6-919f-e0082f570e99.png" srcset="https://assets.matters.news/processed/540w/embed/28afd91c-95f6-4bc6-919f-e0082f570e99.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br class="smart"></p><p><strong>b. find(): </strong>跟上面一樣，也是用標籤來搜尋節點，將欲找尋的標籤(tag)放入，就能查詢</p><pre class="ql-syntax">## 查看我們title這個標題tag底下的文字內容
+print(soup.find(“title”))
+print(soup.find(“h1”))
+print(soup.find(“title”).text
+)print(soup.find(“title”).string)
+</pre><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/2fc31add-c540-48d5-a4ca-a5e570791b7a.webp" onerror="this.srcset='https://assets.matters.news/embed/2fc31add-c540-48d5-a4ca-a5e570791b7a.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/2fc31add-c540-48d5-a4ca-a5e570791b7a.png" onerror="this.srcset='https://assets.matters.news/embed/2fc31add-c540-48d5-a4ca-a5e570791b7a.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/2fc31add-c540-48d5-a4ca-a5e570791b7a.webp">
+
+        <img src="https://assets.matters.news/embed/2fc31add-c540-48d5-a4ca-a5e570791b7a.png" srcset="https://assets.matters.news/processed/540w/embed/2fc31add-c540-48d5-a4ca-a5e570791b7a.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br class="smart"></p><p><strong>c. find_all():</strong> 跟前面的一樣根據標籤來查找，但會返回多個擁有一樣條件的節點，返回的型態是串列(list)<br class="smart">i. 搜尋所有h1標籤的節點</p><pre class="ql-syntax">## 印出所有是h1標籤的內容
+find_all = soup.find_all(“h1”)
+print(find_all)
+</pre><p>ii. 設定limit參數，這樣就可以自行決定要返回幾個符合條件的節點</p><pre class="ql-syntax">## 印出四個是h1標籤的內容
+find_all = soup.find_all(“h1”, limit = 4 )
+print(find_all)
+</pre><p>iii. 因為符合標籤的節點可能很多，所以可以給定一些指定標籤(tag)裡的條件，這樣就會抓出我們想要的節點</p><pre class="ql-syntax">## 印出符合 h1 與 h1裡面的id=”a65f” 條件的節點，但因為id值是唯一的，所以限制數量沒有意義## 印出2個是h1標籤的內容
+find_all = soup.find_all(“h1”, id=”a65f”, limit = 2)
+print(find_all)
+</pre><p>vi. 同時抓區多個標籤</p><pre class="ql-syntax">## 印出所有是h1和title標籤的內容
+find_all = soup.find_all([“title”,”h1"], limit = 4)
+print(find_all)
+</pre><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/af858840-d025-46aa-bc69-87e35f571df8.webp" onerror="this.srcset='https://assets.matters.news/embed/af858840-d025-46aa-bc69-87e35f571df8.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/af858840-d025-46aa-bc69-87e35f571df8.png" onerror="this.srcset='https://assets.matters.news/embed/af858840-d025-46aa-bc69-87e35f571df8.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/af858840-d025-46aa-bc69-87e35f571df8.webp">
+
+        <img src="https://assets.matters.news/embed/af858840-d025-46aa-bc69-87e35f571df8.png" srcset="https://assets.matters.news/processed/540w/embed/af858840-d025-46aa-bc69-87e35f571df8.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br class="smart"></p><p><br class="smart"></p><p><strong>d. select_one() : </strong>在某一個節點(標籤tag)下，只有一個節點的話，可以用這種方法來搜尋</p><p>i. 舉例: 找到div tag 底下一個包含a tag的 節點</p><pre class="ql-syntax">H1_TAG = soup.find(“div”)
+print(H1_TAG.select_one(“a”))
+</pre><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/47c04111-b0c1-45b0-81d0-fffaed78cd5c.webp" onerror="this.srcset='https://assets.matters.news/embed/47c04111-b0c1-45b0-81d0-fffaed78cd5c.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/47c04111-b0c1-45b0-81d0-fffaed78cd5c.png" onerror="this.srcset='https://assets.matters.news/embed/47c04111-b0c1-45b0-81d0-fffaed78cd5c.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/47c04111-b0c1-45b0-81d0-fffaed78cd5c.webp">
+
+        <img src="https://assets.matters.news/embed/47c04111-b0c1-45b0-81d0-fffaed78cd5c.png" srcset="https://assets.matters.news/processed/540w/embed/47c04111-b0c1-45b0-81d0-fffaed78cd5c.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br class="smart"></p><p><strong>e. select(): </strong>在某一個節點(標籤tag)下，搜尋所有包含指定標籤(tag)的節點</p><p>i. 舉例: 找到div tag 底下所有包含 a tag 的節點</p><pre class="ql-syntax">## 印出div標籤底下，所有a標籤的節點
+H1_TAG = soup.find(“div”)
+print(H1_TAG.select(“a”))
+</pre><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/89c90274-3c40-4bc9-b0ce-3b54f7118699.webp" onerror="this.srcset='https://assets.matters.news/embed/89c90274-3c40-4bc9-b0ce-3b54f7118699.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/89c90274-3c40-4bc9-b0ce-3b54f7118699.png" onerror="this.srcset='https://assets.matters.news/embed/89c90274-3c40-4bc9-b0ce-3b54f7118699.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/89c90274-3c40-4bc9-b0ce-3b54f7118699.webp">
+
+        <img src="https://assets.matters.news/embed/89c90274-3c40-4bc9-b0ce-3b54f7118699.png" srcset="https://assets.matters.news/processed/540w/embed/89c90274-3c40-4bc9-b0ce-3b54f7118699.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br class="smart"></p><h2>6. 以Class屬性來搜尋節點</h2><p>筆記: 使用class_= “(class值)” 來查詢符合的節點</p><p><strong>a. find()</strong></p><pre class="ql-syntax">## 印出是h1標籤，且class = “cr q cs bt ct bu cu cv cw z”的一個節點
+find = soup.find(“h1”,class_=”cr q cs bt ct bu cu cv cw z”)
+find
+</pre><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/26ecc9f5-778a-4c7f-a4a0-d491d49ba74e.webp" onerror="this.srcset='https://assets.matters.news/embed/26ecc9f5-778a-4c7f-a4a0-d491d49ba74e.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/26ecc9f5-778a-4c7f-a4a0-d491d49ba74e.png" onerror="this.srcset='https://assets.matters.news/embed/26ecc9f5-778a-4c7f-a4a0-d491d49ba74e.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/26ecc9f5-778a-4c7f-a4a0-d491d49ba74e.webp">
+
+        <img src="https://assets.matters.news/embed/26ecc9f5-778a-4c7f-a4a0-d491d49ba74e.png" srcset="https://assets.matters.news/processed/540w/embed/26ecc9f5-778a-4c7f-a4a0-d491d49ba74e.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br class="smart"></p><p><strong>b. find_all()</strong></p><pre class="ql-syntax">## 印出是h1標籤，且class = fu fv bu bt ct fw fx fy cr”的所有節點find_all = soup.find_all(“h1”,class_=”fu fv bu bt ct fw fx fy cr”)
+find_all
+</pre><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/9eb5a481-0325-45ef-8434-900d3d875941.webp" onerror="this.srcset='https://assets.matters.news/embed/9eb5a481-0325-45ef-8434-900d3d875941.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/9eb5a481-0325-45ef-8434-900d3d875941.png" onerror="this.srcset='https://assets.matters.news/embed/9eb5a481-0325-45ef-8434-900d3d875941.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/9eb5a481-0325-45ef-8434-900d3d875941.webp">
+
+        <img src="https://assets.matters.news/embed/9eb5a481-0325-45ef-8434-900d3d875941.png" srcset="https://assets.matters.news/processed/540w/embed/9eb5a481-0325-45ef-8434-900d3d875941.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br class="smart"></p><p><strong>c. select()</strong><br class="smart">i. 寫法比較特別是用.來搜尋class名稱</p><p>ii.舉例</p><pre class="ql-syntax">## 印出div標籤底下，所有標籤的節點中符合class=”gb ha”的節點
+DIV_TAG = soup.find(“div”)
+print(DIV_TAG .select(“.gb”, limit=1))
+</pre><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/99a1a521-2b28-48c5-b8dd-fcf1619d7cf9.webp" onerror="this.srcset='https://assets.matters.news/embed/99a1a521-2b28-48c5-b8dd-fcf1619d7cf9.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/99a1a521-2b28-48c5-b8dd-fcf1619d7cf9.png" onerror="this.srcset='https://assets.matters.news/embed/99a1a521-2b28-48c5-b8dd-fcf1619d7cf9.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/99a1a521-2b28-48c5-b8dd-fcf1619d7cf9.webp">
+
+        <img src="https://assets.matters.news/embed/99a1a521-2b28-48c5-b8dd-fcf1619d7cf9.png" srcset="https://assets.matters.news/processed/540w/embed/99a1a521-2b28-48c5-b8dd-fcf1619d7cf9.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br class="smart"></p><h2>7. 向上搜尋父節點</h2><p>筆記: 前面提到的都上向下去搜尋子節點，這邊介紹如何向上搜尋父節點，利用find_parent()或find_parents()來達成效果</p><p> 舉例:</p><pre class="ql-syntax"># <a class=”bn bo az ba bb bc bd be bf bg dz bj br bs”
+find = soup.find(“a”,class_=”bn”)
+print(find.find_parents(“div”, limit=1))
+</pre><p><br class="smart"></p><h2>8.向前、後搜尋節點</h2><p>筆記: 利用find_previous_sibilings() 與 find_next_sibilings() 來達到搜尋同層級下，前、後的節點</p><p><strong>a. find_previous_siblings():</strong> 搜尋前一個節點</p><pre class="ql-syntax">## 下一個節點
+next_node = soup.find(“div”, class_=”et”)
+## 上一個節點
+previous_node = next_node.find_previous_siblings(“div”)
+print(previous_node)
+</pre><p><a bo az ba bb bc bd be bf bg dz bj br bs”</p><p><strong>b. find_next_siblings(): </strong>收尋下一個節點</p><pre class="ql-syntax">## 上一個節點
+previous_node = soup.find(“div”, class_=”r”)
+## 下一個節點
+next_node = previous_node.find_next_siblings(“div”)
+print(next_node)
+</pre><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f286c33c-fbcb-4a40-9389-70fe96584dc0.webp" onerror="this.srcset='https://assets.matters.news/embed/f286c33c-fbcb-4a40-9389-70fe96584dc0.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f286c33c-fbcb-4a40-9389-70fe96584dc0.png" onerror="this.srcset='https://assets.matters.news/embed/f286c33c-fbcb-4a40-9389-70fe96584dc0.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/f286c33c-fbcb-4a40-9389-70fe96584dc0.webp">
+
+        <img src="https://assets.matters.news/embed/f286c33c-fbcb-4a40-9389-70fe96584dc0.png" srcset="https://assets.matters.news/processed/540w/embed/f286c33c-fbcb-4a40-9389-70fe96584dc0.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br class="smart"></p><h2>9. 獲取屬性值</h2><p>筆記： 利用get()，來獲取標籤內的屬性值</p><p>舉例: 從符合條件的節點中，萃取出href的值</p><pre class="ql-syntax">##找到所有符合條件的節點
+results = soup.find_all(“a”,class_=”bn”)
+for tag in results: 
+  ## 印出屬性href的值 
+  print(tag.get(“href”))
+</pre><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/9ebf9b56-97fa-4c16-a746-f8668f95cf9a.webp" onerror="this.srcset='https://assets.matters.news/embed/9ebf9b56-97fa-4c16-a746-f8668f95cf9a.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/9ebf9b56-97fa-4c16-a746-f8668f95cf9a.png" onerror="this.srcset='https://assets.matters.news/embed/9ebf9b56-97fa-4c16-a746-f8668f95cf9a.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/9ebf9b56-97fa-4c16-a746-f8668f95cf9a.webp">
+
+        <img src="https://assets.matters.news/embed/9ebf9b56-97fa-4c16-a746-f8668f95cf9a.png" srcset="https://assets.matters.news/processed/540w/embed/9ebf9b56-97fa-4c16-a746-f8668f95cf9a.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br class="smart"></p><h2>10. 取得連結的文字</h2><p><a bo az ba bb bc bd be bf bg dz bj br bs”</p><p>筆記: 利用getText()，來取得連結文字</p><pre class="ql-syntax">##找到所有符合條件的節點
+results = soup.find_all(“a”,class_=”bn”)
+for tag in results: 
+  ## 印出連結文字 
+  print(tag.getText())
+</pre><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/c1f96d76-a6b1-4950-b4b1-065c7e7f0a93.webp" onerror="this.srcset='https://assets.matters.news/embed/c1f96d76-a6b1-4950-b4b1-065c7e7f0a93.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/c1f96d76-a6b1-4950-b4b1-065c7e7f0a93.png" onerror="this.srcset='https://assets.matters.news/embed/c1f96d76-a6b1-4950-b4b1-065c7e7f0a93.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/c1f96d76-a6b1-4950-b4b1-065c7e7f0a93.webp">
+
+        <img src="https://assets.matters.news/embed/c1f96d76-a6b1-4950-b4b1-065c7e7f0a93.png" srcset="https://assets.matters.news/processed/540w/embed/c1f96d76-a6b1-4950-b4b1-065c7e7f0a93.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br class="smart"></p><blockquote>小提醒: 由於我的網頁會不斷更新內容, 所以大家使用上面的範例程式，可能會有不同結果喔!!</blockquote><p><br></p><p><strong>重要: 因為網站會隨時間變化，可能會有更新，我這篇是以前寫的 ,所以code可能就不能直接拿來使用，但是觀念是一樣的喔!! 大家可以拿手邊的網站試試!! </strong></p><p><br></p><p><strong>這次主要介紹BeautifulSoup有哪些用法，有了BeautifulSoup後大家就可以網頁資料爬起來了，希望這次對大家有幫助喔!!</strong></p><p><br></p><p><br></p><p><br class="smart"></p><h2>Reference:</h2><p><a href="https://www.itread01.com/content/1546441864.html" target="_blank">https://www.itread01.com/content/1546441864.html</a><br class="smart"></p><p><a href="https://blog.gtwang.org/programming/python-beautiful-soup-module-scrape-web-pages-tutorial/" target="_blank"><strong>Python 使用 Beautiful Soup 抓取與解析網頁資料，開發網路爬蟲教學 - G. T. Wang</strong><br class="smart"><em>這裡介紹如何使用 Python 的 Beautiful Soup 模組自動下載並解析網頁資料，開發典型的網路爬蟲程式。 Beautiful Soup 是一個 Python…</em>blog.gtwang.org</a><br class="smart"></p><p><a href="https://www.learncodewithmike.com/2020/02/python-beautifulsoup-web-scraper.html" target="_blank"><strong>[Python爬蟲教學]7個Python使用BeautifulSoup開發網頁爬蟲的實用技巧</strong><br class="smart"><em>Photo by Stanley Dai on Unsplash 而在開發的過程中，常會需要搜尋HTML的節點，本文將分享幾個常用的方法，包含： pip install beautifulsoup4 pip install…</em></a><a href="https://matters.news/@CHWang/coding%25E8%25B5%25B7%25E4%25BE%2586-python%25E8%2587%25AA%25E5%258B%2595%25E5%258C%2596%25E7%2588%25AC%25E8%259F%25B2-beautiful-soup%25E7%25BE%258E%25E9%25BA%2597%25E6%25B9%25AF%25E5%25A5%2597%25E4%25BB%25B6-%25E6%2596%25B9%25E6%25B3%2595%25E6%2595%2599%25E5%25AD%25B8-bafyreiad6kpcuaax2lk3qlhpeeoh3spuo3yyftd3darf6br7icm2czcrqe" target="_blank">www.learncodewithmike.com</a></p><p><br class="smart"></p>
