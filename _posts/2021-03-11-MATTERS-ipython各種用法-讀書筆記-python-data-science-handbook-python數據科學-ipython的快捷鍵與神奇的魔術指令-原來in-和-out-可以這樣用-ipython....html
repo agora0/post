@@ -1,0 +1,494 @@
+---
+layout: post
+title: IPython各種用法 - 讀書筆記 - Python Data Science Handbook - Python數據科學 - IPython的快捷鍵與神奇的魔術指令
+  - 原來In[] 和 Out[] 可以這樣用 - IPython...
+date: 2021-03-11 12:19:25.000000000 +00:00
+link: https://matters.news/@CHWang/i-python%25E5%2590%2584%25E7%25A8%25AE%25E7%2594%25A8%25E6%25B3%2595-%25E8%25AE%2580%25E6%259B%25B8%25E7%25AD%2586%25E8%25A8%2598-python-data-science-handbook-python%25E6%2595%25B8%25E6%2593%259A%25E7%25A7%2591%25E5%25AD%25B8-i-python%25E7%259A%2584%25E5%25BF%25AB%25E6%258D%25B7%25E9%258D%25B5%25E8%2588%2587%25E7%25A5%259E%25E5%25A5%2587%25E7%259A%2584%25E9%25AD%2594%25E8%25A1%2593%25E6%258C%2587%25E4%25BB%25A4-%25E5%258E%259F%25E4%25BE%2586in-%25E5%2592%258C-out-%25E5%258F%25AF%25E4%25BB%25A5%25E9%2580%2599%25E6%25A8%25A3%25E7%2594%25A8-i-python%25E4%25B8%25AD%25E5%259F%25B7%25E8%25A1%258Cshell%25E6%258C%2587%25E4%25BB%25A4-errors-and-debugging-%25E9%2587%258D%25E8%25A6%2581%25E7%259A%2584%25E9%2599%25A4%25E9%258C%25AF%25E5%258A%259F%25E8%2583%25BD-%25E7%25AD%2586%25E8%25A8%2598-2-bafyreihxykw2oqy6cn6igan6t6oawlsoljjfnj4icwjy5qy6idem4uei3u
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<h1><br></h1><p><br></p><p><a href="https://github.com/chwang12341/Book/blob/master/Python-Data-Science-Handbook-Personal-Note/IPython-introduction/IPython%E7%9A%84%E5%90%84%E7%A8%AE%E7%94%A8%E6%B3%95%20-%20Python%E6%95%B8%E6%93%9A%E7%A7%91%E5%AD%B8%20-%20%E6%95%B8%E6%93%9A%E7%A7%91%E5%AD%B8%EF%BC%88Data%20Science%EF%BC%89%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F-%20IPython%E8%88%87Python%E7%9A%84%E9%97%9C%E4%BF%82%EF%BC%9F%20-%20%EF%BC%9F%E3%80%81%EF%BC%9F%EF%BC%9F%E3%80%81Tab%E7%9A%84IPy.md" target="_blank">Github連結</a></p><p>嗨嗨，如果覺得圖片不清楚，都可以直接參考我的Github喔</p><h2><br></h2><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/1bf9c073-97e1-40d8-8880-018ea13ed2da.webp" onerror="this.srcset='https://assets.matters.news/embed/1bf9c073-97e1-40d8-8880-018ea13ed2da.jpeg'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/1bf9c073-97e1-40d8-8880-018ea13ed2da.jpeg" onerror="this.srcset='https://assets.matters.news/embed/1bf9c073-97e1-40d8-8880-018ea13ed2da.jpeg'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/1bf9c073-97e1-40d8-8880-018ea13ed2da.webp">
+
+        <img src="https://assets.matters.news/embed/1bf9c073-97e1-40d8-8880-018ea13ed2da.jpeg" srcset="https://assets.matters.news/processed/540w/embed/1bf9c073-97e1-40d8-8880-018ea13ed2da.jpeg" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>攝影師：ArtHouse Studio，連結：Pexels</span></figcaption></figure><p><br></p><p><br></p><h2><strong>1.2章IPython快捷鍵 </strong></h2><p><br></p><p><strong>1. 如何打開IPython shell? </strong></p><p>打開Anaconda Prompt，並輸入ipython，按下Enter鍵</p><h3><br></h3><h3><br></h3><p><strong>2. IPython shell中的快捷鍵 </strong></p><h4><strong>領航快捷鍵（Navigation shortcuts） </strong></h4><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/10bf2918-f187-4e5c-a28e-daec248fb36c.webp" onerror="this.srcset='https://assets.matters.news/embed/10bf2918-f187-4e5c-a28e-daec248fb36c.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/10bf2918-f187-4e5c-a28e-daec248fb36c.png" onerror="this.srcset='https://assets.matters.news/embed/10bf2918-f187-4e5c-a28e-daec248fb36c.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/10bf2918-f187-4e5c-a28e-daec248fb36c.webp">
+
+        <img src="https://assets.matters.news/embed/10bf2918-f187-4e5c-a28e-daec248fb36c.png" srcset="https://assets.matters.news/processed/540w/embed/10bf2918-f187-4e5c-a28e-daec248fb36c.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><h4><br></h4><h4><br></h4><p><strong>文字輸入快捷鍵（Text Entry Shortcuts） </strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/ec7df65d-c18e-4b05-86e5-477dcf3669b5.webp" onerror="this.srcset='https://assets.matters.news/embed/ec7df65d-c18e-4b05-86e5-477dcf3669b5.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/ec7df65d-c18e-4b05-86e5-477dcf3669b5.png" onerror="this.srcset='https://assets.matters.news/embed/ec7df65d-c18e-4b05-86e5-477dcf3669b5.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/ec7df65d-c18e-4b05-86e5-477dcf3669b5.webp">
+
+        <img src="https://assets.matters.news/embed/ec7df65d-c18e-4b05-86e5-477dcf3669b5.png" srcset="https://assets.matters.news/processed/540w/embed/ec7df65d-c18e-4b05-86e5-477dcf3669b5.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><h4><br></h4><h4><br></h4><p><strong>指定歷史的快捷鍵（Command History Shortcuts） </strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/5459ed22-f6a1-4c4e-9b29-77d0afa27595.webp" onerror="this.srcset='https://assets.matters.news/embed/5459ed22-f6a1-4c4e-9b29-77d0afa27595.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/5459ed22-f6a1-4c4e-9b29-77d0afa27595.png" onerror="this.srcset='https://assets.matters.news/embed/5459ed22-f6a1-4c4e-9b29-77d0afa27595.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/5459ed22-f6a1-4c4e-9b29-77d0afa27595.webp">
+
+        <img src="https://assets.matters.news/embed/5459ed22-f6a1-4c4e-9b29-77d0afa27595.png" srcset="https://assets.matters.news/processed/540w/embed/5459ed22-f6a1-4c4e-9b29-77d0afa27595.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><h4><br></h4><h4><br></h4><p><strong>雜項快捷鍵（Miscellaneous Shortcuts）</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/704832b0-4a6c-4397-b60d-2b95ca19c71a.webp" onerror="this.srcset='https://assets.matters.news/embed/704832b0-4a6c-4397-b60d-2b95ca19c71a.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/704832b0-4a6c-4397-b60d-2b95ca19c71a.png" onerror="this.srcset='https://assets.matters.news/embed/704832b0-4a6c-4397-b60d-2b95ca19c71a.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/704832b0-4a6c-4397-b60d-2b95ca19c71a.webp">
+
+        <img src="https://assets.matters.news/embed/704832b0-4a6c-4397-b60d-2b95ca19c71a.png" srcset="https://assets.matters.news/processed/540w/embed/704832b0-4a6c-4397-b60d-2b95ca19c71a.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><h2><br></h2><h2><br></h2><h2><strong>1.3章 IPython的魔術指令（IPython Magic Commands）</strong></h2><h3><br></h3><h3><strong>1. %paste & %cpaste - 張貼程式碼 </strong></h3><p>大家應該都有遇到過這個問題，就是複製了網路上的程式碼，直接貼上到我們的編譯器上時，竟然報錯了，這可能是因為編譯器被額外的提示符搞亂了，就可以使用%paste和%cpaste來解決  </p><p>情況舉例：</p><p>原本想複製網路上的程式碼 </p><pre class="ql-syntax">>>> def add(a,b):
+...  return a+b 
+</pre><p>然後直接複製貼上到IPython會報錯 </p><p>這時候就可以使用%paste，它專門處理編譯器被一些額外的提示符搞亂了的情況 </p><p><br></p><p><strong>自己嘗試的結果:但我自己嘗試了書本上的範例發現要很特定的情況下用%paste，才不會報錯，要不然就是原本就不會有錯，感覺基本上它還是張貼的作用</strong></p><h4><br></h4><h4><strong>使用說明 </strong></h4><ul><li>%paste: 一打上去，就會將我們當前複製的程式碼貼上</li><li>%cpaste: 在IPython中輸入後，會出現一個交互式的多行提示符，使我們可以貼上多個程式碼塊，然後批量執行它們</li></ul><p>示範一:</p><pre class="ql-syntax">In [1]: %paste
+>>> def add(a,b):
+...  return a+b
+​
+## -- End pasted text --
+​
+In [2]: add(2,6)
+Out[2]: 8
+​
+In [3]: %cpaste
+Pasting code; enter '--' alone on the line to stop or use Ctrl-D.
+:>>> def add(a,b):
+:... return a+b
+:>>> def add(a,b):
+:... return 2a+2b
+:>>> def add(a,b):
+:... return 3a+3b
+:--
+</pre><p>示範二: 在%cpaste中使用%paste</p><pre class="ql-syntax">In [1]: %cpaste
+Pasting code; enter '--' alone on the line to stop or use Ctrl-D.
+:%paste
+:--
+>>> def add(a,b):
+...  return a+b
+​
+## -- End pasted text --
+</pre><h3><br></h3><h3><strong>2. %run - 在IPython中，執行外部的Python檔 </strong></h3><ul><li>格式：%run (執行的Python檔名稱) </li><li>舉例：我們有一個Python檔  </li></ul><pre class="ql-syntax">## python_script.py
+​
+def multiply(a,b):
+  '''a multiply of b'''
+  
+  return a*b
+​
+​
+if __name__ == '__main__':
+  
+  for i in range(10):
+    print(str(i) + ' multiply of ' + str(i+1) + ' : ' , multiply(i,i+1))
+ 
+</pre><ul><li>在IPython中執行這個Python檔，如果沒有給目錄位置，就要到Python檔的目錄位置底下執行喔 </li></ul><pre class="ql-syntax">%run python_script_demo.py 
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">In [1]: %run python_script.py
+0 multiply of 1 : 0
+1 multiply of 2 : 2
+2 multiply of 3 : 6
+3 multiply of 4 : 12
+4 multiply of 5 : 20
+5 multiply of 6 : 30
+6 multiply of 7 : 42
+7 multiply of 8 : 56
+8 multiply of 9 : 72
+9 multiply of 10 : 90
+</pre><p>執行完後，還能在IPython使用這些在Python檔中定義好的函數 </p><pre class="ql-syntax">In [2]: multiply(2,8)
+Out[2]: 16
+</pre><h3><br></h3><h3><strong>3. %timeit - 程式碼執行時間計時，瞭解哪個用法更快 </strong></h3><p>．格式：%timeit (要執行計時的程式碼) </p><p>範例一： </p><pre class="ql-syntax">In [3]: %timeit new_list = [x**2 for x in range(1000)]
+282 µs ± 10.1 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+</pre><p>範例二：換個方式寫程式碼，但目的一樣  </p><pre class="ql-syntax">In [4]: %%timeit
+ ...: new_list = []
+ ...: for x in range(1000):
+ ...:  new_list.append(x**2)
+ ...:
+317 µs ± 15 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+</pre><p>可以看出雖然目的是一樣的，但兩個不同的程式碼寫法，執行時間是不同的喔 </p><p><strong>補充：如果想在IPython中使用多行就要兩個%，像是%%timeit</strong></p><h3><br></h3><h3><br></h3><p><strong>4. 如何查詢魔術指令的資訊與列出所有的魔術指令 - ?、%magic、%lsmagic </strong></p><ul><li>?: 如果想查詢某個魔術指令的資訊，像是%run? </li><li>%magic: 獲得魔術指令的通用敘述與舉例 </li><li>%lsmagic: 列出所有可用的魔術指令</li></ul><p>我這邊列出一些魔術指令喔</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f259a924-2fb1-4b05-9b3d-bc52cdc1766c.webp" onerror="this.srcset='https://assets.matters.news/embed/f259a924-2fb1-4b05-9b3d-bc52cdc1766c.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f259a924-2fb1-4b05-9b3d-bc52cdc1766c.png" onerror="this.srcset='https://assets.matters.news/embed/f259a924-2fb1-4b05-9b3d-bc52cdc1766c.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/f259a924-2fb1-4b05-9b3d-bc52cdc1766c.webp">
+
+        <img src="https://assets.matters.news/embed/f259a924-2fb1-4b05-9b3d-bc52cdc1766c.png" srcset="https://assets.matters.news/processed/540w/embed/f259a924-2fb1-4b05-9b3d-bc52cdc1766c.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/c38522d6-982b-445e-a998-deafd1655bb0.webp" onerror="this.srcset='https://assets.matters.news/embed/c38522d6-982b-445e-a998-deafd1655bb0.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/c38522d6-982b-445e-a998-deafd1655bb0.png" onerror="this.srcset='https://assets.matters.news/embed/c38522d6-982b-445e-a998-deafd1655bb0.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/c38522d6-982b-445e-a998-deafd1655bb0.webp">
+
+        <img src="https://assets.matters.news/embed/c38522d6-982b-445e-a998-deafd1655bb0.png" srcset="https://assets.matters.news/processed/540w/embed/c38522d6-982b-445e-a998-deafd1655bb0.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><h2><strong>1.4章 Input 和 Output 的歷史 - 使用In 和 Out 來獲取歷史記錄 </strong></h2><h3><br></h3><h3><strong>1. In 和 Out 的用法 </strong></h3><p>大家一定都有看到IPython中的提示符 - In[] 和 Out[]，但大部分的人以為只是為了美觀所採用的修飾符，但其實它有很厲害的功用的，它能夠讓我們簡單獲得以前的輸入和輸出內容 </p><p>範例：我們先照著以下的程式執行 - 我們導入math套件，並計算開根號、sin、cos和tan</p><pre class="ql-syntax">In [1]: import math
+​
+In [2]: math.sqrt(2)
+Out[2]: 1.4142135623730951
+​
+In [3]: math.sin(6)
+Out[3]: -0.27941549819892586
+​
+In [4]: math.cos(6)
+Out[4]: 0.960170286650366
+​
+In [5]: math.tan(6)
+Out[5]: -0.29100619138474915
+</pre><p>接下來，利用In和Out列印出我們執行過的輸入與輸出內容</p><pre class="ql-syntax">In [6]: In
+Out[6]:
+['',
+ 'import math',
+ 'math.sqrt(2)',
+ 'math.sin(6)',
+ 'math.cos(6)',
+ 'math.tan(6)',
+ 'In']
+​
+In [7]: Out
+Out[7]:
+{2: 1.4142135623730951,
+ 3: -0.27941549819892586,
+ 4: 0.960170286650366,
+ 5: -0.29100619138474915,
+ 6: ['',
+ 'import math',
+ 'math.sqrt(2)',
+ 'math.sin(6)',
+ 'math.cos(6)',
+ 'math.tan(6)',
+ 'In',
+ 'Out']}
+</pre><ul><li>In: 返回輸入過的內容，會以串列（list）的形式傳回 </li><li>Out: 返回輸出過的內容，會以字典的形式回傳 </li></ul><p>指定我們要看第幾個輸出或輸入</p><pre class="ql-syntax">In [8]: print(In[1])
+import math
+​
+In [9]: print(Out[4])
+0.960170286650366
+</pre><p><br></p><p><strong>提醒：</strong>並不是所有輸入都會有輸出，像是import和print的語句就不會影響輸出（Output）內容，簡單來說就是import和print的結果，會返回None，而任何指令返回None都不會加入到Out中，所以print(Out)會看不到他們的結果 </p><p><br></p><p>這個方法，對於拿過去的計算結果做運算，是非常方便的</p><pre class="ql-syntax">In [1]: import math
+​
+In [2]: math.sin(6)
+Out[2]: -0.27941549819892586
+​
+In [3]: math.cos(6)
+Out[3]: 0.960170286650366
+​
+In [4]: Out[2]**2 + Out[3]**2
+Out[4]: 0.9999999999999999
+</pre><h3><br></h3><h3><strong>2. </strong><code><strong>_</strong></code><strong>下滑線用法 - 回到過去的輸出（Output） </strong></h3><p>想回到上一個輸出結果，就輸入一個"<em>"下滑線，前兩個輸出結果就兩個下滑線"</em>"，前三個輸出結果就三個下滑線<code>_</code>，但注意沒有以此類推囉XD，IPython最多只支援三個下滑線，而且它會自動跳過沒有輸出結果的命令喔  </p><pre class="ql-syntax">In [5]: print(_)
+0.9999999999999999
+​
+In [6]: print(__)
+0.960170286650366
+​
+In [7]: print(___)
+-0.27941549819892586
+</pre><p>也可以使用 格式：_ (第幾個輸出結果)來直接印出之前的輸出結果，像是我們會寫Out[4]來引出第四個輸出結果，而這邊有個更簡潔的寫法_4</p><pre class="ql-syntax">In [8]: Out[4]
+Out[8]: 0.9999999999999999
+​
+In [9]: _4
+Out[9]: 0.9999999999999999
+</pre><h3><br></h3><h3><strong>3. ";" - 不要將執行結果，加入道輸出結果的歷史中</strong></h3><ul><li>只要在指令後面加上";"，就不會將這次的執行結果加入到Out裡</li></ul><pre class="ql-syntax">In [16]: math.sin(6)**2 + math.cos(6)**2;
+​
+In [17]: Out[16]
+---------------------------------------------------------------------------
+KeyError                Traceback (most recent call last)
+<ipython-input-17-7ca36f6eddac> in <module>
+----> 1 Out[16]
+​
+KeyError: 16
+​
+In [18]: 16 in Out
+Out[18]: False
+</pre><h3><br></h3><h3><strong>4. %history 批量查看歷史記錄（Input） </strong></h3><p>可以查看過去第幾個的輸入（Input） </p><ul><li>範例：我想查看過去第一到第四個輸入（Input）與第一到第五個輸入（Input）</li></ul><pre class="ql-syntax">In [1]: import math
+​
+In [2]: math.sin(6)
+Out[2]: -0.27941549819892586
+​
+In [3]: math.cos(6)
+Out[3]: 0.960170286650366
+​
+In [4]: math.tan(6)
+Out[4]: -0.29100619138474915
+​
+In [5]: print(Out)
+{2: -0.27941549819892586, 3: 0.960170286650366, 4: -0.29100619138474915}
+​
+In [6]: %history -n 1-4
+ 1: import math
+ 2: math.sin(6)
+ 3: math.cos(6)
+ 4: math.tan(6)
+​
+In [7]: %history -n 1-5
+ 1: import math
+ 2: math.sin(6)
+ 3: math.cos(6)
+ 4: math.tan(6)
+ 5: print(Out)
+</pre><p><br></p><p><br></p><h2><strong>1.5章 IPython 和 Shell 指令 - 如何在IPython中下達Shell指令 - ls、cd、mkdir等等</strong></h2><ul><li>在Python環境中，當我們想要一邊下達對操作系統的Shell指令，一邊撰寫Python，我們只能再開一個終端窗口，或是退出Python環境，然後下達完指令，再切回Python，但是IPython可以讓我們同時在它的環境下，做到這兩種事 </li></ul><h3><br></h3><h3><strong>1. "!" - 輕鬆幫我們在IPython Shell中，執行Shell指令</strong></h3><pre class="ql-syntax">In [2]: ls
+ 磁碟區 C 中的磁碟是 Windows
+ 磁碟區序號: 1C71-9B46
+​
+ C:\Users\user\Desktop\Book\Python-Data-Science-Handbook-Personal-Note\IPython-introduction\images 的目錄
+​
+2021/02/10 下午 12:10 <DIR>    .
+2021/02/10 下午 12:10 <DIR>    ..
+2020/11/28 下午 12:26     21,909 Command History Shortcuts.png
+2020/11/24 下午 08:27      6,225 image1.PNG
+2020/11/24 下午 08:30     55,914 image2.png
+2020/11/24 下午 08:35     110,153 image3.png
+2020/11/24 下午 08:37     138,940 image4.png
+2020/11/24 下午 08:40     159,651 image5.png
+2020/11/24 下午 08:41     239,450 image6.png
+2021/02/10 下午 12:09     104,667 magic_function1.png
+2021/02/10 下午 12:10     105,858 magic_function2.png
+2020/11/28 下午 12:29     15,005 Miscellaneous Shortcuts.png
+2020/11/28 下午 12:19     27,758 Navigation shortcuts.png
+2020/11/28 下午 12:23     35,943 Text Entry Shortcuts.png
+      12 個檔案   1,021,473 位元組
+       2 個目錄 35,393,601,536 位元組可用
+​
+In [3]: pwd
+Out[3]: 'C:\\Users\\user\\Desktop\\Book\\Python-Data-Science-Handbook-Personal-Note\\IPython-introduction\\images'
+​
+In [4]: !echo "Shell command - Printing"
+"Shell command - Printing""
+</pre><p>我自己試了在Windoes系統中，如果不加!會有作用嗎，發現也會有喔！！但是加了!，看起來更簡潔清楚</p><h3><br></h3><h3><strong>2. 從Shell中傳回值，並保存成一個看似Python的列表，但多了一些功能的列表 </strong></h3><pre class="ql-syntax">In [8]: file_list = !ls
+​
+In [9]: print(file_list)
+["'ls' ���O�����Υ~���R�O�B�i���檺�{���Χ妸�ɡC"]
+​
+In [10]: directory_list = !pwd
+​
+In [11]: type(directory_list)
+Out[11]: IPython.utils.text.SList
+</pre><p>從印出的類型來看，它看起來像是Python的列表（list），但是多了一些額外的功能，像是grep和fields方法，以及s、n和p屬性，使我們能夠用簡單的方式進行搜索、過濾和顯示結果 file_list?</p><h3><br></h3><h3><strong>3. 從Python中傳值給Shell使用 </strong></h3><ul><li>Python也可以傳變數名稱給Shell使用，只要透過{變數名稱}即可 </li></ul><pre class="ql-syntax">In [12]: context = "Values from Python"
+​
+In [13]: !echo {context}
+Values from Python
+​
+In [14]: echo {context}
+Values from Python
+</pre><h3><br></h3><h3><strong>4. !cd 沒辦法在IPython中移動目錄位置 </strong></h3><ul><li>原因：因為notebook中的Shell是在一個暫時的子Shell空間中運行的 </li><li>解決辦法：將!cd指令改成%cd或cd </li><li>補充：除了%cd，其它相似的Shell指令，像是%cat、%cp、%env、%ls、%rmdir、%mkdir、%more、%rm、%pwd、%man和%mv，這些魔術命令在automagic啟動（打上%automagic來啟動或關閉）時都可以不用有%就能使用，也就是把IPython shell當成我們系統的shell使用</li></ul><h2><br></h2><h2><br></h2><h2><strong>1.6章 Errors and Debugging - 非常重要的錯誤與除錯功能 </strong></h2><h3><br></h3><h3><strong>1. %xmode - Controlling Exception - 異常控制 - Plain、Context和Verbose </strong></h3><ul><li>%xmode - Exception mode的縮寫，用來控制異常發生時，錯誤訊息的數量 </li><li>模式：Plain、Context、Verbose，預設為Context </li><li>使用方法：%xmode (一種模式名稱)  </li></ul><p>一般情況下，當程式出現錯誤時，系統會報的錯誤資訊</p><pre class="ql-syntax">def divided(a, b):
+  c = b - 1
+  return a/c
+​
+divided(8,1)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">---------------------------------------------------------------------------
+ZeroDivisionError            Traceback (most recent call last)
+<ipython-input-3-c36e5fec3a86> in <module>
+  3  return a/c
+  4 
+----> 5 divided(8,1)
+​
+<ipython-input-3-c36e5fec3a86> in divided(a, b)
+  1 def divided(a, b):
+  2  c = b - 1
+----> 3  return a/c
+  4 
+  5 divided(8,1)
+​
+ZeroDivisionError: division by zero
+</pre><p>當編譯器遇到了異常狀況的時候，會將錯誤產生的原因壓縮到眼前程式執行的追溯（Traceback）中，而IPython使我們可以控制異常發生時錯誤訊息的數量 </p><h3><br></h3><h3><strong>2. Context模式: 預設模式</strong></h3><pre class="ql-syntax">%xmode Context 
+​
+def divided(a, b):
+  c = b - 1
+  return a/c
+​
+divided(8,1)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Exception reporting mode: Context
+---------------------------------------------------------------------------
+ZeroDivisionError            Traceback (most recent call last)
+<ipython-input-4-b54a250447e3> in <module>
+  5  return a/c
+  6 
+----> 7 divided(8,1)
+​
+<ipython-input-4-b54a250447e3> in divided(a, b)
+  3 def divided(a, b):
+  4  c = b - 1
+----> 5  return a/c
+  6 
+  7 divided(8,1)
+​
+ZeroDivisionError: division by zero
+</pre><h3><br></h3><h3><strong>3. Plain模式：更簡短的，較少的錯誤資訊內容</strong></h3><pre class="ql-syntax">%xmode Plain
+​
+def divided(a, b):
+  c = b - 1
+  return a/c
+​
+divided(8,1)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Exception reporting mode: Plain
+Traceback (most recent call last):
+​
+ File "<ipython-input-8-01362f71b695>", line 7, in <module>
+ divided(8,1)
+​
+ File "<ipython-input-8-01362f71b695>", line 5, in divided
+ return a/c
+​
+ZeroDivisionError: division by zero
+</pre><h3><br></h3><h3><strong>4. Verbose模式：更多訊息，包括函數調用時的參數值</strong></h3><pre class="ql-syntax">%xmode Verbose
+​
+def divided(a, b):
+  c = b - 1
+  return a/c
+​
+divided(8,1)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Exception reporting mode: Verbose
+---------------------------------------------------------------------------
+ZeroDivisionError            Traceback (most recent call last)
+<ipython-input-10-6808dfac2ac2> in <module>
+  5  return a/c
+  6 
+----> 7 divided(8,1)
+   global divided = <function divided at 0x000002405C314048>
+​
+<ipython-input-10-6808dfac2ac2> in divided(a=8, b=1)
+  3 def divided(a, b):
+  4  c = b - 1
+----> 5  return a/c
+   a = 8
+   c = 0
+  6 
+  7 divided(8,1)
+​
+ZeroDivisionError: division by zero
+</pre><h4><br></h4><h4><strong>Verbose可以擁有那麼多的錯誤資訊，為什麼不都用它就好？ </strong></h4><p>當我們的程式越來越多的時候，太多的訊息很難閱讀，所以要視情況，有時候簡短才能幫助我們快速進行除錯（Debugging）喔 </p><h3><br></h3><h3><br></h3><p><strong>5. %debug 進階用法 - 當Traceback已經不能滿足問題 </strong></p><ul><li>Python - 標準Python下有一個交互式的除錯工具 - pdb</li><li>IPython - 有一個增強版的除錯工具 - ipdb</li></ul><h4><br></h4><h4><strong>ipdbb是什麼？ </strong></h4><p>ipdbb讓我們可以查看當前的Traceback訊息，還可以顯示變數與它們的值，甚至還能直接執行Python命令 </p><p><br></p><p>當執行%debug，就會啟動ipdbb交互式界面，讓我們查詢變數值等等功能 </p><pre class="ql-syntax">%debug 
+</pre><p>範例：像是我們現在有一個程式執行的時候會報錯</p><pre class="ql-syntax">def divided(a, b):
+  c = b - 1
+  return a/c
+​
+divided(8,1)
+</pre><p>這時候就執行%debug，來開啟ipdbb </p><pre class="ql-syntax">%debug
+</pre><p>使用print來得知變數值  </p><pre class="ql-syntax">> <ipython-input-11-c36e5fec3a86>(3)divided()
+   1 def divided(a, b):
+   2  c = b - 1
+----> 3  return a/c
+   4 
+   5 divided(8,1)
+​
+ipdb> print(a)
+8
+ipdb> print(b)
+1
+ipdb> print(c)
+0
+ipdb> print(a/c)
+*** ZeroDivisionError: division by zero
+ipdb> quit
+</pre><p>使用up、down來回溯上一層或下一層，當很多個Function互相調用（call）對方時，幫助我們從眾多Function中找尋哪個Function出問題</p><pre class="ql-syntax">> <ipython-input-11-c36e5fec3a86>(3)divided()
+   1 def divided(a, b):
+   2  c = b - 1
+----> 3  return a/c
+   4 
+   5 divided(8,1)
+​
+ipdb> up
+> <ipython-input-11-c36e5fec3a86>(5)<module>()
+   1 def divided(a, b):
+   2  c = b - 1
+   3  return a/c
+   4 
+----> 5 divided(8,1)
+​
+ipdb> down
+> <ipython-input-11-c36e5fec3a86>(3)divided()
+   1 def divided(a, b):
+   2  c = b - 1
+----> 3  return a/c
+   4 
+   5 divided(8,1)
+</pre><h4><br></h4><h4><br></h4><p><strong>如何將除錯工具ipdbb保持啟動的狀態，程式執行報錯就會馬上開啟 </strong></p><ul><li>使用%pdb，後面加上on/off 來開啟或關閉除錯工具的自動開啟模式 </li><li>使用方法：%pdb (on/off)</li></ul><pre class="ql-syntax">%xmode Verbose
+%pdb on
+​
+​
+def divided(a, b):
+  c = b - 1
+  return a/c
+​
+divided(8,1)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Exception reporting mode: Verbose
+Automatic pdb calling has been turned ON
+---------------------------------------------------------------------------
+ZeroDivisionError            Traceback (most recent call last)
+<ipython-input-16-2425b790b5b2> in <module>
+  7  return a/c
+  8 
+----> 9 divided(8,1)
+   global divided = <function divided at 0x000002405C3F70D8>
+​
+<ipython-input-16-2425b790b5b2> in divided(a=8, b=1)
+  5 def divided(a, b):
+  6  c = b - 1
+----> 7  return a/c
+   a = 8
+   c = 0
+  8 
+  9 divided(8,1)
+​
+ZeroDivisionError: division by zero
+ipdb> 
+> <ipython-input-16-2425b790b5b2>(7)divided()
+  5 def divided(a, b):
+  6  c = b - 1
+----> 7  return a/c
+  8 
+  9 divided(8,1)
+</pre><h4><br></h4><h4><br></h4><p><strong>外部的Python檔，如何在IPython中交互式的執行，並且同時打開除錯工具 - ipdbb </strong></p><ul><li>使用%run -d來執行Python檔，然後使用next在交互模式下進行一步一步執行Python檔中的程式</li></ul><pre class="ql-syntax">In [1]: %run python_script.py
+0 multiply of 1 : 0
+1 multiply of 2 : 2
+2 multiply of 3 : 6
+3 multiply of 4 : 12
+4 multiply of 5 : 20
+5 multiply of 6 : 30
+6 multiply of 7 : 42
+7 multiply of 8 : 56
+8 multiply of 9 : 72
+9 multiply of 10 : 90
+​
+In [2]: %run -d python_script.py
+*** Blank or comment
+*** Blank or comment
+*** Blank or comment
+NOTE: Enter 'c' at the ipdb> prompt to continue execution.
+> c:\users\user\desktop\book\python-data-science-handbook-personal-note\ipython-introduction\python_script.py(3)<module>()
+   1 ## python_script.py
+   2
+----> 3 def multiply(a,b):
+   4  '''a multiply of b'''
+   5
+​
+ipdb> 
+</pre><h4><br></h4><h4><br></h4><p><strong>開啟除錯模式ipdbb，可以下達的命令</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f0781b1d-336b-48be-988b-8bd8ad97fafb.webp" onerror="this.srcset='https://assets.matters.news/embed/f0781b1d-336b-48be-988b-8bd8ad97fafb.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f0781b1d-336b-48be-988b-8bd8ad97fafb.png" onerror="this.srcset='https://assets.matters.news/embed/f0781b1d-336b-48be-988b-8bd8ad97fafb.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/f0781b1d-336b-48be-988b-8bd8ad97fafb.webp">
+
+        <img src="https://assets.matters.news/embed/f0781b1d-336b-48be-988b-8bd8ad97fafb.png" srcset="https://assets.matters.news/processed/540w/embed/f0781b1d-336b-48be-988b-8bd8ad97fafb.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p>ipdbb 的官方文檔：https//<a href="http://github.com/gotcha/ipdb?fbclid=IwAR2kRnEfpYNLc3C0eNp-3_kAo4Z9jOgxsXB9b_wocIPeOp4REMKS_1_eXZk" target="_blank">github.com/gotcha/ipdb</a></p>
