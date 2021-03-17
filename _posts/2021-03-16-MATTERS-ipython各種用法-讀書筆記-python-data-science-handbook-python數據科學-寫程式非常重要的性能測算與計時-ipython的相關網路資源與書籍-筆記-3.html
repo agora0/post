@@ -1,0 +1,151 @@
+---
+layout: post
+title: IPython各種用法 - 讀書筆記 - Python Data Science Handbook - Python數據科學 - 寫程式非常重要的性能測算與計時
+  - IPython的相關網路資源與書籍 - 筆記#3
+date: 2021-03-16 12:48:15.000000000 +00:00
+link: https://matters.news/@CHWang/i-python%25E5%2590%2584%25E7%25A8%25AE%25E7%2594%25A8%25E6%25B3%2595-%25E8%25AE%2580%25E6%259B%25B8%25E7%25AD%2586%25E8%25A8%2598-python-data-science-handbook-python%25E6%2595%25B8%25E6%2593%259A%25E7%25A7%2591%25E5%25AD%25B8-%25E5%25AF%25AB%25E7%25A8%258B%25E5%25BC%258F%25E9%259D%259E%25E5%25B8%25B8%25E9%2587%258D%25E8%25A6%2581%25E7%259A%2584%25E6%2580%25A7%25E8%2583%25BD%25E6%25B8%25AC%25E7%25AE%2597%25E8%2588%2587%25E8%25A8%2588%25E6%2599%2582-i-python%25E7%259A%2584%25E7%259B%25B8%25E9%2597%259C%25E7%25B6%25B2%25E8%25B7%25AF%25E8%25B3%2587%25E6%25BA%2590%25E8%2588%2587%25E6%259B%25B8%25E7%25B1%258D-%25E7%25AD%2586%25E8%25A8%2598-3-bafyreiaffpsc6lp3lqhhv2hyrleigi2mcxsthekjpymxuyfmeflibq4tim
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<p><br></p><p><a href="https://github.com/chwang12341/Book/blob/master/Python-Data-Science-Handbook-Personal-Note/IPython-introduction/IPython%E7%9A%84%E5%90%84%E7%A8%AE%E7%94%A8%E6%B3%95%20-%20Python%E6%95%B8%E6%93%9A%E7%A7%91%E5%AD%B8%20-%20%E6%95%B8%E6%93%9A%E7%A7%91%E5%AD%B8%EF%BC%88Data%20Science%EF%BC%89%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F-%20IPython%E8%88%87Python%E7%9A%84%E9%97%9C%E4%BF%82%EF%BC%9F%20-%20%EF%BC%9F%E3%80%81%EF%BC%9F%EF%BC%9F%E3%80%81Tab%E7%9A%84IPy.md" target="_blank">Github連結</a></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/3db2a7a2-f60e-4fb0-9210-5ea2529bd4c6.webp" onerror="this.srcset='https://assets.matters.news/embed/3db2a7a2-f60e-4fb0-9210-5ea2529bd4c6.jpeg'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/3db2a7a2-f60e-4fb0-9210-5ea2529bd4c6.jpeg" onerror="this.srcset='https://assets.matters.news/embed/3db2a7a2-f60e-4fb0-9210-5ea2529bd4c6.jpeg'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/3db2a7a2-f60e-4fb0-9210-5ea2529bd4c6.webp">
+
+        <img src="https://assets.matters.news/embed/3db2a7a2-f60e-4fb0-9210-5ea2529bd4c6.jpeg" srcset="https://assets.matters.news/processed/540w/embed/3db2a7a2-f60e-4fb0-9210-5ea2529bd4c6.jpeg" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>攝影師：Jeremy Bishop，連結：Pexels</span></figcaption></figure><p><br></p><p><br></p><p><br></p><h2><strong>1.7章 程式性能的測算與計時</strong></h2><p><br></p><h2><strong> </strong></h2><h3><strong>1.IPython中的各種計算性能方法</strong></h3><h3><strong> </strong></h3><ul><li>%time: 測量單個語句的執行時間</li><li>%timeit: 重複測量單個語句的執行時間，並計算平均時間，來取得更準確的執行時間結果</li><li>%prun: 使用性能計算工具與程式碼一起執行</li><li>%lprun: 使用單個語句執行的性能計算工具與程式碼一起運行</li><li>%memit: 計算單個語句佔用的內存（Memory）空間</li><li>%mprun: 使用單個語句執行的內存（Memory）計算工具與程式碼一起執行</li></ul><h3><br></h3><h3><strong>2. %time & %timeit 程式執行計時工具</strong></h3><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/607c5dbd-f644-4ef4-9b46-14321abd0957.webp" onerror="this.srcset='https://assets.matters.news/embed/607c5dbd-f644-4ef4-9b46-14321abd0957.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/607c5dbd-f644-4ef4-9b46-14321abd0957.png" onerror="this.srcset='https://assets.matters.news/embed/607c5dbd-f644-4ef4-9b46-14321abd0957.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/607c5dbd-f644-4ef4-9b46-14321abd0957.webp">
+
+        <img src="https://assets.matters.news/embed/607c5dbd-f644-4ef4-9b46-14321abd0957.png" srcset="https://assets.matters.news/processed/540w/embed/607c5dbd-f644-4ef4-9b46-14321abd0957.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><h4><br></h4><p><strong>%timeit </strong></p><pre class="ql-syntax">%timeit sum(range(600))
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">7.35 µs ± 38.7 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+</pre><p><br></p><p>補充說明：由於上面的例子執行速度相當快，所以%timeit會自動重複運行很多回合，但如果換成一個執行較慢的計算，%timeit會自動減少回合數，如下例子</p><pre class="ql-syntax">%%timeit
+​
+total = 0
+for i in range(6000):
+  for k in range(6000):
+    total += i * k
+print(total)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">323892009000000
+323892009000000
+323892009000000
+323892009000000
+323892009000000
+323892009000000
+323892009000000
+323892009000000
+2.73 s ± 212 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre><p><br></p><p>狀況：如果遇到列表進行排序操作時，重複執行的結果會誤導我們，因為對一個已經排好序的列表進行排序是非常快的，所以在第一次執行完成後，後面重複進行測量的數據都是錯誤的，時間會不對（會過快）</p><pre class="ql-syntax">import random
+L = [random.random() for i in range(1000000)]
+%timeit L.sort()
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">21.9 ms ± 278 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre><h4><br></h4><h4><br></h4><p><strong>%time</strong></p><p>範例一：計算還沒排序的列表</p><pre class="ql-syntax">import random
+L = [random.random() for i in range(1000000)]
+print('Sorting an Unsorting list(L)')
+%time L.sort()
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Sorting an Unsorting list(L)
+Wall time: 230 ms
+</pre><p><br></p><p>範例二：接著上面執行計算已經排好序的列表</p><pre class="ql-syntax">print('Sorting an Alreaddy Sorted list(L)')
+%time L.sort()
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Sorting an Alreaddy Sorted list(L)
+Wall time: 22.7 ms
+</pre><p>可以明顯看出時間差異！！所以非常不適合重複執行！！</p><h4><br></h4><h4><strong>計時 - %timeit為什麼通常都比%time的執行時間快？</strong></h4><p>%timeit會有一種額外的機制，來防止系統調用（System calls）影響程式執行的時間結果，像是它會防止系統清理掉不再使用的Python物件（又稱垃圾收集），才不會讓這樣的狀況影響執行的時間</p><h4><br></h4><h4><br></h4><p><strong>% 只能執行一行程式碼，%%就可以執行一整段程式碼 </strong></p><pre class="ql-syntax">%%time
+total = 0
+for i in range(6000):
+  for k in range(6000):
+    total += i * k
+    
+print(total)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">323892009000000
+Wall time: 5.01 s
+</pre><h3><br></h3><h3><br></h3><p><strong>3. %prun整個Python檔的性能測算</strong></p><p>舉例：先自行定義一個函數，然後測算它的性能</p><pre class="ql-syntax">In [1]: def sum_list(N):
+ ...:  total = 0
+ ...:  for i in range(5):
+ ...:    L = [j ^ (j >> i) for j in range(N)]
+ ...:  return total
+</pre><p>計算性能%prun</p><pre class="ql-syntax">In [2]: %prun sum_list(10000000)
+    9 function calls in 6.178 seconds
+​
+ Ordered by: internal time
+​
+ ncalls tottime percall cumtime percall filename:lineno(function)
+   5 5.708 1.142 5.708 1.142 <ipython-input-1-9b46611eb043>:4(<listcomp>)
+   1 0.355 0.355 6.063 6.063 <ipython-input-1-9b46611eb043>:1(sum_list)
+   1 0.115 0.115 6.178 6.178 <string>:1(<module>)
+   1 0.000 0.000 6.178 6.178 {built-in method builtins.exec}
+   1 0.000 0.000 0.000 0.000 {method 'disable' of '_lsprof.Profiler' objects}
+</pre><p>產出的結果表格，顯示每個函數調用的執行時間排序（從大到小），當然從我們的範例中，因為只有執行一個函數，所以耗時最長的就是sum_list</p><p><br></p><p>使用%prun就能看出程式在哪耗時最久，也就能知道要從哪裡著手了</p><h3><br></h3><h3><br></h3><p><strong>4. %lprun 一行一行的執行程式碼去測試性能 </strong></p><p>安裝第三方套件到Python中</p><pre class="ql-syntax">pip install line_profiler 
+</pre><p>再從IPython中載入套件</p><pre class="ql-syntax">%load_ext line_profiler 
+</pre><p>執行%lprun來計算函數的逐條程式性能</p><pre class="ql-syntax">%lprun -f sum_list(5000) 
+</pre><p>書本說從結果可以看出，%lprun會幫我們一行一行計算程式性能，單位是毫秒，讓我們知道哪一行執行時間最久，就能根據這個資訊優化哪行程式</p><p>這邊我在安裝第三方套件的時候一直報錯，所以沒辦法親自試試，大家可以自行使用看看</p><h3><br></h3><h3><br></h3><h2><strong>5. %memit & %mprun 計算內存（Memory）使用量 </strong></h2><p>安裝第三方套件到Python中</p><pre class="ql-syntax">pip install memory_profiler
+</pre><p>再從IPython載入套件</p><pre class="ql-syntax">%load_ext memory_profiler 
+</pre><h4><br></h4><h4><strong>%memit 整個程式的內存空間（Memory Space）使用量 </strong></h4><p>執行%memit來計算函數的逐條程式性能</p><pre class="ql-syntax">In [1]: %load_ext memory_profiler
+​
+In [2]: def sum_list(N):
+ ...: ...:  total = 0
+ ...: ...:  for i in range(5):
+ ...: ...:    L = [j ^ (j >> i) for j in range(N)]
+ ...: ...:  return total
+ ...:
+​
+In [3]: %memit sum_list(6000)
+peak memory: 50.06 MiB, increment: 0.51 MiB
+</pre><p>結果：從peak memory可以看出這個程式用了多少的內存（Memory）空間</p><h4><br></h4><h4><strong>%mprun - 逐行程式檢視內存（Memory）空間的使用量 </strong></h4><ul><li>限制：它只能在獨立的模塊（Modules）上使用，不能應用在notebook本身，簡單來說，它要執行整個外部的Python檔</li><li><strong>使用%%file，來創建一個Python檔，如果遇到Permission denied，表示權限不夠喔，可以建議改用Anaconda Powershell Prompt 或是自行用別的編譯器來創建Python檔</strong></li></ul><pre class="ql-syntax">In [3]: %memit sum_list(6000)
+peak memory: 50.06 MiB, increment: 0.51 MiB
+​
+In [4]: %%file mprun_demo_example.py
+ ...: def sum_lists(N):
+ ...:  total = 0
+ ...:  for i in range(6):
+ ...:    L = [j ^ (j >> i) for j in range(N)]
+ ...:    total += sum(L)
+ ...:    del L
+ ...:  return toal
+ ...:
+Writing mprun_demo_example.py
+</pre><ul><li>導入模塊，也就是導入外部Python檔（前面所建立的），並使用內存空間（Memory Space）計算工具 - %mprun，來進行逐行程式碼計算</li></ul><pre class="ql-syntax">In [5]: from mprun_demo_example import sum_lists
+​
+In [6]: %mprun -f sum_lists sum_lists(10000000)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Line # Mem usage Increment Occurences Line Contents
+============================================================
+  1  51.3 MiB  51.3 MiB     1 def sum_lists(N):
+  2  51.3 MiB  0.0 MiB     1   total = 0
+  3  51.3 MiB  0.0 MiB     2   for i in range(6):
+  4 359.6 MiB -75619584.5 MiB 17985287     L = [j ^ (j >> i) for j in range(N)]
+  5 127.6 MiB  0.0 MiB     1     total += sum(L)
+  6  51.3 MiB -76.3 MiB     1     del L
+  7                      return toal
+*** KeyboardInterrupt exception caught in code being profiled.
+</pre><ul><li>Increment 表示內存空間（Memory Space）是如何變化的，創建L串列，與最後刪除L串列，大家可以看出內存的佔用與釋放變化</li></ul><h2><br></h2><h2><br></h2><p><strong>1.8章 IPython網路資源與相關數據推薦 </strong></p><h3><br></h3><h3><strong>1. 網路資源 </strong></h3><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/bdacd1ad-3041-486d-9865-58c069baa167.webp" onerror="this.srcset='https://assets.matters.news/embed/bdacd1ad-3041-486d-9865-58c069baa167.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/bdacd1ad-3041-486d-9865-58c069baa167.png" onerror="this.srcset='https://assets.matters.news/embed/bdacd1ad-3041-486d-9865-58c069baa167.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/bdacd1ad-3041-486d-9865-58c069baa167.webp">
+
+        <img src="https://assets.matters.news/embed/bdacd1ad-3041-486d-9865-58c069baa167.png" srcset="https://assets.matters.news/processed/540w/embed/bdacd1ad-3041-486d-9865-58c069baa167.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><h3><br></h3><h3><strong>2. 相關書籍 </strong></h3><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/3a1f92e2-a188-44f4-b9b2-4f7fe19ee8a4.webp" onerror="this.srcset='https://assets.matters.news/embed/3a1f92e2-a188-44f4-b9b2-4f7fe19ee8a4.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/3a1f92e2-a188-44f4-b9b2-4f7fe19ee8a4.png" onerror="this.srcset='https://assets.matters.news/embed/3a1f92e2-a188-44f4-b9b2-4f7fe19ee8a4.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/3a1f92e2-a188-44f4-b9b2-4f7fe19ee8a4.webp">
+
+        <img src="https://assets.matters.news/embed/3a1f92e2-a188-44f4-b9b2-4f7fe19ee8a4.png" srcset="https://assets.matters.news/processed/540w/embed/3a1f92e2-a188-44f4-b9b2-4f7fe19ee8a4.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p>
