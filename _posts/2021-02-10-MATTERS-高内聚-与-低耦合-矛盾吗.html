@@ -8,4 +8,34 @@ tags: blog
 author: Terence
 ---
 
-「高内聚」与「低耦合」矛盾吗
+<figure class="image">
+	      <picture>
+	              <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/ff5e3c1f-c32f-4980-b14e-fb5018ed1f27.webp" onerror="this.srcset='https://assets.matters.news/embed/ff5e3c1f-c32f-4980-b14e-fb5018ed1f27.jpeg'">
+
+		              <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/ff5e3c1f-c32f-4980-b14e-fb5018ed1f27.jpeg" onerror="this.srcset='https://assets.matters.news/embed/ff5e3c1f-c32f-4980-b14e-fb5018ed1f27.jpeg'">
+
+			              <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/ff5e3c1f-c32f-4980-b14e-fb5018ed1f27.webp">
+
+				              <img src="https://assets.matters.news/embed/ff5e3c1f-c32f-4980-b14e-fb5018ed1f27.jpeg" srcset="https://assets.matters.news/processed/540w/embed/ff5e3c1f-c32f-4980-b14e-fb5018ed1f27.jpeg" loading="lazy">
+					            </picture>
+						        <figcaption><span></span></figcaption></figure><p>软件工程中对代码质量常用的两条考察规则是：高内聚、低耦合。很多人会不由自主地使用这两条规则来反思自己的代码、评判他人的代码。</p><p>如果稍微做一点认真的思考，其实会疑惑这两个标准的矛盾性：既然要“内聚”，就必然会有耦合。而让其低耦合，则必然无法实现高内聚。</p><p>如此，岂不是两条矛盾的说辞在相互博弈？也即是，似乎它们是矛盾的？</p><p>解开这个矛盾的诀窍在于：让应该耦合的耦合，让应该独立的独立。</p><p>「应该耦合」多用于维护数据、状态、处理方法、规范的一致性，不让这些本该来自于同一源头的 resource 各自独立、分散到不同的地方。让本该「同一」的地方分散，只会造成工程上的难以维护，无法做到：“只改一处，别处自改”的优雅管理。</p><p>其具体的表现方法是：「继承」、单一的数据源。</p><p>「继承」从语法层级上将子类与父类牢牢绑定，父类的任何变动都会自动地反应到所有的子类上。于是，父类特别适用于制定业务流程规范。又考虑到「规范」的通用性，抽象类通常是最佳选择：既限定了必然的规范流程，又为每个流程的步骤细节提供了最大的灵活性。</p><p>单一数据源，通常使用配置文件来替代分散在代码各处的 data string。使用配置文件或常数变量文件，能从语法层级上保证各使用部分一定来自同一源头。</p><p>「应该独立」多用于控制系统复杂度，让各自的问题都被止步隔离在自己的模块中，以避免造成局部影响全局、牵一发而动全身的不可控局面。</p><p>engineering 最核心的任务就是控制复杂度，而控制复杂度的根本就在于「隔离」。因为往往「高复杂度」体现为各个模块之间的盘根错节，一处崩盘则处处崩盘。而「隔离」则让各部分形成孤岛，从而实现一处崩盘，则仅这一处崩盘。系统的复杂度由此得以被控制。</p><p>其具体的表现方法是：「组合」，即：通过「引入」其它模块的实例，来增添当前模块的功能；而不是通过「继承」其它模块来增添当前模块的功能。如此，被添加的功能模块的影响力，仅仅会被限制在这个实例变量中，而不会使得“被加强”的模块全面崩盘。</p><p>「应该耦合」与「应该独立」的判断标准，并非一成不变，随着业务的演化和推进，统一模块中的元素，有可能从「应该耦合」变为分拆独立，也可能从「应该独立」变成重新聚合。这就需要工程师有真正的洞见，能够灵活而恰当地识别当前业务模块在团队中所应处于的状态，即：「因时」「因地」「因人」而异。</p><p>初阶的 developer，大多会被「继承」的“自动添加子类功能”的特性迷惑，错误地使用继承来为现有模块添加功能，无法意识到这会造成代码的严重耦合。而大部分的书籍在介绍继承时，也缺乏相关的「代码耦合」的细致讨论。</p><p><br></p><p><br></p><p><strong>近期回顾</strong></p><p>《<a href="http://mp.weixin.qq.com/s?__biz=MzI5MDMyMTEwNw==&amp;mid=2247485789&amp;idx=1&amp;sn=e968178b630ba39c716844742ac07f5c&amp;chksm=ec20eee1db5767f7215099b814e222e158f45b4732b8e01d3d2063c26fb5913aec85930de79f&amp;scene=21#wechat_redirect" target="_blank">kernel/user mode 的切换细节和设计考量</a>》</p><p>《<a href="http://mp.weixin.qq.com/s?__biz=MzI5MDMyMTEwNw==&amp;mid=2247485772&amp;idx=1&amp;sn=d52b11faaaac32d62381f0efa52374ba&amp;chksm=ec20eef0db5767e6e667e2638bbb1092ab4d3441a3eccc15fcd322e7ab55a875415fd6b3ac53&amp;scene=21#wechat_redirect" target="_blank">备忘录：数学、玄学与科学</a>》</p><p>《<a href="http://mp.weixin.qq.com/s?__biz=MzI5MDMyMTEwNw==&amp;mid=2247485763&amp;idx=1&amp;sn=e4ef14d1b2d5af1a07e7daac33717eaf&amp;chksm=ec20eeffdb5767e999c2ad1c0156a92ec0e7bf677620d0d66a1dbcdd7cf1eb4e101e5ff35b18&amp;scene=21#wechat_redirect" target="_blank">简评：并发问题的牛鼻子</a>》</p><p><br></p><h2><strong>&nbsp;</strong></h2><p><strong>如果你喜欢我的文章或分享，请长按下面的二维码关注我的微信公众号，谢谢！</strong></p><figure class="image">
+							      <picture>
+							              <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/73548907-482c-4f5f-baa7-ee834fe46abd.webp" onerror="this.srcset='https://assets.matters.news/embed/73548907-482c-4f5f-baa7-ee834fe46abd.webp'">
+
+								              <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/73548907-482c-4f5f-baa7-ee834fe46abd.webp" onerror="this.srcset='https://assets.matters.news/embed/73548907-482c-4f5f-baa7-ee834fe46abd.webp'">
+
+									              <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/73548907-482c-4f5f-baa7-ee834fe46abd.webp">
+
+										              <img src="https://assets.matters.news/embed/73548907-482c-4f5f-baa7-ee834fe46abd.webp" srcset="https://assets.matters.news/processed/540w/embed/73548907-482c-4f5f-baa7-ee834fe46abd.webp" loading="lazy">
+											            </picture>
+												        <figcaption><span></span></figcaption></figure><h3><strong>&nbsp;&nbsp;</strong></h3><p><strong>更多信息交流和观点分享，可加入知识星球：</strong></p><figure class="image">
+													      <picture>
+													              <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/57f8f070-2d2c-4e3a-b171-cf81d8340f43.webp" onerror="this.srcset='https://assets.matters.news/embed/57f8f070-2d2c-4e3a-b171-cf81d8340f43.webp'">
+
+														              <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/57f8f070-2d2c-4e3a-b171-cf81d8340f43.webp" onerror="this.srcset='https://assets.matters.news/embed/57f8f070-2d2c-4e3a-b171-cf81d8340f43.webp'">
+
+															              <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/57f8f070-2d2c-4e3a-b171-cf81d8340f43.webp">
+
+																              <img src="https://assets.matters.news/embed/57f8f070-2d2c-4e3a-b171-cf81d8340f43.webp" srcset="https://assets.matters.news/processed/540w/embed/57f8f070-2d2c-4e3a-b171-cf81d8340f43.webp" loading="lazy">
+																	            </picture>
+																		        <figcaption><span></span></figcaption></figure><p><br></p><p><br></p>
