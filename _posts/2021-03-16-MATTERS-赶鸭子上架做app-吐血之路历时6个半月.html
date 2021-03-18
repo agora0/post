@@ -1,0 +1,22 @@
+---
+layout: post
+title: 赶鸭子上架做app：吐血之路历时6个半月
+date: 2021-03-16 02:21:57.000000000 +00:00
+link: https://matters.news/@potato_pepper/%25E8%25B5%25B6%25E9%25B8%25AD%25E5%25AD%2590%25E4%25B8%258A%25E6%259E%25B6%25E5%2581%259Aapp-%25E5%2590%2590%25E8%25A1%2580%25E4%25B9%258B%25E8%25B7%25AF%25E5%258E%2586%25E6%2597%25B66%25E4%25B8%25AA%25E5%258D%258A%25E6%259C%2588-bafyreifoag6y4kplbfhybms4zxdk3szpbtpfuii4kiuzyf6adrb4ocxune
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<h2><br></h2><p>应同学之邀，app开发0经验0基础的我，于2020年8月被赶鸭子上架做app。</p><blockquote>“我真没做过这玩意，我们这样搞靠谱嘛？！”</blockquote><p>虽然我一点也不情愿，但是同学就是无视我的吐槽，就这样我走上了做app的吐血之路……</p><h2>吐血之一：Xcode安装不顺利</h2><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/5462ee48-d35a-40dc-8593-cdcb6c71a6ed.webp" onerror="this.srcset='https://assets.matters.news/embed/5462ee48-d35a-40dc-8593-cdcb6c71a6ed.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/5462ee48-d35a-40dc-8593-cdcb6c71a6ed.png" onerror="this.srcset='https://assets.matters.news/embed/5462ee48-d35a-40dc-8593-cdcb6c71a6ed.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/5462ee48-d35a-40dc-8593-cdcb6c71a6ed.webp">
+
+        <img src="https://assets.matters.news/embed/5462ee48-d35a-40dc-8593-cdcb6c71a6ed.png" srcset="https://assets.matters.news/processed/540w/embed/5462ee48-d35a-40dc-8593-cdcb6c71a6ed.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p>iOS开发工具Xcode在App Store的评分只有2.7之低，说明光开发工具就蕴藏着无穷无尽的bug……</p><p>记得安装Xcode时，安装进度条一直停在99%半死不活1个小时，小白如我一直提心吊不知所措……</p><p>安装Xcode就是这么痛苦，然而这只是痛苦的开始……</p><h2>吐血之二：从StoryBoard到SwiftUI</h2><p>开发工具备齐后，同学兴高采烈给我推荐了几个Swift零基础自学教程。本着“磨刀不误砍柴工”的原理，我决定从边看教程 + 边做demo试手开始。</p><p>后来的事实证明，同学推荐出这样档次的0基础教程，说明他也是一个app开发半小白……</p><pre class="ql-syntax">不知道Apple有没有意识到Xcode是一个正在被全网吐槽的开发工具，但我想Apple可能已经意识到StoryBoard是一个不符合科学原理的开发框架，于是他们后来推出了SwiftUI……
+</pre><p><br></p><p>此乃后话，但是当我和同学开始寻找教程时，并没有意识到如此重要的一个历史进程，于是同学好心找来的教程几乎都是基于StoryBoard的……💧</p><p>当我发现StoryBoard后面蕴含的槽点后，开始发愁：这么一套槽点满满的框架，小白如我，会遭遇多少bug啊！！！</p><p>不过还好，我又后知后觉地发现了SwiftUI……</p><p><br></p><blockquote>“我们要拿什么做App？SwiftUI还是StoryBoard？”</blockquote><p>当我向同学抛出这么个问题时，小白同学懵了……</p><p>当小白同学在我之后意识到StoryBoard和SwiftUI的差别后，我们共同决定：抛弃后患无穷的StoryBoard，选择SwiftUI重新上路。</p><h2>吐血之三：SwiftUI还不完善</h2><p>从StoryBoard到SwiftUI，算是不熟悉背景、知识匮乏，折腾了一段为期2周的弯路。</p><p>原以为这段弯路就当是现学现卖路上的热身训练，没想到重新上路的SwiftUI也蕴藏着槽点：</p><ul><li>刚面世的SwiftUI，网络上靠谱教程少，对于小白如我很致命。</li><li>SwiftUI开发不完善，于是某些SwiftUI不能完成的任务还需要靠StoryBoard填补——需要做一个基于SwiftUI但是某些功能 / 效果 是用StoryBoard无缝连接的混血app……</li></ul><p>明白这个原理后，我发现自己正走在一条吐血不归路上……😱</p><h2>吐血之三：Azure贡献的槽点</h2><p>按需开发的App需要满足用户登陆需求，于是同学又马不停蹄找来了Azure教程，以实现app登陆后获取在Azure端的用户资料……</p><p>整个App开发过程，苹果贡献了80%的槽点，Azure贡献了20%的槽点。</p><ul><li>Azure官方教程五花八门，其中还包括一些已过期不大适用混淆视听的教程。对于小白如我，真是看得两眼昏花，越看越混乱。</li><li>相比FB、Google在iOS端实现登陆，Azure的代码麻烦了至少5倍……</li><li>Azure在iOS端实现登陆，目前还需要StoryBoard，于是需要用到传说中的StoryBoard无缝接入SwiftUI……</li></ul><p>小白如我，做到这个步骤时，已经快晕了：我已经不记得最开始学的StoryBoard教程是怎么用的了……</p><h2>圣诞假期，中场休息一个月</h2><p>实现了用户登陆后，一个功能粗糙、界面劣质的app初步成型。我也在这条吐血之路上从8月底折腾到了12月。从8月到12月，基本就是一个效率越来越低，每日提交代码数量越来越少，心情越来越烦躁的过程……😂</p><blockquote>“年底了，放假休息一下，明年再做……”</blockquote><p>同学终于大发慈悲，12月中旬我迎来了为期1个月的中场休息时间。</p><h2>吐血之四：注册超级繁琐</h2><p>虽然超级不情愿，但是2021年终于还是到来了，粗制滥造app的上架收尾工作还得继续。</p><p>经历过Apple Developer注册、验证、付费……一系列流程后，感想就是：</p><ul><li>这过程真麻烦！！！</li><li>今生不想再体验第二次！！！</li><li>比debug还烦！！！</li></ul><h2>吐血之五：上架前的Review</h2><p>所有App上架到App Store前都要经过苹果工作人员Review才能发布。将做好的App提交到App Store Connect，需要提交系列资料等待审核，需要经历无数次莫名其妙的error挫败才能好不容易提交成功一次；好不容易提交成功一次后，还有可能因为提交不仔细，被苹果工作人员审核不通过……</p><p>原本以为从安装Xcode，到折腾SwiftUI，再到注册账号，我终于要迎来解脱的曙光了，没想到最后的上架过程也是步骤繁多、槽点无数……</p><p><br></p><p>三月，当终于收到app ready to sale的确认消息后，心情是看到自己的劳动成果上架后欢呼雀跃嘛？</p><p>不，我现在看到Xcode和Swift就想吐。</p><blockquote>“App今后的新版本升级，你还是另外找人吧……”</blockquote><p>我如此对同学说。</p><hr><p><br></p><p>如果你看我在这里吐槽到现在，还没有走开，或许还略有兴趣想来尝试一下iOS开发，我向你推荐一个过去半年时间我看过的一个靠谱教程，曾经让我受益匪浅：</p><p><a href="https://www.youtube.com/watch?v=yOhyOpXvaec&list=PLpGHT1n4-mAtTj9oywMWoBx0dCGd51_yG" target="_blank">https://www.youtube.com/watch?v=yOhyOpXvaec&list=PLpGHT1n4-mAtTj9oywMWoBx0dCGd51_yG</a></p><p>该教程由斯坦福大学发布，App开发技术更新超快，现在已经是2021年了，2021年春天记得看斯坦福大学有没有发布2021版新教程，紧跟时代脚步。😂</p>
