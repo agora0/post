@@ -9,4 +9,85 @@ tags: blog
 author: 為自己Coding
 ---
 
-NumPy的各種用法 - 讀書筆記 - Python Data Science Handbook - Python數據科學 - NumPy是什麼？ - 理解Python中的數據類型與運作原理 - 其實Python中的整數不僅...
+<p><br></p><p><a href="https://github.com/chwang12341/Book/blob/master/Python-Data-Science-Handbook-Personal-Note/NumPy/NumPy%E7%9A%84%E5%90%84%E7%A8%AE%E7%94%A8%E6%B3%95.md" target="_blank">Github連結</a></p><p>嗨嗨，如果覺得圖片不清楚，都可以直接參考我的Github喔</p><p><br></p><figure class="image">
+	      <picture>
+	              <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/e7088185-fda5-4ef6-86f5-8a9ba76e9a82.webp" onerror="this.srcset='https://assets.matters.news/embed/e7088185-fda5-4ef6-86f5-8a9ba76e9a82.jpeg'">
+
+		              <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/e7088185-fda5-4ef6-86f5-8a9ba76e9a82.jpeg" onerror="this.srcset='https://assets.matters.news/embed/e7088185-fda5-4ef6-86f5-8a9ba76e9a82.jpeg'">
+
+			              <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/e7088185-fda5-4ef6-86f5-8a9ba76e9a82.webp">
+
+				              <img src="https://assets.matters.news/embed/e7088185-fda5-4ef6-86f5-8a9ba76e9a82.jpeg" srcset="https://assets.matters.news/processed/540w/embed/e7088185-fda5-4ef6-86f5-8a9ba76e9a82.jpeg" loading="lazy">
+					            </picture>
+						        <figcaption><span>攝影師：Aleksey Kuprikov，連結：Pexels</span></figcaption></figure><p><br></p><p><br></p><h2><strong>2.0章 NumPy介紹</strong></h2><p>重要觀念：無論哪種數據類型，要使它變成可分析，第一步就是將他們轉換為數值</p><h3><br></h3><p><strong>1.如何使各類型的數據轉換成可分析的數據集？數據處理的第一步是什麼？ </strong></p><ul><li>背景：數據集的來源可能非常不同，而不同的來源，可能擁有非常不同的格式，像是文檔、圖像、聲音片段、數值測量等等，這些數據的異質性相當高</li><li>方法：將所有的數據抽象成為數值組成的數組，就能對數據集進行分析</li><li>舉例:</li></ul><p>1.數字圖片，可以被轉為簡單的二維數組</p><p>2.聲音片段，可以被轉為一維數組，包括著時間範圍內聲音強度的數值</p><p>3.文本，可以使用二進制數字來代表某個單詞或短語的出現頻率</p><h3><br></h3><p><strong>2. NumPy是什麼？ </strong></p><ul><li><strong>說明</strong>：Numerical Python(數值Python)的縮寫，它提供了強大的接口，讓我們存儲和操作密集的數據緩衝區（dense data buffers）</li><li>Python關聯：NumPy的數組像是Python內建的列表（list）型態，但是NumPy數組在儲存和操作大量數據時，提供了比Python本身更好的效能</li><li><strong>重要性</strong>：NumPy數組接近是整個Python數據科學領域工具鏈的核心，許多我們所使用的數據分析與處理套件都是以它為基礎構建的</li></ul><h3><br></h3><h3><strong>3. 查看已安裝的NumPy版本</strong></h3><pre class="ql-syntax">import numpy as np
+np.__version__ 
+						</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">'1.18.1'
+						</pre><h3><br></h3><h3><strong>4. 提醒 - 內建幫助文檔 </strong></h3><ul><li>使用?: 查看所有文檔</li></ul><pre class="ql-syntax">np? 
+						</pre><ul><li>使用&lt;Tab&gt;鍵：查看所有的屬性方法</li></ul><pre class="ql-syntax">np.&lt;Tab&gt;
+						</pre><h2><br></h2><h2><br></h2><h2><strong>2.1章 理解Python中的數據類型與運作原理</strong></h2><p><br></p><h3><strong>1. 程式語言的動態與靜態類型</strong></h3><ul><li>靜態類型的語言：每個變數都要明確的宣告，如C、Java</li><li>動態類型的語言：沒有[每個變數都要明確宣告]的規定，變數類型可以進行動態轉換（ex. Int &lt;-&gt; Str），如Python，這也是為什麼Python具有易用性的重要原因</li></ul><p>舉例：在C中，我們會將for迴圈宣告成如下：</p><pre class="ql-syntax">int total = 0
+for(int i = 0; i &lt; 100; i++){
+&nbsp;&nbsp;total +=i
+}
+						</pre><p>而在Python中，我們如果寫一樣的程式</p><pre class="ql-syntax">total = 0
+for i in range(1000):
+&nbsp;&nbsp;total += i
+						</pre><p><strong>重要觀察與觀念釐清</strong>：從Python和C上面的範例可以看出差別，在C中每個變數都要明確宣告類型（ex. int），而在Python中的類型卻是動態去推斷的，這代表著在Python中我們可以給任何變數賦予任何數據類型的值，像是：</p><pre class="ql-syntax">## Python
+x = 6
+x = "七"
+x = "seven"
+						</pre><p><strong>重要觀念：</strong></p><p>在Python的例子中，我們先將變數X賦予整數值，然後又再賦予字串類型的值，變數X會自動從整數轉換成字串類型，但這在C中，可能會導致報出一個編譯錯誤或其他無法預料的錯誤資訊（取決於哪種編譯器的使用）</p><pre class="ql-syntax">/*C */
+int x = 7
+x = "seven" //會報錯
+						</pre><h3><br></h3><h3><strong>2. 動態類型語言 - Python - 易用性背後需要付出的代價</strong></h3><p>Python擁有數據類型自動轉換的靈活性，但也因為這個特性，Python必須得付出額外的儲存空間代價，Python中的變數不僅僅存儲數據本身，還需要存儲其變數相應的數據類型</p><h3><br></h3><h3><strong>3. Python中的整數不僅僅是個整數 - 整數的架構</strong></h3><p><strong>重要觀念：</strong></p><ul><li>標準的Pythªª列表裡面的每個元素都是一個完整的Python物件(object)</li><li><strong>推論與解決方法：</strong> 1.如果在所有的元素都是同種類型的情況下，就表示列表裡面絕大部分的資訊都是多餘的 2.所以如果我們將數據存儲在一個固定類型的數組中，顯然會更加高效 - NumPy就是固定類型的數組</li><li><strong>圖片：</strong>比較了動態類型的列表（Python List）與固定類型的列表（NumPy Array）</li></ul><figure class="image">
+							      <picture>
+							              <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/77430479-4165-49c9-ac46-ab13bac2ecea.webp" onerror="this.srcset='https://assets.matters.news/embed/77430479-4165-49c9-ac46-ab13bac2ecea.png'">
+
+								              <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/77430479-4165-49c9-ac46-ab13bac2ecea.png" onerror="this.srcset='https://assets.matters.news/embed/77430479-4165-49c9-ac46-ab13bac2ecea.png'">
+
+									              <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/77430479-4165-49c9-ac46-ab13bac2ecea.webp">
+
+										              <img src="https://assets.matters.news/embed/77430479-4165-49c9-ac46-ab13bac2ecea.png" srcset="https://assets.matters.news/processed/540w/embed/77430479-4165-49c9-ac46-ab13bac2ecea.png" loading="lazy">
+											            </picture>
+												        <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><strong>圖片來源：引用書本</strong></p><ul><li><strong>圖片說明：</strong></li></ul><ol><li>NumPy Array: 從實作層（implementation level）來看，數組僅僅包含了一個指針指向一個連續的內å21834-eb16-479b-b023-9ac85dadcb69.png" loading="lazy">
+														      </picture>
+														          <figcaption><span></span></figcaption></figure><h3><br></h3><h3><br></h3><p><strong>6. Python的固定類型數組 - Fixed-Type Arrays </strong></p><p>Python中提供了相當多樣的選項，讓我們可以高效地存儲數據 - 固定類型數組</p><h4><br></h4><h4><strong>Python中內建的array套件 - 用來創建全部元素都為同一類型的數組</strong></h4><pre class="ql-syntax">import array
+x = list(range(10))
+## i 代表整數類型
+a = array.array('i', x)
+print(a)
+## f 代表浮點數類型
+b = array.array('f', x)
+print(b)
+														  </pre><p><strong>執行結果</strong></p><pre class="ql-syntax">array('i', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+array('f', [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0])
+														  </pre><ul><li>程式碼中的"i"代表著指定數據類型為整數，而"f"代表指定為浮點數類型的數據</li></ul><h4><br></h4><h4><br></h4><p><strong>NumPy Array - ndarray套件 </strong></p><p>導入NumPy套件</p><pre class="ql-syntax">import numpy as np
+														  </pre><p><br></p><p>範例一：使用np.array將Python列表轉變成數組</p><pre class="ql-syntax">import numpy as np
+np.array([1,4,66,58])
+														  </pre><p><strong>執行結果</strong></p><pre class="ql-syntax">array([ 1, 4, 66, 58])
+														  </pre><p><strong>重要提醒：NumPy數組與Python列表不同，它只能包含一種數據類型喔</strong></p><p><br></p><p>範例二：如果列表中其中一筆數據元素為浮點數類型，NumPy會試著向上擴展類型（下面的程式碼中將會將整數向上擴展為浮點數）</p><pre class="ql-syntax">import numpy as np
+np.array([6.68,7,9,9])
+														  </pre><p><strong>執行結果</strong></p><pre class="ql-syntax">array([6.68, 7. , 9. , 9. ])
+														  </pre><p><br></p><p>範例三：如果需要明確指定數據的類型，就需要使用drype參數</p><pre class="ql-syntax">impo元素的值保留為原有的內存空間值</p><pre class="ql-syntax">np.eye(6)
+														  </pre><p><strong>執行結果</strong></p><pre class="ql-syntax">array([[1., 0., 0., 0., 0., 0.],
+&nbsp;&nbsp;&nbsp;[0., 1., 0., 0., 0., 0.],
+&nbsp;&nbsp;&nbsp;[0., 0., 1., 0., 0., 0.],
+&nbsp;&nbsp;&nbsp;[0., 0., 0., 1., 0., 0.],
+&nbsp;&nbsp;&nbsp;[0., 0., 0., 0., 1., 0.],
+&nbsp;&nbsp;&nbsp;[0., 0., 0., 0., 0., 1.]])
+														  </pre><p><br></p><p>範例十: empty用法 - 創建一個為初始化的數組，數組元素的值，數組元素的值保留為原有的內存空間數值</p><pre class="ql-syntax">np.empty(6)
+														  </pre><p><strong>執行結果</strong></p><pre class="ql-syntax">array([1., 1., 1., 1., 1., 1.])
+														  </pre><h3><br></h3><h3><br></h3><h2><strong>8.NumPy中可以指定的標準數據類型</strong></h2><ul><li>由於NumPy數組只能包含一種數據類型，所以他的類型系統和Python並不同，因為對於每一種NumPy類型，它都需要包含著更詳細的類型資訊和限制</li><li>NumPy是由C建構的，所以它的類型系統與C、Fortran一樣</li><li><strong>指定數據類型的兩種寫法</strong></li></ul><p><br></p><p>使用'(類型)'</p><pre class="ql-syntax">np.zeros(10, dtype = 'int32')
+														  </pre><p><strong>執行結果</strong></p><pre class="ql-syntax">array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+														  </pre><p><br></p><p>或是np.(類型</p><pre class="ql-syntax">np.zeros(10, dtype = np.int32)
+														  </pre><p><strong>執行結果</strong></p><pre class="ql-syntax">array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+														  </pre><p><br></p><ul><li><strong>類型圖表</strong></li></ul><figure class="image">
+															        <picture>
+																        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/61045844-a6e8-4bbd-b1a2-6e92ff4c88ca.webp" onerror="this.srcset='https://assets.matters.news/embed/61045844-a6e8-4bbd-b1a2-6e92ff4c88ca.png'">
+
+																	        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/61045844-a6e8-4bbd-b1a2-6e92ff4c88ca.png" onerror="this.srcset='https://assets.matters.news/embed/61045844-a6e8-4bbd-b1a2-6e92ff4c88ca.png'">
+
+																		        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/61045844-a6e8-4bbd-b1a2-6e92ff4c88ca.webp">
+
+																			        <img src="https://assets.matters.news/embed/61045844-a6e8-4bbd-b1a2-6e92ff4c88ca.png" srcset="https://assets.matters.news/processed/540w/embed/61045844-a6e8-4bbd-b1a2-6e92ff4c88ca.png" loading="lazy">
+																				      </picture>
+																				          <figcaption><span></span></figcaption></figure><p><br></p><p><br></p>
