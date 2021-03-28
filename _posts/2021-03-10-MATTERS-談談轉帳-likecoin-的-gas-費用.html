@@ -1,0 +1,22 @@
+---
+layout: post
+title: 談談轉帳 LikeCoin 的 gas 費用
+date: 2021-03-10 12:25:07.000000000 +00:00
+link: https://matters.news/@edmond/%25E8%25AB%2587%25E8%25AB%2587%25E8%25BD%2589%25E5%25B8%25B3-like-coin-%25E7%259A%2584-gas-%25E8%25B2%25BB%25E7%2594%25A8-bafyreiaj5bbeu72rlt3bh5ukvaghzij6xhchswtckeza7kbzcqwbsuqqze
+categories: matters
+tags: blog
+author: 黃牛山人
+---
+
+<figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f3d03615-bc09-4da4-b231-21c192a3c0ce.webp" onerror="this.srcset='https://assets.matters.news/embed/f3d03615-bc09-4da4-b231-21c192a3c0ce.jpeg'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f3d03615-bc09-4da4-b231-21c192a3c0ce.jpeg" onerror="this.srcset='https://assets.matters.news/embed/f3d03615-bc09-4da4-b231-21c192a3c0ce.jpeg'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/f3d03615-bc09-4da4-b231-21c192a3c0ce.webp">
+
+        <img src="https://assets.matters.news/embed/f3d03615-bc09-4da4-b231-21c192a3c0ce.jpeg" srcset="https://assets.matters.news/processed/540w/embed/f3d03615-bc09-4da4-b231-21c192a3c0ce.jpeg" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>Out of gas by Jon Kneller on flickr</span></figcaption></figure><p>重要的先說：目前轉帳 LikeCoin 每筆所需的手續費大約 0.059 LIKE，約等於 0.0006 美元，便宜到可被忽略，大家不用擔心。</p><p>LikeCoin chain 是基於 Cosmos SDK 開發的，因此大部份做法均是參照 Cosmos。在 LikeCoin chain 上做任何動作 (transaction – tx) 需要 gas fee 的原因是防止有人濫用系統資源，例如以程式碼產生大量 transactions 佔據擠塞網絡卻毫無代價。Liker Land 自更新 v0.20.6 版本後，進行每種 transaction 均要以 LikeCoin 支付 transaction fee（或稱 gas fee）。</p><p>要理解 transaction fee 的計算方法，我們先要弄懂幾個概念。</p><hr><h3>Transaction Fee</h3><p>就是執行某一 transaction 時用戶所需付出的代價，計算方法是：</p><pre class="ql-syntax">transaction fee = gasWanted x gasPrice
+</pre><p>gasWanted 是由客戶端（例如 Liker Land app）在執行每項 transaction 時估算出來的 gas 用量，gasPrice 是每 gas 單位的價錢，以 nano LIKE 來量度（1 nano-LIKE = 0.000000001 LIKE）。Liker Land 自 v0.20.6 以後預設 gas price 是 1000 nano-LIKE。</p><p>留意 transaction fee 的計算方法不是以執行時實際用掉了的 gas 單位 (gasUsed) 來計算，而是以客戶端所設定了的 gasWanted，亦即 tx 可用的最大 gas 量來算。因此就算實際執行時用少了 gas，用戶仍需付出付出 max gas usage 的費用。這點一般用戶會覺得很不直觀，Cosmos 社群也有同感，<a href="https://github.com/cosmos/cosmos-sdk/issues/2150" target="_blank">並已在 cosmos-sdk 的 GitHub 上開了 issue</a>，但至今仍未解決。</p><p>大家最關心的是：那麼每種 transaction 要付多少費用？</p><ul><li>轉帳（LIKEPay)：約 0.059 LIKE</li><li>委託：約 0.19 LIKE</li><li>取回委託：約 0.32 LIKE</li><li>領取收益： 約 1.25 LIKE</li></ul><p>用戶可能會在一些邊緣情況因為不夠錢支付 transaction fee 導致無法執行指令，例如：</p><ul><li>無法把錢包中所有 LikeCoin 轉出，因為最少要留下少量 LIKE 支付 gas fee。如若錢包中只有 1 LIKE，你最高只可轉帳約 0.94 LIKE 左右。</li><li>全數 LikeCoin 進行了委託後，無法領回，因為要留下少量 LIKE 支付 委託操作的 gas fee。同樣道理，也無法把錢包中全數 LikeCoin 委託。</li><li>領取收益時錢包中必須確保錢包中有所需的 gas fee</li></ul><p>遇到上述況時目前最好的方法是找朋友幫忙，推薦 <a href="https://discord.com/invite/W4DQ6peZZZ" target="_blank">discord 社群</a>。</p><hr><h3>Gas</h3><p>Gas 是計算運算資源的基本單位。執行每種 transaction 所需的 gas 單位各不相同，視乎該項 transaction 的複雜程度，需要愈多運算資源便要用愈多 gas。以目前的 LikeCoin chain 為例，各種操作所需的 gas 如下：</p><ul><li>轉帳（LIKEPay)：約 59000 gas 單位</li><li>委託：約 190000 gas 單位</li><li>取回委託：約 32000 gas 單位</li><li>領取收益： 約 1250000 gas 單位</li></ul><p>留意 “gas” 本身就是一個量度單位，gas 不是 LIKE，是兩個概念來的。另，<strong>每次估算 transaction 所需的 gas 時都會因為當時不同的網絡情況令數值有少許不同，因此以上數字僅為約數。</strong></p><hr><h3>Gas Price</h3><p>客戶端跟驗證人節點也有 gasPrice 的參數供設定，但意義有點不同。客戶端 (如 Liker Land）的 gasPrice 設定用作把 transaction 於鏈上廣播時，讓其他網絡成員據此計算此 tx 的 gas fee 及決定是否值得做這筆 transaction。驗證人節點設定的是 gasPrice 參數實際是最低 gas price (min-gas-price)，用來決定會否執行某一 transaction 的先決門檻，但跟 transaction 實際會用的 gas fee 無關。例如某驗證人可以設定 min-gas-price = 500 nano-LIKE 甚至 0 nano-LIKE，但客戶端照樣出價 gasPrice=1000 執行某 transaction。</p><p>對比以太坊的使用經驗，客戶端設定的 gasPrice 愈高，便能提供愈大的誘因讓礦工處理該筆 transaction。在䌓忙的網絡如以太坊中，由於每區塊的資料空間稀缺，客戶端若想交易盡快被執行便會出現競價的行為搶高 gasPrice。但目前 LikeCoin chain 還算悠閒 (^_^)，暫時未見到有競價的需要。另，Liker Land 作為最方便的 LikeCoin 錢包也暫未有提供調整 gasPrice 的功能。</p><p>還有，聽說目前驗證人節點選取 tx 的邏輯，不是價高者得？？這點有請熟悉 cosmos-sdk 的高人幫忙核實一下。</p><hr><h3>Gas fee 最後付給誰？</h3><p>驗證人及委託人的收入來自 block reward，block reward 包括扣除了社群基金稅款後該區塊所產生的所有 transaction fee 及通脹，而驗證人所佔 block reward 的份額取決他所設定的佣金比率。所以，網絡使用者所付出的 gas fee 最終按比例歸入各委託者的錢包及社群基金。</p><h3>給用戶的建議</h3><p>請時常預留最少 10 LIKE 在自己的錢包，不要清空。另，請多結交擁有 LikeCoin 的好朋友。</p><hr><p><br></p><p>參考文章： <a href="https://docs.cosmos.network/master/basics/tx-lifecycle.html" target="_blank">Cosmos SDK – Transaction Lifecycle</a></p><p><br></p>
