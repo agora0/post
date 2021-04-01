@@ -1,13 +1,13 @@
 ---
 layout: page
-title: C⓪V⓵D
+title: C⓪V①D
 permalink: /covid/
 comments_repo: agorahub/blog0
 comments_id: 2
 ---
 ```
 ⓪ : 👎 Downvote
-⓵ : 👍 Upvote
+① : 👍 Upvote
 ```
 Collaborate to check facts on COVID-19.
 
@@ -17,7 +17,7 @@ This page relays the previous campaign -<br>
 ## How-to
 
 - Read and write the Comments below.
-- Vote 👍 / 👎 to the [Issue](https://github.com/agorahub/blog0/issues/2) comments.
+- Vote 👍 / 👎 to the [Issue comments](https://github.com/{{page.comments_repo}}/issues/{{page.comments_id}}).
 
 {% include comments.html %}
 
