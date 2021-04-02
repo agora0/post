@@ -12,12 +12,9 @@ comments_id: 1
 
 Read blog on demand.
 
-| Source  | Importer   | Update |
-| :-----  | :-------   | :----- |
-| INITIUM | RSSINITIUM | Daily  |
-| MATTERS | RSSMATTERS | Daily  |
-| STAND   | RSSSTAND   | Daily  |
-| VOCUS   | RSSVOCUS   | Daily  |
+| muitinⒾ | srettaⓂ | dnatⓈ | sucoⓋ |
+| -- | -- | -- | -- |
+| [![Initium](https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/initium.jpg)](https://theinitium.com/) | [![Matters](https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/matters.jpg)](https://matters.news/) | [![Stand](https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/stand.jpg)](https://thestandnews.com/) | [![Vocus](https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/vocus.jpg)](https://vocus.cc/) |
 
 ## Test and Deploy
 
@@ -35,7 +32,7 @@ $ JEKYLL_ENV=production bundle exec jekyll build
 ## List of Features
 
 - [x] Batch and Automate - Check out the [issue comment](https://github.com/agorahub/news0/issues/1#issuecomment-597540617)
-- [x] Comment and Review - Check out the [issue comment](https://github.com/agorahub/blog0/issues/3#issuecomment-726799802)
+- [x] Comment and Review - Check out the [issue comment](https://github.com/agorahub/blog0/issues/3#issuecomment-790417947)
 
 ## Disclaimer
 
