@@ -1,0 +1,41 @@
+---
+layout: post
+title: "「抓到了？！」用數據分析鳥瞰 PTT 政治文帳號 (上)"
+date: 2018-10-12 09:24:54.000000000 +00:00
+link: https://matters.news/@tonymhwang/%25E6%258A%2593%25E5%2588%25B0%25E4%25BA%2586-%25E7%2594%25A8%25E6%2595%25B8%25E6%2593%259A%25E5%2588%2586%25E6%259E%2590%25E9%25B3%25A5%25E7%259E%25B0-ptt-%25E6%2594%25BF%25E6%25B2%25BB%25E6%2596%2587%25E5%25B8%25B3%25E8%2599%259F-%25E4%25B8%258A-zdpuAnpeUB66DErrfxCKfZSAG8gpm5Uoww95CTgERdzY5BZFm
+categories: matters
+tags: blog
+author: 王銘宏
+---
+
+<p>選舉一直是台灣最重要的民主雙年盛會之一。近年來，隨著線上平台的蓬勃發展與媒體露出，線上選舉活動已經成為打選戰相當被重視的一塊，各政黨及候選人也都試圖透過網路來更親近選民，宣傳自己，積極一點則是期待透過網路，帶動議題，而終極目標當然是爭取更多選票或是打擊對手。</p><p>筆者從主流媒體或網路討論中，都常聽聞有所謂「網軍」的存在，然而大多是透過主觀判斷，或沒有積極證據的推論，例如依據特定使用者發言內容與其政治傾向，但尚未有從巨觀來看各使用者之行為的系統化研究。因此，本研究希望透過電腦技術與資料分析，提供更多客觀的數據來了解這些使用者是否有符合網軍的行為特徵。</p><p></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://matters-server-production.s3-ap-southeast-1.amazonaws.com/embed/58af74ac-8501-40aa-8b2b-d13e7e659365/5b3c51e09f1595ac00b6fef1ce58a7774d9545d03fdab7a70654a41ff5533a85.png" onerror="this.srcset='https://matters-server-production.s3-ap-southeast-1.amazonaws.com/embed/58af74ac-8501-40aa-8b2b-d13e7e659365/5b3c51e09f1595ac00b6fef1ce58a7774d9545d03fdab7a70654a41ff5533a85.png'">
+
+        <source media="(min-width: 768px)" srcset="https://matters-server-production.s3-ap-southeast-1.amazonaws.com/embed/58af74ac-8501-40aa-8b2b-d13e7e659365/5b3c51e09f1595ac00b6fef1ce58a7774d9545d03fdab7a70654a41ff5533a85.png" onerror="this.srcset='https://matters-server-production.s3-ap-southeast-1.amazonaws.com/embed/58af74ac-8501-40aa-8b2b-d13e7e659365/5b3c51e09f1595ac00b6fef1ce58a7774d9545d03fdab7a70654a41ff5533a85.png'">
+
+        <source type="image/webp" srcset="https://matters-server-production.s3-ap-southeast-1.amazonaws.com/embed/58af74ac-8501-40aa-8b2b-d13e7e659365/5b3c51e09f1595ac00b6fef1ce58a7774d9545d03fdab7a70654a41ff5533a85.png">
+
+        <img src="https://matters-server-production.s3-ap-southeast-1.amazonaws.com/embed/58af74ac-8501-40aa-8b2b-d13e7e659365/5b3c51e09f1595ac00b6fef1ce58a7774d9545d03fdab7a70654a41ff5533a85.png" srcset="https://matters-server-production.s3-ap-southeast-1.amazonaws.com/embed/58af74ac-8501-40aa-8b2b-d13e7e659365/5b3c51e09f1595ac00b6fef1ce58a7774d9545d03fdab7a70654a41ff5533a85.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption>PTT 批踢踢實業坊進站畫面</figcaption></figure><p></p><p>本研究(註1)蒐集了 2018/01 - 2018/07 共 7 個月的 PTT 八卦版所有文章資料，包含文章標題、內容、評論資訊、使用者資訊 (ID, IP) 等，並將這些資料進行分析，從兩個行為模式觀點來討論</p><ol><li>網軍有明顯的政治偏好，回應多：職業網軍因為是被特定陣營聘僱的，不太可能同時有多個政治偏好。</li><li>網軍上線時間長、反應快：專職網軍因為是選戰人員，上線時間應比一般普通使用者長，同時對於文章的反應速度也會比普通人較快 (文章出現能即時回應)。</li></ol><p>若同時符合上述兩條件，則認定是網軍的機率便相當高。從七個月的資料集，我們取出標題與內文包含三位主要台北市長候選人本名 (丁守中、柯文哲、姚文智，按姓氏筆畫排序) 的文章，其中包含了超過 13,000 文章及超過 90 萬筆評論，詳細數據如表一。</p><p></p><p></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://matters-server-production.s3-ap-southeast-1.amazonaws.com/embed/c43ea8e4-76d3-402c-a3b4-686b915d2006/07cd7186a6d901cf1e330b683a0a978c608a1593f5e575e1112585fe093526b2.png" onerror="this.srcset='https://matters-server-production.s3-ap-southeast-1.amazonaws.com/embed/c43ea8e4-76d3-402c-a3b4-686b915d2006/07cd7186a6d901cf1e330b683a0a978c608a1593f5e575e1112585fe093526b2.png'">
+
+        <source media="(min-width: 768px)" srcset="https://matters-server-production.s3-ap-southeast-1.amazonaws.com/embed/c43ea8e4-76d3-402c-a3b4-686b915d2006/07cd7186a6d901cf1e330b683a0a978c608a1593f5e575e1112585fe093526b2.png" onerror="this.srcset='https://matters-server-production.s3-ap-southeast-1.amazonaws.com/embed/c43ea8e4-76d3-402c-a3b4-686b915d2006/07cd7186a6d901cf1e330b683a0a978c608a1593f5e575e1112585fe093526b2.png'">
+
+        <source type="image/webp" srcset="https://matters-server-production.s3-ap-southeast-1.amazonaws.com/embed/c43ea8e4-76d3-402c-a3b4-686b915d2006/07cd7186a6d901cf1e330b683a0a978c608a1593f5e575e1112585fe093526b2.png">
+
+        <img src="https://matters-server-production.s3-ap-southeast-1.amazonaws.com/embed/c43ea8e4-76d3-402c-a3b4-686b915d2006/07cd7186a6d901cf1e330b683a0a978c608a1593f5e575e1112585fe093526b2.png" srcset="https://matters-server-production.s3-ap-southeast-1.amazonaws.com/embed/c43ea8e4-76d3-402c-a3b4-686b915d2006/07cd7186a6d901cf1e330b683a0a978c608a1593f5e575e1112585fe093526b2.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption>表一：資料集概要</figcaption></figure><p>由表一可以發現，柯文哲目前在網路聲量是最高的，相關文章的討論也最熱烈，並遠超過其他兩位候選人。值得注意的是，每位使用者平均發表柯文哲的文章數量，遠超過另外兩位候選人 20% - 50%，平均評論數量更達 50% - 250%。這些數據顯示，在柯文哲相關文章進行討論的使用者，遠比其他兩位候選人的文章更多且更積極。</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://lh4.googleusercontent.com/KfPi1s_JLsPgJnGEIS2don1zzzuBoyCsH4A3BnIKo6F_uETQpGk4GtZBMyRbUrU0DYjzBRjrnAtmXBDo6WTaEdWljTBg0ZnzMB5Wd9NOQW2RuVCYfrcFJcoMjAesqvq2Fsv67hcO" onerror="this.srcset='https://lh4.googleusercontent.com/KfPi1s_JLsPgJnGEIS2don1zzzuBoyCsH4A3BnIKo6F_uETQpGk4GtZBMyRbUrU0DYjzBRjrnAtmXBDo6WTaEdWljTBg0ZnzMB5Wd9NOQW2RuVCYfrcFJcoMjAesqvq2Fsv67hcO'">
+
+        <source media="(min-width: 768px)" srcset="https://lh4.googleusercontent.com/KfPi1s_JLsPgJnGEIS2don1zzzuBoyCsH4A3BnIKo6F_uETQpGk4GtZBMyRbUrU0DYjzBRjrnAtmXBDo6WTaEdWljTBg0ZnzMB5Wd9NOQW2RuVCYfrcFJcoMjAesqvq2Fsv67hcO" onerror="this.srcset='https://lh4.googleusercontent.com/KfPi1s_JLsPgJnGEIS2don1zzzuBoyCsH4A3BnIKo6F_uETQpGk4GtZBMyRbUrU0DYjzBRjrnAtmXBDo6WTaEdWljTBg0ZnzMB5Wd9NOQW2RuVCYfrcFJcoMjAesqvq2Fsv67hcO'">
+
+        <source type="image/webp" srcset="https://lh4.googleusercontent.com/KfPi1s_JLsPgJnGEIS2don1zzzuBoyCsH4A3BnIKo6F_uETQpGk4GtZBMyRbUrU0DYjzBRjrnAtmXBDo6WTaEdWljTBg0ZnzMB5Wd9NOQW2RuVCYfrcFJcoMjAesqvq2Fsv67hcO">
+
+        <img src="https://lh4.googleusercontent.com/KfPi1s_JLsPgJnGEIS2don1zzzuBoyCsH4A3BnIKo6F_uETQpGk4GtZBMyRbUrU0DYjzBRjrnAtmXBDo6WTaEdWljTBg0ZnzMB5Wd9NOQW2RuVCYfrcFJcoMjAesqvq2Fsv67hcO" srcset="https://lh4.googleusercontent.com/KfPi1s_JLsPgJnGEIS2don1zzzuBoyCsH4A3BnIKo6F_uETQpGk4GtZBMyRbUrU0DYjzBRjrnAtmXBDo6WTaEdWljTBg0ZnzMB5Wd9NOQW2RuVCYfrcFJcoMjAesqvq2Fsv67hcO" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption>圖一：候選人相關文章之前100活躍評論者，在評論文章數量與極性之分布</figcaption></figure>圖一：候選人相關文章之前100活躍評論者，在評論文章數量與極性之分布<p>回到前段提出認定的網軍特點一：有明顯的政治偏好、回應多。我們在各候選人相關文章中取出評論文章數量前100名活躍的評論者(註2)，將他們回應這些候選人相關文章數量與極性作成圖一，另外也將在X及Y軸排名前20%的評論者用黃色菱形表示(註3)。在這裡的極性指的是推與噓的差 (<strong>極性 = 推的數量-噓的數量</strong>)，在 PTT 中，每篇評論可以選擇極性為推 (贊同)、箭頭(中立)或是噓(反對)。就固有設計，預設的極性是推，因此噓的評論可視為積極表達反對意志的動作。</p><p>從圖一x軸與y軸數量級我們可以看出，即使只取前100活躍評論者，評論柯文哲的使用者依舊遠比其他兩位候選人的活躍。有趣的是，評論的活躍度與對於該候選人的極性，只有柯文哲為<strong>正相關</strong>，另兩位候選人為<strong>負相關</strong>。意即越活躍的使用者，越傾向對柯文哲的討論持正面極性，而保持中立或噓姚文智與丁守中的文章，其中可以有兩種解釋：</p><ol><li>柯文哲能夠讓使用者積極表態，且這些使用者傾向對其討論文章持正面極性。相反的，姚文智及丁守中則讓使用者給予中立甚至負面極性。</li><li>這些活躍使用者是有目的的給予特定候選人正面極性與負面極性，因為評論相對於閱讀，對於使用者來說已經不像是臉書按讚這類的動作，還需要思考評論內容並張貼，評論行為可視為對該議題積極表態。</li></ol><p>由圖一我們可以看到評論者代號 010，給予柯文哲文章正極性(+132)，同時給予另兩位候選人負極性(姚：-245; 丁：-94)；另外評論者代號 050 (柯：+156，姚：-29，丁：-20)。然而也有其他例子，評論者代號 005 (柯：-200，姚：+2，丁：-5)，則是積極給予柯文哲負面評價。此類型使用者可視為活躍且有明確政治偏好，符合我們列出的特徵一。然而僅僅由特徵一不足以認定這類使用者為網軍，畢竟政治傾向明顯且熱於發表意見的人很多，在下篇我們將透過第二特徵，並提出另一個行為面向的分析來進行討論。</p><p></p><p>註1：  本研究已被 The 7th International Conference on Complex Networks and Their Applications 國際研究會接受，將於 2018/12/11-13 於英國劍橋大學進行口頭發表。Ming-Hung Wang, Nhut-Lam Nguyen, & Chyi-Ren Dow (2018, December). Detecting Potential Cyber Armies of Election Campaigns Based on Behavioral Analysis. In <em>7th International Conference on Complex Networks and Their Applications</em>. </p><p>註2： 為了呈現每個候選人文章的熱門評論者，並展現各候選人文章的討論熱度，我們取前100 名作圖；事實上，也可選擇不同數量評論者進行展示。</p><p>註3： 為了將這些使用者中表現更突出的使用者標出，我們針對極性與評論文章數的前 20% 再另外標註為黃色菱形。 </p><p>附記：感謝李映昕邀稿並給予意見，這篇文算是我在 matters 的第一篇文章，希望能激起更多對此議題的關心與討論，讓網路世界更透明。</p>
