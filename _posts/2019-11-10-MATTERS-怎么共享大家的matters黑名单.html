@@ -1,0 +1,24 @@
+---
+layout: post
+title: 怎么共享大家的Matters黑名单？
+date: 2019-11-10 05:11:22.000000000 +00:00
+link: https://matters.news/@andyischaos/%25E6%2580%258E%25E4%25B9%2588%25E5%2585%25B1%25E4%25BA%25AB%25E5%25A4%25A7%25E5%25AE%25B6%25E7%259A%2584matters%25E9%25BB%2591%25E5%2590%258D%25E5%258D%2595-zdpuAv9rmKUqaUaB7hjLMYSuNL7vb48uk83tGQUjcZat63s55
+categories: matters
+tags: blog
+author: ZandY
+---
+
+<p><a class="mention" href="https://matters.news/@deserve" target="_blank" data-display-name="Deserve" data-user-name="deserve" data-id="VXNlcjo1MTIx">﻿<span>@Deserve</span>﻿</a> 给Matters做了一个<a href="https://github.com/contributionls/matters-muter" target="_blank">开源的全站评论屏蔽功能</a>，而且现在已经迅速升级到了可以共享黑名单的功能（之前已经安装的胖友可能需要卸载了重装一下）。既然如此，那不好好用起来简直对不起ta的努力了。</p><p>具体的黑名单使用方法，见关联中的文章。</p><p><em>（以下内容，在此插件内也有教程）</em>而共享使用他人的黑名单，就需要：</p><p>1. 在chrome里点击”<strong>Matters-消音器</strong>“插件按钮，进入如下这个界面：</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/8df68896-e331-4c9c-aa51-a248d3b35802.webp" onerror="this.srcset='https://assets.matters.news/embed/8df68896-e331-4c9c-aa51-a248d3b35802.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/8df68896-e331-4c9c-aa51-a248d3b35802.png" onerror="this.srcset='https://assets.matters.news/embed/8df68896-e331-4c9c-aa51-a248d3b35802.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/8df68896-e331-4c9c-aa51-a248d3b35802.webp">
+
+        <img src="https://assets.matters.news/embed/8df68896-e331-4c9c-aa51-a248d3b35802.png" srcset="https://assets.matters.news/processed/540w/embed/8df68896-e331-4c9c-aa51-a248d3b35802.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p>2.点击 <strong>订阅配置</strong>，选择 <strong>新增一个订阅源</strong>，然后将订阅源的URL复制粘贴进来。记得 <strong>保存设置</strong></p><hr><p>当然，这里一定会听到的问题是，<strong>什么是“订阅源的URL“</strong>？这其实就是大家自己选择公开的黑名单所在的链接，比如，我的链接就是  <a href="https://gist.githubusercontent.com/andyischaos/5cbd7aa4bc2180f090a89e8de00862bb/raw/a3f46ee47128a88a254837f3edadd43d9a33b091/ZandY_Blacklist.json" target="_blank">https://gist.githubusercontent.com/andyischaos/5cbd7aa4bc2180f090a89e8de00862bb/raw/a3f46ee47128a88a254837f3edadd43d9a33b091/ZandY_Blacklist.json</a>，欢迎大家使用。</p><p><br></p><p>下一个问题应该就是，<strong>我怎么公开我的黑名单</strong>。这个稍微有一点复杂。首先，你需要有一个GitHub账号；然后，你需要将自己配置文件里的相应部分（在Matters-消音器插件里选择 “导入/导出”查看），也就是mutedUsers这一部分，按照json文件的格式：</p><pre class="ql-syntax">{
+  "mutedUsers": ["username1","username2"]
+}
+</pre><p>给复制到，比如，<a href="https://gist.github.com/" target="_blank">GitHub Gist</a> 里（注意，应该需要命名为json文件）。然后，点击 <strong>Raw</strong>，复制链接出来，大功告成，分享给大家吧！<strong>欢迎大家在这篇文章下面共享自己的黑名单</strong></p><hr><p>这种黑名单，其实是一种可以影响舆论的power，尤其是在我不解释为什么拉黑某个用户的情况下，就全凭别人对我人品和判断力的信任了。而被拉黑的人，大概也没有机会来给我辩解了。所以，希望大家慎重。</p><p>另外，我也觉得需要解释一下我的标准，让订阅我的黑名单的人心里有点数——</p><p>为什么拉黑：</p><ol><li>我觉得有过分不恰当的言论（侮辱啊，造谣啊balabala，you know it when you see it）</li><li>我觉得没有信息量却大量灌水，浪费我的时间</li></ol><p>什么不在我的拉黑标准里：</p><ol><li>offensive但不严重的言论</li><li>三观立场不一样的言论</li></ol><p>所以，yes，我的拉黑标准不客观，全凭“我觉得”。我也并不想（在我的世界里）噤声那些真正愿意跟我交流的人，所以我其实会比较宽松——对话的诚意matters（但我的时间也matters）</p><p>可能会造成echo chamber吗？可能。但我一是不觉得在Matters上被我拉黑的人能给我带来多少有价值的信息；二是我不认为打破echo chamber是一个简单的“听取所有人的观点”的事情，而是去认真听取多方的合理论证。</p><p>最后，我不希望这成为一次veto某些用户的活动，只希望这能成为一个让大家心目中的Matters变得更好的起点。</p>
