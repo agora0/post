@@ -1,0 +1,57 @@
+---
+layout: post
+title: 操控选举，加剧社会分裂？——“深伪”技术如何产生，又会造成什么危害？
+date: 2021-04-13 19:18:00.000000000 +00:00
+link: https://theinitium.com/article/20210414-opinion-deepfake-mechanism/
+categories: initium
+tags: blog
+author: 张百武
+---
+
+<p>「就像电信诈骗一样，学着与Deepfake共生，是未来互联网冲浪的必修课。」</p><p>张百武</p><figure class="image" itemscope itemtype="https://schema.org/ImageObject"><a class="image" href="https://theinitium.com/article/20210414-opinion-deepfake-mechanism/undefined"><img src="https://d32kak7w9u5ewj.cloudfront.net/media/image/2021/04/2a90281e46e94223ab43d4285140b58c.jpg?imageView2/1/w/1080/h/720/format/jpg" alt="一条美国前总统欧巴马的Deepfake深伪视频的制作过程。" itemprop="contentUrl" referrerpolicy="no-referrer"></a>
+            <figcaption itemprop="caption">一条美国前总统欧巴马的Deepfake深伪视频的制作过程。<span class="credit">摄：AP/达志影像</span></figcaption></figure><p>当包含人脸的视频可以轻易通过电脑生成，我们的生活会产生何种影响呢？基于Deepfake（深伪）科技的应用在近期频频火爆全网。从<a href="https://www.tiktok.com/@deeptomcruise/video/6933305746130046214">TikTok上的汤姆克鲁斯</a>向你挥手和大笑，到<a href="https://www.huxiu.com/article/412932.html">黑白老照片里动起来的人像</a>神似哈利波特中的魔法部报纸。人们着迷于“深伪”带来的有趣应用，但其的发展带来的潜在危险也引来了许多担忧，FBI甚至对其<a href="https://www.businessinsider.com/fbi-investigation-generated-computer-ai-artificial-intelligence-abuse-misinformation-porn-2021-3">发出了警告</a>。本文将从Deepfake的技术原理和发展过程，以及社会反响等层面介绍这一技术。</p>
+<p>2018年，一条“奥巴马”讲话的<a href="https://youtu.be/cQ54GDm1eL0">视频</a>在网上疯传。视频中，美国国旗前的“奥巴马”正襟危坐，用他带有磁性的声音警告人们不要轻易相信在互联网上看到的东西，随后用令人意外的轻浮词语形容时任总统特朗普是个“百分之百的蠢蛋”。或许是因为“奥巴马”的反差形象造成出奇的娱乐效果，这条视频在媒体和社交平台上得到广泛传播：仅在YouTube平台就有八百多万的观看。</p>
+<p>但事实上，整条视频的“拍摄”并没有真正奥巴马的参与，而是演员Jordan Peele在借助计算机技术，凭空制造出来的，是一条典型的Deepfake深伪视频。在让人一笑的同时，这条视频也着实让观众捏了一把冷汗：我们还能相信亲眼所见的东西吗？</p>
+<h2>Deepfake的技术原理？</h2>
+<p>Deepfake由deep learning（深度学习）和fake（虚假）两词组合而来，人们通常用Deepfake形容通过使用深度学习等计算机技术合成的照片、视频和音频。其中，有一种Deepfake是算法完全凭空生成的，例如<a href="https://thispersondoesnotexist.com/">thispersondoesnotexist.com</a>上展示的的人脸图像；而另一种则是基于某些已知信息生成，如上文中的“奥巴马”视频是基于奥巴马过去演讲影像和音频，配合演员的口型与发音而伪造的。Deepfake技术的核心目的是生成虚假的，但是看上去真实的图像或音视频，从而达到欺骗观众眼睛的效果。这个目的其实并不新鲜，亦不陌生：广为大众所熟悉的Photoshop和各种图片视频编辑软件也都是为此设计的。</p>
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+<p>而这一技术背后的核心技术是“生成对抗网络”（Generative Adversarial Network），也称为GAN。它通常由两个神经网络组成，一个称为生成器（generator），另一个称为辨别器（discriminator），而GAN的结构会让两个神经网络互相对抗。</p><p><a class="image" href="https://theinitium.com/article/20210414-opinion-deepfake-mechanism/undefined"><img src="https://d32kak7w9u5ewj.cloudfront.net/media/image/2021/04/a7ee67483025418eabb9305f0e2efaf2.png?imageView2/1/w/1080/h/1080/format/jpg" alt itemprop="contentUrl" referrerpolicy="no-referrer"></a>
+            </p><figcaption itemprop="caption"><span class="credit"></span></figcaption><p></p><p>其中，生成器的目的是不断地生成新的人脸，并尽可能地使它真实。而辨别器的目的则是辨别它看到的人脸是真实（real）还是虚假（fake）。在训练GAN的过程中，无数真实的人脸照片会喂给神经网络。生成器会不断地调整自己的参数，逐步提高生成人脸的真实度。与此同时，辨别器则会努力分辨生成器产生的图片和真实的人脸图片之间的差别。在这样的设计下，两个网络会互相竞争，在不断超越对方的过程中，逐步提高自己。</p><p>最终，一个完美的GAN中的辨别器将会有50%的概率（等同于随机猜测）认为生成器生成的图片是真实的，从而完成训练，达到平衡。而Deepfake，则是由训练完成之后的生成器单独生成的。</p><p>除了不需要Photoshop那样的直接操控以外，Deepfake在过去几年受到广泛关注并引起担忧的原因还有三点：一是得益于快速发展的深度学习技术和不断变复杂变快的GAN，Deepfake已经可以让算法生成极高质量的人脸，足以迷惑人类。一份加州伯克利大学的<a href="https://farid.berkeley.edu/downloads/publications/abstracts.html#vss21">研究</a>指出，人类几乎不可能将真实的人脸照片和StyleGAN2（一种GAN）产生的人脸图片分别开来。</p><p>二是相比于Photoshop往往仅用于局部的修改，Deepfake可以对音视频进行全面的修改，包括替换人物表情、发音甚至是生成全新的形象。</p><p>三是由于Deepfake的出现，制作欺骗性数字内容的门槛被大大拉低。在Deepfake诞生之前，生成逼真的虚假人像视频往往需要专业的技术与耗时的人力打磨，也仅存在于好莱坞等影视行业。然而由于大量Deepfake开源代码的存在，现在普通人仅仅需要一台电脑和互联网，便可让视频中的人说或做从没有发生过的事情。</p><p><a class="image" href="https://theinitium.com/article/20210414-opinion-deepfake-mechanism/undefined"><img src="https://d32kak7w9u5ewj.cloudfront.net/media/image/2021/04/99e29115438540b69a40597dbe72c7f6.jpg?imageView2/1/w/1080/h/1080/format/jpg" alt="由StyleGan2生成的Deepfake人像。" itemprop="contentUrl" referrerpolicy="no-referrer"></a>
+            </p><figcaption itemprop="caption">由StyleGan2生成的Deepfake人像。<span class="credit">網上圖片</span></figcaption><p></p><p>Deepfake带来了什么危害？</p><p>其实这是一个古老问题的现代版本：内容造假。早在18世纪，乔治华盛顿的笔迹就曾被伪造，来向英国撰写厌战的归降信。在近些年，基于邮件或电话的诈骗也屡见不鲜。人们或许已经不会对“远房亲戚”的一个“打钱”电话骗到，但很难想象如果诈骗者使用Deepfake打来视频电话证明其“真身“，又会是怎样一种情况。</p><p>2019年，一家英国公司的员工便被伪装为其CEO的一通电话，<a href="https://www.forbes.com/sites/jessedamiani/2019/09/03/a-voice-deepfake-was-used-to-scam-a-ceo-out-of-243000/?sh=7abaef542241">骗得22万英镑</a>。在电话中，CEO的声音和他独特的德国口音都被完美的实时模仿了出来。不过值得庆幸的是，基于Deepfake的诈骗目前还并不常见。</p><p>然而色情行业，就如同其推动了其他科技的普及（例如在线购物，直播服务，甚至互联网本身），已经成为了Deepfake的主要平台。初创公司Sensity曾做过<a href="https://sensity.ai/reports/">一份调查</a>，互联网上96%的Deepfake都是成人内容。始于Deepnude一款让照片中的人瞬间脱衣的软件，色情从业者很快意识到了Deepfake的商业价值：可以随意将人物用换脸的方式无缝植入色情片中。随着技术的普及，许多明星中招的同时，无数普通人也在不知情的情况下，被Deepfake到色情片中，其中<a href="https://www.elle.com/uk/life-and-culture/a30748079/deepfake-porn/">女性受害者占绝大多数</a>。</p><p>这种低成本的制作，逐渐演变成一种全新的复仇色情（revenge porn）模式，让受害者处于极其被动的一方，很难修复已经造成的形象伤害。仅需你的几张照片，就可让把你还原并变身为色情片的主角，下次上传朋友圈自拍时你会犹豫一下吗？</p><p>除了诈骗和色情业，Deepfake对社会生活带来的影响也不容小觑。在互联网时代，图片、视频和音频往往是描述一个事实的重要组成部分，也是公共讨论的基石。但Deepfake的存在，给这一切打上了问号。在一方面，Deepfake使得造谣和传播虚假信息更加容易。设想如果有人在选举前制作并传播了一份使用Deepfake换脸的色情片，将政客植入，就算视频最终被识别出是假视频，但在舆论上掀起的风波和造成的危害也许会是不可逆转的。</p><p>Deepfake软件的普及给予了每一个人这样武器：不论是老道狡猾的政客，还是看似无邪的中学生。而在另一方面，Deepfake更加隐晦的危害是侵蚀了事实的可信度，提供一种对事实否认的可能（plausible deniability）。面对影音频证据，人们可以指认他们为电脑制作，是Deepfake生成，从而逃避指责或是进行有意的欺骗。而实际上，一个视频是否真的由Deepfake制作并不重要，仅仅指认它有这种可能，就足以制造混乱并达到欺骗的目的。我们可以在假新闻（fake news）的讨论中找到这两种相似的危害，而许多人也因此把deepfake归类于假新闻的一种。</p><p>上述的两种危害已不仅仅只是假设。2018年，加蓬总统阿里·邦戈（Ali Bongo）因病而未公开现身多时，总统府也没有传递出清晰的信号，告知公众总统的身体情况，进而引发许多猜想和谣言。在2018年末，为了平息猜疑，总统府发布了一段阿里·邦戈的新年贺词视频。然而视频中的阿里·邦戈眼神呆滞，动作僵硬，与他之前的神态有鲜明的不同。视频一经发出就引来了许多质疑的声音。有人认为视频是Deepfake，而真正的总统早已死亡。舆论不断发酵，进而在2019年的1月7日引发军事政变。尽管政变以失败告终，阿里总统随后也有公开露面，但新年贺词视频的真假至今难以判断。</p><p>
+    <iframe width="100%" height="312px" src="https://www.youtube.com/embed/YABdm-12PQo" frameborder="0" allowfullscreen> </iframe>
+</p><p>研究员Aviv Ovadya警告说Deepfake可能会带来对<a href="https://www.washingtonpost.com/technology/2019/06/12/top-ai-researchers-race-detect-deepfake-videos-we-are-outgunned/">“真实的冷漠”</a>。他说：当需要付出太多的精力才能分清什么是真实时，人们更容相信他们所原本相信的。</p><p>这对于一个已经分裂的社会来说十分危险。在2020年美国大选前，有无数的担忧恶意Deepfake可能会影响大选结果，是一个国家安全威胁。为此，美国国会举办了多场听证会，并通过了法案要求国土安全部监视Deepfake的发展。不过现在回看，人们预想中的危险并未出现。普遍认为有两个原因，第一是制作令人信服的Deepfake仍然需要不少的人力打磨。</p><p>现阶段的Deepfake视频还会经常出现遮挡、不自然光线、重影等缺陷，场景也颇为局限。使用网络上的开源软件同样需要一定的技术能力。第二则是人们发现，并不需要复杂Deepfake，经过简单编辑的Cheapfake（注：Cheapfake指使用常见数码编辑软件进行选择性编辑从而达到欺骗目的的假内容），配合误导性的假消息，也一样可以造成破坏并达到造假者的目的。去年8月，一条标题为“她是醉了吗？！？！”的美国众议院议长<a href="https://www.washingtonpost.com/technology/2020/08/03/nancy-pelosi-fake-video-facebook/">南希·佩洛西的视频</a>流传网络。视频中她在回答记者提问时语速缓慢，颇有醉酒讲话的感觉。然而，相比原始视频，南希·佩洛西讲话的片段被刻意放缓了语速。但这并没有影响它在脸书上传播，并在不支持她的人群中得到广泛曝光。</p><p>哈佛大学<a href="https://osf.io/cdfh3/">最新的研究</a>也证实了这一点。他们指出，Deepfake可以误导群众，但并不会比其他假新闻等欺骗手段更有效。促使人们相信或不信一个视频的原因中，政治倾向占到最大比重。这也就是说，如果你支持民主党并看到了一个让民主党看上去是正面的视频，你会更愿意相信它是真的；反之亦然。Deepfake和假新闻的存在模糊了对真实的定义。或许以后没有真实，只有信与不信。</p><p>人们庆幸Deepfake没有对去年的美国大选造成实质性破坏，但随着时间的流逝和技术的进步，Deepfake对公共信任的侵蚀只会加剧。在布鲁金学会的一个<a href="https://www.brookings.edu/research/is-seeing-still-believing-the-deepfake-challenge-to-truth-in-politics/">报告</a>中，Deepfake对政治和社会的危害被总结为：扭曲民主辩论；操控选举；侵蚀对体制的信任；削弱媒体；加剧社会分裂；破坏公共安全；煽动对包括政客和候选人在内的知名人士难以修复的名誉伤害。</p><p>技术带来的问题，可以用技术解决吗？</p><p>如何解决Deepfake带来的种种问题，是学术界和工业界最近几年炙手可热的一个话题。人们首先想到的方法就是用技术来检测Deepfake。这种方法原理很简单，是训练另外一个神经网络来观察并学习Deepfake照片中存在的瑕疵，捕捉并归类从而达到检测的目的。通常情况下，这些瑕疵人眼看上去并不明显，他们可以是微小的表情变化，光影变化，或者仅存在于频域上，不在人眼的可见范围之内。这些<a href="https://arxiv.org/abs/2003.08685">方法</a>取得了很高的准确率，也频频亮相各大学术会议。</p><p>然而，GAN这种网络的对抗性本质，使得它非常容易适应新兴检测技术，更新自己，击破检测。仅仅依靠检测并不能解决Deepfake带来的问题，而极有可能形成道高一尺，魔高一丈的猫鼠游戏。谷歌的研究员就发现<a href="https://arxiv.org/abs/2004.00622">一种方法</a>，可以在仅修改1/256个像素的情况下，让Deepfake图片逃避检测。</p><p>另一种提出的方案是证明媒体内容的可追溯性（provenance）。在这个构想下，所有的图片和视频都会在源码中包含其拍摄的相机型号、时间、地点，以及任何的后期修改，使得终端用户可以查看这张图片的历史，从而核对其真实性。Adobe公司和《纽约时报》在2020年提出了“内容真实性计划”。他们提议构建一个生态系统，让多媒体内容从拍摄到制作到发布，都可以建立一份不可修改的证据，来溯源其真身。这样的方案需要多方共同参与来形成规模效应，实际效果还有待观察。</p><p>科技公司也在积极应对Deepfake带来的问题。2019年，<a href="https://about.fb.com/news/2019/12/removing-coordinated-inauthentic-behavior-from-georgia-vietnam-and-the-us/">Facebook曾发现并删除</a>了从属于同一个网络的600多个“不真实”账号。这些账号使用了Deepfake生成的照片作为头像，参与并发布了许多关于美国大选的新闻讨论。相比于Facebook 28亿的月活跃用户，很有理由相信删除的的这些账号仅仅是“不真实”账号的冰山一角。</p><p><a class="image" href="https://theinitium.com/article/20210414-opinion-deepfake-mechanism/undefined"><img src="https://d32kak7w9u5ewj.cloudfront.net/media/image/2021/04/082eaed781a64f6bb332e206f22574dc.jpg?imageView2/1/w/1080/h/720/format/jpg" alt="北京一家研發人臉識別系統的公司。" itemprop="contentUrl" referrerpolicy="no-referrer"></a>
+            </p><figcaption itemprop="caption">北京一家研發人臉識別系統的公司。<span class="credit">攝：Thomas Peter/Reuters/達志影像</span></figcaption><p></p><p>除去科技上的局限，还有另外一个难题摆在想解决Deepfake问题的科技巨头面前。一方面，他们不想让有害的和欺骗性的Deepfake出现在平台上，并造成伤害；但另一方面，由于Deepfake在娱乐方面的应用，它们又很难甄别何种Deepfake是有害的，而避免误伤其他内容，进而被指责侵犯言论自由并流失用户。在执行方面，英语世界的主流社交软件很大部分是采用被动式的内容审查，即收到用户举报后才会采取行动。这样的策略也给了Deepfake足够时间在平台上进行传播并造成伤害。</p><p>认识到技术在解决Deepfake的局限性后，现在更多的一种声音是呼吁将Deepfake视为一个社会问题，并诉诸于法律和教育。在法律方面，美国众议院在19年提出了《深度伪造责任法案》（DEEP FAKES Accountability Act）。尽管其随后被批评为过于宽泛且不可执行，但它的立法目的指导了随后加州德州等各州对防范Deepfake对选举产生危害的立法。而在中国，今年1月1日生效的《民法典》中，有条款明确禁止使用技术手段伪造等方式侵害他人肖像权，矛头直指Deepfake。不过各国对Deepfake的立法仍处在早期阶段，还没有相关判例，效果如何也有待观察。</p><p>而对于用户和互联网的使用者，提升自身对Deepfake的警惕意识和老生常谈的媒体素养可能才是解决问题的关键（推荐<a href="http://www.spotdeepfakes.org/">“找出Deepfake”</a>小测验）。考虑到技术在不断发展，Deepfake一定会以更完美、更隐秘的方式出现在我们生活当中（如Deepfake制作的<a href="https://www.voguebusiness.com/companies/how-deepfakes-could-change-fashion-advertising-influencer-marketing">广告</a>）。尽管不是所有的Deepfake都会有恶意用途，但我们同样也不能期盼科技和法律可以消灭以欺骗为目的而制作的Deepfake。就像电信诈骗一样，学着与它们共生，是未来互联网冲浪的必修课。</p><p><strong>（张百武，人工智能和计算机科学研究者）</strong></p>
