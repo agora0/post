@@ -1,0 +1,228 @@
+---
+layout: post
+title: 給自己的Python筆記-功能強大的缺失值處理方法- DataFrame中的缺失值如何使用插值的方法來填充 - pandas.DataFrame.interpolate()
+  使用筆記
+date: 2021-04-27 15:11:28.000000000 +00:00
+link: https://matters.news/@CHWang/%25E7%25B5%25A6%25E8%2587%25AA%25E5%25B7%25B1%25E7%259A%2584python%25E7%25AD%2586%25E8%25A8%2598-%25E5%258A%259F%25E8%2583%25BD%25E5%25BC%25B7%25E5%25A4%25A7%25E7%259A%2584%25E7%25BC%25BA%25E5%25A4%25B1%25E5%2580%25BC%25E8%2599%2595%25E7%2590%2586%25E6%2596%25B9%25E6%25B3%2595-data-frame%25E4%25B8%25AD%25E7%259A%2584%25E7%25BC%25BA%25E5%25A4%25B1%25E5%2580%25BC%25E5%25A6%2582%25E4%25BD%2595%25E4%25BD%25BF%25E7%2594%25A8%25E6%258F%2592%25E5%2580%25BC%25E7%259A%2584%25E6%2596%25B9%25E6%25B3%2595%25E4%25BE%2586%25E5%25A1%25AB%25E5%2585%2585-pandas-data-frame-interpolate-%25E4%25BD%25BF%25E7%2594%25A8%25E7%25AD%2586%25E8%25A8%2598-bafyreidw3hh7h5layn3maoyhz5ms42ghk2uzby35ifmbmqs4f6jwuptwvy
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<h1><a href="https://github.com/chwang12341/Learn-Python-/blob/master/interpolate/interpolate-method.md" target="_blank">Github連結</a></h1><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/b473918b-5c8c-4152-bddb-6ed37ce0255a.webp" onerror="this.srcset='https://assets.matters.news/embed/b473918b-5c8c-4152-bddb-6ed37ce0255a.jpeg'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/b473918b-5c8c-4152-bddb-6ed37ce0255a.jpeg" onerror="this.srcset='https://assets.matters.news/embed/b473918b-5c8c-4152-bddb-6ed37ce0255a.jpeg'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/b473918b-5c8c-4152-bddb-6ed37ce0255a.webp">
+
+        <img src="https://assets.matters.news/embed/b473918b-5c8c-4152-bddb-6ed37ce0255a.jpeg" srcset="https://assets.matters.news/processed/540w/embed/b473918b-5c8c-4152-bddb-6ed37ce0255a.jpeg" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>攝影師：Saifuddin Ratlamwala，連結：Pexels</span></figcaption></figure><p><br></p><p><br></p><p><br></p><h2><strong>1.插值方法?</strong></h2><p><br></p><ul><li><strong>說明</strong>: 插值又稱為內插, 為一種透過已知的離散數據點, 在範圍內推算出新的數據點的方法</li><li><strong>用法</strong>: 透過計算函數在已知點的取值狀況, 估算出函數在其它點處的近似值, 這樣就能用已知的數據來估算出那些未知的數據</li><li><strong>與機器學習擬和的不同</strong>: 插值法計算出的函數所繪出的擬和曲線通過所有已知點</li></ul><h2><br></h2><h2><br></h2><h2><strong>2. DataFrame.interpolate() 參數介紹</strong></h2><p><br></p><p>函數</p><pre class="ql-syntax">interpolate (self, method='linear', axis=0, limit=None, inplace=False, limit_direction='forward', limit_area=None, downcast-None, **kwargs)
+</pre><p>參數</p><ol><li>method:使用的插值技術, 預設為"linear' ,可用選項:</li></ol><ul><li>'linear': 忽略索引, 並將值等距的對待,是Mulitilndex(多重索引)唯一支持的方法</li><li>'time': 處理每日和更高分辨率的數據, 以給定的時間間隔長度來進行插值</li><li>'index'、'values': 使用索引的實際數值</li><li>'pad': 使用現有值填寫NaN</li><li>'nearest', 'zero', 'slinear', 'quadratic', 'cubic', 'spline', 'barycentric', 'polynomial': 傳遞給scipy.interpolate.interpld，這些方法使用數值的索引值，'polynomial'和'spline都要求您還可以指定一個order (int)，例如df.interpolate (method ='polynomial order = 5)</li><li>'krogh', 'piecewise_polynomial', 'spline', pchip', akima': 包裝圍繞類似的SciPy插值方法名稱</li><li>'from_derivatives': 指scipy.interpolate.Bpoly.from_derivatives取代了" piecewise_polynomial"插值方法</li></ul><ol><li>axis:沿軸進行內插，1:沿列，0:沿行，預設為None</li><li>limit: 進行插值的最大連續NaN數，一定要大於0</li><li>inplace: 傳入True/False，預設為False，如果設定True，就會盡可能的更新數據</li><li>limit_direction: 選項有'forward', 'backward', 'both'，預設為"forward"，如果設定limit 就會依照這邊設定的方向填充連續的NaN</li><li>limit_area: 選項有None, 'inside', 'outside'，預設為None，當設定limit時，對插值的限制</li></ol><ul><li>None: 沒有填充限制</li><li>'inside': 僅填補有效值(interpolate)包圍的NaN</li><li>'outside': 僅在有效值以外(extrapolate)填充NaN</li></ul><ol><li>downcast: 選項有'infer'或None，None是預設，如果可能，請向下轉换dtypes</li><li>**kwargs:關鍵字參數傳遞給插值函數</li></ol><h2><br></h2><h2><br></h2><h2><strong>實作</strong></h2><p><br></p><h3><strong>1. 基本插補 -將所有NaN進行内插</strong></h3><pre class="ql-syntax">import pandas as pd
+import numpy as np
+​
+## 創建數據集
+df = pd. DataFrame({
+  'A': [2, 6, None, 8, 10],
+  'B': [6, np.nan, 2, None ,8]
+})
+print('original Dataset: ')
+print(df)
+​
+​
+## 進行插值
+interpolate_df = df.interpolate()
+print('Interpolated Dataset: ') 
+interpolate_df
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/939c115b-7172-4755-9794-3e6efff17e64.webp" onerror="this.srcset='https://assets.matters.news/embed/939c115b-7172-4755-9794-3e6efff17e64.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/939c115b-7172-4755-9794-3e6efff17e64.png" onerror="this.srcset='https://assets.matters.news/embed/939c115b-7172-4755-9794-3e6efff17e64.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/939c115b-7172-4755-9794-3e6efff17e64.webp">
+
+        <img src="https://assets.matters.news/embed/939c115b-7172-4755-9794-3e6efff17e64.png" srcset="https://assets.matters.news/processed/540w/embed/939c115b-7172-4755-9794-3e6efff17e64.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><h3><br></h3><h3><strong>2. 使用Method函數來指定內插的方法</strong></h3><ul><li>這邊以pad('pad': 使用現有值填寫NaN)方法來實作</li></ul><pre class="ql-syntax">import pandas as pd
+import numpy as np
+​
+## 創建數據集
+df = pd. DataFrame({
+  'A': [2, 6, None, 8, 10],
+  'B': [6, np.nan, 2, None ,8]
+})
+print('original Dataset: ')
+print(df)
+​
+​
+## 進行插值
+interpolate_df = df.interpolate(method = 'pad')
+print('Interpolated Dataset: ') 
+interpolate_df
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/375de223-c9a4-466c-8127-704263fce773.webp" onerror="this.srcset='https://assets.matters.news/embed/375de223-c9a4-466c-8127-704263fce773.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/375de223-c9a4-466c-8127-704263fce773.png" onerror="this.srcset='https://assets.matters.news/embed/375de223-c9a4-466c-8127-704263fce773.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/375de223-c9a4-466c-8127-704263fce773.webp">
+
+        <img src="https://assets.matters.news/embed/375de223-c9a4-466c-8127-704263fce773.png" srcset="https://assets.matters.news/processed/540w/embed/375de223-c9a4-466c-8127-704263fce773.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><ul><li>這邊以Polynomial方法來實作 - 使用二階多項式的插值方法</li></ul><p>order = 2 為Polynomial方法(函數)的關鍵字引數(參數)</p><pre class="ql-syntax">import pandas as pd
+import numpy as np
+​
+## 創建數據集
+df = pd. DataFrame({
+  'A': [2, 6, None, 8, 10],
+  'B': [6, np.nan, 2, None ,8]
+})
+print('original Dataset: ')
+print(df)
+​
+​
+## 進行插值
+interpolate_df = df.interpolate(method = 'polynomial', order = 2)
+print('Interpolated Dataset: ')
+interpolate_df
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/1e3975d5-3e49-4642-994c-7839ca11ffd9.webp" onerror="this.srcset='https://assets.matters.news/embed/1e3975d5-3e49-4642-994c-7839ca11ffd9.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/1e3975d5-3e49-4642-994c-7839ca11ffd9.png" onerror="this.srcset='https://assets.matters.news/embed/1e3975d5-3e49-4642-994c-7839ca11ffd9.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/1e3975d5-3e49-4642-994c-7839ca11ffd9.webp">
+
+        <img src="https://assets.matters.news/embed/1e3975d5-3e49-4642-994c-7839ca11ffd9.png" srcset="https://assets.matters.news/processed/540w/embed/1e3975d5-3e49-4642-994c-7839ca11ffd9.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><h3><strong>3. 使用limit參數來限制填補的最大連續數量</strong></h3><pre class="ql-syntax">import pandas as pd
+import numpy as np
+​
+## 創建數據集
+df = pd. DataFrame({
+  'A': [2, 6, None, 8, 10],
+  'B': [6, np.nan, np.nan, None ,8]
+})
+print('original Dataset: ')
+print(df)
+​
+​
+## 進行插值
+interpolate_df = df.interpolate(limit = 1)
+print('Interpolated Dataset: ')
+interpolate_df
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/90b968ce-b53e-444b-ab69-5a3059a157ab.webp" onerror="this.srcset='https://assets.matters.news/embed/90b968ce-b53e-444b-ab69-5a3059a157ab.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/90b968ce-b53e-444b-ab69-5a3059a157ab.png" onerror="this.srcset='https://assets.matters.news/embed/90b968ce-b53e-444b-ab69-5a3059a157ab.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/90b968ce-b53e-444b-ab69-5a3059a157ab.webp">
+
+        <img src="https://assets.matters.news/embed/90b968ce-b53e-444b-ab69-5a3059a157ab.png" srcset="https://assets.matters.news/processed/540w/embed/90b968ce-b53e-444b-ab69-5a3059a157ab.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><h3><strong>4. 根據哪個方向進行最大的連續填補數量 - limit_direction</strong></h3><ul><li>從後面開始內插</li></ul><pre class="ql-syntax">import pandas as pd
+import numpy as np
+​
+## 創建數據集
+df = pd. DataFrame({
+  'A': [2, 6, None, 8, 10],
+  'B': [6, np.nan, np.nan, None ,8]
+})
+print('original Dataset: ')
+print(df)
+​
+​
+## 進行插值
+interpolate_df = df.interpolate(limit_direction = 'backward', limit = 1)
+print('Interpolated Dataset: ')
+interpolate_df
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/67cec8ba-9f84-401e-8be1-ad0df32f36b8.webp" onerror="this.srcset='https://assets.matters.news/embed/67cec8ba-9f84-401e-8be1-ad0df32f36b8.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/67cec8ba-9f84-401e-8be1-ad0df32f36b8.png" onerror="this.srcset='https://assets.matters.news/embed/67cec8ba-9f84-401e-8be1-ad0df32f36b8.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/67cec8ba-9f84-401e-8be1-ad0df32f36b8.webp">
+
+        <img src="https://assets.matters.news/embed/67cec8ba-9f84-401e-8be1-ad0df32f36b8.png" srcset="https://assets.matters.news/processed/540w/embed/67cec8ba-9f84-401e-8be1-ad0df32f36b8.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><ul><li>從兩邊的中間位置開始進行內插</li></ul><pre class="ql-syntax">import pandas as pd
+import numpy as np
+​
+## 創建數據集
+df = pd. DataFrame({
+  'A': [2, 6, None, 8, 10],
+  'B': [6, np.nan, np.nan, None ,8]
+})
+print('original Dataset: ')
+print(df)
+​
+​
+## 進行插值
+interpolate_df = df.interpolate(limit_direction = 'both', limit = 1)
+print('Interpolated Dataset: ')
+interpolate_df
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/860601d1-9e99-4c90-b3c8-8abe7abcb0e0.webp" onerror="this.srcset='https://assets.matters.news/embed/860601d1-9e99-4c90-b3c8-8abe7abcb0e0.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/860601d1-9e99-4c90-b3c8-8abe7abcb0e0.png" onerror="this.srcset='https://assets.matters.news/embed/860601d1-9e99-4c90-b3c8-8abe7abcb0e0.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/860601d1-9e99-4c90-b3c8-8abe7abcb0e0.webp">
+
+        <img src="https://assets.matters.news/embed/860601d1-9e99-4c90-b3c8-8abe7abcb0e0.png" srcset="https://assets.matters.news/processed/540w/embed/860601d1-9e99-4c90-b3c8-8abe7abcb0e0.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><h3><strong>5. 沿著行或列進行內插 - axis</strong></h3><pre class="ql-syntax">import pandas as pd
+import numpy as np
+​
+## 創建數據集
+df = pd. DataFrame({
+  'A': [2, 6, None, 8, 10],
+  'B': [6, np.nan, np.nan, None ,8]
+})
+print('original Dataset: ')
+print(df)
+​
+​
+## 進行插值
+interpolate_df = df.interpolate(axis = 1)
+print('Interpolated Dataset: ')
+interpolate_df
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/a36de05b-ddcd-40af-8e6c-0794b79ee80f.webp" onerror="this.srcset='https://assets.matters.news/embed/a36de05b-ddcd-40af-8e6c-0794b79ee80f.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/a36de05b-ddcd-40af-8e6c-0794b79ee80f.png" onerror="this.srcset='https://assets.matters.news/embed/a36de05b-ddcd-40af-8e6c-0794b79ee80f.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/a36de05b-ddcd-40af-8e6c-0794b79ee80f.webp">
+
+        <img src="https://assets.matters.news/embed/a36de05b-ddcd-40af-8e6c-0794b79ee80f.png" srcset="https://assets.matters.news/processed/540w/embed/a36de05b-ddcd-40af-8e6c-0794b79ee80f.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><h3><strong>6. 對時間序列型(Time-Series)的數據集進行內插</strong></h3><p><strong>注意</strong>: 當我們要使用inplace參數時，因為它會盡可能的更新數據集，所以只要使用df.interpolate(inplace = True)，不用再寫成interpolate_df = df.interpolate(inplace = True)，不然會顯示不出資料</p><pre class="ql-syntax">import pandas as pd
+import numpy as np
+​
+## 創建數據集
+time = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun']
+score = [28, 52, np.nan, 60, 66, 98, 100]
+df = pd.DataFrame({ 'time': time, 'score': score})
+print('Original Dataset: ')
+print(df)
+## 進行插補
+df.interpolate(inplace = True)
+print('Interpolated Dataset: ')
+df
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f96b61d4-4277-4ca8-8f35-0c3ea7018204.webp" onerror="this.srcset='https://assets.matters.news/embed/f96b61d4-4277-4ca8-8f35-0c3ea7018204.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f96b61d4-4277-4ca8-8f35-0c3ea7018204.png" onerror="this.srcset='https://assets.matters.news/embed/f96b61d4-4277-4ca8-8f35-0c3ea7018204.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/f96b61d4-4277-4ca8-8f35-0c3ea7018204.webp">
+
+        <img src="https://assets.matters.news/embed/f96b61d4-4277-4ca8-8f35-0c3ea7018204.png" srcset="https://assets.matters.news/processed/540w/embed/f96b61d4-4277-4ca8-8f35-0c3ea7018204.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p>

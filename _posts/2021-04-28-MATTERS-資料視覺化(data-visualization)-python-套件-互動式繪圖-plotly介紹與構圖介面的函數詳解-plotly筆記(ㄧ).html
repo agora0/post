@@ -1,0 +1,223 @@
+---
+layout: post
+title: 資料視覺化(Data Visualization) - Python 套件 - 互動式繪圖 - Plotly介紹與構圖介面的函數詳解 - Plotly筆記(ㄧ)
+date: 2021-04-28 13:29:01.000000000 +00:00
+link: https://matters.news/@CHWang/%25E8%25B3%2587%25E6%2596%2599%25E8%25A6%2596%25E8%25A6%25BA%25E5%258C%2596-data-visualization-python-%25E5%25A5%2597%25E4%25BB%25B6-%25E4%25BA%2592%25E5%258B%2595%25E5%25BC%258F%25E7%25B9%25AA%25E5%259C%2596-plotly%25E4%25BB%258B%25E7%25B4%25B9%25E8%2588%2587%25E6%25A7%258B%25E5%259C%2596%25E4%25BB%258B%25E9%259D%25A2%25E7%259A%2584%25E5%2587%25BD%25E6%2595%25B8%25E8%25A9%25B3%25E8%25A7%25A3-plotly%25E7%25AD%2586%25E8%25A8%2598-%25E3%2584%25A7-bafyreiaa4mwxvuzvn3mmxy6sr2yezj7wcr5aytqfyjuxfvwhiyycekhvw4
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<p><br></p><h2><a href="https://github.com/chwang12341/Data-Visualization/blob/master/Plotly/1/Plotly1.md" target="_blank"><strong>Github連結</strong></a></h2><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/283a17c8-0e0e-4c47-aff4-18afd24412e3.webp" onerror="this.srcset='https://assets.matters.news/embed/283a17c8-0e0e-4c47-aff4-18afd24412e3.jpeg'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/283a17c8-0e0e-4c47-aff4-18afd24412e3.jpeg" onerror="this.srcset='https://assets.matters.news/embed/283a17c8-0e0e-4c47-aff4-18afd24412e3.jpeg'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/283a17c8-0e0e-4c47-aff4-18afd24412e3.webp">
+
+        <img src="https://assets.matters.news/embed/283a17c8-0e0e-4c47-aff4-18afd24412e3.jpeg" srcset="https://assets.matters.news/processed/540w/embed/283a17c8-0e0e-4c47-aff4-18afd24412e3.jpeg" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><p>嗨嗨，相信大家想到Python視覺化套件，就會想到Matplotlib、Seaborn、Plotly、Bokeh等等，由於我過去要繪圖的時候都是採用Matpllotlib，所以想說來學點不一樣的，於是看了許多網路上寫得非常厲害的教學資源，整理了各高手的教學與自己實作後的心得和理解，並記錄下來成為筆記檔，介紹大家一個非常強大的視覺化框架 - Plotly，它真的非常華麗，繪出來的圖不但具有互動效果，還非常的絢麗</p><p><br></p><p><strong>提醒: 放在這邊的表格都會很小，看不清楚，大家可以直接參考我的Github喔</strong></p><p><br></p><p><br></p><h2><strong>1. Plotly 是什麼?</strong></h2><ul><li>Plotly是Python的一個非常厲害且開源的數據可視化框架，是一款基於D3.js框架的數據可視化庫</li><li>生成的互動圖以web的形式呈現於瀏覽器上，這個特點讓它非常適用於 jupyter notebook 上進行程式開發</li><li>可以透過在線模式或離線模式進行繪圖，同樣都具有畫各類型圖的能力</li></ul><p>Plotly能繪製的圖:可以參考<a href="https://imagesplot.ly/plotly-documentation/images/python_cheat_sheet.pdf" target="_blank">https://imagesplot.ly/plotly-documentation/images/python_cheat_sheet.pdf</a></p><h2><br></h2><h2><strong>2. 環境建置</strong></h2><p><strong>安裝Plotly套件</strong></p><pre class="ql-syntax">pip install plotly
+</pre><p><strong>更新指令</strong></p><pre class="ql-syntax">pip install plotly -- upgrade
+​
+</pre><h2><br></h2><h2><strong>3. 模式介紹</strong></h2><p>使用plotly有兩種模式 - 在線(online)模式 與 離線(offline)模式，在我們使用plotly的時候，需要設定好模式，不然會報錯</p><ul><li>在線模式: 簡單來說就是可以連結plotly的線上資源庫，可以將local端繪製好的圖上傳到plotly網站上，就可以透過瀏覽器線上進行編輯或修改，也可以直接於plotly網站上進行資料視覺化，上傳的圖片可以根據自己的需求設置為公開(public)、私人(private)或秘密(secret)，這樣就能設置觀看權限</li></ul><p>官網教學: <a href="https://plotly.com/chart-studio-help/tutorials/" target="_blank">https://plotly.com/chart-studio-help/tutorials/</a></p><ul><li>離線模式: 在 Local端進行plotly繪圖，沒有圖片的限制</li></ul><h2><br></h2><h2><strong>4. 模式設定</strong></h2><h3><strong>1. 在線模式設定</strong></h3><p>先到官網(<a href="https://chart-studio.plotly.com/feed/#/" target="_blank">https://chart-studio.plotly.com/feed/#/</a>)申請帳號 -> 登入，進到settings -> 點API Keys 裡面的 generate key -> 複製好key，貼到程式碼中</p><p>提醒: 接下來我的實作都會以離線模式進行，也因為這樣我就不詳細介紹在線模式的用法囉</p><ul><li>範例:</li></ul><pre class="ql-syntax">## 在線使用設置##############
+import plotly
+from plotly import tools
+​
+## 登入帳號資訊
+plotly.tools.set_credentials_file(username = '帳號填這裡喔', api_key = '產生的密碼填這裡')
+​
+## 設置圖片為公開 - public
+plotly.tools.set_config_file(world_readable = True, sharing = 'public')
+​
+## 繪圖舉例 #################
+import plotly.plotly as py
+import plotly.graph_objs as go
+​
+​
+data1 = go.Scatter(
+  x = [1, 2, 3, 4],
+  y = [14, 18, 26, 28]
+)
+​
+​
+​
+​
+data2 = go.Scatter(
+  x = [1, 4, 6, 8],
+  y = [18, 26, 27, 29]
+)
+​
+## 組合兩組數據
+data = [data1, data2]
+​
+## 繪圖
+## filename: 檔名
+py.plot(data, filename = 'first_plotly', auto_open = True)
+​
+</pre><h3><br></h3><h3><br></h3><p><strong>2. 離線模式設定</strong></p><p>首先: 初始化(plotly.offline.init_notebook_model(connected = True))</p><p>再來: 繪圖 - 兩種方法</p><ul><li>iplot()是屬於jupyter notebook的方法，它會將產出的圖片嵌入ipynb</li><li>plot()則是產出html格式的圖片檔，保存於當前目錄下，並自動地開啟</li></ul><h4><br></h4><h4><br></h4><p><strong>plot() 參數介紹</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/e596c326-1847-4249-9283-ef1fddd22ed4.webp" onerror="this.srcset='https://assets.matters.news/embed/e596c326-1847-4249-9283-ef1fddd22ed4.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/e596c326-1847-4249-9283-ef1fddd22ed4.png" onerror="this.srcset='https://assets.matters.news/embed/e596c326-1847-4249-9283-ef1fddd22ed4.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/e596c326-1847-4249-9283-ef1fddd22ed4.webp">
+
+        <img src="https://assets.matters.news/embed/e596c326-1847-4249-9283-ef1fddd22ed4.png" srcset="https://assets.matters.news/processed/540w/embed/e596c326-1847-4249-9283-ef1fddd22ed4.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><h4><br></h4><h4><strong>iplot() 參數介紹</strong></h4><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/b84a2ce5-32c8-4b22-86d9-2bf0a49206ce.webp" onerror="this.srcset='https://assets.matters.news/embed/b84a2ce5-32c8-4b22-86d9-2bf0a49206ce.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/b84a2ce5-32c8-4b22-86d9-2bf0a49206ce.png" onerror="this.srcset='https://assets.matters.news/embed/b84a2ce5-32c8-4b22-86d9-2bf0a49206ce.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/b84a2ce5-32c8-4b22-86d9-2bf0a49206ce.webp">
+
+        <img src="https://assets.matters.news/embed/b84a2ce5-32c8-4b22-86d9-2bf0a49206ce.png" srcset="https://assets.matters.news/processed/540w/embed/b84a2ce5-32c8-4b22-86d9-2bf0a49206ce.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><pre class="ql-syntax">import plotly.graph_objs as go
+import plotly.offline as pof
+​
+## 設定為離線
+pof.iplot([{'x': [1, 7, 8], 'y': [3, 8, 14]}], filename = 'My First Plotly', show_link = True, link_text = "Plotly Links", image = 'png', image_hight = 800, image_width = 900)
+​
+</pre><h4><strong>執行結果</strong></h4><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/0f9a90d1-9651-45d5-bd68-9341dccd43f0.webp" onerror="this.srcset='https://assets.matters.news/embed/0f9a90d1-9651-45d5-bd68-9341dccd43f0.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/0f9a90d1-9651-45d5-bd68-9341dccd43f0.png" onerror="this.srcset='https://assets.matters.news/embed/0f9a90d1-9651-45d5-bd68-9341dccd43f0.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/0f9a90d1-9651-45d5-bd68-9341dccd43f0.webp">
+
+        <img src="https://assets.matters.news/embed/0f9a90d1-9651-45d5-bd68-9341dccd43f0.png" srcset="https://assets.matters.news/processed/540w/embed/0f9a90d1-9651-45d5-bd68-9341dccd43f0.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><h4><br></h4><p><br></p><p><strong>plot() 與 iplot() 的差別:</strong></p><ul><li>iplot()會直接在jupyter notebook生成圖，但plot()不會，它會自動開啟一個html檔</li><li>plot()可以在filename設定自動儲存的html檔的儲存路徑，iplot()則會自動儲存到特定資料夾(下載)</li><li>plot()需要在html檔裡面，再轉換下載成圖檔</li></ul><p><br></p><p><strong>補充: 實作差別</strong></p><p>由於下面為了方便大家可以直接在jupyter notebook上檢視結果，所以都採用iplot()，但這邊我想讓大家看看它們實作上的差別，所以我透過繪製一樣的圖，但是採用不同的呈現與下載方式來讓大家看出它們的差別</p><p><br></p><ul><li>iplot()</li></ul><pre class="ql-syntax">import plotly.graph_objs as go
+import plotly.offline as pof
+​
+## 設置為離線
+pof.init_notebook_mode(connected = True)
+​
+## 繪圖
+pof.iplot([{'x': [1, 7, 8], 'y': [3, 8, 14]}], filename = 'result/My First Plotly', show_link = True, link_text = "Plotly Links", image = 'png', image_height = 800, image_width = 900)
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/0fd9eab9-4db6-42fc-9b92-8894ab76ee33.webp" onerror="this.srcset='https://assets.matters.news/embed/0fd9eab9-4db6-42fc-9b92-8894ab76ee33.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/0fd9eab9-4db6-42fc-9b92-8894ab76ee33.png" onerror="this.srcset='https://assets.matters.news/embed/0fd9eab9-4db6-42fc-9b92-8894ab76ee33.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/0fd9eab9-4db6-42fc-9b92-8894ab76ee33.webp">
+
+        <img src="https://assets.matters.news/embed/0fd9eab9-4db6-42fc-9b92-8894ab76ee33.png" srcset="https://assets.matters.news/processed/540w/embed/0fd9eab9-4db6-42fc-9b92-8894ab76ee33.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><ul><li>plot()</li></ul><pre class="ql-syntax">import plotly.graph_objs as go
+import plotly.offline as pof
+​
+## 設置為離線
+pof.init_notebook_mode(connected = True)
+​
+## 繪圖
+pof.iplot([{'x': [1, 7, 8], 'y': [3, 8, 14]}], filename = 'result/My First Plotly', show_link = True, link_text = "Plotly Links", image = 'png', image_height = 800, image_width = 900, validate = False)
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/9a2faa4a-3e2c-43d3-9134-bf3b0908e455.webp" onerror="this.srcset='https://assets.matters.news/embed/9a2faa4a-3e2c-43d3-9134-bf3b0908e455.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/9a2faa4a-3e2c-43d3-9134-bf3b0908e455.png" onerror="this.srcset='https://assets.matters.news/embed/9a2faa4a-3e2c-43d3-9134-bf3b0908e455.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/9a2faa4a-3e2c-43d3-9134-bf3b0908e455.webp">
+
+        <img src="https://assets.matters.news/embed/9a2faa4a-3e2c-43d3-9134-bf3b0908e455.png" srcset="https://assets.matters.news/processed/540w/embed/9a2faa4a-3e2c-43d3-9134-bf3b0908e455.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p>大家可以直接複製上面的程式碼到jupyter notebook實作感受一下差別</p><p>瞭解怎麼設定模式後，我們就要開始學習用plotly繪圖囉</p><h2><br></h2><h2><br></h2><h2><strong>5. 可視化圖形介紹</strong></h2><p>這邊我們來檢視一下Plotly能夠繪製的圖形類別，使用help(plotly.graph_objs)來查詢套件底下的資訊</p><pre class="ql-syntax">import plotly
+​
+help(plotly.graph_objs)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">IOPub data rate exceeded.
+The notebook server will temporarily stop sending output
+to the client in order to avoid crashing it.
+To change this limit, set the config variable
+`--NotebookApp.iopub_data_rate_limit`.
+​
+Current values:
+NotebookApp.iopub_data_rate_limit=1000000.0 (bytes/sec)
+NotebookApp.rate_limit_window=3.0 (secs)
+</pre><p>由於我的電腦沒辦法呈現出來，所以大家可以直接參考這個網址喔:<a href="https://plotly.com/python/" target="_blank">https://plotly.com/python/</a></p><h2><br></h2><h2><br></h2><h2><strong>6. 圖形數據與介面設定函數L: Layout() & Figure()</strong></h2><h3><strong>plotly.graph_objs.Layout()參數</strong></h3><p><br></p><p>用於繪製圖形介面</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/38576e1d-3067-4986-b0fa-0ec423fb00f2.webp" onerror="this.srcset='https://assets.matters.news/embed/38576e1d-3067-4986-b0fa-0ec423fb00f2.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/38576e1d-3067-4986-b0fa-0ec423fb00f2.png" onerror="this.srcset='https://assets.matters.news/embed/38576e1d-3067-4986-b0fa-0ec423fb00f2.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/38576e1d-3067-4986-b0fa-0ec423fb00f2.webp">
+
+        <img src="https://assets.matters.news/embed/38576e1d-3067-4986-b0fa-0ec423fb00f2.png" srcset="https://assets.matters.news/processed/540w/embed/38576e1d-3067-4986-b0fa-0ec423fb00f2.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><ul><li>xaxis 和 yaxis 裡面可用的參數</li></ul><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/0786beb8-0656-4cd9-83a4-c08bbcdfa401.webp" onerror="this.srcset='https://assets.matters.news/embed/0786beb8-0656-4cd9-83a4-c08bbcdfa401.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/0786beb8-0656-4cd9-83a4-c08bbcdfa401.png" onerror="this.srcset='https://assets.matters.news/embed/0786beb8-0656-4cd9-83a4-c08bbcdfa401.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/0786beb8-0656-4cd9-83a4-c08bbcdfa401.webp">
+
+        <img src="https://assets.matters.news/embed/0786beb8-0656-4cd9-83a4-c08bbcdfa401.png" srcset="https://assets.matters.news/processed/540w/embed/0786beb8-0656-4cd9-83a4-c08bbcdfa401.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><ul><li>font 裡面的可用參數</li></ul><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/6f43c8ea-49cb-4b86-a601-c2d4415471fb.webp" onerror="this.srcset='https://assets.matters.news/embed/6f43c8ea-49cb-4b86-a601-c2d4415471fb.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/6f43c8ea-49cb-4b86-a601-c2d4415471fb.png" onerror="this.srcset='https://assets.matters.news/embed/6f43c8ea-49cb-4b86-a601-c2d4415471fb.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/6f43c8ea-49cb-4b86-a601-c2d4415471fb.webp">
+
+        <img src="https://assets.matters.news/embed/6f43c8ea-49cb-4b86-a601-c2d4415471fb.png" srcset="https://assets.matters.news/processed/540w/embed/6f43c8ea-49cb-4b86-a601-c2d4415471fb.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><ul><li>legend 裡面可用的參數</li></ul><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f9386196-b24c-4d06-b17a-f8807e7c7270.webp" onerror="this.srcset='https://assets.matters.news/embed/f9386196-b24c-4d06-b17a-f8807e7c7270.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f9386196-b24c-4d06-b17a-f8807e7c7270.png" onerror="this.srcset='https://assets.matters.news/embed/f9386196-b24c-4d06-b17a-f8807e7c7270.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/f9386196-b24c-4d06-b17a-f8807e7c7270.webp">
+
+        <img src="https://assets.matters.news/embed/f9386196-b24c-4d06-b17a-f8807e7c7270.png" srcset="https://assets.matters.news/processed/540w/embed/f9386196-b24c-4d06-b17a-f8807e7c7270.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><ul><li>margin裡面的參數</li></ul><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f22dd1ed-6445-45f4-9c3f-f40d5f2cdc44.webp" onerror="this.srcset='https://assets.matters.news/embed/f22dd1ed-6445-45f4-9c3f-f40d5f2cdc44.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f22dd1ed-6445-45f4-9c3f-f40d5f2cdc44.png" onerror="this.srcset='https://assets.matters.news/embed/f22dd1ed-6445-45f4-9c3f-f40d5f2cdc44.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/f22dd1ed-6445-45f4-9c3f-f40d5f2cdc44.webp">
+
+        <img src="https://assets.matters.news/embed/f22dd1ed-6445-45f4-9c3f-f40d5f2cdc44.png" srcset="https://assets.matters.news/processed/540w/embed/f22dd1ed-6445-45f4-9c3f-f40d5f2cdc44.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><ul><li>hoverlabel裡面的參數</li></ul><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/357cc828-d282-4055-992d-6a5a6916f8a0.webp" onerror="this.srcset='https://assets.matters.news/embed/357cc828-d282-4055-992d-6a5a6916f8a0.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/357cc828-d282-4055-992d-6a5a6916f8a0.png" onerror="this.srcset='https://assets.matters.news/embed/357cc828-d282-4055-992d-6a5a6916f8a0.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/357cc828-d282-4055-992d-6a5a6916f8a0.webp">
+
+        <img src="https://assets.matters.news/embed/357cc828-d282-4055-992d-6a5a6916f8a0.png" srcset="https://assets.matters.news/processed/540w/embed/357cc828-d282-4055-992d-6a5a6916f8a0.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><ul><li>grid裡面的參數</li></ul><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/565edc83-b1ea-4446-b385-70e8d1fde1e1.webp" onerror="this.srcset='https://assets.matters.news/embed/565edc83-b1ea-4446-b385-70e8d1fde1e1.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/565edc83-b1ea-4446-b385-70e8d1fde1e1.png" onerror="this.srcset='https://assets.matters.news/embed/565edc83-b1ea-4446-b385-70e8d1fde1e1.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/565edc83-b1ea-4446-b385-70e8d1fde1e1.webp">
+
+        <img src="https://assets.matters.news/embed/565edc83-b1ea-4446-b385-70e8d1fde1e1.png" srcset="https://assets.matters.news/processed/540w/embed/565edc83-b1ea-4446-b385-70e8d1fde1e1.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><ul><li>x: 傳入list形式，格式: [距離左邊邊界的距離百分比, 距離右邊邊界的距離百分比]，距離是以百分比方式呈現，介於0.0~0.1之間，也就是子圖區域與邊界距離子圖寬度(子圖與邊界間空白的地方)的百分比</li><li>y: 傳入list形式，格式: [距離上邊邊界的距離百分比, 距離下邊邊界的距離百分比]，距離是以百分比方式呈現，介於0.0~0.1之間，也就是子圖區域與邊界距離子圖寬度(子圖與邊界間空白的地方)的百分比</li></ul><h3><strong>plotly.graph_objs.Figure()裡面的參數設定</strong></h3><p>用以結合多筆數據和圖形介面</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/7b615d9a-6a35-4e0e-92d2-d032177d324f.webp" onerror="this.srcset='https://assets.matters.news/embed/7b615d9a-6a35-4e0e-92d2-d032177d324f.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/7b615d9a-6a35-4e0e-92d2-d032177d324f.png" onerror="this.srcset='https://assets.matters.news/embed/7b615d9a-6a35-4e0e-92d2-d032177d324f.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/7b615d9a-6a35-4e0e-92d2-d032177d324f.webp">
+
+        <img src="https://assets.matters.news/embed/7b615d9a-6a35-4e0e-92d2-d032177d324f.png" srcset="https://assets.matters.news/processed/540w/embed/7b615d9a-6a35-4e0e-92d2-d032177d324f.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p>這篇主要帶大家瞭解Plotly和要使用它來建構視覺圖需要的各種參數，下一篇就會馬上帶大家來用散點圖來實作並用各種參數來調整圖形喔</p><h2><br></h2><h2><strong>Reference</strong></h2><p><a href="https://www.youtube.com/watch?v=ifYugIP0pPQ" target="_blank">https://www.youtube.com/watch?v=ifYugIP0pPQ</a></p><p>htts://plotly.com/python/</p><p><a href="https://www.cnblogs.com/feffery/p/9293745.html" target="_blank">https://www.cnblogs.com/feffery/p/9293745.html</a></p><p><a href="https://blogs.csdn.net/u012897374/article/details/77857980" target="_blank">https://blogs.csdn.net/u012897374/article/details/77857980</a></p><p><a href="https://images.plot.ly/plotly-documentation/images/python_cheat_sheet.pdf" target="_blank">https://images.plot.ly/plotly-documentation/images/python_cheat_sheet.pdf</a></p><p><a href="https://www.jianshu.com/p/57bad75139ca" target="_blank">https://www.jianshu.com/p/57bad75139ca</a></p><p><br></p>
