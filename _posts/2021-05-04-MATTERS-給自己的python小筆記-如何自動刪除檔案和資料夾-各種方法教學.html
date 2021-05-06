@@ -8,4 +8,171 @@ tags: blog
 author: 為自己Coding
 ---
 
-給自己的Python小筆記 - 如何自動刪除檔案和資料夾? - 各種方法教學
+<p><a href="https://github.com/chwang12341/Learn-Python-/blob/master/delete-folder-file/Python-Delete-File-Folder.md" target="_blank">Github連結</a></p><p><br></p><figure class="image">
+	      <picture>
+	              <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/362a2609-8061-4c73-9279-c8b229f60b6d.webp" onerror="this.srcset='https://assets.matters.news/embed/362a2609-8061-4c73-9279-c8b229f60b6d.jpeg'">
+
+		              <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/362a2609-8061-4c73-9279-c8b229f60b6d.jpeg" onerror="this.srcset='https://assets.matters.news/embed/362a2609-8061-4c73-9279-c8b229f60b6d.jpeg'">
+
+			              <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/362a2609-8061-4c73-9279-c8b229f60b6d.webp">
+
+				              <img src="https://assets.matters.news/embed/362a2609-8061-4c73-9279-c8b229f60b6d.jpeg" srcset="https://assets.matters.news/processed/540w/embed/362a2609-8061-4c73-9279-c8b229f60b6d.jpeg" loading="lazy">
+					            </picture>
+						        <figcaption><span>攝影師：Evgeny Tchebotarev，連結：Pexels</span></figcaption></figure><p><br></p><h2><strong>1. 總表 - 刪除檔案與資料夾的方法比較</strong></h2><h2><br></h2><figure class="image">
+							      <picture>
+							              <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/3b1cbfa3-54d0-44d4-917d-5ef12950b136.webp" onerror="this.srcset='https://assets.matters.news/embed/3b1cbfa3-54d0-44d4-917d-5ef12950b136.png'">
+
+								              <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/3b1cbfa3-54d0-44d4-917d-5ef12950b136.png" onerror="this.srcset='https://assets.matters.news/embed/3b1cbfa3-54d0-44d4-917d-5ef12950b136.png'">
+
+									              <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/3b1cbfa3-54d0-44d4-917d-5ef12950b136.webp">
+
+										              <img src="https://assets.matters.news/embed/3b1cbfa3-54d0-44d4-917d-5ef12950b136.png" srcset="https://assets.matters.news/processed/540w/embed/3b1cbfa3-54d0-44d4-917d-5ef12950b136.png" loading="lazy">
+											            </picture>
+												        <figcaption><span></span></figcaption></figure><h2><br></h2><h2><strong>2. os.remove() 方法</strong></h2><p><br></p><p><strong>說明:</strong>用以刪除指定路径的檔案</p><p><strong>可能報錯原因:</strong></p><ul><li>指定的檔案非檔案(像是資料夾)或根本不存在</li><li>沒有權限刪除檔案</li></ul><p><strong>舉例:</strong> 刪除sample資料夾中的sample_file.txt，並使用try-except來捕捉刪除時遇到的錯誤</p><pre class="ql-syntax">import os
+​
+path = 'sample/'
+​
+file = 'sample/sample_file.txt'
+​
+print('Sample Folder:', os.listdir(path))
+​
+try:
+​
+&nbsp;&nbsp;os.remove(file)
+​
+except OSError as e:
+​
+&nbsp;&nbsp;print('Delete Problem: ', e)
+​
+else:
+&nbsp;&nbsp;print('Delete File')
+&nbsp;&nbsp;print('Sample Folder: ', os.listdir(path))
+												</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Sample Folder: ['level1', 'not_null', 'python_file.py', 'sample.txt', 'sample_file.txt', 'sample_file1.txt', 'sample_file_example.txt', 'test_folder']
+Delete File
+Sample Folder: ['level1', 'not_null', 'python_file.py', 'sample.txt', 'sample_file1.txt', 'sample_file_example.txt', 'test_folder']
+												</pre><h2><br></h2><h2><strong>3. os.unlink() 方法</strong></h2><p><br></p><ol><li><strong>說明:</strong> 用以刪除指定路徑的檔案</li><li><strong>舉例:</strong> 刪除sample資料夾中的python_file.py</li></ol><pre class="ql-syntax">import os
+​
+path = 'sample/'
+​
+​
+print('Sample Folder: ', os.listdir(path))
+​
+os.unlink('sample/python_file.py')
+​
+print('Delete File')
+print('Sample Folder: ', os.listdir(path))
+												</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Sample Folder: ['level1', 'not_null', 'python_file.py', 'sample.txt', 'sample_file1.txt', 'sample_file_example.txt', 'test_folder']
+Delete File
+Sample Folder: ['level1', 'not_null', 'sample.txt', 'sample_file1.txt', 'sample_file_example.txt', 'test_folder']
+												</pre><h2><br></h2><h2><strong>4. rmdir() 方法 - 刪除空的資料夾</strong></h2><p><br></p><ol><li><strong>說明:</strong> 刪除資料夾，但資料夾必須為空</li><li><strong>舉例:</strong> 刪除sample資料夾中的test_folder</li></ol><pre class="ql-syntax">import os
+​
+path = 'sample/'
+​
+folder = 'sample/test_folder'
+print('Sample Folder:', os.listdir(path))
+​
+try:
+​
+&nbsp;&nbsp;os. rmdir(folder)
+​
+except OSError as e:
+​
+&nbsp;&nbsp;print('Delete Problem: ', e)
+​
+else:
+​
+&nbsp;&nbsp;print('Delete File')
+&nbsp;&nbsp;print('Sample Folder: ', os. listdir(path))
+												</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Sample Folder: ['level1', 'not_null', 'sample.txt', 'sample_file1.txt', 'sample_file_example.txt', 'test_folder']
+Delete File
+Sample Folder: ['level1', 'not_null', 'sample.txt', 'sample_file1.txt', 'sample_file_example.txt']
+												</pre><h2><br></h2><h2><strong>5. Pathlib 模組 - 刪除檔案</strong></h2><p><br></p><ol><li>說明: 用以刪除指定路徑的檔案</li><li>舉例: 刪除sample資料夾中的sample_file.txt</li></ol><pre class="ql-syntax">from pathlib import Path
+​
+path = 'sample/'
+​
+file = Path('sample/sample_file1.txt')
+​
+print('Sample Folder: ', os.listdir(path))
+​
+try:
+​
+&nbsp;&nbsp;file.unlink()
+&nbsp;&nbsp;print('Delete File')
+&nbsp;&nbsp;print('Sample Folder: ', os.listdir(path))
+​
+except OSError as e:
+&nbsp;&nbsp;print (f"Delete Problem: {e.strerror}")
+​
+												</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Sample Folder: ['level1', 'not_null', 'sample.txt', 'sample_file1.txt', 'sample_file_example.txt']
+Delete File
+Sample Folder: ['level1', 'not_null', 'sample.txt', 'sample_file_example.txt']
+												</pre><h2><br></h2><h2><strong>6. removedirs() - 刪除資料夾</strong></h2><p><br></p><ol><li><strong>說明:</strong> 遞迴刪除資料夾，當子資料夾們成功刪除(資料夾必須為空)，才會到其父資料夾們嘗試刪除</li><li><strong>舉例:</strong> 我建立兩層資料夾(levell裡面包含level2)，level2為空的資料夾，levell為只有装載level2的資料夾，我要將level1整個刪除</li></ol><pre class="ql-syntax">import os
+​
+path = 'sample/'
+folder = 'sample/level1/level2'
+​
+print('Sample Folder: ', os.listdir(path))
+​
+try:
+​
+&nbsp;&nbsp;os.removedirs (folder)
+​
+except OSError as e:
+​
+&nbsp;&nbsp;print('Delete Problem:', e)
+​
+else:
+​
+&nbsp;&nbsp;print('Delete File')
+&nbsp;&nbsp;print('Sample Folder: ', os.listdir(path))
+												</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Sample Folder: ['level1', 'not_null', 'sample.txt', 'sample_file_example.txt']
+Delete File
+Sample Folder: ['not_null', 'sample.txt', 'sample_file_example.txt']
+												</pre><h2><br></h2><h2><strong>7. glob - 使用匹配模式來刪除檔案</strong></h2><p><br></p><ol><li><strong>說明:</strong> 使用匹配的模式搭配remove()來刪除對應規則的檔案</li><li><strong>舉例:</strong> 刪除sample資料夾中所有以sample_為開頭的txt檔案</li></ol><pre class="ql-syntax">import os
+​
+import glob
+​
+## 刪除以sample_為開頭的txt檔案
+all_text = glob.glob('sample/sample_*.txt')
+​
+path = 'sample/'
+​
+print('Sample Folder: ', os.listdir(path))
+​
+for t in all_text:
+&nbsp;&nbsp;try:
+&nbsp;&nbsp;&nbsp;&nbsp;os.remove(t)
+​
+&nbsp;&nbsp;except OSError as e:
+​
+&nbsp;&nbsp;&nbsp;&nbsp;print('Delete Problem: ', e)
+​
+print('Delete File')
+print('Sample Folder: ', os.listdir(path))
+												</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Sample Folder: ['not_null', 'sample.txt', 'sample_file_example.txt']
+Delete File
+Sample Folder: ['not_null', 'sample.txt']
+												</pre><h2><br></h2><h2><strong>8. rmtree() - 直接刪除整個非空的資料夾</strong></h2><p><br></p><p>舉例: 刪除整個not_null 資料夾</p><pre class="ql-syntax">import shutil
+​
+path = 'sample/'
+​
+folder = 'sample/not_null'
+​
+print('Sample Folder: ', os.listdir(path))
+​
+try:
+​
+&nbsp;&nbsp;shutil.rmtree (folder)
+​
+except OSError as e:
+​
+&nbsp;&nbsp;print('Delete Problem: ', e)
+​
+else:
+​
+&nbsp;&nbsp;print('Delete File')
+&nbsp;&nbsp;print('Sample Folder: ', os.listdir(path))
+												</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Sample Folder: ['not_null', 'sample.txt']
+Delete File
+Sample Folder: ['sample.txt']
+												</pre><p><br></p>
