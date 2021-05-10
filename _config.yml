@@ -11,6 +11,7 @@ timezone: Asia/Hong_Kong
 future: true
 theme: minima
 exclude:
+  - _posts/2021-02*
   - _posts/2021-01*
   - _posts/2020*
   - _posts/201*
