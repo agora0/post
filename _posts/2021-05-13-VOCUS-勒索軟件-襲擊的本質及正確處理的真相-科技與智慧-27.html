@@ -1,0 +1,37 @@
+---
+layout: post
+title: "「勒索軟件」襲擊的本質及正確處理的真相─科技與智慧（27）"
+date: 2021-05-13 00:49:50.000000000 +00:00
+link: https://vocus.cc/user/@hwafuchen/609baad5fd89780001ea4573
+categories: vocus
+tags: blog
+author: 陳華夫hwafuchen
+---
+
+<p>作者：陳華夫</p>
+<p>美國最大的成品油管線營運商「殖民管線」（Colonial Pipeline）於2021/5/7日（週五）遭<a href="https://newtalk.tw/news/view/2021-05-11/571321">網路駭客「黑暗面」（Darkside）</a>的<a href="https://zh.wikipedia.org/wiki/%E5%8B%92%E7%B4%A2%E8%BB%9F%E9%AB%94">「勒索軟件」（Ransomware）</a>襲擊，導致管線被迫關閉。由於該公司8,850公里輸運管線運送超過一億加侖成品油/每天，包括汽油、柴油、航空燃油和取暖油，約占東岸燃料消耗量的四十五％，並為美國軍事設施提供服務。造成美國17個州與華府陷入能源危機，美國於9日宣佈進入國家緊急狀態。（見<a href="https://ec.ltn.com.tw/article/paper/1447907">最大營運商遭駭入勒索美8850公里輸油管線停擺</a>、及<a href="https://udn.com/news/story/6811/5448593">油管遭駭╱是否要付贖金 企業自行決定</a>）</p>
+<p>           （圖片資料來源：媒體）</p>
+<p>但不是每一件企業的電腦「資安事件」都是遭是「勒索軟件」襲擊；例如遠銀於2017/10月遭駭客入侵，轉走18億元，根本沒有所謂的「勒索」。（見<a href="https://news.cnyes.com/news/id/4212439">遠銀去年遭駭盜走18億元 是北韓駭客組織所為 總座：已知悉但真假難辨</a>）。而造成台積電損失52億元台幣的生產機臺遭電腦病毒感染的「資安事件」，也不是「勒索軟件」造成的。（見<a href="https://www.ithome.com.tw/news/125098">【臺灣史上最大資安事件】深度剖析台積產線中毒大當機始末，（上）（下）</a>）。</p>
+<p>最接近「勒索軟件」襲擊是而2020/5月，中油加油站一度無法使用中油 Pay 等支付方式，疑似遭到駭客入侵，植入了「勒索病毒」，發言人也向媒體證實，超過 7 成行政系統電腦都感染，但勒索細節未見媒體報導。（見<a href="https://www.managertoday.com.tw/articles/view/60377">台積電、中油都曾中標！助產業龍頭解「勒索病毒」，宏碁小金雞靠什麼站穩市場？</a>）</p>
+<p>大家也許會納悶，「勒索病毒」不就是種電腦病毒，只要有<a href="https://zh.wikipedia.org/wiki/%E4%BA%91%E5%AD%98%E5%82%A8">雲端儲存</a>的備份資料，可以取代遭病毒污染的資料，再重開機運轉，即可。為何<a href="https://zh.wikipedia.org/wiki/%E8%81%94%E9%82%A6%E8%B0%83%E6%9F%A5%E5%B1%80">美國聯邦調查局（FBI）</a>的網路專家也會被「勒索軟件」勒索，而束手無策呢？</p>
+<p>回答此問題的關鍵是需要釐清（1）資訊技術的「IT系統」（Informational Technology System)和（2）運營技術的「OT系統」（Operational Technology System）之間的差異。</p>
+<p>首先，「IT系統」是屬於純粹的軟體，可以<a href="https://zh.wikipedia.org/wiki/%E4%BA%91%E5%AD%98%E5%82%A8">雲端儲存</a>的備份資料，可以取代遭病毒污染的資料，再重開機運轉，不會需要系統<a href="https://baike.baidu.com/item/%E8%84%B1%E6%9C%BA">「脫機」（offline）</a>。</p>
+<p>但「OT系統」卻大為不同，「OT系統」涉及系統裡眾多的感測器及數字計數器，在「OT系統」開機運行時，它們必須<a href="https://www.google.com.tw/search?q=%E3%80%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%8D&sxsrf=ALeKk00AIhnUdPzg7rdh3xBJZC5i7jRsYA%3A1620811009022&source=hp&ei=AJ2bYKW7O6CQr7wPwdODgAo&iflsig=AINFCbYAAAAAYJurEdw16MBrC6ocMb-dinLo5fFwpox8&oq=%E3%80%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%8D&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEM0CUO8RWO8RYNseaABwAHgAgAFTiAFTkgEBMZgBAKABAqABAaoBB2d3cy13aXo&sclient=gws-wiz&ved=0ahUKEwilu8DD58PwAhUgyIsBHcHpAKAQ4dUDCAk&uact=5">「初始化」（Initialization）</a>，但在運轉中，是它們紀錄了整個系統運轉的現況。假若在運轉中，突然遭「勒索軟件」襲擊，若屈服勒索，交了贖金，則系統解除「勒索軟件」的制肘，可以繼續運行。</p>
+<p>若拒付贖金，必須以備份軟體繼續運轉，則系統需<a href="https://baike.baidu.com/item/%E8%84%B1%E6%9C%BA">「脫機」（offline）</a>，然後，再開機，<a href="https://www.google.com.tw/search?q=%E3%80%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%8D&sxsrf=ALeKk00AIhnUdPzg7rdh3xBJZC5i7jRsYA%3A1620811009022&source=hp&ei=AJ2bYKW7O6CQr7wPwdODgAo&iflsig=AINFCbYAAAAAYJurEdw16MBrC6ocMb-dinLo5fFwpox8&oq=%E3%80%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%8D&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEM0CUO8RWO8RYNseaABwAHgAgAFTiAFTkgEBMZgBAKABAqABAaoBB2d3cy13aXo&sclient=gws-wiz&ved=0ahUKEwilu8DD58PwAhUgyIsBHcHpAKAQ4dUDCAk&uact=5">「初始化」</a>感測器及數字計數器，在此過程中，若有一個系統運轉的現況的資料就被<a href="https://www.google.com.tw/search?q=%E3%80%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%8D&sxsrf=ALeKk00AIhnUdPzg7rdh3xBJZC5i7jRsYA%3A1620811009022&source=hp&ei=AJ2bYKW7O6CQr7wPwdODgAo&iflsig=AINFCbYAAAAAYJurEdw16MBrC6ocMb-dinLo5fFwpox8&oq=%E3%80%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%8D&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEM0CUO8RWO8RYNseaABwAHgAgAFTiAFTkgEBMZgBAKABAqABAaoBB2d3cy13aXo&sclient=gws-wiz&ved=0ahUKEwilu8DD58PwAhUgyIsBHcHpAKAQ4dUDCAk&uact=5">「初始化」</a>洗掉，則系統無法正常運轉，而可能造成巨大的損失。所以， Colonial Pipeline營運商及任何生產企業（如台積電）的「OT系統」的<a href="https://zh.wikipedia.org/wiki/%E4%BA%91%E5%AD%98%E5%82%A8">雲端儲存</a>的備份資料系統，及防毒軟體都是用處有限的。</p>
+<p>那要如何正確處理「勒索軟件」襲擊呢？<br>
+<a href="https://terms.naer.edu.tw/detail/1681181/">「美國國家標準技術協會」（ NIST）</a>建議企業不管是花多少成本，最好要運行一套「並行系統」（a parallel system）。也就是應該不計成本，在分離的、兩個相同的大系統下，運行一模一樣的營運系統。當一個系統被駭，另一個平行系統可助其以備份系統運行。（見<a href="https://scienceimpact.mit.edu/sites/default/files/documents/Cyber_Negotiation_Authors%20Manuscript.pdf">網絡談判：一種網絡風險管理方法─保衛城市的關鍵基礎設施網絡攻擊</a>）</p>
+<p><a href="https://www.ft.com/content/1f3917ae-ca59-11e9-af46-b09e8bfe60c0">如何與駭客談判談判</a></p>
+<p><a href="https://www.ft.com/content/c0def43a-6949-44ca-86ff-f28daa3818be">談判人員對付勒索軟件駭客</a></p>
+<p><a href="https://kknews.cc/zh-tw/tech/k9ngapp.html">和勒索軟體談判的7個最佳實踐</a></p>
+<p><a href="https://finance.ettoday.net/news/1228606">台積電遭病毒攻擊　損失76億、報廢上萬片晶圓</a></p>
+<p><a href="https://www.ithome.com.tw/news/125098">【臺灣史上最大資安事件】深度剖析台積產線中毒大</a></p>
+<p><a href="https://www.ithome.com.tw/news/125098">【臺灣史上最大資安事件】深度剖析台積產線中毒大當機始末（上）</a></p>
+<p><a href="https://www.ithome.com.tw/news/125101">【臺灣史上最大資安事件】深度剖析台積產線中毒大當機始末（下）</a></p>
+<p><a href="https://technews.tw/2018/11/22/manufacturers-remain-slow-to-recognize-cybersecurity-risk/">紐時報導資安危機，台積電遭病毒感染成案例</a></p>
+<p><a href="https://www.managertoday.com.tw/articles/view/60377">台積電、中油都曾中標！助產業龍頭解「勒索病毒」，宏碁小金雞靠什麼站穩市場？</a></p>
+<p><a href="file:///D:/%E7%B6%93%E6%BF%9F%E5%AD%B8%E2%94%80%E7%9F%B3%E6%B2%B9%E4%BA%BA%E6%B0%91%E5%B9%A3/%E4%B8%80%E5%B9%B440%E5%80%8B%E7%BE%8E%E5%9C%8B%E5%85%AC%E9%83%A8%E9%96%80%E9%81%AD%E9%A7%AD%E5%AE%A2%E6%94%BB%E6%93%8A%E3%80%80%E9%81%87%E4%B8%8A%E5%8B%92%E7%B4%A2%E7%97%85%E6%AF%92%E6%99%82%EF%BC%8C%E8%A9%B2%E4%BB%98%E8%B4%96%E9%87%91%E5%97%8E%EF%BC%9F">一年40個美國公部門遭駭客攻擊遇上勒索病毒時，該付贖金嗎</a></p>
+<p><a href="https://tw.news.yahoo.com/news/%E8%A6%81%E8%84%85%E4%BB%98%E8%B4%96%E9%87%91-%E5%8B%92%E7%B4%A2%E8%BB%9F%E9%AB%94%E7%B5%84%E7%B9%94%E9%A0%BB%E5%B0%8D%E5%B9%B9%E7%BE%8E%E5%9C%8B%E5%9F%B7%E6%B3%95%E9%83%A8%E9%96%80-061939368.html">要脅付贖金…勒索軟體組織頻對幹美國執法部門</a></p>
+<p><a href="https://ec.ltn.com.tw/article/paper/1447907">最大營運商遭駭入勒索美8850公里輸油管線停擺</a></p>
+<p><a href="https://www.worldjournal.com/wj/story/121186/5448593">油管遭駭 是否要付贖金企業自行決定</a></p>
+<p><a href="https://blog.trendmicro.com.tw/?p=18070">中了勒索病毒怎麼辦?該不該付贖金?</a></p>
+<p> </p>
