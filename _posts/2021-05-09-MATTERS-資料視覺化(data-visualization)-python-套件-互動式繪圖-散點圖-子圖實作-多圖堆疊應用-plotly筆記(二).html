@@ -1,0 +1,515 @@
+---
+layout: post
+title: 資料視覺化(Data Visualization) - Python 套件 - 互動式繪圖 - 散點圖、子圖實作、多圖堆疊應用 - Plotly筆記(二)
+date: 2021-05-09 01:56:36.000000000 +00:00
+link: https://matters.news/@CHWang/%25E8%25B3%2587%25E6%2596%2599%25E8%25A6%2596%25E8%25A6%25BA%25E5%258C%2596-data-visualization-python-%25E5%25A5%2597%25E4%25BB%25B6-%25E4%25BA%2592%25E5%258B%2595%25E5%25BC%258F%25E7%25B9%25AA%25E5%259C%2596-%25E6%2595%25A3%25E9%25BB%259E%25E5%259C%2596-%25E5%25AD%2590%25E5%259C%2596%25E5%25AF%25A6%25E4%25BD%259C-%25E5%25A4%259A%25E5%259C%2596%25E5%25A0%2586%25E7%2596%258A%25E6%2587%2589%25E7%2594%25A8-plotly%25E7%25AD%2586%25E8%25A8%2598-%25E4%25BA%258C-bafyreidsz2rbriwrg4vun6sbd57fn4bd53xjqu5emojpfka6rtghs3dos4
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<h1><br></h1><p>Github連結</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/c7cace41-8747-4a6b-9664-2faea1c8396a.webp" onerror="this.srcset='https://assets.matters.news/embed/c7cace41-8747-4a6b-9664-2faea1c8396a.jpeg'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/c7cace41-8747-4a6b-9664-2faea1c8396a.jpeg" onerror="this.srcset='https://assets.matters.news/embed/c7cace41-8747-4a6b-9664-2faea1c8396a.jpeg'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/c7cace41-8747-4a6b-9664-2faea1c8396a.webp">
+
+        <img src="https://assets.matters.news/embed/c7cace41-8747-4a6b-9664-2faea1c8396a.jpeg" srcset="https://assets.matters.news/processed/540w/embed/c7cace41-8747-4a6b-9664-2faea1c8396a.jpeg" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><h2><strong>1. 散點圖</strong></h2><h3><strong>plotly.graph_objs.Scatter()裡面的參數介紹</strong></h3><p>用於繪製數據點(散點)</p><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/07a8b8f8-b302-4528-8d0c-35a93ff94641.webp" onerror="this.srcset='https://assets.matters.news/embed/07a8b8f8-b302-4528-8d0c-35a93ff94641.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/07a8b8f8-b302-4528-8d0c-35a93ff94641.png" onerror="this.srcset='https://assets.matters.news/embed/07a8b8f8-b302-4528-8d0c-35a93ff94641.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/07a8b8f8-b302-4528-8d0c-35a93ff94641.webp">
+
+        <img src="https://assets.matters.news/embed/07a8b8f8-b302-4528-8d0c-35a93ff94641.png" srcset="https://assets.matters.news/processed/540w/embed/07a8b8f8-b302-4528-8d0c-35a93ff94641.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p>symbol: markers的圖形，可以傳入一些整數(int)，變換不同圖形或圖形角度，也可以傳入像是'star'來直接改變圖形</p><p><br></p><p><br></p><p><strong>舉例</strong></p><h3><strong>a. 點(marker)</strong></h3><pre class="ql-syntax">import plotly.graph_objs as go
+import plotly.offline as pof
+import numpy as np
+​
+## 設定為離線
+pof.init_notebook_mode(connected = True)
+​
+## data 1
+## 隨機產生2000個二維數據
+x = np.random.randn(2000)
+y = np.random.randn(2000)
+​
+data1 = go.Scatter(
+  x = x,
+  y = y,
+  marker = {'color': 'blue', 'symbol': 104, 'size': 4},
+  mode = 'markers',
+  name = 'data1'
+)
+​
+## data2
+## 隨機產生1000個二維數據
+​
+x1 = np.random.randn(1000)
+y1 = np.random.randn(1000)
+​
+data2 = go.Scatter(
+  x = x1,
+  y = y1,
+  marker = {'color': 'red', 'size': 4},
+  mode = 'markers',
+  name = 'data2'
+)
+​
+## 將data1和data2裝進串列
+data = [data1, data2]
+​
+## 介面設定
+layout = go.Layout(
+  title = "Plotly Scatter",
+  xaxis = {'title': 'x軸'},
+  yaxis = {'title': 'y軸'},
+  font = {
+    'size': 28,
+    'family': 'serif',
+    'color': '#D9006C'
+    
+ }) 
+​
+## 結合數據與介面
+figure = go.Figure(data = data, layout = layout)
+​
+## 繪圖
+pof.iplot(figure, filename = 'Plotly-Scatter', show_link = True, link_text = "Plotly Links", image_height = 800, image_width = 900)
+</pre><p><strong>執行結果</strong></p><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/57ca9cd1-ddf0-4ea1-b73a-8e83dd467b06.webp" onerror="this.srcset='https://assets.matters.news/embed/57ca9cd1-ddf0-4ea1-b73a-8e83dd467b06.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/57ca9cd1-ddf0-4ea1-b73a-8e83dd467b06.png" onerror="this.srcset='https://assets.matters.news/embed/57ca9cd1-ddf0-4ea1-b73a-8e83dd467b06.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/57ca9cd1-ddf0-4ea1-b73a-8e83dd467b06.webp">
+
+        <img src="https://assets.matters.news/embed/57ca9cd1-ddf0-4ea1-b73a-8e83dd467b06.png" srcset="https://assets.matters.news/processed/540w/embed/57ca9cd1-ddf0-4ea1-b73a-8e83dd467b06.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><h3><strong>b.點(marker)+線(lines)+文字(text)</strong></h3><pre class="ql-syntax">import plotly.graph_objs as go
+import plotly.offline as pof
+​
+pof.init_notebook_mode(connected = True)
+​
+## 數據
+## go.Scatter()
+## marker: 記號點, symbol - 調整樣式
+## mode: 圖像的種類，可以單獨寫text, lines, markers，也可以加在一起混合使用: text+lines 或 markers+lines 或 markers + lines + text等各種組合
+## text: 標記上的文字
+## name: 數據名稱
+​
+data1 = go.Scatter(
+  x = [2, 7, 9],
+  y = [18, 16, 8],
+  marker = {'color': 'blue', 'symbol': 104, 'size': 20},
+  mode = "markers+lines+text",
+  text = ["First", "Second", "Third"],
+  name = 'data1'
+  
+)
+​
+​
+data2 = go.Scatter(
+  x = [1, 7, 8],
+  y = [2, 18, 20],
+  marker = {'color': 'red', 'symbol': 106, 'size': 20},
+  mode = "markers+lines",
+  text = ["First", "Second", "Third"],
+  name = 'data2'
+  
+)
+​
+​
+## 介面
+layout = go.Layout(title = "Plotly Scatter", xaxis = {'title': 'x軸'}, yaxis = {'title': 'y軸'})
+​
+## 將data和介面結合
+figure = go.Figure(data = [data1, data2], layout = layout)
+​
+## 繪圖
+pof.iplot(figure, filename = 'First Plotly', show_link = True, link_text = "Plotly Links", image = 'png', image_height = 800, image_width = 900)
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/e3c6424a-9d96-4065-96c8-15d24843b412.webp" onerror="this.srcset='https://assets.matters.news/embed/e3c6424a-9d96-4065-96c8-15d24843b412.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/e3c6424a-9d96-4065-96c8-15d24843b412.png" onerror="this.srcset='https://assets.matters.news/embed/e3c6424a-9d96-4065-96c8-15d24843b412.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/e3c6424a-9d96-4065-96c8-15d24843b412.webp">
+
+        <img src="https://assets.matters.news/embed/e3c6424a-9d96-4065-96c8-15d24843b412.png" srcset="https://assets.matters.news/processed/540w/embed/e3c6424a-9d96-4065-96c8-15d24843b412.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><h3><strong>c. 綜合圖</strong></h3><pre class="ql-syntax">import plotly.graph_objs as go
+import plotly.offline as pof
+import numpy as np
+​
+## 設定為離線
+pof.init_notebook_mode(connected = True)
+​
+## data 1
+## 隨機產生100個二維數據
+x = np.random.randn(100)
+y = np.random.randn(100)
+​
+data1 = go.Scatter(
+  x = x,
+  y = y,
+  marker = {'color': 'blue', 'symbol': 104, 'size': 4},
+  mode = 'markers',
+  name = 'markers'
+)
+​
+## data2
+x1 = [v for v in range(-2, 4)]
+y1 = np.random.randn(10) - 5
+​
+data2 = go.Scatter(
+  x = x1,
+  y = y1,
+  marker = {'color': 'red', 'size': 4},
+  mode = 'markers',
+  name = 'lines'
+)
+​
+​
+## data3
+x2 = [v for v in range(-2, 4)]
+y2 = np.random.randn(10) - 10
+​
+data3 = go.Scatter(
+  x = x2,
+  y = y2,
+  marker = {'color': 'yellow', 'size': 10},
+  mode = 'lines+markers',
+  name = 'lines+markers'
+)
+​
+## data4
+x3 = [v for v in range(-2, 4)]
+y3 = np.random.randn(10) - 20
+​
+data4 = go.Scatter(
+  x = x3,
+  y = y3,
+  marker = {'color': 'black', 'size': 10},
+  mode = 'lines+markers+text',
+  text = ["First", "Second", "Third", "Forth", "Fifth", "Sixth"],
+  name = 'lines+markers+text'
+)
+​
+​
+​
+## 將data1和data2裝進串列
+data = [data1, data2, data3, data4]
+​
+## 介面設定
+layout = go.Layout(
+  title = "Plotly Scatter",
+  xaxis = {'title': 'x軸'},
+  yaxis = {'title': 'y軸'},
+  font = {
+    'size': 28,
+    'family': 'fantasy',
+    'color': '#D9006C'
+    
+ }) 
+​
+## 結合數據與介面
+figure = go.Figure(data = data, layout = layout)
+​
+## 繪圖
+pof.iplot(figure, filename = 'Plotly-Scatter', show_link = True, link_text = "Plotly Links", image_height = 800, image_width = 900)
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/8bbc254f-87a8-47c5-a20d-4d404a676f81.webp" onerror="this.srcset='https://assets.matters.news/embed/8bbc254f-87a8-47c5-a20d-4d404a676f81.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/8bbc254f-87a8-47c5-a20d-4d404a676f81.png" onerror="this.srcset='https://assets.matters.news/embed/8bbc254f-87a8-47c5-a20d-4d404a676f81.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/8bbc254f-87a8-47c5-a20d-4d404a676f81.webp">
+
+        <img src="https://assets.matters.news/embed/8bbc254f-87a8-47c5-a20d-4d404a676f81.png" srcset="https://assets.matters.news/processed/540w/embed/8bbc254f-87a8-47c5-a20d-4d404a676f81.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><h3><strong>d. 設定tick來改變介面樣子</strong></h3><p>在前一篇我有提到許多Layout可以使用的參數，這邊我就拿幾個來實作給大家看，大家也可以根據這些參數來調整看看，可以產生許多不同的效果</p><pre class="ql-syntax">import plotly.graph_objs as go
+import plotly.offline as pof
+import numpy as np
+​
+## 設定為離線
+pof.init_notebook_mode(connected = True)
+​
+## data 1
+## 隨機產生2000個二維數據
+x = np.random.randn(2000)
+y = np.random.randn(2000)
+​
+data1 = go.Scatter(
+  x = x,
+  y = y,
+  marker = {'color': 'blue', 'symbol': 104, 'size': 4},
+  mode = 'markers',
+  name = 'data1'
+)
+​
+​
+## 將data1裝進串列
+data = [data1, data2]
+​
+## 介面設定
+layout = go.Layout(
+  title = "Plotly Scatter",
+  xaxis = {'title': 'x軸', 'gridwidth': 4, 'showgrid': True, 'gridcolor': 'pink', 'side': 'top', 'tickcolor': "blue", 'zeroline': True},
+  yaxis = {'title': 'y軸', 'gridwidth': 2, 'showgrid': True, 'gridcolor': 'black', 'side': 'right'},
+  font = {
+    'size': 28,
+    'family': 'serif',
+    'color': '#D9006C'
+    
+ }) 
+​
+## 結合數據與介面
+figure = go.Figure(data = data, layout = layout)
+​
+## 繪圖
+pof.iplot(figure, filename = 'Plotly-Scatter', show_link = True, link_text = "Plotly Links", image_height = 800, image_width = 900)
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/b68763a2-1b0c-42df-b984-6a5a9bcc8369.webp" onerror="this.srcset='https://assets.matters.news/embed/b68763a2-1b0c-42df-b984-6a5a9bcc8369.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/b68763a2-1b0c-42df-b984-6a5a9bcc8369.png" onerror="this.srcset='https://assets.matters.news/embed/b68763a2-1b0c-42df-b984-6a5a9bcc8369.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/b68763a2-1b0c-42df-b984-6a5a9bcc8369.webp">
+
+        <img src="https://assets.matters.news/embed/b68763a2-1b0c-42df-b984-6a5a9bcc8369.png" srcset="https://assets.matters.news/processed/540w/embed/b68763a2-1b0c-42df-b984-6a5a9bcc8369.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><h3><strong>e. 設定legend來顯示數據資訊</strong></h3><pre class="ql-syntax">import plotly.graph_objs as go
+import plotly.offline as pof
+import numpy as np
+​
+## 設定為離線
+pof.init_notebook_mode(connected = True)
+​
+## data 1
+## 隨機產生2000個二維數據
+x = np.random.randn(2000)
+y = np.random.randn(2000)
+​
+data1 = go.Scatter(
+  x = x,
+  y = y,
+  marker = {'color': 'blue', 'symbol': 104, 'size': 4},
+  mode = 'markers',
+  name = 'data1'
+)
+​
+## data2
+## 隨機產生1000個二維數據
+​
+x1 = np.random.randn(1000)
+y1 = np.random.randn(1000)
+​
+data2 = go.Scatter(
+  x = x1,
+  y = y1,
+  marker = {'color': 'red', 'size': 4},
+  mode = 'markers',
+  name = 'data2'
+)
+​
+## 將data1和data2裝進串列
+data = [data1, data2]
+​
+## 介面設定
+layout = go.Layout(
+  title = "Plotly Scatter",
+  xaxis = {'title': 'x軸'},
+  yaxis = {'title': 'y軸'},
+  font = {
+    'size': 28,
+    'family': 'serif',
+    'color': '#D9006C'
+    
+ },
+  showlegend = True,
+  legend = {
+    'x': 0.6,
+    'yanchor': 'middle',
+    'bgcolor': 'pink',
+    'bordercolor': 'black'
+    
+ } ) 
+​
+## 結合數據與介面
+figure = go.Figure(data = data, layout = layout)
+​
+## 繪圖
+pof.iplot(figure, filename = 'Plotly-Scatter', show_link = True, link_text = "Plotly Links", image_height = 800, image_width = 900)
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/dcfc5c57-faf6-43be-83db-54f38b61a385.webp" onerror="this.srcset='https://assets.matters.news/embed/dcfc5c57-faf6-43be-83db-54f38b61a385.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/dcfc5c57-faf6-43be-83db-54f38b61a385.png" onerror="this.srcset='https://assets.matters.news/embed/dcfc5c57-faf6-43be-83db-54f38b61a385.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/dcfc5c57-faf6-43be-83db-54f38b61a385.webp">
+
+        <img src="https://assets.matters.news/embed/dcfc5c57-faf6-43be-83db-54f38b61a385.png" srcset="https://assets.matters.news/processed/540w/embed/dcfc5c57-faf6-43be-83db-54f38b61a385.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><h3><strong>f. 設定hoverlabel，來控制鼠標移入數據的特效</strong></h3><p>我將鼠標移入後的字體變成咖啡色，背景變成黃色</p><pre class="ql-syntax">import plotly.graph_objs as go
+import plotly.offline as pof
+import numpy as np
+​
+## 設定為離線
+pof.init_notebook_mode(connected = True)
+​
+## data 1
+## 隨機產生2000個二維數據
+x = np.random.randn(2000)
+y = np.random.randn(2000)
+​
+data1 = go.Scatter(
+  x = x,
+  y = y,
+  marker = {'color': 'blue', 'symbol': 104, 'size': 4},
+  mode = 'markers',
+  name = 'data1'
+)
+​
+## data2
+## 隨機產生1000個二維數據
+​
+x1 = np.random.randn(1000)
+y1 = np.random.randn(1000)
+​
+data2 = go.Scatter(
+  x = x1,
+  y = y1,
+  marker = {'color': 'red', 'size': 4},
+  mode = 'markers',
+  name = 'data2'
+)
+​
+## 將data1和data2裝進串列
+data = [data1, data2]
+​
+## 介面設定
+layout = go.Layout(
+  title = "Plotly Scatter",
+  xaxis = {'title': 'x軸'},
+  yaxis = {'title': 'y軸'},
+  font = {
+    'size': 28,
+    'family': 'serif',
+    'color': '#D9006C'
+    
+ },
+  showlegend = True,
+  legend = {
+    'x': 0.6,
+    'yanchor': 'middle',
+    'bgcolor': 'pink',
+    'bordercolor': 'black'
+    
+ } ,
+  hoverlabel = {
+    'bgcolor': 'yellow',
+    'bordercolor': 'black',
+    'namelength': -1,
+    'font': {'color': 'brown'}
+ }
+ ) 
+​
+## 結合數據與介面
+figure = go.Figure(data = data, layout = layout)
+​
+## 繪圖
+pof.iplot(figure, filename = 'Plotly-Scatter', show_link = True, link_text = "Plotly Links", image_height = 800, image_width = 900)
+</pre><p> <strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/ad82e7f0-b2de-4c93-86e8-c0bb41b2f5ae.webp" onerror="this.srcset='https://assets.matters.news/embed/ad82e7f0-b2de-4c93-86e8-c0bb41b2f5ae.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/ad82e7f0-b2de-4c93-86e8-c0bb41b2f5ae.png" onerror="this.srcset='https://assets.matters.news/embed/ad82e7f0-b2de-4c93-86e8-c0bb41b2f5ae.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/ad82e7f0-b2de-4c93-86e8-c0bb41b2f5ae.webp">
+
+        <img src="https://assets.matters.news/embed/ad82e7f0-b2de-4c93-86e8-c0bb41b2f5ae.png" srcset="https://assets.matters.news/processed/540w/embed/ad82e7f0-b2de-4c93-86e8-c0bb41b2f5ae.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p>                     </p><p><br></p><p><br></p><h2><strong>2. 子圖的應用</strong></h2><ul><li>欲繪製子圖，我們需要導入plotly.subplots裡面的make_subplots套件</li><li>使用add_trace()來增加子圖數量</li></ul><pre class="ql-syntax">## 導入套件
+import plotly.graph_objs as go
+from plotly.subplots import make_subplots
+​
+## 構建一個2X2的大圖
+fig = make_subplots(rows = 2, cols = 2)
+​
+## 構建子圖
+## 子圖1
+fig.add_trace(
+  go.Scatter(x = [8, 2, 6, 10, 14, 18], y = [18, 14, 12, 20, 24, 28], mode = 'markers', name = 'Scatter'),
+  row = 1,
+  col = 1
+)
+​
+​
+## 子圖2
+fig.add_trace(
+  go.Scatter(x = [8, 2, 6, 10, 14, 18], y = [18, 14, 12, 20, 24, 28], mode = 'lines', name = 'Lines'),
+  row = 1,
+  col = 2
+)
+​
+## 子圖3
+fig.add_trace(
+  go.Bar(x = [8, 2, 6, 10, 14, 18], y = [18, 14, 12, 20, 24, 28], name = 'Bar'),
+  row = 2,
+  col = 1
+)
+​
+## 子圖1
+fig.add_trace(
+  go.Histogram(x = [8, 2, 6, 10, 14, 18], y = [18, 14, 12, 20, 24, 28], name = 'Histogram'),
+  row = 2,
+  col = 2
+)
+​
+## 顯示圖片
+fig.show()
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/a59e9fe0-dd0c-4c47-a826-e567cc57601d.webp" onerror="this.srcset='https://assets.matters.news/embed/a59e9fe0-dd0c-4c47-a826-e567cc57601d.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/a59e9fe0-dd0c-4c47-a826-e567cc57601d.png" onerror="this.srcset='https://assets.matters.news/embed/a59e9fe0-dd0c-4c47-a826-e567cc57601d.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/a59e9fe0-dd0c-4c47-a826-e567cc57601d.webp">
+
+        <img src="https://assets.matters.news/embed/a59e9fe0-dd0c-4c47-a826-e567cc57601d.png" srcset="https://assets.matters.news/processed/540w/embed/a59e9fe0-dd0c-4c47-a826-e567cc57601d.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><h2><strong>3. 多組圖繪製於一起</strong></h2><ul><li>使用add_trace()這個函式功能可以將多組圖繪製在一起</li><li>舉例: 實現在同一張圖上擁有柱狀圖和折線圖</li></ul><pre class="ql-syntax">## 導入套件
+import plotly.graph_objs as go
+## 構建一個圖形板
+fig = go.Figure()
+​
+## 加入各種類型的圖
+## 折線圖
+fig.add_trace(
+  go.Scatter(x = [1, 2, 6, 10, 14, 18], y = [18, 14, 12, 20, 24, 28], mode = 'lines', name = 'lines')
+)
+## 柱狀圖
+fig.add_trace(
+  go.Bar(x = [1, 2, 6, 8, 10, 12, 14, 18], y = [18, 14, 12, 20, 24, 26, 28, 30], name = 'Bar')
+)
+​
+## 顯示圖片
+fig.show()
+</pre><p><strong>執行結果</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/37950de8-5da6-4130-adaa-b36074c9a6b9.webp" onerror="this.srcset='https://assets.matters.news/embed/37950de8-5da6-4130-adaa-b36074c9a6b9.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/37950de8-5da6-4130-adaa-b36074c9a6b9.png" onerror="this.srcset='https://assets.matters.news/embed/37950de8-5da6-4130-adaa-b36074c9a6b9.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/37950de8-5da6-4130-adaa-b36074c9a6b9.webp">
+
+        <img src="https://assets.matters.news/embed/37950de8-5da6-4130-adaa-b36074c9a6b9.png" srcset="https://assets.matters.news/processed/540w/embed/37950de8-5da6-4130-adaa-b36074c9a6b9.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p>接下來我會開始使用Plotly來實作各種圖形喔，有興趣的大家可以在跟著我繼續學習</p><h2><br></h2><h2><br></h2><p><br></p><p><br></p><h2><strong>Reference</strong></h2><p><br></p><p><a href="https://www.youtube.com/watch?v=ifYugIP0pPQ" target="_blank">https://www.youtube.com/watch?v=ifYugIP0pPQ</a></p><p>htts://plotly.com/python/</p><p><a href="https://www.cnblogs.com/feffery/p/9293745.html" target="_blank">https://www.cnblogs.com/feffery/p/9293745.html</a></p><p><a href="https://blogs.csdn.net/u012897374/article/details/77857980" target="_blank">https://blogs.csdn.net/u012897374/article/details/77857980</a></p><p><a href="https://images.plot.ly/plotly-documentation/images/python_cheat_sheet.pdf" target="_blank">https://images.plot.ly/plotly-documentation/images/python_cheat_sheet.pdf</a></p><p><a href="https://www.jianshu.com/p/57bad75139ca" target="_blank">https://www.jianshu.com/p/57bad75139ca</a></p>
