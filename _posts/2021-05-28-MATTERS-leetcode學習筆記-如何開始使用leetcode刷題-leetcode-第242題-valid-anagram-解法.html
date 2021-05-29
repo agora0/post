@@ -8,4 +8,65 @@ tags: blog
 author: 為自己Coding
 ---
 
-LeetCode學習筆記 - 如何開始使用LeetCode刷題  - LeetCode 第242題 - Valid Anagram 解法
+<h1><a href="https://github.com/chwang12341/LeetCode-Learning/tree/master/valid_anagram_242" target="_blank">Github連結</a></h1><figure class="image">
+				      <picture>
+							        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/97df1060-6afa-4ff9-bc9b-bd3953d8da45.webp" onerror="this.srcset='https://assets.matters.news/embed/97df1060-6afa-4ff9-bc9b-bd3953d8da45.jpeg'">
+
+											        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/97df1060-6afa-4ff9-bc9b-bd3953d8da45.jpeg" onerror="this.srcset='https://assets.matters.news/embed/97df1060-6afa-4ff9-bc9b-bd3953d8da45.jpeg'">
+
+															        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/97df1060-6afa-4ff9-bc9b-bd3953d8da45.webp">
+
+																			        <img src="https://assets.matters.news/embed/97df1060-6afa-4ff9-bc9b-bd3953d8da45.jpeg" srcset="https://assets.matters.news/processed/540w/embed/97df1060-6afa-4ff9-bc9b-bd3953d8da45.jpeg" loading="lazy">
+																							      </picture>
+																										    <figcaption><span>攝影師：Jeremy Bishop，連結：Pexels</span></figcaption></figure><p><br></p><p><br></p><h2><strong>1. 題目</strong></h2><figure class="image">
+																												      <picture>
+																															        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/cef14eea-a0f6-4486-949e-8804dcde0875.webp" onerror="this.srcset='https://assets.matters.news/embed/cef14eea-a0f6-4486-949e-8804dcde0875.png'">
+
+																																			        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/cef14eea-a0f6-4486-949e-8804dcde0875.png" onerror="this.srcset='https://assets.matters.news/embed/cef14eea-a0f6-4486-949e-8804dcde0875.png'">
+
+																																							        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/cef14eea-a0f6-4486-949e-8804dcde0875.webp">
+
+																																											        <img src="https://assets.matters.news/embed/cef14eea-a0f6-4486-949e-8804dcde0875.png" srcset="https://assets.matters.news/processed/540w/embed/cef14eea-a0f6-4486-949e-8804dcde0875.png" loading="lazy">
+																																															      </picture>
+																																																		    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><strong>說明:</strong> 給予兩組字符串s和t，當s裡面的擁有的單字和數量與t是一樣的，只是位置可能調換了，就會返回True，否則返回False</p><h2><br></h2><h2><strong>2. 解法</strong></h2><h3><br></h3><h2><strong>方法一: hash table</strong></h2><p><strong>說明:</strong> 記錄好兩組字符串中的所有單字的次數，並存成Python字典(Hash Table 用法)，然後比較即可</p><p><strong>執行步驟:</strong></p><p>首先: 可以先檢查兩組字串是否等長，如果沒有，表示一定不會是，就直接回傳False</p><p>接著: 依序將字母和其出現次數記錄於字典之中</p><p>如何進行: 預設為0，然後當s有的字母就+1，t有的時候就-1</p><p>結果: 如果計數最後為0表示返回True</p><pre class="ql-syntax">def isAnagram(s, t):
+&nbsp;&nbsp;## 判斷字串長度是否一樣
+&nbsp;&nbsp;if len(s) != len(t):
+&nbsp;&nbsp;&nbsp;&nbsp;return False
+&nbsp;&nbsp;## 創建一個用來記錄次數的字典
+&nbsp;&nbsp;c_d = {}
+&nbsp;&nbsp;
+&nbsp;&nbsp;## 將s中所有的元素裝入字典並計算次數，由於c_d一開始裡面並不會有任何key值，如果直接+1會報錯，所以使用.get先創建一個
+&nbsp;&nbsp;## 然後賦值為0，接著再+1
+&nbsp;&nbsp;for c in s:
+&nbsp;&nbsp;&nbsp;&nbsp;c_d[c] = c_d.get(c, 0) + 1
+#&nbsp;&nbsp;print(c_d)
+&nbsp;&nbsp;
+&nbsp;&nbsp;## 將t中所有元素取出，並到c_t中找尋對應有的key，將其值減一
+&nbsp;&nbsp;## 如果元素根本沒有出現在c_t的key中，表示s中沒有此元素，直接回傳False
+&nbsp;&nbsp;## 如果c_t中已經把這個元素的計數扣到0了，然後t還有還要繼續扣，也直接回傳False
+&nbsp;&nbsp;for c in t:
+&nbsp;&nbsp;&nbsp;&nbsp;if (c not in c_d) or (c_d[c] == 0):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False
+&nbsp;&nbsp;&nbsp;&nbsp;else:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c_d[c] -=1
+#&nbsp;&nbsp;&nbsp;&nbsp;print(c_d)
+&nbsp;&nbsp;return True
+&nbsp;&nbsp;
+isAnagram('elephants', 'aestnhple')&nbsp;&nbsp;
+																																																</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">True
+																																																</pre><h3><br></h3><h3><strong>方法二: sorted</strong></h3><p><strong>說明:</strong> 只要將兩組字符串重新排序，整個字符串就會依a~z的順序排好，同樣的字母就會排在一起，兩組字串都被重新排序，這樣就可以知道它們是否完全一樣了</p><pre class="ql-syntax">def isAnagram(s, t):
+&nbsp;&nbsp;## 判斷字串長度是否一樣
+&nbsp;&nbsp;if len(s) != len(t):
+&nbsp;&nbsp;&nbsp;&nbsp;return False
+&nbsp;&nbsp;## 返回經過排序過後的s和t是否一樣
+&nbsp;&nbsp;return sorted(s) == sorted(t)
+isAnagram('elephants', 'aestnhple') 
+																																																</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">True
+																																																</pre><p>我在LeetCode上面執行，方法二的執行速度較方法一來得快喔!!</p><h3><br></h3><h3><br></h3><h2><strong>方法三: Counter</strong></h2><pre class="ql-syntax">def isAnagram(s, t):
+&nbsp;&nbsp;from collections import Counter
+#&nbsp;&nbsp;print(Counter(s))
+#&nbsp;&nbsp;print(Counter(t))
+&nbsp;&nbsp;return Counter(s) == Counter(t)
+isAnagram('elephants', 'aestnhple')
+																																																</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">True
+																																																</pre><p><br></p><p><br></p><p>結果發現第三種方法跑起來更快xd</p>
