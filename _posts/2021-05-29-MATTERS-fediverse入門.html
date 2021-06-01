@@ -1,0 +1,91 @@
+---
+layout: post
+title: Fediverse入門
+date: 2021-05-29 16:01:53.000000000 +00:00
+link: https://matters.news/@puncturecolour/fediverse%25E5%2585%25A5%25E9%2596%2580-bafyreidxzwuozkeb7bgr3zojnesjgi4bmdh25lbcxxqpqgzf3xoxry3vze
+categories: matters
+tags: blog
+author: puncturecolour
+---
+
+<p>包括在下，有許多馬特市民加入了<a href="https://liker.social/" target="_blank">liker.social</a>。Liker.socail是個基於Mastodon的社群網路，與其他（包括但不限於Mastodon）站台所組成的網路稱為fediverse，聯邦宇宙。Mastodon乃至於fediverse是如何運作的呢？身為2019年至今的fedizen，很樂意和大家分享我所知道的fediverse，希望大家在liker.social以及fediverse玩得愉快。在下並沒有網路方面的專業，因此這個系列不會牽涉到技術細節。</p><h2><strong>歷史</strong><br class="smart"></h2><p>Fedi最早的歷史可以追溯到2008年的GNU social，當時使用的是Ostatus協定。但是直到Mastodon的出現，以及2018年ActivityPub協定成為W3C標準，fedi才比較受到注意。那麼，fedi究竟是什麼呢？</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/0d6cbcb2-a4b0-4cab-9ee6-944c337d4b79.webp" onerror="this.srcset='https://assets.matters.news/embed/0d6cbcb2-a4b0-4cab-9ee6-944c337d4b79.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/0d6cbcb2-a4b0-4cab-9ee6-944c337d4b79.png" onerror="this.srcset='https://assets.matters.news/embed/0d6cbcb2-a4b0-4cab-9ee6-944c337d4b79.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/0d6cbcb2-a4b0-4cab-9ee6-944c337d4b79.webp">
+
+        <img src="https://assets.matters.news/embed/0d6cbcb2-a4b0-4cab-9ee6-944c337d4b79.png" srcset="https://assets.matters.news/processed/540w/embed/0d6cbcb2-a4b0-4cab-9ee6-944c337d4b79.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>聯邦宇宙的軟體平台（維基百科，2021/5/29）</span></figcaption></figure><h2>"federation" + "universe"</h2><p>簡單來說，聯邦宇宙是由使用ActivityPub等協定互連 (federation) 的站台所組成的分散式網路。所謂的分散式網路，是相對於Facebook和Twitter那樣有著集中式的網路而言，一旦Facebook的伺服器掛了，幾乎所有的使用者都無法登入。以liker.social和g0v.social這兩個Mastodon instances為例，兩個站點上的使用者是可以互相追蹤和回覆的，只需要知道對方的帳號就可以了。假如同樣在liker.social上，就<em>@帳號</em>；如果對方在g0v.social上，就<em>@帳號@g0v.social</em>。就像是email一樣，某個郵件伺服器掛了，該伺服器上的使用者無法登入、收信和發信，其他郵件伺服器的使用者雖然無法與該伺服器的使用者溝通，但並不影響整個郵件網路的運作。而且，想要的話你還可以<a href="https://matters.news/@davina/mastodon%E6%90%AC%E5%AE%B6%E6%B8%AC%E8%A9%A6-bafyreibcyy6ipoopzguwjglwcnbivisr5eygc72qrjeynza4esfhgq44fq" target="_blank">把帳號搬到其他的站點</a>。</p><p>關於Mastodon與liker.social的文章，在Matters已經有好幾篇，這裡就不再贅述，本篇的重點放在其他的平台。有人做了<a href="https://pt.neko.bar/videos/watch/7f2430a3-25ac-4ba2-85f0-eac7d37773b6?playlistPosition=2" target="_blank">Mastodon演變的視覺化影片</a>，我雖然不懂細節但是光看也很有趣。</p><h2>Pleroma</h2><p>Pleroma是和Mastodon類似的社群網路，支援ActivityPub，因此也能和Mastodon互連。不同之處，在於Pleroma後端所使用的資源較少，甚至可以在樹莓派上執行，因此很適合個人站使用，規模大的站只要硬體足夠也沒有問題。對於使用者來說，Pleroma站一般貼文的字數限制較長（至少數千字），支援對貼文按讚和表情符號，除了Pleroma自身的前端 (Pleroma FE) 以外也能選擇Mastodon三欄式的前端/外觀，習慣Mastodon的使用者很快就可以上手。我個人則比較喜歡Soapbox FE的設計。</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/728d08a2-0d5f-4024-a660-6a575e18af14.webp" onerror="this.srcset='https://assets.matters.news/embed/728d08a2-0d5f-4024-a660-6a575e18af14.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/728d08a2-0d5f-4024-a660-6a575e18af14.png" onerror="this.srcset='https://assets.matters.news/embed/728d08a2-0d5f-4024-a660-6a575e18af14.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/728d08a2-0d5f-4024-a660-6a575e18af14.webp">
+
+        <img src="https://assets.matters.news/embed/728d08a2-0d5f-4024-a660-6a575e18af14.png" srcset="https://assets.matters.news/processed/540w/embed/728d08a2-0d5f-4024-a660-6a575e18af14.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>SPC (Pleroma FE)</span></figcaption></figure><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/c2b192f6-1113-4aff-b58e-d0c20cbebf98.webp" onerror="this.srcset='https://assets.matters.news/embed/c2b192f6-1113-4aff-b58e-d0c20cbebf98.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/c2b192f6-1113-4aff-b58e-d0c20cbebf98.png" onerror="this.srcset='https://assets.matters.news/embed/c2b192f6-1113-4aff-b58e-d0c20cbebf98.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/c2b192f6-1113-4aff-b58e-d0c20cbebf98.webp">
+
+        <img src="https://assets.matters.news/embed/c2b192f6-1113-4aff-b58e-d0c20cbebf98.png" srcset="https://assets.matters.news/processed/540w/embed/c2b192f6-1113-4aff-b58e-d0c20cbebf98.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>Gleasonator，預設使用Soapbox FE</span></figcaption></figure><p><a href="https://pt.neko.bar/videos/watch/9a1572cb-388c-4bd2-82d6-f1ebe77e3860?playlistPosition=1" target="_blank">Pleroma演變的視覺化影片</a></p><h2>Misskey</h2><p>Misskey和Mastodon、Pleroma同樣是SNS，也支援對貼文按表情符號，它的介面也很漂亮。預設有通知音，一進去就響個不停，第一次使用的人可能會覺得困擾，這個通知音在【用戶端設定>音效】可以關閉。順便一提，和Mastodon一樣，Pleroma與Misskey都是支援多國語言的，大多都有中文介面可以使用，Misskey甚至還有繁體中文喔。</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/7b60069b-a718-41e4-a77f-c668aced9bc2.webp" onerror="this.srcset='https://assets.matters.news/embed/7b60069b-a718-41e4-a77f-c668aced9bc2.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/7b60069b-a718-41e4-a77f-c668aced9bc2.png" onerror="this.srcset='https://assets.matters.news/embed/7b60069b-a718-41e4-a77f-c668aced9bc2.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/7b60069b-a718-41e4-a77f-c668aced9bc2.webp">
+
+        <img src="https://assets.matters.news/embed/7b60069b-a718-41e4-a77f-c668aced9bc2.png" srcset="https://assets.matters.news/processed/540w/embed/7b60069b-a718-41e4-a77f-c668aced9bc2.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>misskey.io</span></figcaption></figure><p><a href="https://pt.neko.bar/videos/watch/04bd5f3e-2eba-48ec-8b59-062043f4d23e?playlistPosition=4" target="_blank">Misskey演變的視覺化影片</a><br class="smart"></p><h2>Friendica<br class="smart"></h2><p>Friendica除了支援ActivityPub以外，還支援Twitter的API，所以設定之後你的推特帳號所追蹤的聯絡人貼文也會出現在Friendica的時間線上，像這樣：</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/7907be3e-a6e5-4018-bc80-1aadc2de9653.webp" onerror="this.srcset='https://assets.matters.news/embed/7907be3e-a6e5-4018-bc80-1aadc2de9653.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/7907be3e-a6e5-4018-bc80-1aadc2de9653.png" onerror="this.srcset='https://assets.matters.news/embed/7907be3e-a6e5-4018-bc80-1aadc2de9653.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/7907be3e-a6e5-4018-bc80-1aadc2de9653.webp">
+
+        <img src="https://assets.matters.news/embed/7907be3e-a6e5-4018-bc80-1aadc2de9653.png" srcset="https://assets.matters.news/processed/540w/embed/7907be3e-a6e5-4018-bc80-1aadc2de9653.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>venera.social</span></figcaption></figure><p>而且按愛心和留言回覆等功能是雙向的。不過，我覺得在世界時間軸上看得到的fedi貼文比較少。</p><h2>PeerTube</h2><p>PeerTube是分散式的影片平台，如果你剛才有在上面點進任何一個視覺化影片，那麼你已經使用過PeerTube了。</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/12103506-7c6e-46d6-9347-c9249ca623cf.webp" onerror="this.srcset='https://assets.matters.news/embed/12103506-7c6e-46d6-9347-c9249ca623cf.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/12103506-7c6e-46d6-9347-c9249ca623cf.png" onerror="this.srcset='https://assets.matters.news/embed/12103506-7c6e-46d6-9347-c9249ca623cf.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/12103506-7c6e-46d6-9347-c9249ca623cf.webp">
+
+        <img src="https://assets.matters.news/embed/12103506-7c6e-46d6-9347-c9249ca623cf.png" srcset="https://assets.matters.news/processed/540w/embed/12103506-7c6e-46d6-9347-c9249ca623cf.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>pt.neko.bar</span></figcaption></figure><h2>Funkwhale</h2><p>Funkwhale是音樂串流平台，在Neckbeard.xyz的首頁就嵌入了它的Funkwhale播放器：</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/08afb10d-7238-4276-8e4b-8acb0f840f31.webp" onerror="this.srcset='https://assets.matters.news/embed/08afb10d-7238-4276-8e4b-8acb0f840f31.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/08afb10d-7238-4276-8e4b-8acb0f840f31.png" onerror="this.srcset='https://assets.matters.news/embed/08afb10d-7238-4276-8e4b-8acb0f840f31.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/08afb10d-7238-4276-8e4b-8acb0f840f31.webp">
+
+        <img src="https://assets.matters.news/embed/08afb10d-7238-4276-8e4b-8acb0f840f31.png" srcset="https://assets.matters.news/processed/540w/embed/08afb10d-7238-4276-8e4b-8acb0f840f31.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>NB首頁的Funkwhale播放器</span></figcaption></figure><h2>Plume</h2><p>在Fediverse裡，怎麼能沒有部落格平台呢？Plume使用markdown語法，同一個blog可以由多位作者協作。你可以訂閱有興趣的作者，也可以對文章按愛心和轉發。最重要的是，Plume使用ActivityPub協定，所以你可以邀請Mastodon等使用者跟蹤你的Plume帳號。</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/562335d9-8044-4ea8-8056-e2928e2038fb.webp" onerror="this.srcset='https://assets.matters.news/embed/562335d9-8044-4ea8-8056-e2928e2038fb.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/562335d9-8044-4ea8-8056-e2928e2038fb.png" onerror="this.srcset='https://assets.matters.news/embed/562335d9-8044-4ea8-8056-e2928e2038fb.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/562335d9-8044-4ea8-8056-e2928e2038fb.webp">
+
+        <img src="https://assets.matters.news/embed/562335d9-8044-4ea8-8056-e2928e2038fb.png" srcset="https://assets.matters.news/processed/540w/embed/562335d9-8044-4ea8-8056-e2928e2038fb.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>Autizmo</span></figcaption></figure><p>Fedi上還有<a href="https://writefreely.org/" target="_blank">WriteFreely</a>這個blog平台，和許許多多的其他應用。這些fedi上的apps，都是去中心化以及開放原始碼的，任何有能力的人都可以自行架設，也出現了部分代管的服務讓一般人也能擁有自己的站。大多數的站點由都是站長們自己負擔域名、主機、網路等相關費用，貢獻時間和精力管理，無償提供服務，頂多接受捐獻，要商業化相當困難，通常都不允許商業廣告。另一方面，即便是自己的站，帳號、貼文都會有各種原因而消失不見的風險，何況是放在別人的站上，這都是要有的心理準備。應對的方法簡單來說就是「雞蛋不要放在同一個籃子裡」，我會在接下來的文章再做說明，並介紹一下Mastodon與Pleroma社群文化的差異。除了Matters，也歡迎在liker.social追蹤我@puncturecolour，我們fedi見！</p><p>【參考資料】<br class="smart">Fediverse維基條目：<a href="https://en.wikipedia.org/wiki/Fediverse" target="_blank">https://en.wikipedia.org/wiki/Fediverse</a><br class="smart">Fediverse上的app、使用者人數等資訊：<a href="https://fediverse.party/" target="_blank">https://fediverse.party</a><br class="smart"><br class="smart"><br class="smart"></p>
