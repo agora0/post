@@ -8,4 +8,45 @@ tags: blog
 author: 為自己Coding
 ---
 
-LeetCode筆記 - 線性搜尋 Linear Search 和 二元搜尋 Binary Search - 觀念介紹
+<blockquote>最近開始在學習LeetCode的路上，也希望自己在學習的同時也能將學習到的東西記錄下來</blockquote>
+<h1><br></h1><p><a href="https://github.com/chwang12341/LeetCode-Learning/tree/master/binary_search" target="_blank">Github連結</a></p><figure class="image">
+				      <picture>
+							        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/480b951c-03a1-4dac-ae27-e6c571db936b.webp" onerror="this.srcset='https://assets.matters.news/embed/480b951c-03a1-4dac-ae27-e6c571db936b.jpeg'">
+
+											        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/480b951c-03a1-4dac-ae27-e6c571db936b.jpeg" onerror="this.srcset='https://assets.matters.news/embed/480b951c-03a1-4dac-ae27-e6c571db936b.jpeg'">
+
+															        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/480b951c-03a1-4dac-ae27-e6c571db936b.webp">
+
+																			        <img src="https://assets.matters.news/embed/480b951c-03a1-4dac-ae27-e6c571db936b.jpeg" srcset="https://assets.matters.news/processed/540w/embed/480b951c-03a1-4dac-ae27-e6c571db936b.jpeg" loading="lazy">
+																							      </picture>
+																										    <figcaption><span>攝影師：Asad Photo Maldives，連結：Pexels</span></figcaption></figure><p><br></p><h2><strong>1. Linear Search 是什麼?</strong></h2><ul><li>按照集合中的元素，重頭到尾找尋是否是我們要的元素</li><li>不在乎元素是否有按照大小排序，因為會從第一個開始一個一個搜尋，是一個非常直覺的方式，但對於大型數據而言非常沒效率</li><li>又稱為循序排序Sequential Search</li><li>時間複雜度: O(N)</li></ul><h3><br></h3><h3><strong>適用範圍</strong></h3><p>幾乎沒有限制，但是會有搜尋效率的問題</p><h2><br></h2><h2><br></h2><h2><strong>2. Binary Search 是什麼?</strong></h2><ul><li>在一個排好序的集合中搜尋元素，首先會將這個集合中的中位數取出來，將整個集合分成前後段，然後拿這個中位數與我們要查找的目標值比較，如果目標值比較小就取後半段，如果較大就取前半段，然後一樣再取這段中的中位數，再將這段分成新的前後段，然後一樣拿目標值與中位數進行比較，以此方法不斷進行，直到找到目標元素為止</li><li>時間複雜度: O(logN)</li></ul><p><strong>筆記: 時間複雜度為每次切半，都除以2，所以為logN</strong></p><h3><br></h3><h3><strong>適用範圍:</strong></h3><ul><li>排好序的集合(升降冪都可以，預設為升冪)</li><li>在還沒有排序前的時間複雜度為O(NlogN) -&gt; 要先進行排序才能判斷原本使用的算法是否比Binary Search 差</li><li>數據不重複，重複資料像是[1,2,2,4,4,4,6,6,9,10]</li></ul><p>圖示舉例:</p><p><strong>STEP 1:</strong></p><figure class="image">
+																												      <picture>
+																															        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/1620aa64-ffd7-4117-b510-1f15bb9a7121.webp" onerror="this.srcset='https://assets.matters.news/embed/1620aa64-ffd7-4117-b510-1f15bb9a7121.png'">
+
+																																			        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/1620aa64-ffd7-4117-b510-1f15bb9a7121.png" onerror="this.srcset='https://assets.matters.news/embed/1620aa64-ffd7-4117-b510-1f15bb9a7121.png'">
+
+																																							        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/1620aa64-ffd7-4117-b510-1f15bb9a7121.webp">
+
+																																											        <img src="https://assets.matters.news/embed/1620aa64-ffd7-4117-b510-1f15bb9a7121.png" srcset="https://assets.matters.news/processed/540w/embed/1620aa64-ffd7-4117-b510-1f15bb9a7121.png" loading="lazy">
+																																															      </picture>
+																																																		    <figcaption><span></span></figcaption></figure><p><br></p><p><strong>STEP 2:</strong></p><figure class="image">
+																																																				      <picture>
+																																																							        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/50d5fcdc-ec8f-4ffd-b36e-5e952a66a7ff.webp" onerror="this.srcset='https://assets.matters.news/embed/50d5fcdc-ec8f-4ffd-b36e-5e952a66a7ff.png'">
+
+																																																											        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/50d5fcdc-ec8f-4ffd-b36e-5e952a66a7ff.png" onerror="this.srcset='https://assets.matters.news/embed/50d5fcdc-ec8f-4ffd-b36e-5e952a66a7ff.png'">
+
+																																																															        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/50d5fcdc-ec8f-4ffd-b36e-5e952a66a7ff.webp">
+
+																																																																			        <img src="https://assets.matters.news/embed/50d5fcdc-ec8f-4ffd-b36e-5e952a66a7ff.png" srcset="https://assets.matters.news/processed/540w/embed/50d5fcdc-ec8f-4ffd-b36e-5e952a66a7ff.png" loading="lazy">
+																																																																							      </picture>
+																																																																										    <figcaption><span></span></figcaption></figure><p><br></p><p><strong>STEP 3:</strong></p><figure class="image">
+																																																																												      <picture>
+																																																																															        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/5bc6e268-a057-4c4d-97b5-de914b3d262a.webp" onerror="this.srcset='https://assets.matters.news/embed/5bc6e268-a057-4c4d-97b5-de914b3d262a.png'">
+
+																																																																																			        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/5bc6e268-a057-4c4d-97b5-de914b3d262a.png" onerror="this.srcset='https://assets.matters.news/embed/5bc6e268-a057-4c4d-97b5-de914b3d262a.png'">
+
+																																																																																							        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/5bc6e268-a057-4c4d-97b5-de914b3d262a.webp">
+
+																																																																																											        <img src="https://assets.matters.news/embed/5bc6e268-a057-4c4d-97b5-de914b3d262a.png" srcset="https://assets.matters.news/processed/540w/embed/5bc6e268-a057-4c4d-97b5-de914b3d262a.png" loading="lazy">
+																																																																																															      </picture>
+																																																																																																		    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><h2><strong>Reference</strong></h2><p><a href="https://hiskio.com/courses/319/lectures/15380" target="_blank">https://hiskio.com/courses/319/lectures/15380</a></p>
