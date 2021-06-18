@@ -8,4 +8,73 @@ tags: blog
 author: 為自己Coding
 ---
 
-LeetCode筆記 - LeetCode第35題 - Search Insert Position 解法
+<h1><br></h1><h2><a href="https://github.com/chwang12341/LeetCode-Learning/tree/master/binary_search/Search_Insert_Position_35" target="_blank">Github連結</a></h2><figure class="image">
+				      <picture>
+							        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/1d29cf41-bd14-4265-98e4-0d9bf661d516.webp" onerror="this.srcset='https://assets.matters.news/embed/1d29cf41-bd14-4265-98e4-0d9bf661d516.jpeg'">
+
+											        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/1d29cf41-bd14-4265-98e4-0d9bf661d516.jpeg" onerror="this.srcset='https://assets.matters.news/embed/1d29cf41-bd14-4265-98e4-0d9bf661d516.jpeg'">
+
+															        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/1d29cf41-bd14-4265-98e4-0d9bf661d516.webp">
+
+																			        <img src="https://assets.matters.news/embed/1d29cf41-bd14-4265-98e4-0d9bf661d516.jpeg" srcset="https://assets.matters.news/processed/540w/embed/1d29cf41-bd14-4265-98e4-0d9bf661d516.jpeg" loading="lazy">
+																							      </picture>
+																										    <figcaption><span>攝影師：stein egil liland，連結：Pexels</span></figcaption></figure><h2><br></h2><p><br></p><p><br></p><p><strong>1. 題目</strong></p><p><br></p><figure class="image">
+																												      <picture>
+																															        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/02c93f20-27b8-4324-a21f-b60503ccdcdc.webp" onerror="this.srcset='https://assets.matters.news/embed/02c93f20-27b8-4324-a21f-b60503ccdcdc.png'">
+
+																																			        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/02c93f20-27b8-4324-a21f-b60503ccdcdc.png" onerror="this.srcset='https://assets.matters.news/embed/02c93f20-27b8-4324-a21f-b60503ccdcdc.png'">
+
+																																							        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/02c93f20-27b8-4324-a21f-b60503ccdcdc.webp">
+
+																																											        <img src="https://assets.matters.news/embed/02c93f20-27b8-4324-a21f-b60503ccdcdc.png" srcset="https://assets.matters.news/processed/540w/embed/02c93f20-27b8-4324-a21f-b60503ccdcdc.png" loading="lazy">
+																																															      </picture>
+																																																		    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p>說明: 給定一個排序好的數組(array)和一個目標值，當目標值有在數組內會傳回一個索引值，如果沒有在數組內，會回傳一個它如果有在數組內會待在的位置索引</p><h2><br></h2><h2><br></h2><h2><strong>2. 解法</strong></h2><p><br></p><h3><strong>方法一: Linear Search 線性搜尋 - 暴力破解法</strong></h3><p><br></p><p><strong>說明:</strong> 從第一個元素開始一個一個找，只要目標值比元素大就往下，直到元素與目標值一樣就傳回index，或是元素比目標值大時，表示數組中並沒有與目標值一樣的元素，所以也就會返回此元素的索引，如果走到最後都沒有，這個目標值就會插在尾端的索引，也就是最後一個索引+1</p><p><strong>時間複雜度:</strong> O(n)</p><pre class="ql-syntax">def linear_search(nums, target):
+&nbsp;&nbsp;for i in range(len(nums)):
+​
+&nbsp;&nbsp;&nbsp;&nbsp;## 當i還沒到最後一個元素時
+&nbsp;&nbsp;&nbsp;&nbsp;if i &lt; len(nums) - 1:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;## 當元素與目標依樣時
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if nums[i] == target:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return i
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;## 當目標值大小介於此元素跟下一個元素中間時
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif nums[i] &lt; target:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if nums[i+1] &gt; target:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return i+1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# 當i比第一個元素小時
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif nums[i] &gt; target:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return i
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;## 當i走到最後一個元素時
+&nbsp;&nbsp;&nbsp;&nbsp;if i == (len(nums) - 1):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if nums[i] &gt;= target:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return i
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return i+1
+&nbsp;&nbsp;&nbsp;&nbsp;
+nums = [1, 4, 7, 8, 9]
+target = 6
+linear_search(nums, target)&nbsp;&nbsp;
+																																																</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">2
+																																																</pre><h3><br></h3><h3><br></h3><h2><strong>方法二: Binary Search 二元搜尋解法</strong></h2><p><br></p><p><strong>數組已經排好續的狀況下:</strong></p><p><br></p><ul><li>將兩端設定成low = 0, up = len(array) - 1(數組的長度-1就會是最後一個值得索引)</li><li>取中間點: middle = (low + up) // 2，比較array[middle]跟目標值的大小</li><li>如果array[middle] == 目標值，回傳middle值</li><li>如果array[middle] &gt; 目標值，目標就會在low到middle間(不包含middle)</li><li>如果array[middle] &lt; 目標值，目標就會middle(不包含middle)到up間</li><li>不斷更新low或up值，然後找到新的middel值，直到array[middle] == 目標值，或是兩者交錯，就是找不到值時，就會回傳low那個位置的索引</li></ul><pre class="ql-syntax">def binary_search(nums, target):
+&nbsp;&nbsp;## 建立上下界的索引
+&nbsp;&nbsp;low, up = 0, len(nums) - 1
+&nbsp;&nbsp;
+&nbsp;&nbsp;## 當low沒有與up交叉的時候
+&nbsp;&nbsp;while low &lt;= up:
+&nbsp;&nbsp;&nbsp;&nbsp;middle = (low + up) // 2
+&nbsp;&nbsp;&nbsp;&nbsp;if nums[middle] == target:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return middle
+&nbsp;&nbsp;&nbsp;&nbsp;## 當target小於中位數，調整up值，變成middle - 1
+&nbsp;&nbsp;&nbsp;&nbsp;elif nums[middle] &gt; target:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;up = middle -1
+&nbsp;&nbsp;&nbsp;&nbsp;## 當target大於中位數，調整low值，變成middle + 1
+&nbsp;&nbsp;&nbsp;&nbsp;elif nums[middle] &lt; target:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;low = middle + 1
+&nbsp;&nbsp;## 調整直到low與up交叉了
+&nbsp;&nbsp;return low
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+nums = [1, 4, 7, 8, 9]
+target = 10
+binary_search(nums, target)&nbsp;&nbsp;&nbsp;
+																																																</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">5
+																																																</pre>
