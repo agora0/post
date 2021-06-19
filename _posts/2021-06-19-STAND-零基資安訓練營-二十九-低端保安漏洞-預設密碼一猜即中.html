@@ -1,0 +1,37 @@
+---
+layout: post
+title: 零基資安訓練營（二十九）：低端保安漏洞，預設密碼一猜即中
+date: 2021-06-19 07:27:19.000000000 +00:00
+link: https://thestandnews.com/personal/%E9%9B%B6%E5%9F%BA%E8%B3%87%E5%AE%89%E8%A8%93%E7%B7%B4%E7%87%9F-%E4%BA%8C%E5%8D%81%E4%B9%9D-%E4%BD%8E%E7%AB%AF%E4%BF%9D%E5%AE%89%E6%BC%8F%E6%B4%9E-%E9%A0%90%E8%A8%AD%E5%AF%86%E7%A2%BC%E4%B8%80%E7%8C%9C%E5%8D%B3%E4%B8%AD/
+categories: stand
+tags: blog
+author: Pazu 薯伯伯
+---
+
+<img width="600" src="https://images.weserv.nl/?url=cdn.thestandnews.com/media/photos/cache/0_6xS7w_600x0.png" /><br /><br /><p>有次在外國旅行住在酒店，發覺上不到網，估計只要重新啟動路由器，即可解決問題。但叫前台重啟路由器很麻煩，所以我就嘗試登入路由器管理員的頁面，自行操作。</p>
+<p>我是如何做到呢？方法真的簡單到不能再簡單，就是使用預設密碼。坊間不少路由器的管理頁面，其預設登入及預設密碼均是 admin，而大多使用者均不會更改這個設定。我即管一試，果然中了，輕鬆幫酒店重啟路由器，所有問題都立時解決。</p>
+<p>讀者看出其危險之處嗎？</p>
+<p>很多設備均是使用預設密碼，別人連破解也不用，直接登入，輕鬆快捷。過去就曾發生過嚴重的資安事故，父母在小孩床邊安裝監控鏡頭，怎料被歹徒輕易入侵，還可以跟小孩子直接對話。</p>
+<p>出現以上駭人的情況，可能涉及硬件的漏洞，但更常見的原因，是因為用家在設置設備時，沒有修改預設密碼，別人一擊即中，毫不費勁。</p>
+<p>所以，不論是路由器、網絡監控設備等等，都必須更改預設密碼。如果讀者認為太多密碼，記起來很困難，有一個完美解決的方法，就是使用密碼管理器軟件。詳見<a href="https://www.thestandnews.com/technology/%E5%9C%8B%E5%AE%89%E4%B8%8B%E7%9A%84%E9%9B%B6%E5%9F%BA%E8%B3%87%E5%AE%89-%E5%85%AD-%E7%BF%92%E6%85%A3%E4%BD%BF%E7%94%A8%E5%AF%86%E7%A2%BC%E7%AE%A1%E7%90%86%E5%99%A8/" target="_blank">〈習慣使用密碼管理器〉</a>。</p>
+<p>對於所有網絡設備，有以下幾點建議：</p>
+<p><strong>1. 必須更改預設密碼（Default Password）</strong></p>
+<p>以下是坊間常見的路由器常見預設密碼，基本上都是 admin + admin，很容易猜。</p>
+<ul>
+<li>使用 admin / admin：Asus, Belkin, Huawei, Tenda, ZTE</li>
+<li>使用 admin / Admin：3Com, BenQ, D-Link, Linksys</li>
+<li>使用 admin / password：Dell, Netcomm, Netgear, Netstar, Samsung</li>
+</ul>
+<p>網絡監控設備較多，這裡不一一盡錄，有興趣的讀者請自行搜尋「default password list webcam」。如果覺得記憶密碼有困難，應該要習慣使用密碼管理器。若然真的無法一時三刻使用密碼管理器，那就按家居的保安情況，自行決定是否適合把密碼用紙筆記下，並貼在設備之上。</p>
+<p>更改密碼的方法，要讀者自行查看說明書了。</p>
+<p><strong>2. 定時更新靭體（firmware）</strong></p>
+<p>我發現身邊一些朋友對於更新靭體或系統（例如 iOS）有所顧忌，有人甚至會強調自己幾年都不更新，「因為不想做白老鼠」。我不認同這種做法，因為近年的更新很多也與保安有關，廠商推出新靭體，往往是發現坊間有駭客利用漏洞攻擊，如果你不更新，隨時把自己置於危險之地（尤其當很多人已知道相關漏洞）。</p>
+<p>我自己的做法是，定期更新靭體。雖然間中聽聞有人因為更新靭體而受影響，但這種情況不算多，我認為及時更新，利大於弊。</p>
+<p><strong>3. 停止路由器 UPnP 功能</strong></p>
+<p>路由器裡面有個看似很方便的功能，叫 UPnP（Universal Plug and Play，通用即插即用），允許用戶較輕易地控制多個設備，例如電視、監控等。聽起來好像很方便，但分分鐘成為漏洞。</p>
+<p>請讀者自行參閱說明書，進入路由器的管理頁面，然後關閉 UPnP，通常在 WAN 一欄。如果實在不知如何設定，請上網搜尋：「路由器型號 + disable UPnP」。</p>
+<p>在大多數情況下，這個功能可以關閉。如果關閉後發覺家電用不了，才再重開。</p>
+<p>4. 對於使用雲端儲存的監控設備，當然還有一個重要的考慮因素，就是雲端資料存族在哪裡，如果資料是傳送去一些完全不尊重人權，視法律如無物的國度，用家只好自求多福了。</p>
+<p> </p>
+<p>🔑 <a href="https://www.patreon.com/posts/52365051" target="_blank">【加密通訊、虛擬號碼、超務實長清單整理】</a></p>
+<p><a href="https://www.patreon.com/posts/52600410" target="_blank">作者 Patreon</a> / <a href="https://www.facebook.com/pazukong/posts/347048890125734" target="_blank">Facebook</a> / <a href="https://mewe.com/p/pazu/show/60cbd3f0d48c917ead91caaa" target="_blank">MeWe</a></p>
