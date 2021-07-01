@@ -1,0 +1,67 @@
+---
+layout: post
+title: LeetCode筆記 - Binary Search方法 - LeetCode第278題 -First Bad Version 解題筆記
+date: 2021-06-24 06:08:05.000000000 +00:00
+link: https://matters.news/@CHWang/leet-code%25E7%25AD%2586%25E8%25A8%2598-binary-search%25E6%2596%25B9%25E6%25B3%2595-leet-code%25E7%25AC%25AC278%25E9%25A1%258C-first-bad-version-%25E8%25A7%25A3%25E9%25A1%258C%25E7%25AD%2586%25E8%25A8%2598-bafyreicdekstbreqyg5l6657begcfpsa7hlz7zhbxbtkqspjhywhauc62m
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<p><br></p><h1><a href="https://github.com/chwang12341/LeetCode-Learning/tree/master/binary_search/First_Bad_Version_278" target="_blank">Github連結</a></h1><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/28c03571-e5fb-446f-8361-05e79ef126c2.webp" onerror="this.srcset='https://assets.matters.news/embed/28c03571-e5fb-446f-8361-05e79ef126c2.jpeg'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/28c03571-e5fb-446f-8361-05e79ef126c2.jpeg" onerror="this.srcset='https://assets.matters.news/embed/28c03571-e5fb-446f-8361-05e79ef126c2.jpeg'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/28c03571-e5fb-446f-8361-05e79ef126c2.webp">
+
+        <img src="https://assets.matters.news/embed/28c03571-e5fb-446f-8361-05e79ef126c2.jpeg" srcset="https://assets.matters.news/processed/540w/embed/28c03571-e5fb-446f-8361-05e79ef126c2.jpeg" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>攝影師：Trace Hudson，連結：Pexels</span></figcaption></figure><p><br></p><p><br></p><p><br></p><h2><strong>1. 題目</strong></h2><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/6aafbe6c-6aa0-46f4-b7b7-deff21949c43.webp" onerror="this.srcset='https://assets.matters.news/embed/6aafbe6c-6aa0-46f4-b7b7-deff21949c43.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/6aafbe6c-6aa0-46f4-b7b7-deff21949c43.png" onerror="this.srcset='https://assets.matters.news/embed/6aafbe6c-6aa0-46f4-b7b7-deff21949c43.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/6aafbe6c-6aa0-46f4-b7b7-deff21949c43.webp">
+
+        <img src="https://assets.matters.news/embed/6aafbe6c-6aa0-46f4-b7b7-deff21949c43.png" srcset="https://assets.matters.news/processed/540w/embed/6aafbe6c-6aa0-46f4-b7b7-deff21949c43.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><strong>題目說明:</strong> 您是一位產品經理，負責領導團隊開發新的產品，然而最後一版的產品沒有通過品質檢測，每個新的版本是基於上一個版本開發而來的，所以當這個版本的品質是差的，下一個版本也會是不好的</p><p>假如我們有n個版本 [1,2, ... n]，我們需要找到第一個不好的版，因為從它開始導致後面的版本品質都不好</p><p>你將給予一個 API bool isBadVersion(version)，它將回傳版本是不是不好的，並實作一個函數來找到源頭(第一個不好的版本)，我們將盡量簡化調用API的數量</p><h2><br></h2><h2><br></h2><h2><strong>2. 實作</strong></h2><p><br></p><p>一樣設定兩個邊界low, up，分別為第一個元素，和最後一個元素，找尋middle值，但這次不能因為middle是不好的版本，就回傳middle的索引，因為它有可能是繼承了上一個不好的版本，所以要往上找:</p><p><strong>當middle等於bad version:</strong></p><ul><li>如果middle就是第一個元素: 直接回傳middle</li><li>如果middle - 1 不是bad version: 就直接回傳middle</li><li>找尋範圍應該為: 1(由於是從第一版開始，所以起始位置是1) ~ mid (為什麼不是middle - 1，因為middle有可能就是第一個不好的版本)</li><li>但前面已經有設定檢查middle - 1是不是bad version，所以會將up調整為mid - 1，不需要原本的middle元素</li></ul><p><strong>當middle不是bad version:</strong></p><ul><li>調整找尋範圍: mid + 1 ~ up</li></ul><p><strong>如果都沒有版本壞掉，回傳None</strong></p><p><br></p><p><br></p><p><br></p><p><strong>程式實作</strong></p><p>isBadVersion API是由LeetCode團隊已經提供給我們的</p><pre class="ql-syntax"># The isBadVersion API is already defined for you.
+# @param version, an integer
+# @return an integer
+# def isBadVersion(version):
+​
+class Solution:
+  def firstBadVersion(self, n):
+    """
+   :type n: int
+   :rtype: int
+   """
+    ## 第一版到第n版
+    low, up = 1, n
+    
+    ## 當low小於up也就是沒有交叉，正常的情況下
+    while low <= up:
+      middle = (low + up) // 2
+      
+      ## 當middle是bad version
+      if isBadVersion(middle):
+      
+        ## 如果middle就是第一版或是middle前面一個版本不是bad version，就直接回傳middle
+        if middle == 1 or not isBadVersion(middle - 1):
+          return middle
+​
+        ## 如果middle是bad version，就要看它之前的版本
+        up = middle - 1
+      
+      ## 當middle不是bad version
+      else:
+        low = middle + 1
+        
+    
+    
+    ## 當交叉了，表示裡面根本沒有bad version，就回傳一個None
+    return None
+</pre>
