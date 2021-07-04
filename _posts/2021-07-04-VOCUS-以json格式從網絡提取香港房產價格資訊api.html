@@ -1,0 +1,65 @@
+---
+layout: post
+title: 以JSON格式從網絡提取香港房產價格資訊API
+date: 2021-07-04 03:26:27.000000000 +00:00
+link: https://vocus.cc/user/@ecyY/60d7e77bfd89780001db7e44
+categories: vocus
+tags: blog
+author: REDBRIC
+---
+
+<p>回顧2017年3月7日(國際開放數據日)，我出席了「開源香港會」舉辦的一項有關推動「開放數據」(open data) 是座談會 [1]，討論關於推動智慧城市所涉及的大數據 (Big Data)及物聯網(Internet of Things，IOT)等，須從傳統只讓大眾閱覽的資料，如PDF格式，提升為電腦可讀格式資料，並支援「應用程式介面」（API），方便程式開發者處理。</p>
+<p>四年過來，全球在開放數據上已有長足的發展，香港政府和公營機構的部份網上資訊亦開始提供JSON格式的API供開發者使用，但一般需要有基礎編碼知識才懂得使用。隨著開放數據的普及，不少國家的政府網站開始提供API (Query) Builder的應用介面，讓大家毋須學習編碼亦懂得以API形式提取資訊。譬如歐盟的Eurostat網站就有非常好用的Query Builder，有興趣的朋友可以根據我早前在Medium發表的文章[2]嘗試使用。最近香港政府的「資料一線通」網站也提供API Builder供下載API，本文嘗試使用該API Builder下載差餉物業估價署的房產價格的JSON格式數據，放進Google Colab加以處理。</p>
+<p>根據歐盟Eurostat網站的解釋，API 字符串分為前後兩段，前段為固定部份，包括網站的URL及所提取數據的服務等，後段則屬動態部份，包括格式 (本文以JSON講解)，語言，數據系列碼及相關的數據過濾要求。(圖1)</p>
+<p>圖1 API 字符串解構（https://ec.europa.eu/eurostat/web/json-and-unicode-web-services/getting-started/rest-request）</p>
+<p>因此，過往在編寫API字符串時均須查閱很多相關過濾選項的編碼方法，變成一大串只有電腦才看得懂的怪串，以下是本文最後會得出的API，先給大家看看是甚麼數據：</p>
+<p>https://api.data.gov.hk/v2/filter?q=%7B%22resource%22%3A%22http%3A%2F%2Fwww.rvd.gov.hk%2Fdoc%2Fen%2Fstatistics%2Fhis_data_12.xls %22%2C%22section%22%3A1%2C%22format%22%3A%22json%22%2C%22filters%22%3A%5B%5B1%2C%22bw%22%2C%5B%221997%22%5D %5D%5D%7D</p>
+<p>前段是比較簡單，政府的API資料網址：https://api.data.gov.hk/v2/；但後段則難以讀懂，仿佛看到差估署網址 www.rvd.gov.hk，檔案名稱 his_data_12.xls，另外我加入了過濾年份1997年起等，但若要學懂寫出這串API，可能大家都提不起興趣。</p>
+<p>然而，通過從「資料一線通」網站 https://data.gov.hk/en-data/dataset，選擇差估署的物業市場統計資料，再選私人零售業樓宇-租金及售價指數數據 (因為現時只有這幾項有提供API)，便會進入一處可使用API Builder (應用程式介面構建器) 的版面。(圖2)</p>
+<p>圖2 差估署 API Builder 示例。資料來源：https://data.gov.hk/en-data/dataset/hk-rvd-tsinfo_rvd-property-market-statistics/resource/87045fd8-2fce-4c3e-9b5e-de3d29f640df</p>
+<p>圖 2 顯示了通過使用應用程式介面構建 API 字符串的示例。它允許添加過濾規則（圖 2 中間右邊緣的綠色按鈕），例如年月、租金和價格等。設置過濾器後，按下獲取結果按鈕（圖 2 中左邊緣的深藍色按鈕），便會在下面自動產生一條名為應用程式介面詢問字串的 API 結果。</p>
+<p>https://api.data.gov.hk/v2/filter?q=%7B%22resource%22%3A%22http%3A%2F%2Fwww.rvd.gov.hk%2Fdoc%2Fen%2Fstatistics%2Fhis_data_12.xls %22%2C%22section%22%3A1%2C%22format%22%3A%22json%22%2C%22filters%22%3A%5B%5B1%2C%22bw%22%2C%5B%221997%22%5D %5D%5D%7D</p>
+<p>那麼取得這串API後可如何使用？以下是簡單在Google Colab顯示編碼讀取相關數據的示例，說明電腦可讀取數據的方法；更詳細的編碼使用數據則不在本文範圍之內，有興趣的讀者可自行在網上查找。</p>
+<p>以下是在 Google Colab 介面以具象狀態傳輸 (REST) 從上述的 API 獲取數據的例子。若想一試但對Colab不熟識的讀者可先參考 Colaboratory 的簡介https://colab.research.google.com/notebooks/intro.ipynb?utm_source=scs-index。</p>
+<p>首先，如圖3所示：第一步只須把該API給一個名稱，如url，透過 requests進行提取 (GET)，再以 pprint便可看到電腦從API取得的數據情況，圖3中以#號開始的均為註解。</p>
+<pre><code><strong>import</strong> <strong>requests</strong>  <em># Import the requests library</em><br>
+<br>
+url = ('https://api.data.gov.hk/v2/filter?q=%7B<strong>%22r</strong>esource<strong>%22%</strong>3A%22http%3A<strong>%2F%2F</strong>www.rvd.gov.hk<strong>%2F</strong>doc<strong>%2F</strong>en<strong>%2F</strong>statistics<strong>%2F</strong>his_data_12.xls<strong>%22%</strong>2C<strong>%22s</strong>ection<strong>%22%</strong>3A1%2C<strong>%22f</strong>ormat<strong>%22%</strong>3A%22json<strong>%22%</strong>2C<strong>%22f</strong>ilters<strong>%22%</strong>3A%5B%5B1%2C%22bw<strong>%22%</strong>2C%5B<strong>%221997%</strong>22%5D%5D%5D%7D')<br>
+print(url)<br>
+<br>
+response = requests.get(url)  <em># Make a GET request to the URL</em><br>
+<br>
+<em># Print status code (and associated text)</em><br>
+print(f"Request returned <strong>{</strong>response.status_code<strong>}</strong> : '<strong>{</strong>response.reason<strong>}</strong>'")<br>
+<br>
+<em># Print data returned (parsing as JSON)</em><br>
+payload = response.json()  <em># Parse `response.text` into JSON</em><br>
+<br>
+<strong>import</strong> <strong>pprint</strong><br>
+pp = pprint.PrettyPrinter(indent=1)<br>
+pp.pprint(payload)<br>
+print(url)</code></pre>
+<p>圖3 Google Colab 以 requests 提取相關API的數據。</p>
+<p>程式結果如圖4：</p>
+<pre><code><a href="https://api.data.gov.hk/v2/filter?q=%7B%22resource%22%3A%22http%3A%2F%2Fwww.rvd.gov.hk%2Fdoc%2Fen%2Fstatistics%2Fhis_data_12.xls%22%2C%22section%22%3A1%2C%22format%22%3A%22json%22%2C%22filters%22%3A%5B%5B1%2C%22bw%22%2C%5B%221997%22%5D%5D%5D%7D">https://api.data.gov.hk/v2/filter?q=%7B%22resource%22%3A%22http%3A%2F%2Fwww.rvd.gov.hk%2Fdoc%2Fen%2Fstatistics%2Fhis_data_12.xls%22%2C%22section%22%3A1%2C%22format%22%3A%22json%22%2C%22filters%22%3A%5B%5B1%2C%22bw%22%2C%5B%221997%22%5D%5D%5D%7D</a><br>
+Request returned 200 : 'OK'<br>
+[{'售價 Prices': 150.8, '年 Year': '1997', '月 Month': '1', '租金 Rents': 119.3},<br>
+ {'售價 Prices': 156.2, '年 Year': '1997', '月 Month': '2', '租金 Rents': 123.5},<br>
+ {'售價 Prices': 168, '年 Year': '1997', '月 Month': '3', '租金 Rents': 120.5},<br>
+ {'售價 Prices': 170.7, '年 Year': '1997', '月 Month': '4', '租金 Rents': 123},<br>
+ {'售價 Prices': 182.9, '年 Year': '1997', '月 Month': '5', '租金 Rents': 122.9},<br>
+ {'售價 Prices': 180, '年 Year': '1997', '月 Month': '6', '租金 Rents': 126.8},<br>
+ {'售價 Prices': 181.7, '年 Year': '1997', '月 Month': '7', '租金 Rents': 124.2},<br>
+ {'售價 Prices': 195.9, '年 Year': '1997', '月 Month': '8', '租金 Rents': 125.2},<br>
+ {'售價 Prices': 202.6, '年 Year': '1997', '月 Month': '9', '租金 Rents': 124.5},<br>
+ {'售價 Prices': 192.2, '年 Year': '1997', '月 Month': '10', '租金 Rents': 123.5},<br>
+ {'售價 Prices': 181.1, '年 Year': '1997', '月 Month': '11', '租金 Rents': 123.7},<br>
+ {'售價 Prices': 165.3, '年 Year': '1997', '月 Month': '12', '租金 Rents': 125.2}]</code></pre>
+<p>圖4 Google Colab 以 requests 提取相關API數據的結果。<br>
+</p>
+<p>那些{和:符號是JSON格式的數據分格方法，大家應該見到該API讓電腦從差估署網站自動下載了有關香港零售店舖的1997年每月售價指數和租金指數，譬如第一行顯示1997年1月的相關售價指數和租金指數分別為150.8和119.3。這樣便可利用程式進行其他數據分析和製圖等工作，譬如比較租金指數與售價指數的年度變化相關度 (如圖5)，大家有興趣可以一試，答案可參考我在Github的https://github.com/Chung-collab/GREAT-LAB/blob/main/get_api.ipynb。</p>
+<p>圖5 用API取得數據後，加上程式自動繪製擴散圖。</p>
+<p>參考：</p>
+<p>[1] 信報 (2017) 議員促立檔案法 加快開放數據，<em>March 7。</em>http://startupbeat.hkej.com/?p=42126</p>
+<p>[2] Yiu, C.Y. (2021) Getting Data from API in Colab， Medium, June 14. https://ecyy.medium.com/getting-data-from-api-in-colab-57b9a445c791  </p>
+<p><br></p>
