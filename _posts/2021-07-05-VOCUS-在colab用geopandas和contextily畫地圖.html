@@ -1,0 +1,42 @@
+---
+layout: post
+title: 在Colab用Geopandas和Contextily畫地圖
+date: 2021-07-05 09:18:00.000000000 +00:00
+link: https://vocus.cc/user/@ecyY/60e12920fd89780001c270fc
+categories: vocus
+tags: blog
+author: REDBRIC
+---
+
+<p>隨著人工智能的普及，愈來愈多在線應用程式APPS是與地理資訊相關，比如Uber或Airbnb都會提供汽車或房屋的地理位置，當中須要連接兩套系統，一套是以座標定位物件的地理位置，稱之為地理資訊系統 (Geographical Information System, GIS)，但這些以點或面呈現出來的座標資訊必須配上一幅以相同座標系統的地圖才能讓使用者知悉所示的位置在那條街道或那座建築物。譬如圖1是香港居屋的位置圖，即使有座標軸顯示，但若沒有配上地圖，根本無法知道屋苑在那裡。圖2把座標位置配上地圖，地理資訊便一目了然。</p>
+<p>圖1 居屋位置座標。</p>
+<p>圖2 配上地圖的居屋座標位置圖。</p>
+<p>過去繪製這些地理資訊地圖必須使用複雜的GIS軟件，有些費用高昂，而且未能連接機器學習的軟件，難以應用到人工智能的程式。</p>
+<p>以下是在Colab平台，透過使用Geopandas和Contextily兩款函數庫(libraries)來繪製地圖，只須九行程式便能畫出圖2的居屋地圖來。</p>
+<p><br></p>
+<p>!pip install geopandas</p>
+<p>!pip install contextily</p>
+<p>import geopandas as gpd #for processing GIS data</p>
+<p>import contextily as ctx #for basemaps</p>
+<p>from google.colab import drive #for setting data source from google drive</p>
+<p>drive.mount(’/content/drive/’) </p>
+<p>data = gpd.read_file(”drive/MyDrive/Colab Notebooks/Home_Ownership_Scheme_Courts_in_Hong_Kong.shp”) #for reading shape file</p>
+<p>ax = data.plot(figsize=(10,10), legend=True) #plot the data points with legend</p>
+<p>ctx.add_basemap(ax, crs=data.crs, source=ctx.providers.OpenStreetMap.Mapnik) #add a basemap of open street map matching the coordinates of the data range</p>
+<p><br></p>
+<p>以上#號後為注解</p>
+<p>首4句是安裝函數庫，包括 geopandas 和 contextily，前者可處理地理資訊，後者可加上底圖 (Basemap)。</p>
+<p>第5-7句為讀取數據資料，這裡採用了先下載相關的地理資訊檔案於Google Drive中，再以gegeopandas 的讀取檔案程式： data = gpd.read_file("[filename].shp")</p>
+<p>第8句為顯示座標數據；及第9句為配上底圖。</p>
+<p>誠然，這裡是假設所需的地理資訊已有製成的座標資料，只須讀取即可畫圖，否則由零開始搜集及製作地理資訊資料檔案可以相當費時。譬如這裡所讀取的居屋位置座標資料便是取自ERSI的公開地理資訊網站 <a href="https://opendata.esrichina.hk/"><u><em>https://opendata.esrichina.hk/</em></u></a></p>
+<p>圖3 是該網頁的其中一頁截圖，最底一項為今次採用的居屋數據，大家只要自行到上址，點擊相關的數據檔，選擇下載shp檔的格式，下載到自己的google drive 便可。</p>
+<p>圖3 “香港開放地理空間數據”網站截圖，此ERSI網站提供14類GIS數據，搜索“住房”的類別，其中包括許多不同的數據集。香港居屋只是其中之一。t https://opendata.esrichina.hk/search?tags=housing</p>
+<p>若想知道所讀取的數據內容包括甚麼資料，只需在上述的程式中加一句 data.head()，便會顯示頭五條資料和欄目如下：</p>
+<p>圖 4 下載文件中 GIS 數據的前 5 行和最左邊的 10 列。資料來源：ESRI</p>
+<p>由於表格很大，在這裡只展示頭 5 行和最左邊的 10 列（圖4）。就本文而言，最重要的兩列是 The_map_la 和 The_map_lo，它們表示居屋位置的經緯度（即坐標）。</p>
+<p>在這裡我嘗試使用Open Street Map作為底圖以顯示居屋位置與街道的關係，你也可以選擇其他底圖，譬如改用Stamen.Terrain便可顯示與地勢的關係。有關 Contextily 中更多不同底圖的信息，可參考 Hamed (2020)。另有關Contextily的介紹指南，可瀏覽 https://contextily.readthedocs.io/en/latest/intro_guide.html</p>
+<p>這篇文章的程式代碼保存在我的 github-GreatLab 中，地址為 https://github.com/Chung-collab/GREAT-LAB/blob/main/GIS_data_on_basemap.ipynb，若需要觀看短片逐行程式介紹和示範，可看Yiu (2021) youtube (只有英文版)。</p>
+<p>參考：</p>
+<p>Hamed, W. (2020) Free base-maps for static maps using Geopandas and Contextily, Medium, June 6. <a href="https://towardsdatascience.com/free-base-maps-for-static-maps-using-geopandas-and-contextily-cd4844ff82e1"><u>https://towardsdatascience.com/free-base-maps-for-static-maps-using-geopandas-and-contextily-cd4844ff82e1</u></a></p>
+<p>Yiu, C.Y. (2021) Mapping GIS Data on a Basemap by Contextily in Colab, Youtube, June 30. <a href="https://youtu.be/fZ12UJ9G6js"><u>https://youtu.be/fZ12UJ9G6js</u></a></p>
+<p><br></p>
