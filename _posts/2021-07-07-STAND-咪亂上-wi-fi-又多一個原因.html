@@ -1,0 +1,29 @@
+---
+layout: post
+title: 咪亂上 Wi-Fi，又多一個原因
+date: 2021-07-07 13:08:39.262000000 Z
+link: https://www.thestandnews.com/personal/%E5%92%AA%E4%BA%82%E4%B8%8A-wi-fi%E5%8F%88%E5%A4%9A%E4%B8%80%E5%80%8B%E5%8E%9F%E5%9B%A0
+categories: stand
+tags: blog
+author: Pazu 薯伯伯
+---
+
+<figure><img src="https://images.weserv.nl/?url=assets.thestandnews.com/media/photos/2.png"><figcaption><span>資料圖片，來源：Rodnae Productions @ Pexels</span></figcaption></figure><p>最近有一宗頗為奇特的資安消息，是 Secret Club 的研究人員 Carl Schou 發現的。<a href="https://twitter.com/vm_call/status/1411630091038203909" target="_blank">他在 Twitter 上公佈</a>，設置了一個名為「%secretclub%power」的 Wi-Fi 熱點，再以 iPhone 連上，卻居然會停用了 Wi-Fi。</p>
+
+<blockquote class="twitter-tweet">
+<p dir="ltr" lang="en">You can permanently disable any iOS device's WiFI by hosting a public WiFi named %secretclub%power<br>
+Resetting network settings is not guaranteed to restore functionality.<a href="https://twitter.com/hashtag/infosec?src=hash&amp;ref_src=twsrc%5Etfw">#infosec</a> <a href="https://twitter.com/hashtag/0day?src=hash&amp;ref_src=twsrc%5Etfw">#0day</a></p>
+— Carl Schou (@vm_call) <a href="https://twitter.com/vm_call/status/1411630091038203909?ref_src=twsrc%5Etfw">July 4, 2021</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>他稱已經試過重設 iPhone 的網絡設定很多次，但依然無法正常使用 Wi-Fi，最後要修改 iPhone 的備份檔案，再修改當中網絡的 .plist，手動移除惡意條目，才能正常使用 Wi-Fi。</p>
+
+<p>而其實早在上個月，Carl Schou 已公開了另一相關問題，如果 Wi-Fi 名字包含 %p%s%s%s%s%n，也能暫停手機的 Wi-Fi 上網功能。在紐約已經有人開始利用這一漏洞做惡作劇，所以如果看到任何不尋常的 Wi-Fi 名字，千萬要小心，例如 &nbsp;「%Free %Internet at %Cafe」，不要亂上。</p>
+
+<p>其實不單不要上奇怪名字的 Wi-Fi 網絡，在任何公共場合，包括政府場地如康文署、法庭等，最好還是使用自己的電話卡數據上網。如果逼不得已使用公共 Wi-Fi，也應長開 VPN。或者應該這樣說，無論是使用公共 Wi-Fi，家居 Wi-Fi 或手機卡上網，都應長開 VPN。</p>
+
+<p>&nbsp;</p>
+
+<p>🔑 <a href="https://www.patreon.com/posts/53249325" target="_blank">【加密通訊、虛擬號碼、超務實長清單整理】</a></p>
+
+<p><a href="https://www.patreon.com/posts/53349934" target="_blank">作者 Patreon</a> / <a href="https://www.facebook.com/pazukong/posts/359049802258976" target="_blank">Facebook</a> / <a href="https://mewe.com/p/pazu/show/60e3b42155fda04712a44469" target="_blank">MeWe</a></p>
