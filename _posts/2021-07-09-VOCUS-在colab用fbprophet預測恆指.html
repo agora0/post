@@ -1,0 +1,56 @@
+---
+layout: post
+title: 在Colab用FBProphet預測恆指
+date: 2021-07-09 11:11:40.000000000 +00:00
+link: https://vocus.cc/user/@ecyY/60e6bb48fd89780001bcf843
+categories: vocus
+tags: blog
+author: REDBRIC
+---
+
+<p>預測未來是人工智能和機器學習的主要應用範圍之一，譬如無人駕駛的技術最關鍵就在於能否從分析大數據準確預測路面情況而作出最佳決策，另外亦有不少軟件在開發預測經濟走勢，甚至有評論指已有人工智能的自動投資平台，但相信其準確度仍然很一般，否則早就有很多世界新首富；所以本文並非財經評論，只從機器學習角度討論如何透過FBProphet在Colab編寫程式，並以恆指作為例子介紹它如何作出時序預測，這是一篇機器學習編程的技術文章；而且本文是翻譯自我在5月31日撰寫的英文版文章 (Yiu, 2021a)，所以當日的預測資料早已成為歷史，本文將加上過去這一個多月的實際指數變化互相比對。</p>
+<p><strong>為什麼FBProphet?</strong></p>
+<p>首先，市場上有很多預測工具，甚至Excel工作表也提供了一個簡單的預測時序功能，​詳情可參考（Yiu，2019 只有英文版）。其他較複雜的預測工具如採用 ARIMA 和 HP Filter 方法的軟件成本不但較高，亦不一定可以與機器學習的其他應用程式連接，因此本文特此為大家介紹一套免費的時序預測程式FBProphet，示範如何在Colab上編程讀取恆指數據並進行預測。</p>
+<p>FBProphet 提供由 R 或 Python語言編寫的開源代碼的預測工具，可設置參數來進行不同的預測，包括三個組成部份，即趨勢、季節性和假期，更多細節可以參考 Lyla (2019)，或FBProphet網頁：https://facebook.github.io/prophet/。以下是我嘗試以FBProphet編寫最簡單的程式預測恆指，屬最低階入門版，旨在討論機器學習編碼的基礎知識；為簡單起見，我只討論以下兩項程式：</p>
+<p>1. 從 Yahoo Finance 的時間序列數據讀取並繪製到 Colab 中；和</p>
+<p>2. 通過 FBProphet 對時間序列進行預測。</p>
+<p><strong>讀取資料及預測時序程式</strong></p>
+<p>這個簡單的例子只有16行程式，所有以 # 號開頭的都是備註：</p>
+<p><br></p>
+<p>! pip install fbprophet #安裝FBProphet</p>
+<p><strong>import pandas_datareader as web #增入datareader</strong></p>
+<p><strong>import pandas as pd #增入pandas</strong></p>
+<p><strong>import matplotlib.pyplot as plt #增入pyplot</strong></p>
+<p><strong>from fbprophet import</strong> Prophet #增入Prophet</p>
+<p><em>#從 Yahoo Finance 讀取恆指選取2015年1月1日起至2021年5月31日止</em></p>
+<p>url="https://query1.finance.yahoo.com/v7/finance/download/^HSI?period1=1420066800&period2=<br>
+1622437200&interval=1d&events=history&crumb=tO1hNZoUQeQ"  </p>
+<p>df=pd.read_csv(url)   </p>
+<p><em>#定義預測模型參數，包括趨勢trend=logistic growth, 年度季節性yearly seasonality = multiplicative, 無假期參數 no holiday parameter</em></p>
+<p>model_params = {"daily_seasonality": <strong>False</strong>, "weekly_seasonality": <strong>False</strong>, "yearly_seasonality": <strong>True</strong>, "seasonality_mode": "multiplicative", "growth": "logistic"}</p>
+<p><em>#進行預測 (Jain, 2021)</em></p>
+<p>model = Prophet(**model_params)</p>
+<p>data['cap'] = data['y'].max() + data['y'].std() * 0.05 #設定預測上限為5%</p>
+<p>model.fit(data)</p>
+<p>future = model.make_future_dataframe(periods=365) #設定預測日數為365日</p>
+<p>future['cap'] = data['cap'].max()</p>
+<p>forecast = model.predict(future) #把預測部份命名為forecast</p>
+<p><em>#</em>繪製帶有預測的圖表</p>
+<p>model.plot_components(forecast)</p>
+<p>model.plot(forecast)</p>
+<p><br></p>
+<p><strong>預測圖表</strong></p>
+<p>圖 1 顯示恆指及其經 FB Prophet 預測的365天時間序列。圖 2 顯示預測組件，上圖為趨勢，下圖為季節性變化。由於圖1的預測日期為2021年5月31日，6月1日至2022年5月31日的藍色線為預測指數，淺藍色部份為預測指數的上下限。圖1顯示6月起恆指持續下跌至十月左右，似乎與圖2的年度季節性變化有關。</p>
+<p>圖 1 恆指時間序列及其 FB Prophet 預測</p>
+<p>圖 2 FB Prophet 的預測組件</p>
+<p>[我在https://youtu.be/ItzY73xpcyY（Yiu，2021b）製作了一條Youtube短片介紹以上的編碼。]</p>
+<p><strong>與實際變化比較</strong></p>
+<p>時間過了大約一個月，7月8日回顧過去一個多月的恆指變化，圖3顯示5月的升浪剛好至6月1日為近期高位29,468，然後出現回落情況，今日收市大約在2萬7。這是這FBProphet程式在過去一個月的預測表現，大家可以一起改良程式及測試誤差率。</p>
+<p>圖3 恆指2021年7月8日</p>
+<p><br></p>
+<p>參考</p>
+<p>Jain, A. P. (2021) ARIMA & SARIMA: Real-World Time Series Forecasting (Advanced Guide), neptune blog, 31 May.<a href="https://neptune.ai/blog/arima-sarima-real-world-time-series-forecasting-guide"><u>https://neptune.ai/blog/arima-sarima-real-world-time-series-forecasting-guide</u></a></p>
+<p>Lyla, Y. (2019) A Quick Start of Time Series Forecasting with a Practical Example using FB Prophet, Medium, Jan 3. <a href="https://towardsdatascience.com/a-quick-start-of-time-series-forecasting-with-a-practical-example-using-fb-prophet-31c4447a2274"><u>https://towardsdatascience.com/a-quick-start-of-time-series-forecasting-with-a-practical-example-using-fb-prophet-31c4447a2274</u></a></p>
+<p>Yiu, C.Y. (2019) Excel Forecasts a 40% Plummet of HK Housing Price! Medium, Apr 15. <a href="https://ecyy.medium.com/2-forecasting-methods-by-excel-1991b5b7d111"><u>https://ecyy.medium.com/2-forecasting-methods-by-excel-1991b5b7d111</u></a></p>
+<p>Yiu, C.Y. (2021a) Forecasting by FB Prophet in Colab, Medium, May 31. https://ecyy.medium.com/forecasting-by-fb-prophet-in-colab-c9d4db2d4195 </p>
+<p>Yiu, C.Y. (2021b) My First Forecaster by FB Prophet in Colab, Youtube, May 31. <a href="https://youtu.be/ItzY73xpcyY"><u>https://youtu.be/ItzY73xpcyY</u></a></p>
