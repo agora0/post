@@ -1,0 +1,70 @@
+---
+layout: post
+title: 在Colab用Numpy建一部按揭計數機
+date: 2021-07-16 11:10:39.000000000 +00:00
+link: https://vocus.cc/user/@ecyY/60f15788fd897800015d1126
+categories: vocus
+tags: blog
+author: REDBRIC
+---
+
+<p>計算按揭還款金額的方程式有點複雜，幸好有很多銀行在網上提供免費的按揭貸款計數機(Mortgage Calculator)，讓準買家可提前知道如果借按揭買樓每月需付多少錢；還可自己進行壓力測試（即敏感性分析），調整按揭利率來了解不同的加息幅度對每月還款額的影響，亦可試試不同的還款期對每月還款金額的關係等，深受準買家的歡迎。</p>
+<p>圖 1 顯示紐西蘭銀行提供的按揭計數機​​，只須輸入三個參數，分別為按揭金額、利率和還款期，舉例：樓價 876,000 元，首付（定金 20%）即 176,000 元，相減成按揭貸款金額 700,000 元；按揭利率2.55%，還款期30年，計數機便會計出每月還款額為$2784。</p>
+<p>圖 1 按揭計數機。資料來源：BNZ https://www.bnz.co.nz/personal-banking/home-loans/calculators/home-loan-calculator</p>
+<p>這種按揭計數機的缺點有二，一方面用家不能更改功能，另一方面它只提供每月還款額，但有不少用家需要全期的每月利息支出及剩餘按揭貸款金額等，行內稱為Full Amortisation Schedule (完整攤銷時間表)。大家如果只是用家，而非程式開發工程師，則Excel的按揭計數機試算表可能已經足夠，圖2是其中一款可下載的Excel按揭計數機，包含Full Amortisation Schedule.</p>
+<p>Excel 按揭計數機。https://www.mortgagecalculator.org/download/excel.php</p>
+<p>但如果想開發一部按揭計數機處理更複雜的機器學習或投資分析等功能，則可以嘗試在 Colab 用 Numpy 構建一部按揭計數機。首先，我們安裝並導入提供pmt、ipmt、ppmt、pv和nper功能的numpy和numpy-financial，詳細信息可以在https://numpy.org/numpy-financial/找到。</p>
+<pre><code>!pip install numpy-financial</code></pre>
+<pre><code><strong>import</strong> <strong>numpy</strong> <strong>as</strong> <strong>np</strong><br>
+<strong>import</strong> <strong>numpy_financial</strong> <strong>as</strong> <strong>npf</strong></code></pre>
+<h2><strong>參數輸入器：</strong></h2>
+<p>然後讀取三個參數，即（1）按揭利率 mort_rate，（2）貸款金額 loan_amt，和（3）還款期 repay_yr (圖3)。我試用Sliders作輸入數據，更多關於如何使用Sliders輸入數據，可參考https://colab.research.google.com /notebooks/forms.ipynb#scrollTo=eFN7-fUKs-Bu</p>
+<pre><code><em>#@title MORTGAGE CALCULATOR - INPUT DATA</em></code></pre>
+<pre><code>mort_rate = 2.55 <em>#@param {type:"slider", min:0.00, max:10.00, step:0.05}</em></code></pre>
+<pre><code>loan_amt = 700000 <em>#@param {type:"slider", min:100000, max:1500000, step:10000}</em></code></pre>
+<pre><code>repay_yr = 30 <em>#@param {type:"slider", min:1, max:40, step:1}</em></code></pre>
+<p>圖3 Slider 輸入參數器 </p>
+<p>我輸入相同的抵押貸款利率 (2.55%)、貸款金額 ($700,000) 和還款期 (30 年)，比較自製的按揭貸款計數機是否與網上銀行提供的計數機的結果相同。</p>
+<h2>計算每月還款額：</h2>
+<p>首先，我先將年利率換算成月利率（rate_x），將還款年數換算成還款月數（nper_x），將貸款金額換算成負數（pv_x）以表示這是現金流出。每月還款額 (pmt_x1) 可以通過 numpy-financial, npf的pmt功能：npf.pmt(rate_x, nper_x, pv_x) 輕鬆計算： </p>
+<pre><code><em>#Mortgage Calculator - monthly repayment amount</em><br>
+rate_x = mort_rate/1200 <em>#monthly mortgage rate in 2 decimal places, 2% -> 0.02</em><br>
+nper_x = repay_yr*12 <em>#duration of loan in number of months</em><br>
+pv_x = -1*loan_amt <em>#loan principle amount in NZD as negative cash flow</em><br>
+pmt_x1 = npf.pmt(rate_x, nper_x, pv_x) <em>#monthly mortgage repayment amount</em><br>
+print("Monthly Repayment Amount: NZD", np.round(pmt_x1,2))</code></pre>
+<p>下面顯示的答案顯示的每月還款金額與圖 1 中的抵押貸款計算器估算的金額相同。</p>
+<pre><code>Monthly Repayment Amount: NZD 2784.08</code></pre>
+<h2>攤銷時間表：</h2>
+<p>簡單地使用 ipmt 和 ppmt 函數和“for 循環”重複 360 次便可製作一份完整的攤銷時間表 (圖4)。</p>
+<pre><code><em>#Amortization Table - mortgage interest and principle repayment schedule</em><br>
+per_x = np.arange(nper_x) + 1<br>
+ipmt_x = npf.ipmt(rate_x, per_x, nper_x, pv_x) <em>#monthly mortgage interest amount</em><br>
+ppmt_x = npf.ppmt(rate_x, per_x, nper_x, pv_x) <em>#monthly mortgage principle amount</em><br>
+fmt = '<strong>{0:2d}</strong> <strong>{1:8.2f}</strong> <strong>{2:8.2f}</strong> <strong>{3:8.2f}</strong> <strong>{4:8.2f}</strong>'<em>#format </em><br>
+<strong>for</strong> paymentno <strong>in</strong> per_x:<br>
+   index = paymentno - 1<br>
+   pmt_x = ipmt_x + ppmt_x<br>
+   pv_x = pv_x + ppmt_x[index]<br>
+   print(fmt.format(paymentno, ppmt_x[index], ipmt_x[index], pmt_x[index], pv_x))</code></pre>
+<p><br></p>
+<p>圖4 攤銷時間表</p>
+<p>若須計算全期支付的利息總額，可以使用 numpy的sum功能：np.sum(ipmt_x) 計算：</p>
+<pre><code><em>#Total Amount of Interest </em><br>
+totint_x = np.sum(ipmt_x) <br>
+print("Total Amount of Interest Paid: NZD", np.round(totint_x, 2))</code></pre>
+<p>結果顯示全期支付的利息總金額如下：</p>
+<pre><code>Total Amount of Interest Paid: NZD 302268.02</code></pre>
+<h2>假設問題：</h2>
+<p>練習一，如果我們想計算若每月還款增加至4000元，付款期將會變為多少個月？</p>
+<p>如果不能修改功能，那麼這樣簡單的問題也可能要試很多次才可撞中；但若可自己編程，這些What-if的題目將可輕易解決，只須三行指令便可計算出來：首先是定義每月還款金額 (whatif_pmt_x) 為4000元，然後使用numpy-finanical的nper功能：npf.nper(rate_x, whatif_pmt_x, pv_x) 便可計算出新的還款期為219個月。</p>
+<pre><code>whatif_pmt_x = 4000<br>
+whatif_nper = npf.nper(rate_x, whatif_pmt_x, pv_x)<br>
+print("New Repayment Period - Number of Months:", np.round(whatif_nper,0))</code></pre>
+<p><br></p>
+<pre><code>New Repayment Period - Number of Months: 219.0</code></pre>
+<p>英文版可參考Yiu (2021a)，英語短片可看Yiu (2021b)Youtube.</p>
+<p>[注: 此乃基礎編程練習，內容並不適用於真實的按揭計算使用。]</p>
+<p>參考</p>
+<p>Yiu, C.Y. (2021a) Build a Mortgage Calculator by Numpy in Colab, Medium, July 10. https://ecyy.medium.com/build-my-first-mortgage-calculator-by-numin-colab-d5390cbb6b9</p>
+<p>Yiu, C.Y. (2021b) Build a Mortgage Calculator by Numpy in Colab, Youtube, July 14. <a href="https://youtu.be/VH4FTAJruqk"><u>https://youtu.be/VH4FTAJruqk</u></a></p>
