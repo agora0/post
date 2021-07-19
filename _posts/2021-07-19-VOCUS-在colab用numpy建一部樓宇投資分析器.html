@@ -1,0 +1,79 @@
+---
+layout: post
+title: 在Colab用Numpy建一部樓宇投資分析器
+date: 2021-07-19 21:48:05.000000000 +00:00
+link: https://vocus.cc/user/@ecyY/60f55107fd897800016b25c1
+categories: vocus
+tags: blog
+author: REDBRIC
+---
+
+<p>上期學過在Colab用Numpy建一部按揭計數機 (姚，2021)，今期可以利用上期學過嘅程式增建一部樓宇投資分析器，當中主要使用Numpy-financial的NPV及IRR功能，NPV的中文翻譯為淨現值 (Net Present Value)，而IRR的中文翻譯為內回報率 (Internal Rate of Return)，兩者是建基於DCF Model (貼現現金流模型) 計算，若以按揭供樓作為樓宇投資的朋友，在分析NPV和IRR時必須利用按揭計數機才可計算出每月的供款金額，這是一個很好的例子解釋為什麼即使坊間已有不少免費的按揭計數機，我們仍要學習自製一部，因為有興趣從事開發程式的朋友在進行其他分析用途時，不少程式本身需要計算按揭供款的數值。</p>
+<p>圖1 ARGUS Enterprise 13. http://koreabizwire.com/altus-group-simplifies-commercial-real-estate-asset-and-investment-management-with-powerful-argus-enterprise-13/171759</p>
+<p>Excel試算表或ARGUS Enterprise (圖1) 也可以計算 NPV 和 IRR，網上亦有一些現成的NPV和IRR計算表，本文則嘗試在 Colab用 numpy 構建 NPV 和 IRR 投資分析器 e-Analyser。假設以一百萬元購買一房屋，投資計劃是向銀行借八成按揭，以十年為還款期，年利率2.55厘，回報是根據預期可賺取的10年租金收入，並假設十年後出售的市價為120萬元，分析該投資項目的淨現值和內回報率：</p>
+<p>首先，在Colab安裝numpy-financial及其npv和irr功能如下：</p>
+<pre><code>!pip install numpy-financial<br>
+<strong>import</strong> <strong>numpy</strong> <strong>as</strong> <strong>np</strong><br>
+<strong>import</strong> <strong>numpy_financial</strong> <strong>as</strong> <strong>npf</strong><br>
+<strong>from</strong> <strong>numpy_financial</strong> <strong>import</strong> npv, irr</code></pre>
+<p>然後，在Colab輸入相關的參數，包括 </p>
+<ul>
+  <li>貼現率 discount rate p.a. (disc_rate), </li>
+  <li>按揭息率 mortgage interest rate p.a. (mort_rate), </li>
+  <li>樓價 home price in NZD (home_price), </li>
+  <li>預期未來十年的每周租金 (假設每年年頭轉變一次) expected weekly rental income in each year (exp_wk_rent_y1, exp_wk_rent_y2, …), </li>
+  <li>每年支出比例expense rate p.a. (expense_rate), 及</li>
+  <li>預期十年後的出來價 expected sale price in the end of year 10 in NZD (exp_sale_price_y10). </li>
+</ul>
+<pre><code><em>#see </em><a href="https://colab.research.google.com/notebooks/forms.ipynb#scrollTo=eFN7-fUKs-Bu"><u><em>https://colab.research.google.com/notebooks/forms.ipynb#scrollTo=eFN7-fUKs-Bu</em></u></a><br>
+<em>#@title Cash Flows - INPUT DATA</em><br>
+disc_rate = 5.00 <em>#@param {type:"slider", min:0.00, max:10.00, step:0.05}</em></code></pre>
+<pre><code>mort_rate = 2.55 <em>#@param {type:"slider", min:0.00, max:10.00, step:0.05}</em></code></pre>
+<pre><code>home_price = 1000000 <em>#@param {type:"integer"}</em><br>
+exp_wk_rent_y1 = 500 <em>#@param {type:"integer"}</em><br>
+exp_wk_rent_y2 = 500 <em>#@param {type:"integer"}</em><br>
+exp_wk_rent_y3 = 550 <em>#@param {type:"integer"}</em><br>
+exp_wk_rent_y4 = 550 <em>#@param {type:"integer"}</em><br>
+exp_wk_rent_y5 = 580 <em>#@param {type:"integer"}</em><br>
+exp_wk_rent_y6 = 580 <em>#@param {type:"integer"}</em><br>
+exp_wk_rent_y7 = 600 <em>#@param {type:"integer"}</em><br>
+exp_wk_rent_y8 = 600 <em>#@param {type:"integer"}</em><br>
+exp_wk_rent_y9 = 650 <em>#@param {type:"integer"}</em><br>
+exp_wk_rent_y10 = 650 <em>#@param {type:"integer"}</em><br>
+expense_rate = 15.0 <em>#@param {type:"slider", min:0.0, max:30.0, step:0.5}</em><br>
+exp_sale_price_y10 = 1200000 <em>#@param {type:"integer"}</em></code></pre>
+<p>以八成按揭，十年還款期計算，直接用 npf.pmt 得出每年按揭支出為$90,717.54：</p>
+<pre><code>mort_loan = home_price*(1-0.2)<br>
+repay_yr = 10<br>
+pmt_c3 = npf.pmt(mort_rate/1200, repay_yr*12, -mort_loan)<br>
+print ("Yearly Repayment Amount in NZD", np.round(pmt_c3*12,2))</code></pre>
+<pre><code>Yearly Repayment Amount in NZD 90717.54</code></pre>
+<p>每年的現金流包括租金收入，減去樓宇支出及每年按揭供款：</p>
+<pre><code>nyrent1_c3 = exp_wk_rent_y1*52*(1-expense_rate/100)-pmt_c3*12<br>
+nyrent2_c3 = exp_wk_rent_y2*52*(1-expense_rate/100)-pmt_c3*12<br>
+nyrent3_c3 = exp_wk_rent_y3*52*(1-expense_rate/100)-pmt_c3*12<br>
+nyrent4_c3 = exp_wk_rent_y4*52*(1-expense_rate/100)-pmt_c3*12<br>
+nyrent5_c3 = exp_wk_rent_y5*52*(1-expense_rate/100)-pmt_c3*12<br>
+nyrent6_c3 = exp_wk_rent_y6*52*(1-expense_rate/100)-pmt_c3*12<br>
+nyrent7_c3 = exp_wk_rent_y7*52*(1-expense_rate/100)-pmt_c3*12<br>
+nyrent8_c3 = exp_wk_rent_y8*52*(1-expense_rate/100)-pmt_c3*12<br>
+nyrent9_c3 = exp_wk_rent_y8*52*(1-expense_rate/100)-pmt_c3*12<br>
+nyrent10_c3 = exp_wk_rent_y10*52*(1-expense_rate/100)-pmt_c3*12</code></pre>
+<p>透過np.array列出十年的每年現金流，第零年支出樓價兩成作首期，故以負數表示，第一至第九年的每年現金流為租金淨收入(減去供款)，第十年的現金流則除了現金淨收入再加第十年出售樓宇的收入。然後利用npf.npv及npf.irr的功能計算淨現值及內回報率，以此個案為例，NPV=$29,038，IRR=5.66%。</p>
+<pre><code><em>#DCF of Rental Incomes</em><br>
+cf_c3 = np.array([-(home_price-mort_loan), nyrent1_c3, nyrent2_c3, nyrent3_c3, nyrent4_c3, nyrent5_c3, nyrent6_c3, nyrent7_c3, nyrent8_c3, nyrent9_c3, nyrent10_c3+exp_sale_price_y10])<br>
+NPV_c3= npf.npv(disc_rate/100, cf_c3)<br>
+IRR_c3= npf.irr(cf_c3)<br>
+print ("Net Present Value in NZD", np.round(NPV_c3, 2))<br>
+print ("Internal Rate of Return in %", np.round(IRR_c3*100, 2))</code></pre>
+<pre><code>Net Present Value in NZD 29038.11<br>
+Internal Rate of Return in % 5.66</code></pre>
+<p>當貼現率為5厘，內回報率只有5.66%，淨現值只有不到三萬元，分析反映此樓宇投資的回報並不太吸引，若預期的參數有輕微向不利方向變化，則投資可能虧本。大家可以試試編寫Sensitivity Analyser (敏感度分析器)，譬如改變貼現率由1厘至10厘，看看NPV 和 IRR的變化，這便可理解為什麼低實質利率對樓價的強大影響；另外，大家也可以改變其他參數回答What-if問題，譬如按揭息率由2.55厘調升至5.55厘，看看每月供款及對NPV 和 IRR的影響等等。</p>
+<p>英文版可參考Yiu (2021b)，英語短片可看Yiu (2021c)Youtube.</p>
+<p>[注: 此乃基礎編程練習，內容並不適用於真實的投資分析使用。]</p>
+<p>參考</p>
+<p>姚松炎 (2021a) 在Colab用Numpy建一部按揭計數機，方格子，7月16日。https://vocus.cc/article/60f15788fd897800015d1126</p>
+<p>Yiu, C.Y. (2021b) Build a NPV and IRR home buying investment decision e-Analyser by Numpy in Colab, Medium, Jul 11. https://ecyy.medium.com/build-a-home-buying-investment-e-analyser-by-numpy-in-colab-575ed7944a0a</p>
+<p>Yiu, C.Y. (2021c) Build a NPV and IRR home buying investment decision e-Analyser by Numpy in Colab, Youtube, Jul 15. https://youtu.be/8cMcCh5TsI8</p>
+<p><br>
+<a href="https://ecyy.medium.com/?source=post_sidebar--------------------------post_sidebar-----------"> </a></p>
