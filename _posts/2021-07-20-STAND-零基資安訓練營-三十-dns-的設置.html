@@ -1,0 +1,79 @@
+---
+layout: post
+title: 零基資安訓練營（三十）：DNS 的設置
+date: 2021-07-20 08:08:39.527000000 Z
+link: https://www.thestandnews.com/personal/%E9%9B%B6%E5%9F%BA%E8%B3%87%E5%AE%89%E8%A8%93%E7%B7%B4%E7%87%9F%E4%B8%89%E5%8D%81dns-%E7%9A%84%E8%A8%AD%E7%BD%AE
+categories: stand
+tags: blog
+author: Pazu 薯伯伯
+---
+
+<figure><img src="https://images.weserv.nl/?url=assets.thestandnews.com/media/photos/HeyFNqApSLQ.png"><figcaption><span>資料圖片，來源：Filiberto Santillán @ Unsplash</span></figcaption></figure><p>有一個簡單易做的設定，設置過後，一次過可能可以滿足三個好處，三個好處是：私隱提升、網速（稍微）更快，以及輕易突破部份網絡供應商禁制的網址。</p>
+
+<p>這個設定叫 DNS。</p>
+
+<p>DNS 全寫是 Domain Name Server，即域名服務器，簡單來說就是接線生。例如問接線生「吳建仁」的電話，對方馬上查出是 721831。同樣道理，如果在「域名服務器」輸入 Google.com，就能找到其對應的 IP 地址為 142.250.191.110。</p>
+
+<p>負責營運 DNS 的機構，通常是網絡供應商或是手機製造商。但使用 DNS 時要小心，因為 DNS 營運者的權力就像接線生一樣，可以記錄你的所有查詢，或甚至是竄改 IP 地址。</p>
+
+<p>舉個例子，如果有人惡意修改 DNS 的內容，例如把 Google.com 的對應 IP 轉換去其他搜尋引擎或完全刪除，用戶便會轉至其他網址，甚至無法前往 Google.com，這是其中一種最低端的封網方式。而之前有人揭發手機生產商三星，居然強逼香港用戶使用中國的 DNS 服務器，營運者是南京信風（注）。</p>
+
+<p>所以，使用可靠的 DNS 供應商，是上網之基本要務。</p>
+
+<p>設置的方式很容易：</p>
+
+<p><strong>甲，Mac 機用戶</strong></p>
+
+<ol>
+	<li>在 Mac 左上方選擇「系統偏好設定…」，按「網絡」。</li>
+	<li>在左側列表，選擇連接互聯網的服務，例如 Wi-Fi。</li>
+	<li>選擇「進階…」。</li>
+	<li>選擇「DNS」。</li>
+	<li>移除其他 DNS 伺服器。</li>
+	<li>輸入 1.1.1.1 及 1.0.0.1。</li>
+</ol>
+
+<p><strong>乙，Windows 用戶</strong></p>
+
+<ol>
+	<li>在控制台選擇「網絡和網際網路設定」。</li>
+	<li>選擇「變更介面卡選項」。</li>
+	<li>選擇「詳細資料…」。</li>
+	<li>選擇「內容」。</li>
+	<li>點擊「TCP/IPv4」。</li>
+	<li>輸入 1.1.1.1 及 1.0.0.1。</li>
+</ol>
+
+<p><strong>丙，手機</strong></p>
+
+<p>最簡單的方法是使用 Cloudfare 的 app，下載地址：<br>
+<a href="https://blog.cloudflare.com/1111-warp-better-vpn/" target="_blank">下載網址</a><br>
+<a href="https://apps.apple.com/us/app/1-1-1-1-faster-internet/id1423538627" target="_blank">iOS</a>&nbsp;/&nbsp;<a href="https://play.google.com/store/apps/details?id=com.cloudflare.onedotonedotonedotone" target="_blank">Android</a></p>
+
+<p><strong>丁，電腦上的瀏覽器與加密 DNS</strong></p>
+
+<p>DNS 的查詢傳統上沒有加密，有心人是可以看到相關輸入。最簡單的解決方法是使用加密的 VPN，例如 ProtonVPN，另外亦建議設置電腦上瀏覽器，強制使用加密 DNS。</p>
+
+<p>電腦上最常用的瀏覽器，更新至最新版本，大多支援加密 DNS。</p>
+
+<ol>
+	<li><strong>Mozilla Firefox：</strong>在偏好設定，一般，網絡設定，選擇「開啟 DNS over HTTPS」，選擇 Cloudflare DNS。</li>
+	<li><strong>Google Chrome / Brave：</strong>設定，私隱與保安，保安，使用安全 DNS，用 Cloudflare (1.1.1.1)。</li>
+	<li><strong>Microsoft Edge：</strong>開啟 <a target="_blank">edge://settings/privacy</a>，在保安設置，選用安全 DNS，選用 Cloudflare (1.1.1.1)。</li>
+	<li><strong>Safari：</strong>未支援</li>
+</ol>
+
+<p>設置好後，可以去 <a href="https://www.cloudflare.com/en-gb/ssl/encrypted-sni/" target="_blank">Cloudflare 網站</a>做個測試，選擇 Check My Browser，頭三個設置都應該是綠色，最後一個則是紅色，但 Firefox 有計劃遲些會增加最後一項的支援。另，如果使用了 VPN，第一項有可能會變成未知，或較長時間才變綠色。</p>
+
+<hr>
+<p>使用 1.1.1.1 及 1.0.0.1，均是 Cloudfare 的 DNS，速度穩定、聲稱不會記錄用戶輸入、國際上的信譽良好，還有第三方的審計，而且很多人使用。</p>
+
+<p>但日常上網，最理想當然是經常長開 VPN，而大多 VPN 供應商都會提供自己的 DNS 服務。以 ProtonVPN 為例，用家連接 ProtonVPN，所有 DNS 的查詢會在加密的伺服器上解析（resolved），安全放心。萬一 VPN 斷線，就會用回你本身設定的 DNS。</p>
+
+<p>&nbsp;</p>
+
+<p>注：有關三星手機如何強逼香港 WiFi 用戶使用中國大陸 DNS 服務一事，詳情請參看 HeaDuck 研究所的報告<a href="https://blog.headuck.com/2020/10/12/samsung-phones-force-mainland-china-dns-service-upon-hong-kong-wifi-users/" target="_blank">〈How Samsung phones force Mainland China DNS service upon Hong Kong WiFi users〉</a>：</p>
+
+<p>🔑 <a href="https://www.patreon.com/posts/53249325" target="_blank">【資訊保安、加密通訊、超務實長清單整理】</a></p>
+
+<p><a href="https://www.patreon.com/posts/53752938" target="_blank">作者 Patreon</a> / <a href="https://www.facebook.com/pazukong/posts/365755881588368" target="_blank">Facebook</a> / <a href="https://mewe.com/p/pazu/show/60f3a707135eff4f83f54d81" target="_blank">MeWe</a></p>
