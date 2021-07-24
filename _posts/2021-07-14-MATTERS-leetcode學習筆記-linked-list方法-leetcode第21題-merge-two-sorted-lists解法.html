@@ -1,0 +1,63 @@
+---
+layout: post
+title: LeetCode學習筆記 - Linked List方法 - LeetCode第21題 - Merge Two Sorted Lists解法
+date: 2021-07-14 11:30:50.000000000 +00:00
+link: https://matters.news/@CHWang/leet-code%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-linked-list%25E6%2596%25B9%25E6%25B3%2595-leet-code%25E7%25AC%25AC21%25E9%25A1%258C-merge-two-sorted-lists%25E8%25A7%25A3%25E6%25B3%2595-bafyreib6yxfomcv2gv4fp5rgpaxnhewfiosxbwkmjmpsv77sq2qydmn264
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<p><a href="https://github.com/chwang12341/LeetCode-Learning/tree/master/linked_list/merge_two_sorted_lists_21" target="_blank">Github連結</a></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/82f957a7-c9a9-4a7b-8955-1d37d162954a.webp" onerror="this.srcset='https://assets.matters.news/embed/82f957a7-c9a9-4a7b-8955-1d37d162954a.jpeg'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/82f957a7-c9a9-4a7b-8955-1d37d162954a.jpeg" onerror="this.srcset='https://assets.matters.news/embed/82f957a7-c9a9-4a7b-8955-1d37d162954a.jpeg'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/82f957a7-c9a9-4a7b-8955-1d37d162954a.webp">
+
+        <img src="https://assets.matters.news/embed/82f957a7-c9a9-4a7b-8955-1d37d162954a.jpeg" srcset="https://assets.matters.news/processed/540w/embed/82f957a7-c9a9-4a7b-8955-1d37d162954a.jpeg" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>圖片來源: https://www.pexels.com/zh-tw/photo/371589/</span></figcaption></figure><p><br></p><p><br></p><p><br></p><h2><strong>1. 題目</strong></h2><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/64096873-f51b-4527-bd72-9ea4fd0ae75d.webp" onerror="this.srcset='https://assets.matters.news/embed/64096873-f51b-4527-bd72-9ea4fd0ae75d.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/64096873-f51b-4527-bd72-9ea4fd0ae75d.png" onerror="this.srcset='https://assets.matters.news/embed/64096873-f51b-4527-bd72-9ea4fd0ae75d.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/64096873-f51b-4527-bd72-9ea4fd0ae75d.webp">
+
+        <img src="https://assets.matters.news/embed/64096873-f51b-4527-bd72-9ea4fd0ae75d.png" srcset="https://assets.matters.news/processed/540w/embed/64096873-f51b-4527-bd72-9ea4fd0ae75d.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><strong>說明:</strong> 組合兩個排序好的鏈結串列，並回傳一個排好序的鏈結串列，這個新的串列必須是從原先兩個串列切割開來再合併後的結果</p><h2><br></h2><h2><br></h2><h2><strong>2. 實作</strong></h2><p><br></p><p><strong>Step 1:</strong> 創建一個鏈結串列中的的第一個節點dummy node</p><p><strong>Step 2:</strong> 再創建一個用來遍歷的tmp node</p><p><strong>Step 3:</strong> 當兩個鏈結列都還有節點時(也就是還沒取光時):</p><ul><li>比較兩個鏈結串列的節點值，把比較小的節點接到tmp node的下一個節點位置上</li><li>然後prev往下一個走(tmp = tmp.next)，被取用到的節點該鏈節串列(兩個鏈節串列中的一個)也要往下一個走，因為此節點已經被用過了</li></ul><p><strong>Step 4:</strong> 反覆進行上面操作，直到其中一個鏈結串列為空，或兩個串列都空的時候停止</p><p><strong>Step 5:</strong> 如果是其中一個鏈結串列為空，那就直接把還未為空的串列直接接上我們的新鏈結串列</p><p><strong>Step 6:</strong> 最後要傳回dummy node的next(為什麼不是傳回tmp，因為tmp已經走到了最後，它會在最後一個節點的前一個節點位置或是要直接接一整串節點的前一個節點，所以不該傳回它)</p><pre class="ql-syntax"># Definition for singly-linked list.
+# class ListNode:
+#  def __init__(self, val=0, next=None):
+#    self.val = val
+#    self.next = next
+class Solution:
+  def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+    ## 創建一個空的node
+    dummy = ListNode(None)
+    ## 創建用來遍歷的node
+    tmp = dummy
+    
+    ## 當兩個鏈結列都還有節點時(也就是還沒取光時)
+    while (l1 != None) and (l2 != None):
+      ## 如果l1比l2小或一樣，就取l1節點接上
+      if l1.val <= l2.val:
+        tmp.next = l1
+        
+        ## l1此節點已經用過了，要往下一個走
+        l1 = l1.next
+      ## 如果l2比較小，就取l2這個節點
+      else:
+        tmp.next = l2
+        l2 = l2.next
+      
+      ## tmp往下一個節點走
+      tmp = tmp.next
+      
+        
+    ## 當其中一方為空就接上另一方剩下的節點，或兩個都沒值就接上None而已
+    tmp.next = l1 or l2
+    return dummy.next
+</pre><h2><br></h2><h2><br></h2><h2><strong>Reference</strong></h2><p><a href="https://leetcode.com/problems/merge-two-sorted-lists/submissions/" target="_blank">https://leetcode.com/problems/merge-two-sorted-lists/submissions/</a></p>

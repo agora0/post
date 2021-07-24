@@ -1,0 +1,86 @@
+---
+layout: post
+title: LeetCode筆記 - Linked List 鏈結串列方法 - LeetCode第83題 - 解法
+date: 2021-07-08 03:25:25.000000000 +00:00
+link: https://matters.news/@CHWang/leet-code%25E7%25AD%2586%25E8%25A8%2598-linked-list-%25E9%258F%2588%25E7%25B5%2590%25E4%25B8%25B2%25E5%2588%2597%25E6%2596%25B9%25E6%25B3%2595-leet-code%25E7%25AC%25AC83%25E9%25A1%258C-%25E8%25A7%25A3%25E6%25B3%2595-bafyreibtag32wxvunt422p65mlvkmeyaflly6yuk6szo4noiwnmnw6xhwe
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<h1><a href="https://github.com/chwang12341/LeetCode-Learning/tree/master/linked_list/remove_dupicates_from_sorted_list_83" target="_blank">Github連結</a></h1><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/00e1b21c-468e-4fda-86af-3d9d01279efa.webp" onerror="this.srcset='https://assets.matters.news/embed/00e1b21c-468e-4fda-86af-3d9d01279efa.jpeg'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/00e1b21c-468e-4fda-86af-3d9d01279efa.jpeg" onerror="this.srcset='https://assets.matters.news/embed/00e1b21c-468e-4fda-86af-3d9d01279efa.jpeg'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/00e1b21c-468e-4fda-86af-3d9d01279efa.webp">
+
+        <img src="https://assets.matters.news/embed/00e1b21c-468e-4fda-86af-3d9d01279efa.jpeg" srcset="https://assets.matters.news/processed/540w/embed/00e1b21c-468e-4fda-86af-3d9d01279efa.jpeg" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>圖片來源: https://www.pexels.com/zh-tw/photo/326055/</span></figcaption></figure><p><br></p><p><br></p><h2><strong>1. 題目</strong></h2><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/ae18ebf5-ecb1-4f97-b069-1aa162c8bf30.webp" onerror="this.srcset='https://assets.matters.news/embed/ae18ebf5-ecb1-4f97-b069-1aa162c8bf30.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/ae18ebf5-ecb1-4f97-b069-1aa162c8bf30.png" onerror="this.srcset='https://assets.matters.news/embed/ae18ebf5-ecb1-4f97-b069-1aa162c8bf30.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/ae18ebf5-ecb1-4f97-b069-1aa162c8bf30.webp">
+
+        <img src="https://assets.matters.news/embed/ae18ebf5-ecb1-4f97-b069-1aa162c8bf30.png" srcset="https://assets.matters.news/processed/540w/embed/ae18ebf5-ecb1-4f97-b069-1aa162c8bf30.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><strong>說明:</strong> 給予一個排好序的鏈結串列，刪除掉裡面重複的元素，並回傳一個排好序的鏈結串列</p><h2><br></h2><h2><strong>2. 解法</strong></h2><p><br></p><h3><strong>方法一</strong></h3><p><br></p><p><strong>Step 1:</strong> 如果鏈結串列為空，直接回傳鏈結串列</p><p><strong>Step 2:</strong> 定義好目前的節點和它的上一個節點</p><p><strong>Step 3:</strong> 只要目前指向的節點不為空，就表示還沒有繞過整個鏈結串列</p><ul><li>如果現在這個節點與上一個節點相同，就讓上一個節點直接指向目前節點的下一個節點，也就是把目前的節點移除掉，然後目前的節點也會移動到下一個節點</li><li>如果目前與上一個節點不相等，就都移動到下一個節點</li></ul><p><strong>Step 4:</strong> 前面都過關並操作過了的話，就回傳整個修改好的鏈結串列，因為表示這個鏈結串列沒有其他重複的元素了</p><pre class="ql-syntax"># Definition for singly-linked list.
+# class ListNode:
+#  def __init__(self, val=0, next=None):
+#    self.val = val
+#    self.next = next
+class Solution:
+  def deleteDuplicates(self, head: ListNode) -> ListNode:
+    
+    ## 如果鏈結串列為空，直接回傳
+    if head == None:
+      return head
+    
+    ## 目前的節點
+    now = head.next
+    ## 上一個節點
+    prev = head
+    
+    ## 當目前的節點不為空
+    while now != None:
+      ## 如果現在這個節點與上一個節點相同，就讓上一個節點直接指向目前節點的下一個節點，也就是把目前的節點移除掉
+      if now.val == prev.val:
+        prev.next = now.next
+        ## 然後目前的節點也會移動到下一個節點
+        now = now.next
+      
+      
+      ## 如果目前與上一個節點不相等，就都移動到下一個節點
+      else:
+        now = now.next
+        prev = prev.next
+    
+    
+    ## 回傳整個鏈結串列
+    return head
+</pre><h3><br></h3><h3><strong>方法二</strong></h3><p><br></p><p><strong>作法</strong></p><ul><li>創建一個用來遍歷所有節點now，它的位置和head一樣</li><li>當now還未走到最後NIL時</li><li>檢查前指定節點now的下一個節點n是否已經碰到NIL</li><li>找當前指定節點now的下一個節點ne，並比較其值是否一樣，比到當值不相等為止</li><li>並將now的下一個節點ne位置指向這個不相等的節點</li><li>最後將指定節點now走到下一個節點ne</li><li>反覆做循環直到now已經走過了整個Linked List，就回傳原本的head</li></ul><pre class="ql-syntax">class Solution:
+  def deleteDuplicates(self, head: ListNode) -> ListNode:
+    ## 創建當前的節點，從第一個開始
+    now = head
+    ## 當now還未走到最後NIL時
+    while now != None:
+      
+      ## 下一個節點
+      ne = now.next
+      ## 當ne還沒碰到NIL的時候，而且其值與now的值相等
+      while (ne != None) and (ne.val == now.val):
+        ## 持續往下走
+        ne = ne.next
+        
+      ## 當now和ne不相等的時候
+      ## 把now的下一個節點位置指向它
+      now.next = ne            
+      ## now走到下一個節點
+      now = ne
+      
+    return head
+</pre>

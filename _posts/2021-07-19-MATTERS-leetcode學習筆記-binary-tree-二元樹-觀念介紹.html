@@ -1,0 +1,91 @@
+---
+layout: post
+title: LeetCode學習筆記 - Binary Tree 二元樹 - 觀念介紹
+date: 2021-07-19 06:14:49.000000000 +00:00
+link: https://matters.news/@CHWang/leet-code%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-binary-tree-%25E4%25BA%258C%25E5%2585%2583%25E6%25A8%25B9-%25E8%25A7%2580%25E5%25BF%25B5%25E4%25BB%258B%25E7%25B4%25B9-bafyreid34hvcb7xmej35gi43gafvpxcubtbd5f6jgoq4w3qjzeghjrzz2y
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<h1><a href="https://github.com/chwang12341/LeetCode-Learning/tree/master/binary_tree" target="_blank">Github連結</a></h1><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/ea922a7a-a7c3-4747-91f7-10542f2e78a9.webp" onerror="this.srcset='https://assets.matters.news/embed/ea922a7a-a7c3-4747-91f7-10542f2e78a9.jpeg'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/ea922a7a-a7c3-4747-91f7-10542f2e78a9.jpeg" onerror="this.srcset='https://assets.matters.news/embed/ea922a7a-a7c3-4747-91f7-10542f2e78a9.jpeg'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/ea922a7a-a7c3-4747-91f7-10542f2e78a9.webp">
+
+        <img src="https://assets.matters.news/embed/ea922a7a-a7c3-4747-91f7-10542f2e78a9.jpeg" srcset="https://assets.matters.news/processed/540w/embed/ea922a7a-a7c3-4747-91f7-10542f2e78a9.jpeg" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>攝影師：Ákos Szabó，連結：Pexels</span></figcaption></figure><p><br></p><h1><br></h1><p><br></p><h2><strong>1. 樹的基本介紹</strong></h2><p><br></p><ul><li>為一種抽象的資料類型(ADT)或是實作這一種抽象資料類型的資料結構，用來描述具有樹狀結構性質的資料結構</li><li>樹的節點個數為一或多個有限的集合，且必須存在一個根節點，根節點會分枝成n個不會交集的子節點，而這些子節點各自都為一個子集合，而一個子集合也為一顆子樹</li></ul><p><br></p><p><strong>名詞介紹</strong></p><ul><li>根節點(Root): 第一個節點，它不具有復節點，像是圖中的節點A</li><li>葉節點(Leaf): 此節點已經是最後的分支了，不再具有子節點，像是圖中的G、D、H、I、J</li><li>祖先節點(Ancenstors): 指某個節點到根節點之間所經過的所有節點，都為這個節點的祖先節點</li><li>n元樹； 表示這個樹的節點最多有n個分支子節點</li><li>分支度(Degree): 美個節點分支的子節點數量，像是E的分支度為2</li><li>階層(Level): 由根節點開始計算，隨著子節點不斷往下計算階層數，如果右側的階層樹</li><li>樹高(Height): 又稱為深度(Depth)，表示為此樹的最大階層樹，像圖中的樹高就是3</li><li>非終端節點(Noterminal Nodes): 只要還有子節點就算非終端節點</li></ul><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/17473d8b-c650-4c0c-9175-0ff872c49d1c.webp" onerror="this.srcset='https://assets.matters.news/embed/17473d8b-c650-4c0c-9175-0ff872c49d1c.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/17473d8b-c650-4c0c-9175-0ff872c49d1c.png" onerror="this.srcset='https://assets.matters.news/embed/17473d8b-c650-4c0c-9175-0ff872c49d1c.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/17473d8b-c650-4c0c-9175-0ff872c49d1c.webp">
+
+        <img src="https://assets.matters.news/embed/17473d8b-c650-4c0c-9175-0ff872c49d1c.png" srcset="https://assets.matters.news/processed/540w/embed/17473d8b-c650-4c0c-9175-0ff872c49d1c.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><h2><strong>2. 什麼是BInary Tree?</strong></h2><p><br></p><ul><li>二元樹指的就是每個節點最多只有兩個分支(也就是子節點樹量只會有小於兩個)的樹狀結構，由根節點分支成左右子樹(稱為左子樹和右子樹)，且其分支具有左右順序不能顛倒</li><li>二元樹用在資料結構上，通常會是對節點定義一個標記函式，將一些值和每個節點建立相關聯，這樣標記的二元樹就能夠實現二元搜尋樹和二元堆積，目的是可以應用於高效率的搜尋和排序</li></ul><p><br></p><p><strong>實用算法</strong></p><p><br></p><ul><li>二元樹中的第i層，最多可以具有2的i - 1次方個節點數量</li><li>樹高度為k的二元樹，最多可以擁有2的k+1次方減1的節點數量，而節點數量與此公式結果計算出來的相等，稱為<strong>完滿二元樹</strong></li></ul><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/de4b68a4-9a76-4f63-a0c5-521a40bb6040.webp" onerror="this.srcset='https://assets.matters.news/embed/de4b68a4-9a76-4f63-a0c5-521a40bb6040.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/de4b68a4-9a76-4f63-a0c5-521a40bb6040.png" onerror="this.srcset='https://assets.matters.news/embed/de4b68a4-9a76-4f63-a0c5-521a40bb6040.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/de4b68a4-9a76-4f63-a0c5-521a40bb6040.webp">
+
+        <img src="https://assets.matters.news/embed/de4b68a4-9a76-4f63-a0c5-521a40bb6040.png" srcset="https://assets.matters.news/processed/540w/embed/de4b68a4-9a76-4f63-a0c5-521a40bb6040.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><strong>提醒:</strong> 當節點並沒有左右兩邊的都具有節點，沒有的那一邊會連接到空節點NIL(None/null)</p><h2><br></h2><h2><br></h2><h2><strong>3. 二元樹種類 - 完滿二元樹、完整二元樹、歪斜樹</strong></h2><p><br></p><h3><strong>完滿二元樹 Fully Binary Tree</strong></h3><p>指的就是沒有任何一個節點會只有單獨連接的左或右節點，而計算節點數量就可以透過公式來達成</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/8f185ce7-436e-4b47-a7a1-a2ba749a38f5.webp" onerror="this.srcset='https://assets.matters.news/embed/8f185ce7-436e-4b47-a7a1-a2ba749a38f5.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/8f185ce7-436e-4b47-a7a1-a2ba749a38f5.png" onerror="this.srcset='https://assets.matters.news/embed/8f185ce7-436e-4b47-a7a1-a2ba749a38f5.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/8f185ce7-436e-4b47-a7a1-a2ba749a38f5.webp">
+
+        <img src="https://assets.matters.news/embed/8f185ce7-436e-4b47-a7a1-a2ba749a38f5.png" srcset="https://assets.matters.news/processed/540w/embed/8f185ce7-436e-4b47-a7a1-a2ba749a38f5.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/c61d1df4-d76c-46b3-8c67-6ccd2c842f7f.webp" onerror="this.srcset='https://assets.matters.news/embed/c61d1df4-d76c-46b3-8c67-6ccd2c842f7f.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/c61d1df4-d76c-46b3-8c67-6ccd2c842f7f.png" onerror="this.srcset='https://assets.matters.news/embed/c61d1df4-d76c-46b3-8c67-6ccd2c842f7f.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/c61d1df4-d76c-46b3-8c67-6ccd2c842f7f.webp">
+
+        <img src="https://assets.matters.news/embed/c61d1df4-d76c-46b3-8c67-6ccd2c842f7f.png" srcset="https://assets.matters.news/processed/540w/embed/c61d1df4-d76c-46b3-8c67-6ccd2c842f7f.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><h3><strong>完整二元樹 Complete Binary Tree</strong></h3><p>如果高度為h，其節點的數量會小於等於公式</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/18b43bd5-8def-4a08-8ad2-3ec818df98cc.webp" onerror="this.srcset='https://assets.matters.news/embed/18b43bd5-8def-4a08-8ad2-3ec818df98cc.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/18b43bd5-8def-4a08-8ad2-3ec818df98cc.png" onerror="this.srcset='https://assets.matters.news/embed/18b43bd5-8def-4a08-8ad2-3ec818df98cc.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/18b43bd5-8def-4a08-8ad2-3ec818df98cc.webp">
+
+        <img src="https://assets.matters.news/embed/18b43bd5-8def-4a08-8ad2-3ec818df98cc.png" srcset="https://assets.matters.news/processed/540w/embed/18b43bd5-8def-4a08-8ad2-3ec818df98cc.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><strong>須符合從上到下，從左到右的規則，也就是可以只有左節點，但不能只有右節點</strong></p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/168b2012-95c1-4423-8b9a-c6eb4083e3be.webp" onerror="this.srcset='https://assets.matters.news/embed/168b2012-95c1-4423-8b9a-c6eb4083e3be.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/168b2012-95c1-4423-8b9a-c6eb4083e3be.png" onerror="this.srcset='https://assets.matters.news/embed/168b2012-95c1-4423-8b9a-c6eb4083e3be.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/168b2012-95c1-4423-8b9a-c6eb4083e3be.webp">
+
+        <img src="https://assets.matters.news/embed/168b2012-95c1-4423-8b9a-c6eb4083e3be.png" srcset="https://assets.matters.news/processed/540w/embed/168b2012-95c1-4423-8b9a-c6eb4083e3be.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><h3><strong>歪斜樹 Skewed Binary Tree</strong></h3><p>只有一邊的節點，只有左邊節點就為左歪斜樹，右邊就為右歪斜樹</p><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/43fad5e3-66cf-4148-bdd9-c6aac2f038cd.webp" onerror="this.srcset='https://assets.matters.news/embed/43fad5e3-66cf-4148-bdd9-c6aac2f038cd.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/43fad5e3-66cf-4148-bdd9-c6aac2f038cd.png" onerror="this.srcset='https://assets.matters.news/embed/43fad5e3-66cf-4148-bdd9-c6aac2f038cd.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/43fad5e3-66cf-4148-bdd9-c6aac2f038cd.webp">
+
+        <img src="https://assets.matters.news/embed/43fad5e3-66cf-4148-bdd9-c6aac2f038cd.png" srcset="https://assets.matters.news/processed/540w/embed/43fad5e3-66cf-4148-bdd9-c6aac2f038cd.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><h2><strong>4. 二元樹 適用範圍?</strong></h2><p><br></p><ul><li>樹狀結構下分支最多只有兩個方向的時候(超過兩個方向: 字典樹，全部都只有一個方向: Linked List)</li><li>當為二元樹的前置狀況時</li><li>當我們不在乎節點值大小的關係時，也就是非二元搜尋樹的狀況</li></ul><p><br></p><p><strong>補充:</strong> 二元搜尋樹用在當我們需要快速在樹狀結構下搜尋某個節點的值，因為它規定右邊的節點會比自己小，左邊的節點會比自己大</p><p><br></p><h2><br></h2><h2><br></h2><h2><strong>Reference</strong></h2><p><a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91" target="_blank">https://zh.wikipedia.org/wiki/二叉树</a></p><p><a href="https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91" target="_blank">https://zh.wikipedia.org/wiki/线索二叉树</a></p><p><a href="http://wayne.cif.takming.edu.tw/datastru/tree.pdf" target="_blank">http://wayne.cif.takming.edu.tw/datastru/tree.pdf</a></p><h2><br></h2>
