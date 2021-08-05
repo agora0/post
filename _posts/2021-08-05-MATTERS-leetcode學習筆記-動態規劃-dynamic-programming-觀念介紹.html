@@ -1,0 +1,11 @@
+---
+layout: post
+title: LeetCode學習筆記 - 動態規劃 Dynamic Programming - 觀念介紹
+date: 2021-08-05 13:14:36.000000000 +00:00
+link: https://matters.news/@CHWang/leet-code%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%8B%95%E6%85%8B%E8%A6%8F%E5%8A%83-dynamic-programming-%E8%A7%80%E5%BF%B5%E4%BB%8B%E7%B4%B9-bafyreidsw2bzgfmood6e7f7bvmbmsvvdizdhwpoye7y5tp227zzqv5vcau
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<h2><a href="https://github.com/chwang12341/LeetCode-Learning/tree/master/dynamic_programming" target="_blank">Github連結</a></h2><figure class="image"><img src="https://assets.matters.news/embed/da8ea004-3c39-44df-88ee-da7c2243229e.jpeg" data-asset-id="da8ea004-3c39-44df-88ee-da7c2243229e" referrerpolicy="no-referrer"><figcaption><span>攝影師：Janez Podnar，連結：Pexels</span></figcaption></figure><h2><br></h2><h2><strong>1. Dynamic Programming 是什麼?</strong></h2><p><br></p><ul><li>動態規劃，又稱為DP</li><li>透過把原問題切成多個相對簡單處理的子問題，來解決複雜問題的一種方法</li><li>Dynamic Prgramming = 切割和征服(計算、處理)+ 記憶(存儲): 動態規劃的執行過程，就是不斷地讀取數據、處理數據，和存儲數據</li></ul><h2><br></h2><h2><strong>2. 解決的問題</strong></h2><p><br></p><ul><li>目標結果不容易透過簡單地直接計算來處理，但走到第n步的結果(也就是後面的結果)，可以使用前面的結果來表達呈現，不是從一開始就能像推骨牌一樣，一路計算到結果</li><li>動態規劃所解決的問題，前面的關聯性非常低，與可以直接透過一層一層遞進的問題不太一樣</li><li>最開始的結果可以直接取得，通常都具有很明確的條件，像是如果sum(N): 1+2+..N，我們帶入sum(1) = 1，可以很明確地得到最開始的那個結果</li><li>通常透過遞迴(Recursion)或迴圈來完成</li></ul><h2><br></h2><h2><strong>3. 適用範圍</strong></h2><p><br></p><ul><li>當我們的目標問題可以拆成多種或一種重複的子問題</li><li>需要將子問題所解出來的結果儲存並重複地使用它們</li><li>子問題的解應該要是不可變動的，才能重複使用，不然都要重新計算會造成計算複雜度提升</li></ul><h2><br></h2><h2><br></h2><h2><strong>Reference</strong></h2><p><a href="https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92" target="_blank">https://zh.wikipedia.org/wiki/动态规划</a></p><p><a href="http://web.ntnu.edu.tw/~algo/DynamicProgramming.html" target="_blank">http://web.ntnu.edu.tw/~algo/DynamicProgramming.html</a></p>
