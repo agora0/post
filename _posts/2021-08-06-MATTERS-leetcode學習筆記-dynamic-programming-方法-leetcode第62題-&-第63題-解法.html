@@ -1,0 +1,59 @@
+---
+layout: post
+title: LeetCode學習筆記 - Dynamic Programming 方法 - LeetCode第62題 & 第63題 - 解法
+date: 2021-08-06 08:30:51.000000000 +00:00
+link: https://matters.news/@CHWang/leet-code%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-dynamic-programming-%E6%96%B9%E6%B3%95-leet-code%E7%AC%AC62%E9%A1%8C-and-%E7%AC%AC63%E9%A1%8C-%E8%A7%A3%E6%B3%95-bafyreicvqw53ry6nmq27hwm7qtdhbqpt43zxftsmr6gqzvrmhzicjeku7a
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<h2><a href="https://github.com/chwang12341/LeetCode-Learning/tree/master/dynamic_programming/unique_path_I_II" target="_blank">Github連結</a></h2><figure class="image"><img src="https://assets.matters.news/embed/0ef910c7-b38f-40af-9efb-0f2728ec712a.jpeg" data-asset-id="0ef910c7-b38f-40af-9efb-0f2728ec712a" referrerpolicy="no-referrer"><figcaption><span>攝影師：Zukiman Mohamad，連結：Pexels</span></figcaption></figure><p><br></p><p><br></p><h2><strong>1. 62題</strong></h2><h3><strong>題目</strong></h3><p><br></p><figure class="image"><img src="https://assets.matters.news/embed/5cb0a4af-d5b8-467e-a05b-87e5ce981fd0.png" data-asset-id="5cb0a4af-d5b8-467e-a05b-87e5ce981fd0" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><strong>題目說明:</strong> 有一個機器人位於m x n 網格的左上角位置，機器人只能在同一個時間點進行向下或向右移動，而機器人的目標是到達網格的右下角位置，請問有多少種可能的唯一路徑?</p><h3><br></h3><h2><strong>解法</strong></h2><p><br></p><p><strong>討論</strong>: 不重複的方法數量</p><ul><li>過程中機器人沒辦法回頭，而且只能向右或向下走</li><li>走到目標的方法 = 走到目標上面一格的方法 + 走到目標左邊一格的方法，因為上面規定只能向右或向下，所以走到目標的前一步，一定是走到目標的上面或左邊</li><li>如果目標的上面一格或左邊一格已經超出了範圍(也就是碰到邊界)，這樣無法走過來的位置，代表方法數為0</li><li>當目標就是起點(1x1的地圖)，由起點開始走，這樣也算一種方法</li></ul><p><br></p><p><strong>解法:</strong></p><ul><li>創建一個二維串列dp</li><li>將dp最左邊跟上面的row/column設定為1，因為如果目標在邊界(左邊或上邊)，只會有一種路徑可以到達</li><li>路徑由左至右，由上而下，並把當前位置設定為(i, j)</li><li><code>dp[i][j]</code> = <code>dp[i-1][j]</code> + <code>dp[i][j-1]</code>，也就是前面所討論的到達任何位置的方法，會是到達它左邊的方法加上到達它上面的方法</li><li>執行迴圈計算，最後一格就會是我們的答案，回傳<code>dp[-1][-1]</code>或是<code>dp[m-1][n-1]</code></li></ul><pre class="ql-syntax">class Solution:
+  def uniquePaths(self, m: int, n: int) -> int:
+    ## 初始化二維串列: 創建一個都為0的二維串列
+    dp = [[0 for i in range(n)] for j in range(m)]
+    
+    ## 將最左邊和最上面設為1
+    for i in range(m):
+      dp[i][0] = 1
+    for j in range(n):
+      dp[0][j] = 1
+      
+    ## 到達任何一個的方法為: 到達目標左邊一格的方法 + 到達其上面一格的方法
+    ## 設1~m跟1~n，那個1是因為如果目標就是起點，起點也算一種方法
+    for i in range(1, m):
+      for j in range(1, n):
+        dp[i][j] = dp[i-1][j] + dp[i][j-1]
+        
+    ## 回傳最後一個位置的值，即為目標的方法數
+    return dp[-1][-1]
+</pre><h2><br></h2><h2><br></h2><h2><strong>2. 63題</strong></h2><p><br></p><h3><strong>題目</strong></h3><figure class="image"><img src="https://assets.matters.news/embed/56b607f8-5297-4345-9bce-139c9463e371.png" data-asset-id="56b607f8-5297-4345-9bce-139c9463e371" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><p><strong>題目說明:</strong></p><p>有一個機器人位於m x n網格的左上角位置，機器人只能在同一個時間向下或向右移動，機器人的目標是要走到右下角，如果中間出現了障礙物，那它到達目的地會有多少種唯一的路徑?障礙物會在網格中標記為1，一般空間則會標記為0</p><h3><br></h3><h3><strong>解法</strong></h3><p><br></p><p><strong>討論</strong></p><ul><li>如果障礙物在(0, 0)的位置，就可以直接回傳0，因為被堵死了根本走不到</li><li>每次要進行計算前要先檢查當前的位置是否有被障礙物堵住</li><li>要特別留意邊界問題，i-1 >=0, j-1 >= 0，也就是要同時考慮目標的上面有沒有格子，左邊是否有格子</li></ul><p><br></p><p><strong>解法</strong></p><p><br></p><ul><li>創建一個二維串列dp</li><li>檢查網格(obstacleGrid)的起點位置是否有被障礙物堵住，有就直接回傳0</li></ul><p>迴圈: 由左到右，由上到下，設定當前位置為(i, j)，而且要檢查確定有障礙物(1)</p><ul><li>如果沒有超過邊界的情況: 將<code>d[i][j]</code> + <code>d[i-1][j]</code> & <code>d[i][j-1]</code></li><li>特別留意要分別檢查 i - 1 和 j -1 是否大於等於0，如果小於表示位於邊際，如果是在最左邊的邊際那我們只能加到達目標上面一格的方法數，如果是最上面就只能加到達目標左邊一格的方法數</li></ul><p>迴圈執行結束後，最後一格就會是我們的答案，傳回<code>dp[-1][-1]</code>或是<code>dp[m-1][n-1]</code></p><pre class="ql-syntax">class Solution:
+  def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
+    ## 判斷網格是否為空，或是第一格被障礙物擋住，如果其中之一成立就回傳0
+    if obstacleGrid == None or obstacleGrid[0][0] == 1:
+      return 0
+    ## 取得長寬
+    m, n = len(obstacleGrid), len(obstacleGrid[0])
+  
+    ## 創建二維串列
+    dp = [n*[0] for s in range(m)]
+    
+    ## 到達起點也一是一種方法
+    dp[0][0] = 1    
+    
+    for i in range(m):
+      for j in range(n):
+        ## 當(i, j)這個位置沒有障礙物
+        if obstacleGrid[i][j] == 0:
+          ## 當目標不是在最左邊，可以加上到達目標左邊那一格的方法數
+          if i-1>=0:
+            dp[i][j] += dp[i-1][j]
+          
+          
+          ## 當目標不是在最上面，可以加上到達目標上面那一格的方法數
+          if j-1 >= 0:
+            dp[i][j] += dp[i][j-1]
+            
+    ## 回傳最後一格，即為結果
+    return dp[-1][-1]
+</pre><p><br></p>
