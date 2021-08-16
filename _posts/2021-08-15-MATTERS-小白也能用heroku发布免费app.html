@@ -1,0 +1,63 @@
+---
+layout: post
+title: 小白也能用heroku发布免费app
+date: 2021-08-15 18:19:46.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%B0%8F%E7%99%BD%E4%B9%9F%E8%83%BD%E7%94%A8heroku%E5%8F%91%E5%B8%83%E5%85%8D%E8%B4%B9app-bafyreihy2rhyk6ljrs4vlv7yoo67zpezpoheijp5wa5ubzd6getl734qlm
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p>自娱自乐搞了个发票找信息程序。利用python nltk和tessertact OCR自动找出日期，金额，类别等信息。再也不用人工录入了。</p><p>虽然算法简单，准确率也不算高，但觉得还是需要弄个免费app……</p><p><br></p><h2>1 工具准备</h2><pre class="ql-syntax">GitHub账号
+Heroku账号（5个免费小app）
+VS Code
+Postman
+</pre><p><br></p><h2>2 看教程，装环境</h2><p>因为需要用到nltk，所以自动考虑用flask做后端。貌似今年5月flask推出了2.0，于是就自动安装2.0了。</p><p>几年前玩过flask 1.0，再部署到heroku，但是早忘光了。磨刀不误砍柴工，所以还是先看看教程磨磨刀。</p><p><strong>2.1 热身视频推荐：</strong></p><pre class="ql-syntax">https://www.youtube.com/watch?v=nCMB5p74WJQ&t=1293s
+</pre><p>2021年5月发布，还很新鲜。从flask到vue，基础知识点全复习了。</p><p><br></p><p><strong>2.2 检查环境</strong></p><p>安装flask之前，有三个必备安装：brew，python3，pip。我省事，用最简单的brew😎。</p><p>开动之前，记得检查一下：</p><pre class="ql-syntax">brew --version
+python3 --version
+pip --version
+</pre><p><br></p><h2>3 开动前，记得安装pyenv</h2><p>pyenv方便指定所需python版本。使用Heroku发布app，对python版本有精确要求，错一个数字就会发布失败。pyenv 可以指定项目的python版本（别把生命浪费在版本兼容上……），五星级推荐值得拥有。</p><p><strong>3.1 安装pyenv步骤：</strong></p><pre class="ql-syntax">brew install pyenv
+echo 'eval "$(pyenv init --path)"' >> ~/.bash_profile
+source ~/.bash_profile
+</pre><p><br></p><p><strong>3.2 创建项目</strong></p><p>完成pyenv安装后，正式创建项目文件夹：</p><pre class="ql-syntax">mrdir <app-name>
+</pre><p>最新的heroku stacks 20，指定python版本为3.9.6，所以在项目文件内的python版本需要为3.9.6。</p><p>如果安装了3.9.5，发布时就会失败。</p><figure class="image"><img src="https://assets.matters.news/embed/2fad96ee-ef1f-4856-9a83-192ff42d8266.png" data-asset-id="2fad96ee-ef1f-4856-9a83-192ff42d8266" referrerpolicy="no-referrer"><figcaption><span>https://devcenter.heroku.com/articles/python-support - heroku对python版本说明</span></figcaption></figure><p>进入项目，安装项目所需python环境</p><pre class="ql-syntax">cd <app-name>
+pyenv local 3.9.6
+</pre><p>3.9.6就是本项目需要指定的python版本。pyenv local命令指定项目文件夹内部的python版本，有别于pyenv global命令。</p><p><br></p><p><strong>3.3 检查python有没有按照指定版本安装到所需项目：</strong></p><p>在项目文件夹内运行：</p><pre class="ql-syntax">python --version
+</pre><p>在项目文件夹外运行：</p><pre class="ql-syntax">cd ..
+python --version
+</pre><p>得到的版本号应该是不一样的。</p><p><br></p><h2>4 安装flask环境</h2><p>确认项目python版本为heroku官方指定版本后，终于可以安装flask了。。。。</p><p><strong>4.1 安装flask</strong></p><pre class="ql-syntax">pip install Flask
+</pre><p><br></p><p><strong>4.2 创建虚拟环境</strong></p><p>在步骤3创建的项目文件夹内运行：</p><pre class="ql-syntax">python -m venv venv
+</pre><p>运行完毕后，刚才空白的项目文件夹下会多出一个venv文件夹，那就是运行flask需要的虚拟环境。</p><p><br></p><p><strong>4.3 安装完成后不要忘了激活它</strong></p><p>Mac OS激活</p><pre class="ql-syntax">$ . venv/bin/activate
+</pre><p><br></p><p>参考<a href="https://flask.palletsprojects.com/en/2.0.x/installation/" target="_blank">flask installation</a> 教程，和<a href="https://flask.palletsprojects.com/en/2.0.x/quickstart/" target="_blank">flask quickstart</a>，一个简易flask 小app就跑起来了😎。</p><p>……</p><p>然后我们根据需要，做我们想要的flask app。</p><p>【Tip】这个过程可能需要用到debug模式：</p><pre class="ql-syntax">export FLASK_ENV=development
+flask run
+</pre><p>……</p><p>……</p><p>……</p><p><br></p><h2>5 准备发布heroku之前，还有很多准备工作……</h2><p>当小小app在本地跑顺畅后，我们准备发布app到heroku。发布之前步骤超多……</p><p><strong>5.1 安装heroku cli</strong></p><p>早晚会用到的。</p><pre class="ql-syntax">brew tap heroku/brew && brew install heroku
+</pre><p><br></p><p><strong>5.2 根目录创建runtime小文件</strong></p><p>runtime小文件说明heroku小app需要的python环境。没错，和3.2 pyenv安装的python版本一致。</p><pre class="ql-syntax">touch runtime.txt
+echo “python-3.9.6” >> runtime.txt
+</pre><p><br></p><p><strong>5.3 根目录创建Procfile小文件</strong></p><p>web档次的Procfile长这样就好：</p><pre class="ql-syntax">web: gunicorn app:app
+</pre><p>所以为了我们的app可以在heroku上跑起来，还需要安装一下gunicorn</p><pre class="ql-syntax">pip install gunicorn
+</pre><p><br></p><p><strong>5.4 根目录创建requirements小文件</strong></p><p>requirments小文件列下flask小app用到的所有包：</p><pre class="ql-syntax">gunicorn==19.10.0
+pandas==1.3.1
+Flask==2.0.1
+Flask_Cors==3.0.10
+numpy==1.21.1
+nltk==3.6.2
+Pillow==8.3.1
+pytesseract==0.3.8
+</pre><p>我的flask小app用了这些包，需要把它们一个不漏根据版本号列出来。做app的过程，应该预料不到自己需要用到什么包。应该都是边做边测试，跑顺了再总结吧……</p><pre class="ql-syntax">touch requirements.txt
+pip freeze > requirements.txt
+</pre><p><br></p><hr><p><br></p><p>以上折腾完毕heroku发布python小app的基本步骤。每个小app用到包不一样，还需要对阵下药，增加额外部署步骤。</p><p>小app中涉及nltk和pytesseract两个包，需要额外步骤。。。。。。</p><h2><strong>6 nltk额外步骤</strong></h2><p>nltk是一个自然语言处理包。我的小app用了nltk的数据，所以我还需要一个nltk小文件，让heroku去<a href="https://www.nltk.org/nltk_data/" target="_blank">nltk data</a>下载app需要的数据</p><p><strong>6.1 在项目根目录创建nltk小文件</strong></p><pre class="ql-syntax">touch nltk.txt
+</pre><p><br></p><p><strong>6.2 在nltk小文件中声明项目所需加载数据</strong></p><p>我的小app需要下载以下内容，需要在nlkt.txt中声明</p><pre class="ql-syntax">stopwords
+punkt
+averaged_perceptron_tagger
+</pre><p>nltk小文件的额外步骤，和5.4 requirements的额外步骤类似，不算太槽。</p><p><br></p><h2><strong>7 pytesseract额外步骤</strong></h2><p>pytesseract帮我实现图片自动转文字功能，也需要额外安装。。。。。。</p><p><strong>7.1 在根目录创建Aptfile文件</strong></p><pre class="ql-syntax">touch Aptfile
+</pre><p><br></p><p><strong>7.2 在Aptfile内声明使用的语言。</strong></p><p>英语声明案例如下：</p><pre class="ql-syntax">tesseract-ocr
+tesseract-ocr-eng
+</pre><p><br></p><p><strong>7.3 添加buildpacks</strong></p><p>Aptfile创建好后，我们需要在heroku添加Buildpacks。还记得我们之前安装过的heroku cli吗？现在派上用场了……</p><p>pytesseract需要的buildpacks命令如下：</p><pre class="ql-syntax">heroku buildpacks:add heroku/python
+heroku buildpacks:add https://github.com/heroku/heroku-buildpack-apt
+heroku buildpacks:add https://github.com/pathwaysmedical/heroku-buildpack-tesseract
+</pre><p>完了之后再添加TESSDATA_PREFIX：</p><pre class="ql-syntax">heroku config:set TESSDATA_PREFIX=/app/.apt/usr/share/tesseract-ocr/4.00/tessdata
+</pre><p>/app/……是指向tessdata的路径，如果你不知道tessdata在heroku app什么地方的话，可以通过heroku bash查看：</p><pre class="ql-syntax">heroku run bash
+find -iname tessdata
+</pre><p><br></p><p><strong>【Tip】添加buildpacks的另一种方式</strong></p><p>添加buildpacks和tessdata路径，可以通过herolu cli完成，也可以在heroku账户对应app下的setting栏目下设置……</p><figure class="image"><img src="https://assets.matters.news/embed/4b5daa0d-2060-49d9-a4c4-d6c64e841395.png" data-asset-id="4b5daa0d-2060-49d9-a4c4-d6c64e841395" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>两种办法，个人喜欢哪种用哪种</p><p>……</p><p><br></p><p><br></p><hr><p><br></p><p>折腾完以上7大步骤，终于可以把app上传GitHub，再heroku一键部署了……</p><p>然鹅，实际操作过程中，一定会遇上无数次错误和失败的。我一共失败了20次，才成功。以下是我在实际操作过程中遇到的槽点总结：</p><p><strong>失败1 版本环境匹配</strong></p><p>Python版本没有匹配heroku官方指定版</p><p>刚开始发布时，不知道heroku对python版本要求如此严格，就失败了。于是退回来用pyenv重新安装环境</p><p><br></p><p><strong>失败2 Procfile参数设置</strong></p><p>Procfile貌似bug挺多的，我在这个环节上失败了10次……解决方案除了看官方说明外，就是找Google网友答案。折腾折腾还是折腾好了……</p><p><br></p><p><strong>失败3 诡异玄学</strong></p><p>tessdata安装，失败5次。</p><p>环境版本配置完成build成功后，满心欢喜查看app，结果浏览器返回Application error</p><figure class="image"><img src="https://assets.matters.news/embed/2f623d2d-7226-4c31-b42c-7c241a3284ef.png" data-asset-id="2f623d2d-7226-4c31-b42c-7c241a3284ef" referrerpolicy="no-referrer"><figcaption><span>build成功不代表app可以在浏览器查看。。。</span></figcaption></figure><p>这个时候需要调出log，查找错误。</p><pre class="ql-syntax">heroku logs --tail -app <app-name>
+</pre><p>但是在折腾tessdata安装的问题上，我已经对照官方说明安装了一切，依然诡异地得到这样的error：</p><pre class="ql-syntax">127, 'tesseract: error while loading shared libraries: libpng12.so.0: cannot open shared object file: No such file or directory'
+</pre><p>Google一个哥们说用stacks 18弄，就好了。看到这里，我崩溃了——从3.1 pyenv步骤起，我一直就是按照stacks 20折腾的。从晚上7点折腾到11点，最后一刻功亏一篑；看看时间，我决定还是去睡觉为好。</p><h2>睡醒过后第二天，我又用heroku logs查看了一下错误，竟然没有了。赶紧重新发布一次，然后神奇地可以用了！！！！！！</h2><h2>苦尽甘来，最后一个错误在睡完一觉后，没做任何改动自己消失了！！！！！！</h2><p><br></p><hr><p><br></p><p>总结完部署过程中不断和error斗智斗勇的经验，也总结一下部署过程中的便捷经验：</p><p><strong>省事1 Mac OS</strong></p><p>以上7大步骤均在省事方便的Mac OS上操作，其他操作系统的步骤可能会略有不一样，但Mac OS肯定是最简单的。</p><p>不要把生命浪费在折腾操作系统上，用Mac海阔天空😎。</p><p><br></p><p><strong>省事2 heroku cli</strong></p><p>heroku cli使用基本便捷，有问题对着<a href="https://devcenter.heroku.com/articles/heroku-cli" target="_blank">heroku dev center</a> 查找各个击破就好。</p><p>过程靠谱，安一个不亏。</p>
