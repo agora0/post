@@ -1,0 +1,40 @@
+---
+layout: post
+title: 小白也能用heroku发布免费app （2）
+date: 2021-08-16 22:05:18.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%B0%8F%E7%99%BD%E4%B9%9F%E8%83%BD%E7%94%A8heroku%E5%8F%91%E5%B8%83%E5%85%8D%E8%B4%B9app-2-bafyreietkqqxlqycwhp7gferywbyh7uepbkftvglqslq4bbb6htn2k2xgu
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<h2>1 工具准备</h2><pre class="ql-syntax">GitHub账号
+Heroku账号（可以发布5个免费小app）
+VS Code
+Postman
+</pre><p><br></p><h2>2 环境准备</h2><p>安装Vue之前，确保这三个玩意已安装：brew，node，npm。开动之前记得检查：</p><pre class="ql-syntax">brew --version
+node --version
+npm --version
+</pre><p><br></p><h2>3 安装Vue</h2><p>三大主流前端框架：angular，react和vue，好像还是vue最好上手。</p><pre class="ql-syntax">npm install vue
+npm install -g @vue/cli
+</pre><p>安装完毕，记得检查有没有安装成功：</p><pre class="ql-syntax">vue --version
+</pre><p><br></p><h2>4 正式开动</h2><p><strong>4.1 创建项目文件夹</strong></p><pre class="ql-syntax">vue create <app-name>
+</pre><p>这时会弹出一个选项框，要选择是创建vue2还是vue3，我们当然选择vue3啦</p><figure class="image"><img src="https://assets.matters.news/embed/d080d4ff-bc69-4e1c-86b8-ea67a249a953.png" data-asset-id="d080d4ff-bc69-4e1c-86b8-ea67a249a953" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>给电脑一点时间，过一会所在目录下就会出现一个名为<app-name>的文件夹，那就是我们刚刚创建的vue项目。</p><p>点击进入名为<app-name>的文件夹，看见项目需要的一切文件已经安装好了。</p><p><br></p><p><strong>4.2 更改一下dev模式的启动命令</strong></p><p>不做任何修改，在本机跑的默认命令是npm run serve。为了可以在heroku上运作，我们需要对项目根目录的package.json文件稍作修改。</p><pre class="ql-syntax">把原本代码
+"serve": "vue-cli-service serve",
+改为start就好
+"start": "vue-cli-service serve",
+</pre><p>修改完成后，记得看看修改是否成功：</p><pre class="ql-syntax">npm start
+</pre><p>运作成功应该可以在浏览器内看到localhost：8080下的默认vue欢迎页面</p><p>一切就绪后，参照<a href="https://v3.vuejs.org/guide/introduction.html" target="_blank">官方教程</a>做想做小网站吧……</p><p>……</p><p>……</p><p>……</p><p><br></p><h2><strong>5 准备发布heroku</strong></h2><p>比pytho flask的步骤简单多了。</p><p><strong>5.1 在根目录创建static.json文件</strong></p><pre class="ql-syntax">touch static.json
+</pre><p>static.json 文件内容为：</p><pre class="ql-syntax">{
+  "root": "dist",
+  "clean_urls": true,
+  "routes": {
+    "/**": "index.html"
+  }
+}
+</pre><p><br></p><p><strong>5.2 导出vue最终成品</strong></p><p>退出dev模式后，在终端输入：</p><pre class="ql-syntax">npm run build
+</pre><p>运行完毕后，会发现根目录下多了一个dist文件夹，那就是我们的vue小app成品文件。</p><p><br></p><p><strong>5.3 在heroku配置相关参数</strong></p><p>nodejs vue小app有两个buildpacks需要添加：</p><pre class="ql-syntax">heroku/nodejs
+https://github.com/heroku/heroku-buildpack-static
+</pre><p>还是有两种方法供选择：</p><ul><li>有安装heroku cli</li></ul><pre class="ql-syntax">heroku buildpacks:add heroku/nodejs
+heroku buildpacks:add https://github.com/heroku/heroku-buildpack-static
+</pre><ul><li>没有安装heroku cli，在heroku账号对应app的setting栏目下设置。</li></ul><p>……</p><p><br></p><hr><p><br></p><p>折腾完以上5大步骤后，就可以发布了。上传GitHub，heroku一键部署。</p><p>以上过程参考<a href="https://betterprogramming.pub/deploying-a-vue-js-app-to-heroku-d16f95c07a04" target="_blank">教程</a>即可，不出意外基本上一次成功。此教程靠谱，一篇解决所有基础问题，完全不需要Google搜答案。我的总结基本上就是此教程的汉化版。</p><p>heroku除了发布免费app，还提供免费小型数据库。全部都有了，happy coding😏。</p>
