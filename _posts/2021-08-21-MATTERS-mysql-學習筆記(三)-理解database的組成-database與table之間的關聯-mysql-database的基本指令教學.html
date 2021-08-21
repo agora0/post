@@ -1,0 +1,166 @@
+---
+layout: post
+title: MySQL 學習筆記(三) - 理解Database的組成 - Database與Table之間的關聯 - MySQL Database的基本指令教學
+date: 2021-08-21 06:26:12.000000000 +00:00
+link: https://matters.news/@CHWang/my-sql-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%B8%89-%E7%90%86%E8%A7%A3database%E7%9A%84%E7%B5%84%E6%88%90-database%E8%88%87table%E4%B9%8B%E9%96%93%E7%9A%84%E9%97%9C%E8%81%AF-my-sql-database%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4%E6%95%99%E5%AD%B8-bafyreifsflrdkt3g7pa2l24mrfwr7ipjpandtnpn2h6yzlnxqttwlm524q
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<h1><a href="https://github.com/chwang12341/MySQL-Learning/tree/master/database_table" target="_blank">Github連結</a></h1><figure class="image"><img src="https://assets.matters.news/embed/a92dd044-ca80-4f42-bbe6-5fe5fc99e38a.jpeg" data-asset-id="a92dd044-ca80-4f42-bbe6-5fe5fc99e38a" referrerpolicy="no-referrer"><figcaption><span>攝影師：Coral Grandbois，連結：Pexels</span></figcaption></figure><p><br></p><p><br></p><h2><strong>1. Database的組成? Database 與 Table 間的關聯?</strong></h2><ul><li>Database是由一堆的Tables(一到多個)所組成(通常tables之間有關係，才會被聚集在一起，而MySQL可以創建很多個database)</li><li>Tables用來存儲資料(data)，而在MySQL中Table是有結構的，指的是在Table中插入的數據需要有一定的結構化標準，而結構就是指的Table的結構</li></ul><h2><strong>2. Database Level的基本指令</strong></h2><figure class="image"><img src="https://assets.matters.news/embed/53c8cd14-afd5-4002-8695-69e23849264c.png" data-asset-id="53c8cd14-afd5-4002-8695-69e23849264c" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><ul><li>筆記: 指令後面要加一個<code>;</code></li></ul><h3><br></h3><h3><strong>show databases;</strong></h3><pre class="ql-syntax">mysql> show databases;
++--------------------+
+| Database     |
++--------------------+
+| information_schema |
+| mysql      |
+| performance_schema |
+| sakila      |
+| sys       |
+| test       |
+| world      |
++--------------------+
+7 rows in set (0.00 sec)
+</pre><p>裡面為目前有的資料庫(ex. information_schema、mysql、performance_schema、sakila、sys、test、world)</p><h3><br></h3><h3><strong>create database </strong><code><strong><name></strong></code><strong>;</strong></h3><ul><li>創建一個名稱為my_db1</li></ul><pre class="ql-syntax">mysql> create database my_db1;
+Query OK, 1 row affected (0.00 sec)
+</pre><p>檢視當前所有數據庫</p><pre class="ql-syntax">mysql> show databases;
++--------------------+
+| Database     |
++--------------------+
+| information_schema |
+| my_db1      |
+| mysql      |
+| performance_schema |
+| sakila      |
+| sys       |
+| test       |
+| world      |
++--------------------+
+8 rows in set (0.00 sec)
+</pre><p>我們剛剛創建的my_db1就顯示在裡面了</p><ul><li>錯誤示範: 名稱使用空格</li></ul><pre class="ql-syntax">mysql> create database my db1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'db1' at line 1
+</pre><p>這樣就會報錯喔</p><h3><br></h3><h3><strong>drop database </strong><code><strong><name></strong></code><strong>;</strong></h3><ul><li>刪掉剛剛創建的my_db1資料庫</li></ul><pre class="ql-syntax">mysql> drop database my_db1;
+Query OK, 0 rows affected (0.00 sec)
+</pre><p>檢視當前所有數據庫</p><pre class="ql-syntax">mysql> show databases;
++--------------------+
+| Database     |
++--------------------+
+| information_schema |
+| mysql      |
+| performance_schema |
+| sakila      |
+| sys       |
+| test       |
+| world      |
++--------------------+
+7 rows in set (0.00 sec)
+</pre><p>my_db1就被拿掉了喔!!</p><h3><br></h3><h3><strong>use </strong><code><strong><database name></strong></code><strong>;</strong></h3><ul><li>我們先再創建一個database才能使用(切換)它</li></ul><pre class="ql-syntax">mysql> create database my_db1;
+Query OK, 1 row affected (0.00 sec)
+​
+mysql> show databases;
++--------------------+
+| Database     |
++--------------------+
+| information_schema |
+| my_db1      |
+| mysql      |
+| performance_schema |
+| sakila      |
+| sys       |
+| test       |
+| world      |
++--------------------+
+8 rows in set (0.00 sec)
+</pre><ul><li>切換至my_db1資料庫</li></ul><pre class="ql-syntax">mysql> use my_db1;
+Database changed
+</pre><h3><br></h3><h3><strong>select database();</strong></h3><ul><li>查看當前使用的資料庫</li></ul><pre class="ql-syntax">mysql> select database();
++------------+
+| database() |
++------------+
+| my_db1  |
++------------+
+1 row in set (0.00 sec)
+</pre><ul><li>當我們還沒選擇切換至任何資料庫，它就會顯示為Null</li></ul><pre class="ql-syntax">mysql> drop database my_db1;
+Query OK, 0 rows affected (0.00 sec)
+​
+mysql> select database();
++------------+
+| database() |
++------------+
+| NULL   |
++------------+
+1 row in set (0.00 sec)
+</pre><h2><br></h2><p><br></p><p><br></p><p><br></p><h2><strong>3. 怎麼改變分隔符delimiter(;)? 為什麼需要分隔符(;)?</strong></h2><p><br></p><p><strong>為什麼需要分隔符(;)?</strong></p><ul><li>與許多程式語言一樣，我們都需要告訴系統我們已經寫完命令，如何告知?就是透過分隔符delimiter，而MySQL的預設分隔符為<code>;</code>，這也是為什麼在寫任何指令，執行的時候都需要在後面加上<code>;</code>，如果不寫<code>;</code>那系統就會以為你還沒寫完指令，因此就還不會執行它</li></ul><p>沒有打上<code>;</code>就按Enter執行的狀況</p><pre class="ql-syntax">mysql> show databases
+ ->
+ ->
+</pre><p>系統就會以為你還要繼續寫</p><p>加上<code>;</code>分隔符，告訴系統你已經寫好指令</p><pre class="ql-syntax">mysql> show databases
+ ->
+ -> ;
++--------------------+
+| Database     |
++--------------------+
+| information_schema |
+| mysql      |
+| performance_schema |
+| sakila      |
+| sys       |
+| test       |
+| world      |
++--------------------+
+7 rows in set (0.00 sec)
+</pre><p><strong>怎麼改變分隔符delimiter(;)?</strong></p><ul><li>使用<code>delimiter <要設定成分隔符的符號></code></li><li>例子: 我們將<code>&&</code>設定成分隔符</li></ul><pre class="ql-syntax">mysql> delimiter &&
+mysql> show databases&&
++--------------------+
+| Database     |
++--------------------+
+| information_schema |
+| mysql      |
+| performance_schema |
+| sakila      |
+| sys       |
+| test       |
+| world      |
++--------------------+
+7 rows in set (0.00 sec)
+</pre><h2><br></h2><h2><br></h2><h2><strong>4. SQL語句寫大小寫會影響嗎?</strong></h2><p><br></p><p>大寫與小寫在SQL中是都一樣的喔</p><pre class="ql-syntax">mysql> SHOW DATABASES;
++--------------------+
+| Database     |
++--------------------+
+| information_schema |
+| mysql      |
+| performance_schema |
+| sakila      |
+| sys       |
+| test       |
+| world      |
++--------------------+
+7 rows in set (0.00 sec)
+​
+mysql> SHOW databases;
++--------------------+
+| Database     |
++--------------------+
+| information_schema |
+| mysql      |
+| performance_schema |
+| sakila      |
+| sys       |
+| test       |
+| world      |
++--------------------+
+7 rows in set (0.00 sec)
+​
+mysql> show DATABASES;
++--------------------+
+| Database     |
++--------------------+
+| information_schema |
+| mysql      |
+| performance_schema |
+| sakila      |
+| sys       |
+| test       |
+| world      |
++--------------------+
+7 rows in set (0.00 sec)
+</pre><p><br></p><p><br></p><p>關於大小寫應該要怎麼使用比較好，大家可以參考下面網路上非常厲害人的寫法，他將依些關鍵字用大寫來書寫，會讓整個語句看起來比較明顯清楚</p><figure class="image"><img src="https://assets.matters.news/embed/a191ec06-b004-4c98-89af-ea5e2ca255e1.png" data-asset-id="a191ec06-b004-4c98-89af-ea5e2ca255e1" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p>參考網址: <a href="https://stackoverflow.com/questions/292026/is-there-a-good-reason-to-use-upper-case-for-sql-keywords" target="_blank">https://stackoverflow.com/questions/292026/is-there-a-good-reason-to-use-upper-case-for-sql-keywords</a></p><p><br></p><p><br></p><p>共同作者</p><p><a href="https://matters.news/@queenasu9519" target="_blank">https://matters.news/@queenasu9519</a></p>
