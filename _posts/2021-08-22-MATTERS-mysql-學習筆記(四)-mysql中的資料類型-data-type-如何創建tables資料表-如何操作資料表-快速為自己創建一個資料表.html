@@ -1,0 +1,67 @@
+---
+layout: post
+title: MySQL 學習筆記(四) - MySQL中的資料類型 Data Type - 如何創建tables資料表?如何操作資料表? - 快速為自己創建一個資料表
+date: 2021-08-22 07:45:22.000000000 +00:00
+link: https://matters.news/@CHWang/my-sql-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E5%9B%9B-my-sql%E4%B8%AD%E7%9A%84%E8%B3%87%E6%96%99%E9%A1%9E%E5%9E%8B-data-type-%E5%A6%82%E4%BD%95%E5%89%B5%E5%BB%BAtables%E8%B3%87%E6%96%99%E8%A1%A8-%E5%A6%82%E4%BD%95%E6%93%8D%E4%BD%9C%E8%B3%87%E6%96%99%E8%A1%A8-%E5%BF%AB%E9%80%9F%E7%82%BA%E8%87%AA%E5%B7%B1%E5%89%B5%E5%BB%BA%E4%B8%80%E5%80%8B%E8%B3%87%E6%96%99%E8%A1%A8-bafyreiacsme7rmo5nbqdumfo3pwt7qfdyp3so7i7tz7wdgrnr5t3kftjqi
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<h1><a href="https://github.com/chwang12341/MySQL-Learning/tree/master/table_introduction" target="_blank">Github連結</a></h1><figure class="image"><img src="https://assets.matters.news/embed/96af5ac8-cf83-40c1-a96a-a7ba72b83572.jpeg" data-asset-id="96af5ac8-cf83-40c1-a96a-a7ba72b83572" referrerpolicy="no-referrer"><figcaption><span>攝影師：Sindre Strøm，連結：Pexels</span></figcaption></figure><p><br></p><p><br></p><h2><strong>1. 什麼是table資料表?</strong></h2><p><br></p><ul><li>又被稱為表格，它就是我們用來存儲資料的地方</li><li>可以把它當成特定主題資料的集合，像是我們想要蒐集學生資料，那我們就會創建一個資料表，裡面可能有姓名、性別、成績等等，這個資料表中的資料都會與學生(主題)相關</li><li>結構由行和列所組成的二維表格</li><li>在關聯式資料庫中，table是用來代表存儲資料之間的關係</li><li>關聯式資料庫中，使用主鍵和外鍵來將資料表之間的關系串聯起來</li></ul><p><br></p><p>更多關於關聯式資料庫得主成有哪些，名詞解釋可以參考<a href="https://www.ithome.com.tw/node/46156" target="_blank">https://www.ithome.com.tw/node/46156</a>，我覺得寫得非常詳細，也可以參考<a href="http://cc.cust.edu.tw/~ccchen/doc/db_02.pdf" target="_blank">http://cc.cust.edu.tw/~ccchen/doc/db_02.pdf</a>，我覺得講者非常厲害，用很多的圖片帶大家了解關聯式資料庫</p><p><br></p><p><strong>示意圖</strong>: 為了讓大家更能感受資料表是什麼，其實簡單來說，就是平常我們會用excel來記錄我們的一些資料，像是每月開銷或是工作項目等等，而我們所使用的excel概念，就是資料表table，但在SQL中我們要去指定每個欄位的資料類型，像是姓名就會是字符串類型，成績可能就是整數，性別也是字符串類型等等</p><figure class="image"><img src="https://assets.matters.news/embed/0e12bcf8-d2d1-4f6a-8272-8ba9478853d3.png" data-asset-id="0e12bcf8-d2d1-4f6a-8272-8ba9478853d3" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><figure class="image"><img src="https://assets.matters.news/embed/7325f16a-854f-482c-9b06-11693f35edc9.png" data-asset-id="7325f16a-854f-482c-9b06-11693f35edc9" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><h2><br></h2><h2><br></h2><h2><strong>2. MySQL中的資料類型 Data Type有哪些?</strong></h2><p><strong>觀念:</strong> 當我們在創建資料表table時，我們會需要去指定每個新創見出來的欄位其資料型態是什麼，也可以根據欄位的實際狀況去限制這個欄位中的資料最大的字符數量，像是我們指定姓名為字符串類型中的VARCHAR，並限制其自符最長只能到20個字符 - VARCHAR(20)</p><figure class="image"><img src="https://assets.matters.news/embed/14369e6e-e9c6-4c57-b6d7-c5d42a974289.jpeg" data-asset-id="14369e6e-e9c6-4c57-b6d7-c5d42a974289" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><figure class="image"><img src="https://assets.matters.news/embed/74280786-0526-4b4c-9bc4-5fe400b0923c.jpeg" data-asset-id="74280786-0526-4b4c-9bc4-5fe400b0923c" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><figure class="image"><img src="https://assets.matters.news/embed/56bdefd5-6767-467e-ae94-c36a7125397b.jpeg" data-asset-id="56bdefd5-6767-467e-ae94-c36a7125397b" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><figure class="image"><img src="https://assets.matters.news/embed/49b2090c-d966-464b-9e37-4ed747b5121a.jpeg" data-asset-id="49b2090c-d966-464b-9e37-4ed747b5121a" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><h2><strong>3. SQL創建Table語法</strong></h2><p><br></p><ul><li>創建table的語法</li></ul><pre class="ql-syntax">CREATE TABLE <table_name>
+(
+ <column_name> <data_type>,
+ <column_name> <data_type>, 
+ <column_name> <data_type>,
+ <column_name> <data_type>,
+ ... 
+)
+</pre><p><br></p><p>創建table</p><ul><li>table_name: 設定table名稱</li></ul><p><br></p><p>當我們要創建列的時候</p><ul><li>column_name: 設定欄位名稱</li><li>data_type: 設定欄位的資料類型</li></ul><p><br></p><p>說明: 資料類型根據欄位有不同的資料類型，像是如果是年齡欄位，那它的資料類型就可以設為INT，如果是性別欄為，資料類型就可以設為ENUM，如果是姓名欄位，就可以設為VARCHAR等等</p><p><br></p><p>舉例：當我們要創建一個學生資料表，我們可能需要姓名、年齡、生理性別欄位，然後我們要分別指定其資料型態</p><ul><li>姓名: 用字符串類型中的VARCHAR來指定，並規定最長只能到20個字符VARCHAR(20)</li><li>年齡: 用數值類型中的整數INT來指定</li><li>生理性別: 用字符串類型中的ENUM來指定，而生理性別會有男生跟女生的選項，所以會寫成ENUM('M','F)</li></ul><pre class="ql-syntax">mysql> CREATE table student(
+ -> name VARCHAR(20),
+ -> age INT,
+ -> gender ENUM('M', 'F')
+ -> );
+Query OK, 0 rows affected (0.04 sec)
+</pre><h2><br></h2><h2><br></h2><h2><strong>4. 操作Table的語句</strong></h2><figure class="image"><img src="https://assets.matters.news/embed/74d7a2ca-61d7-4d7f-9738-47e97af47a5d.png" data-asset-id="74d7a2ca-61d7-4d7f-9738-47e97af47a5d" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><h2><br></h2><h2><br></h2><h2><strong>5. 實作 - 創建一個學生資料表</strong></h2><p><br></p><ul><li>創建一個Database用來做我們這次的實作，取名為demo_student</li></ul><pre class="ql-syntax">mysql> create database demo_student;
+Query OK, 1 row affected (0.00 sec)
+</pre><ul><li>切換到實作用的Database</li></ul><pre class="ql-syntax">mysql> use demo_student;
+Database changed
+</pre><ul><li>創建一個table，並取名為student</li></ul><pre class="ql-syntax">mysql> CREATE table student(
+ -> student_id INT,
+ -> name VARCHAR(40),
+ -> gender ENUM("M", "F"),
+ -> admission_date DATE
+ -> );
+Query OK, 0 rows affected (0.04 sec)
+</pre><ul><li>使用desc來顯示剛剛創建的student資料表</li></ul><pre class="ql-syntax">mysql> desc student;
++----------------+---------------+------+-----+---------+-------+
+| Field    | Type    | Null | Key | Default | Extra |
++----------------+---------------+------+-----+---------+-------+
+| student_id  | int(11)   | YES |  | NULL |   |
+| name     | varchar(40) | YES |  | NULL |   |
+| gender    | enum('M','F') | YES |  | NULL |   |
+| admission_date | date    | YES |  | NULL |   |
++----------------+---------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+</pre><ul><li>使用show columns from student來顯示student資料表</li></ul><pre class="ql-syntax">mysql> show columns from student;
++----------------+---------------+------+-----+---------+-------+
+| Field    | Type    | Null | Key | Default | Extra |
++----------------+---------------+------+-----+---------+-------+
+| student_id  | int(11)   | YES |  | NULL |   |
+| name     | varchar(40) | YES |  | NULL |   |
+| gender    | enum('M','F') | YES |  | NULL |   |
+| admission_date | date    | YES |  | NULL |   |
++----------------+---------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+</pre><ul><li>使用show tables; 查看當前Database中有哪些table</li></ul><pre class="ql-syntax">mysql> show tables;
++------------------------+
+| Tables_in_demo_student |
++------------------------+
+| student       |
++------------------------+
+1 row in set (0.00 sec)
+</pre><p><br></p><p><br></p><ul><li>刪除掉student資料表</li></ul><pre class="ql-syntax">mysql> drop table student;
+Query OK, 0 rows affected (0.01 sec)
+</pre><p><br></p><ul><li>查詢當前Database中有哪些table</li></ul><pre class="ql-syntax">mysql> show tables;
+Empty set (0.00 sec)
+</pre><h2><br></h2><h2><br></h2><h2><strong>Reference </strong></h2><p><a href="https://dev.mysql.com/doc/refman/8.0/en/data-types.html" target="_blank">https://dev.mysql.com/doc/refman/8.0/en/data-types.html</a></p><p><a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8" target="_blank">https://zh.wikipedia.org/wiki/数据库表</a></p><p><a href="https://www.runoob.com/mysql/mysql-data-types.html" target="_blank">https://www.runoob.com/mysql/mysql-data-types.html</a></p><p><a href="http://cc.cust.edu.tw/~ccchen/doc/db_02.pdf" target="_blank">http://cc.cust.edu.tw/~ccchen/doc/db_02.pdf</a></p><p><a href="https://www.w3schools.com/sql/sql_datatypes.asp" target="_blank">https://www.w3schools.com/sql/sql_datatypes.asp</a></p>
