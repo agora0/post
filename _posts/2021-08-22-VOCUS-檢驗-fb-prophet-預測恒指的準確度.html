@@ -1,0 +1,20 @@
+---
+layout: post
+title: 檢驗 FB Prophet 預測恒指的準確度
+date: 2021-08-22 08:18:01.000000000 +00:00
+link: https://vocus.cc/user/@ecyY/6120241dfd897800019250c2
+categories: vocus
+tags: blog
+author: REDBRIC
+---
+
+<p>我在今年5月31日撰寫了一篇用FB Prophet預測未來一年恒指走勢的英文文章 (Yiu, 2021)，當時的恒指大約在二萬九千點上升，但預測模型卻推算出一道持續下跌至今年十月的趨勢，該文並非財經評論，只是一篇從機器學習角度討論如何透過FBProphet在Colab編寫程式，並以恒指作為例子介紹它如何作出時序預測，是一篇機器學習編程的技術文章。為方便討論圖1再把該歷史預測圖形刊登如下：</p>
+<p>圖 1 2021年5月31日時的恒指時間序列及其 FB Prophet 預測，Yiu (2021a)</p>
+<p>我在7月8日把該文翻譯成中文 (姚，2021)，並檢驗50天的預測準確度時指出：『5月的升浪剛好至6月1日為近期高位29,468，然後出現回落情況，今日收市大約在2萬7。』換言之，該恒指預測在首50天的預測趨勢大致準確。</p>
+<p>而該預測的原文是『6月起恆指持續下跌至十月左右。』，至今又過了大約三個月，本文繼續檢驗該預測的準確度：經過大約三個月，恒指跌勢加劇，圖2 為今年8月20日恒指跌破二萬五千點 (收市報24,849.72) 的五年恒指圖表，其下跌之勢比預測更急，但一般的預測是以移動平均數計算，與實際的跌幅差異仍需更長時間數據才可計算出移動平均數的波幅。</p>
+<p>圖2 恒指2021年8月21日</p>
+<p>該預測模型主要以趨勢和週期兩項作為預測基礎，是一套傳統且簡單的預測方法，預測竟能高度準確，實非好事，無論原因是市場本身有規律，抑或是人為製造其規律，均反映香港股票市場的效率出了問題，可被利用；正如Nisar & Hanif (2012)的研究發現亞洲七個股票市場包括香港均現弱型效率！</p>
+<p>參考：</p>
+<p>Nisar, Saqib and Hanif, Muhammad (2012) Testing Market Efficiency: Empirical Evidence from Developed Markets of Asia Pacific. Available at SSRN: <a href="https://ssrn.com/abstract=1983960"><u>https://ssrn.com/abstract=1983960</u></a>or<a href="https://dx.doi.org/10.2139/ssrn.1983960"><u>http://dx.doi.org/10.2139/ssrn.1983960</u></a></p>
+<p>Yiu, C.Y. (2021) Forecasting by FB Prophet in Colab, Medium, May 31. https://ecyy.medium.com/forecasting-by-fb-prophet-in-colab-c9d4db2d4195 </p>
+<p>姚松炎 (2021) 在Colab用FBProphet預測恆指，方格子，7月18日。https://vocus.cc/AI_and_ML/60e6bb48fd89780001bcf843</p>
