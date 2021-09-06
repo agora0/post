@@ -1,0 +1,100 @@
+---
+layout: post
+title: 小白自学代码做app～野路子也有春天（2）
+date: 2021-09-06 03:20:58.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%B0%8F%E7%99%BD%E8%87%AA%E5%AD%A6%E4%BB%A3%E7%A0%81%E5%81%9Aapp-%E9%87%8E%E8%B7%AF%E5%AD%90%E4%B9%9F%E6%9C%89%E6%98%A5%E5%A4%A9-2-bafyreicpgexcgogk2jv6pvl42u7d7mso33qkicnkeyjzskiur37zgo3soy
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p>上一期，介绍了小白自学html+css+JavaScript的大方向路线。</p><p>按照以往经验，照着W3C school教程自学，再上手练习一下，拿出学习高中数学10%的努力程度，几乎人人都能达到以下水平：</p><ul><li>用html标签写一个静态网页；</li><li>用css样式给网页某元素换个颜色；</li><li>用JavaScript做一个按钮点击响应事件。</li></ul><p>靠自学完成以上阶段不算难，但是很多小白自学完html+css+JavaScript后，继续进阶往往遭遇打击。不是因为后面的内容比高中数学难，而是概念比较抽象。如果再遇上一些故弄玄虚的讲解，就会摸不着头脑。但是一旦理解了概念，进阶起来还是比较顺利的。</p><pre class="ql-syntax">不過對於新手來說，可能可以加上些試範操作會比較容易了解
+——活动版主RitaShields语录
+</pre><p>授人以鱼不如授人以渔，代码日新月异，过几个月就有新玩意出现，所以理解原理和概念才是王道。本期响应版主号召，添加一些示范案例。</p><p>本期作为小白自学代码做app承前启后篇，介绍API。</p><hr><h2><br></h2><h2>第四篇：API</h2><pre class="ql-syntax">学完JavaScript基本语法和操作后，你可以用JavaScript给网页添加事件、弹出框什么的了……但是有一天网页内容需要更新怎么办呢？难道要去html文件对着改？？
+这时轮到传说中的API闪亮登场了。
+</pre><p><br></p><p>有了API之后，网页涉及的各项内容（文章标题，作者姓名，发布日期……）将不再是纯文字，而是通过应用程序接口（Application Programming Interface：API）获取，大大方便了页面数据跟新以及其他复杂程度。</p><pre class="ql-syntax"><!DOCTYPE html>
+<html>
+<body>
+<h1>Summer</h1>
+<p>I love the sun!</p>
+</body>
+</html>
+</pre><p>以上是一个简易网页。</p><p>简单理解，网页呈现内容“Summer”和“I love the sun！”，目前是通过代码编辑器敲进html文件的。</p><p>有了API之后，网页的结构（html）、样式（css）和功能（JavaScript）还是原来的代码，唯一改变的就是网页呈现的内容——通过API获取。</p><p>Matters显示的文章也是通过API获取展示的。我们时常在Matters看到一些技术出生的用户发布一些标签榜、排行榜之类的文章。他们怎么知道哪些文章上榜了哪些文章没上榜？答案就是API。</p><p><strong>4.1 json</strong></p><p>在进阶API之前，我们需要了解一下json。</p><p>参考资料：<a href="https://www.w3schools.com/js/js_json_html.asp" target="_blank">W3C json</a></p><pre class="ql-syntax">{"title":"Summer", "content":"I love the sun!"}
+</pre><p>乍一看，json是不是长得和object很像？假如我们有这样一个json文件，我们要想在网页里呈现“夏天”和“我喜欢太阳”，那就需要代码稍微改变一下：</p><pre class="ql-syntax"><!DOCTYPE html>
+<html>
+<body>
+<h1></h1>
+<p></p>
+<script>
+const myObj = {"title":"Summer", "content":"I love the sun!"};
+document.getElementsByTagName("h1").innerHTML = myObj.title;
+document.getElementsByTagName("p").innerHTML = myObj.content;
+</script>
+</body>
+</html>
+</pre><p>以上我们实现了内容和代码分离。如果有春夏秋冬4个格式一致的页面，我们只需要一个html模版，内容替换不同的json就好。</p><p>了解json在干什么后，我们就明白了Matters那么多文章，是怎么显示出来的了。</p><p><br></p><p><strong>4.2 JavaScript API</strong></p><p>明白如何实现网页代码内容分离，我们可以进阶——用fetch API获取json，再把json解析呈现在网页里。</p><p>这是一个做测试用的假json：<a href="https://jsonplaceholder.typicode.com/todos/" target="_blank">https://jsonplaceholder.typicode.com/todos/</a>。我们要想获得第一个title，代码如下：</p><pre class="ql-syntax"><!DOCTYPE html>
+<html>
+<body>
+<p id="demo">Fetch a file to change this text.</p>
+<script>
+
+let url = "https://jsonplaceholder.typicode.com/todos/"
+
+fetch (url)
+.then(res => res.json())
+.then(data => document.getElementById("demo").innerHTML = data[0].title);
+
+</script>
+</body>
+</html>
+</pre><p>按钮点击后，发送请求，将第一个用户的title在id为demo的地方展示。</p><p><br></p><p><strong>4.3 API 小作业</strong></p><p>说了这么多，该做作业了。</p><p>把<a href="https://jsonplaceholder.typicode.com/todos/" target="_blank">https://jsonplaceholder.typicode.com/todos/</a>所有内容（userId、id、title），通过for循环在html页面展示出来。</p><p><br></p><h2>第五篇：GraphQL</h2><p>知道什么是API，如何通过API获取数据并呈现网页，你是不是跃跃欲试，也想去玩玩Matters的API，做一个山寨的Matters首页？？</p><p>根据这篇文章<a href="https://matters.news/@robertu/%E7%A4%BE%E5%8D%80%E9%96%8B%E6%94%BE%E4%B8%80%E5%B0%8F%E6%AD%A5-matters-api-zdpuAyovU8xL9sYsV5rQfe35XhmN6okTVbnogCFH2J8cqAXCs" target="_blank">​​社區開放一小步：Matters API</a>，Matters的API已经从REST升级成GraphQL了。所以玩Matters API之前，我们还需要热身一下。</p><p><strong>5.1 Postman</strong></p><p>继VS Code代码编辑器，Chrome浏览器（浏览器内置inspector）之后，另一个小白进阶工具Postman需要闪亮登场了。</p><p>有了Postman，我们可以测试一切API；Postman会成为你进阶路线上的另一个好伙伴。</p><figure class="image"><img src="https://assets.matters.news/embed/72597d25-2f13-4de3-9362-8df8478846da.png" data-asset-id="72597d25-2f13-4de3-9362-8df8478846da" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>在做第四篇结尾小作业时，我们使用了GET从服务器端获取数据。如果我们需要表单提交呢？更新网页内容呢？这个时候POST、PUT、DELETE等请求方式闪亮登场。</p><p>本着简单粗暴原则，弄懂4个最常用的就行：</p><pre class="ql-syntax">GET：从服务器端获取数据，可用于网页呈现内容
+POST：向服务器发送数据，例如提交表单
+PUT：向服务器更新数据，例如之前post提交的表单发送内容错误，需要修改
+DELETE：向服务器删除数据，例如删除某评论
+</pre><p><br></p><p><strong>5.2 Matters API</strong></p><p>玩转Postman，明白各种get、post之后，我们完成热身可以去玩基于GraphQL的Matters API了。</p><p>如果你已经很熟悉REST API的玩法的话，可以直接从5.2玩起。</p><p>本着简单粗暴的原则，只要搞懂了概念和原理，你会发现技术更迭升级变化，都是浮云——万变不离其宗。</p><p>继续本着简单粗暴原则：</p><ul><li>REST GET 类似于GraphQL query</li><li>REST POST、PUT类似于GraphQL mutation</li></ul><p>不同的是：</p><ul><li>用GraphQL，我们可以按需获取数据</li><li>GraphQL没有太多endpoint，比如Matters API，搞啥都是它：<a href="https://server.matters.news/graphql" target="_blank">https://server.matters.news/graphql</a>；如果是REST，完成那么多功能，我们需要多少个？？</li></ul><p>听不懂在说什么没关系，多玩两遍就懂了。让我们先从Matters playground玩起：<a href="https://server.matters.news/playground" target="_blank">https://server.matters.news/playground</a>。</p><figure class="image"><img src="https://assets.matters.news/embed/825879b0-c4bb-4e62-9b41-f73294cb0c05.png" data-asset-id="825879b0-c4bb-4e62-9b41-f73294cb0c05" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>如图所示，我们在左边输入一篇文章的hash值，右边就可以获取请求的id、title、summary等数据。</p><p>如果我们不需要服务器返回canSuperLike怎么办，很简单，把canSuperLike去掉就好了。</p><pre class="ql-syntax">query {
+  article (
+    input: {
+      mediaHash: "bafyreiddie3bbeskhjusm6mrzepbihhp4wq2hhtxtfr6c3eiwjpmps7hqy"
+    }) {
+    id
+    title
+    summary
+  }
+}
+</pre><p>这样服务端就只返回id、title和summary了。而在REST中，返回的数据是固定的。</p><p><br></p><p><strong>5.3 玩转Matters API 小作业</strong></p><p>试着用Matters playground和Postman玩玩article以外的api。</p><figure class="image"><img src="https://assets.matters.news/embed/28090207-4666-4d06-ab5f-3c935a17c3b2.png" data-asset-id="28090207-4666-4d06-ab5f-3c935a17c3b2" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>如图所示，我在Postman玩了一下我自己的账号。玩的过程当中，你可能会发现有些参数在非登陆状态是无法获取的。</p><p>玩转之后，还是做个作业练习一下：从Matters API获取数据，并显示在网页上。</p><pre class="ql-syntax">fetch('https://server.matters.news/graphql', {
+  method: 'POST',
+  mode: "cors",
+  headers: {
+    'Content-Type': 'application/json', 
+    'Accept': 'application/json'
+  },
+  credentials: "omit",
+  cache: 'no-cache', 
+  body: JSON.stringify({
+    query: `
+    query {
+  article (
+    input: {
+      mediaHash: "bafyreiddie3bbeskhjusm6mrzepbihhp4wq2hhtxtfr6c3eiwjpmps7hqy"
+    }) {
+    id
+    title
+    summary
+  }
+}
+      `
+  })
+})
+  .then(function(response) {
+    if (response.status === 400) {
+        response.json().then(function(object) {
+        console.log(object.type, object.message)
+        })
+    } else if (response.status === 200) {
+        response.json().then(function(object) {
+            console.log('success');
+            console.log(object)
+        })
+    }
+  })
+</pre><p><br></p><p>从Matters API获取数据时我遭遇了400 error，使用Matters API对header参数有较严格要求。</p><p><br></p><hr><p><br></p><h2>总结：</h2><p>本来想把git也拿来一起放送，结果加入示例代码后，光API就超标了。</p><p>总的来说，入门API不算困难。玩着玩着还是很有趣味的。玩转API，我们已经彻底进阶了。</p>
