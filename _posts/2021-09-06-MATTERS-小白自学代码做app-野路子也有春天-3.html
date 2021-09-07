@@ -1,0 +1,22 @@
+---
+layout: post
+title: 小白自学代码做app～野路子也有春天（3）
+date: 2021-09-06 22:57:29.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%B0%8F%E7%99%BD%E8%87%AA%E5%AD%A6%E4%BB%A3%E7%A0%81%E5%81%9Aapp-%E9%87%8E%E8%B7%AF%E5%AD%90%E4%B9%9F%E6%9C%89%E6%98%A5%E5%A4%A9-3-bafyreib6raqkollt7is3kxphz6c4fvfsui4twnovuxvsjfyhs3ww5dyrsy
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p>第一期教程发布的时候，大家反响还比较热烈。不少朋友都收藏了文章，表示哪天来玩玩。然鹅，到了第二期貌似内容编排跳跃度过大，几乎无人收藏，还收到了如下反馈。😅</p><figure class="image"><img src="https://assets.matters.news/embed/075972c2-79ef-4858-a4dc-66e018803fb9.jpeg" data-asset-id="075972c2-79ef-4858-a4dc-66e018803fb9" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>/(ㄒoㄒ)/~~如果不可能看懂，那不就白写了嘛😥。</p><figure class="image"><img src="https://assets.matters.news/embed/ce2c90a5-5f4f-49f3-927e-84b251e1b6f0.jpeg" data-asset-id="ce2c90a5-5f4f-49f3-927e-84b251e1b6f0" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>看来是跳跃了一些，连专业人士都出来吐槽了。</p><p>因为想着Matters用户去玩玩和自己有关的Matters API可以提升学习兴趣，同时了解API原理，所以把Matters API拿来作为学习案例。然鹅Matters API采用了GraphQL，所以不得不介绍GraphQL……</p><p>既然这样，那2期教学文5.3小作业选做，把4.3小作业弄明白就好。</p><p>只要弄明白API原理，日积月累熟能生巧，总有一天会明白GraphQL的。</p><hr><p><br class="smart">既然教学文已经开写了，也不能半途而废，那还是硬着头皮写下去吧……</p><h2>第六篇 Git</h2><p>如果你按照教学文顺序，学习了html、css、JavaScript、json和API后，初学的你，经历以上过程可能已经遭遇了很多次挫折，代码改了又改。</p><p>在继续学习代码的路上，你的代码会越变越复杂越变越多。经常会出现：</p><ul><li>我之前写的一版代码还不错，早知道不该删的，现在恢复再用多好😥。</li><li>刚刚代码还运作正常，也不知改了个什么玩意，就不能用了。要是能恢复就好了……</li></ul><p>所以随着学习不断深入，一个叫做git的玩意需要闪亮登场了。</p><pre class="ql-syntax">简单理解，git就是一个版本跟踪控制器。有了git，你在项目文件夹下修改、删除、添加……的任何操作，都会被git记录。再也不怕代码弄坏无法恢复了。
+</pre><p><br></p><p><strong>6.1 terminal 操作</strong></p><p>在进阶学习git之前，我们需要学习terminal操作热身。</p><p>不知你是否注意到，你身边搞技术的朋友，经常对着电脑屏幕一个黑乎乎的输入框敲代码，乐此不疲，看起来很高端的样子。而你只能拿着鼠标满屏幕跑……</p><figure class="image"><img src="https://assets.matters.news/embed/a7da6bd5-f845-466a-84ea-a0dea3c870f2.png" data-asset-id="a7da6bd5-f845-466a-84ea-a0dea3c870f2" referrerpolicy="no-referrer"><figcaption><span>terminal 操作 示范</span></figcaption></figure><p>你用鼠标创建文件、文件夹的GUI（<strong>graphical user interface</strong>）操作，也可以用terminal操作。在进阶学习代码的路上，ternimal会成为继VS Code，Chrome浏览器测试网页，Postman 测试API之后，另一个新伙伴。</p><p><br></p><p><strong>6.2 用terminal创建文件夹</strong></p><p>无论你用什么操作系统，打开它，然后在里面写这些代码。</p><p><strong><u>6.2.1 WINDOWS 系统小练习</u></strong></p><ul><li>在当前目录创建一个叫“my_first_project“的文件夹 mkdir = make direction</li></ul><pre class="ql-syntax">mkdir my_first_project
+</pre><ul><li>进入你刚刚通过指令创建的“my_first_project“文件夹cd = <strong>ch</strong>ange <strong>dir</strong>ectory</li></ul><pre class="ql-syntax">cd my_first_project
+</pre><ul><li>在当前目录下，创建一个叫file的txt格式文件。完成后，你会发现刚刚还是空白的my_first_project文件夹下，就多了一个名为file的txt文件</li></ul><pre class="ql-syntax">copy nul "file.txt" 
+</pre><ul><li>显示当前目录下的文件</li></ul><pre class="ql-syntax">dir
+</pre><ul><li>返回上一级目录</li></ul><pre class="ql-syntax">cd .. 
+</pre><p><br></p><p><strong><u>6.2.2 MAC OS 系统小练习</u></strong></p><ul><li>在当前目录创建一个叫“my_first_project“的文件夹，这一步同Windows</li></ul><pre class="ql-syntax">mkdir my_first_project 
+</pre><ul><li>进入你刚刚通过指令进入刚刚创建的“my_first_project“文件夹，依然同Windows</li></ul><pre class="ql-syntax">cd my_first_project
+</pre><ul><li>在当前目录下，创建一个叫file的txt格式文件。这一步和Windows略不一样</li></ul><pre class="ql-syntax">touch file.txt 
+</pre><ul><li>显示当前目录下的文件</li></ul><pre class="ql-syntax">ls
+</pre><ul><li>返回上一级目录</li></ul><pre class="ql-syntax">cd .. 
+</pre><p><br></p><p>以上操作练习完成后，你会发现你曾经用鼠标操作过的创建文件夹，切换路径……也可以通过terminal实现相同效果。</p><p>第一次使用terminal创建文件夹，你或许很不适应，不知道为什么要学这玩意。随着你的代码和app越来越复杂，你会慢慢发现使用terminal的便捷，并逐渐习惯terminal。</p><p>明白如何通过terminal和你的电脑进行沟通，将会成为你进阶代码路线的一个里程碑。</p><p><br></p><p><strong>6.3 git</strong></p><p>有了之前的terminal小练习，现在你应该可以上路学习git了。</p><p>学习资料：<a href="https://www.w3schools.com/git/default.asp" target="_blank">W3C Git</a></p><p>照着W3C的教程学习下来，再去GitHub注册账户，你又向代码自学道路进阶了一大步。</p><p>如果你觉得通过git操作管理在GitHub上的代码还比较抽象，你可以去安装一个GitHub Desktop。对比一下之前的terminal学习经历，你会发现你在terminal敲下git的命令和在Github Desktop按下的按钮，最后实现的都是一个效果。</p><p>随着你在自学代码的道路上越走越远，你和terminal的友情也会越发深厚。有一天你会达到无论是terminal操作还是GUI操作，一样熟练的。</p><p><br></p><p><strong>6.4 GitHub小作业</strong></p><p>本作业承前启后，结合新学的git，复习巩固之前的内容。</p><ol><li>做一个html网页，把<a href="https://jsonplaceholder.typicode.com/albums" target="_blank">https://jsonplaceholder.typicode.com/albums</a>的内容显示在你做的网页上。</li><li>制作过程中，用刚刚学来的git管理写代码过程中的更迭修改。</li><li>完成后，上传到新建的GitHub账号。</li></ol><p><br></p><p><u>当然如果你已经明白了GraphQL，你还是可以用Matters API去做一个山寨Matters网页，然后上传GitHub。</u></p>
