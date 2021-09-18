@@ -1,0 +1,132 @@
+---
+layout: post
+title: 從你的 Node.js 專案裡找出 Memory leak，及早發現、及早治療！
+date: 2021-09-18 08:04:36.000000000 +00:00
+link: https://vocus.cc/user/@kuan/61176c17fd89780001942f1c
+categories: vocus
+tags: blog
+author: Kuan
+---
+
+<p>前陣子，公司已經上線的產品持續出現效能問題，服務運作一段時間後會慢得讓人難以忍受，甚至超過 node 記憶體上限而直接中止，當時專案還沒實裝監測系統，只能邊調整邊測試，搞得團隊焦頭爛額。這時同事講出<strong>明燈</strong>般的一句話：「該不會是傳說中的 <strong>Memory leak</strong> 吧？」</p>
+<p>經過工程師們同心協力，總算是解決了這個問題，看到記憶體使用圖不再步步高升的那一刻，真的很感動 ⋯⋯ 這篇文章希望能留下記錄，並說明：</p>
+<ul>
+  <li>memory leak 的起因</li>
+  <li>如何找出造成 memory leak 的程式碼</li>
+  <li>我們遇到的實例，與解決方式</li>
+</ul>
+<p><br></p>
+<p><br></p>
+<h2>小心！Memory leak 離我們並不遙遠！</h2>
+<p><strong>Memory leak（記憶體流失）</strong>，是指程式運行的過程中，不再使用的記憶體空間沒有正常被釋放，持續佔用空間而造成的記憶體浪費。如果這種狀況不斷發生，就會使可用的記憶體越來越少，而降低電腦的效能，最後可能導致<strong>程式崩潰</strong>。</p>
+<p>在 JavaScript 裡，記憶體回收的工作是交由自動化的 <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Memory_Management"><strong>Garbage Collection</strong></a> 來完成，它就像記憶體裡的清道夫，會判斷不再使用的記憶體並將其回收。</p>
+<p>那很好啊！代表我不需要擔心記憶體流失的問題了，對吧？</p>
+<p><br></p>
+<p>並不是這樣的。Garbage collection 的簡單流程是：<strong>定期從根物件 </strong>(root，在瀏覽器中是 window，node 則是 global)<strong> 開始往下探詢每一個子節點，並清除沒有被探詢到、或是沒有被探詢物件參考的物件</strong>，也就是所謂<strong>「無法到達的物件 (unreachable objects)」</strong>，而在程式中，要製造出一個「可被探詢到的垃圾資料」簡直輕而易舉。</p>
+<p>如果 root -> F 的參考消失，導致 F 變成「無法到達的物件」<br>
+那麼 F 與其子節點們就會被自動回收。</p>
+<p>舉例來說，我們寫一個簡單的 Server：</p>
+<p><br></p>
+<p><a href="https://gist.github.com/kusakawazeusu/f283b58dbfab12674807fa145783d605">Code</a><br>
+<br>
+每次收到請求，都會<strong>使 requests 的資料量成長</strong>，而 request 又存在於 global scope，屬於可從根探詢到的程式碼，因此它<strong>不會被清除</strong>，如果 requests 是沒有用的資料，就會造成記憶體空間的浪費，甚至隨著請求數增多而用盡記憶體空間。</p>
+<p>其它像是 <code><strong>timer</strong></code>、<code><strong>closure</strong></code><code> </code>的誤用也會造成 memory leak，我們這邊先不詳述。畢竟，要直接從整個專案的程式碼中翻找出 memory leak 簡直是大海撈針 ⋯⋯ 我覺得更有效率的方式應該是<u>使用工具來找出不斷增長的資料，縮小範圍後再修正造成問題的程式碼</u>。</p>
+<p>若你的記憶體使用圖表是這個形狀，你可能就是 memory leak 的受害者！</p>
+<p><br></p>
+<p><br></p>
+<h2>使用 DevTool 找出病灶！</h2>
+<p>Chrome 提供的 <strong>DevTool </strong>除了能監測運行在瀏覽器中的程式外，也能<strong>監測運行在本地端的 Node.js 程式</strong>。如果你使用 Node.js 運行 API Server，或是你的前端使用像 <a href="https://nextjs.org/">Next.js</a> 的 SSR 框架（它會常駐一個 Node Server），就能使用 Devtool 監測 Heap 的使用狀況。</p>
+<p>我們先以上面的簡單 Server 為例，使用 <code><strong>--inspect</strong></code><code> </code>flag 來啟動它。</p>
+<blockquote>node --inspect app.js</blockquote>
+<p>在 console 裡，你會看到 Node.js 已經幫我們打開一個監聽 9229 port 的 debugger。</p>
+<p><br></p>
+<p>接著，打開你的 Chrome 並輸入 <code>chrome://inspect </code>，你應該能夠在 <code>Remote Target </code>裡找到 app.js，按下 <code>inspect </code>來打開 DevTool。</p>
+<p><br></p>
+<p>切換到 <code><strong>Memory</strong></code><code> </code>頁籤，我們會在下方看到目前運行中的 VM instance，按下 <code><strong>Take snapshot</strong></code>，它就會幫我們分析此刻的 heap 使用狀況，並將結果儲存在左側邊欄。</p>
+<p><br></p>
+<p><br></p>
+<h3>從這張圖中，我們可以看到：</h3>
+<ul>
+  <li>Constructor：此物件的建構子 (或 DevTool 幫我們進行的分類)。</li>
+  <li>Distance：從根 (root) 開始探訪的深度。</li>
+  <li>Shallow Size：<strong>物件本身佔用的記憶體量</strong>（bytes），通常 shallow size 很大的都是 String 或是裝著 Primitive Type Data 的陣列，如果是物件裡存著 reference 則不會被算到 shallow size 裡面。</li>
+  <li>Retained Size：物件本身佔用的記憶體空間，加上依賴此物件的所有資料所佔用的記憶體量（bytes）。文件裡有一句淺顯易懂的解釋：<strong>你刪除這個物件後，他總共會釋放的記憶體量</strong>，因此在查找 memory leak 問題時，我們會以這個欄位為判斷點。</li>
+</ul>
+<p>點開左邊的箭頭，就能繼續往下探詢，相當方便。我們先將物件以 Retained Size 排序，沒意外的話佔用最多的應該是 <code><strong>(compiled code)</strong></code>，因為我們引用了一些套件，這些物件也會被存在 Heap 中。</p>
+<p>接下來，我們就要<strong>手動重現 memory leak</strong>。</p>
+<p><br></p>
+<p><br></p>
+<h2>使用 K6 進行壓力測試</h2>
+<p>如果你的專案是 API 或 SSR Server，就可以用<strong>發送大量請求</strong>的方式來重現 memory leak，這邊我推薦使用 <a href="https://k6.io/">K6</a>，也可以直接使用你熟悉的壓力測試服務。</p>
+<p>我們先寫一個簡單的測試。一般來說，測試單一 Endpoint 可能無法重現問題，你可能需要將 API Server 所有提供的（或是你懷疑的） Endpoints 測試一遍，就能知道是哪一段程式碼造成問題。</p>
+<p><br></p>
+<p><a href="https://gist.github.com/kusakawazeusu/37ccd268d0578f8759be37cefa38729b">Code</a></p>
+<p><br>
+接著從終端機啟動壓力測試，使用下面的參數：</p>
+<ul>
+  <li><strong>duration</strong>：執行測試的時間</li>
+  <li><strong>vus</strong>：同時測試的虛擬使用者數量 (virtual users)</li>
+</ul>
+<blockquote>k6 run --duration 2m --vus 100 request.js</blockquote>
+<p><code>K6 壓測執行中的畫面</code></p>
+<p><code>等它跑完。</code></p>
+<p>等。</p>
+<p><br></p>
+<h2>回來觀察 DevTool 的變化</h2>
+<p>每次跑完壓力測試，就回到 DevTool 快照一下，如果<strong>你發現 heap 不斷增長且沒有回到正常數字的話，那八成是抓到兇手了</strong>！</p>
+<p><br></p>
+<p>觀察兩個 snapshot 之間的變化，在這個例子中不難發現是 global scope 底下的資料不斷成長。<strong>實際狀況下，leak 的記憶體量可能很少，你得發送更多請求數才能看出端倪</strong>。點開之後發現 DevTool 連變數名稱都告訴你了，接下來，只需要把問題修正，就能順利解決 memory leak 問題了。</p>
+<p>壓測前，compiled code 佔用最多空間</p>
+<p>壓測後，global 佔用了大部分的空間</p>
+<p>點開 global 物件，可以看到 requests 這個 Array 正式佔用記憶體的元兇</p>
+<p><br></p>
+<p><br></p>
+<h2>我們實際遇到的狀況</h2>
+<p><br>
+看到這裡，你可能心想：</p>
+<p><strong>「我是一個有紀律的程式設計師，才不會隨便污染 global scope！」</strong></p>
+<p> 或 </p>
+<p><strong>「我用的套件都是精挑細選，至少都 10,000 stars 欸，這些套件應該不會隨便就出現 memory leak 問題吧？」</strong></p>
+<p>沒想到呀沒想到，就真的被我們遇見了<strong>來自套件</strong>的 memory leak。下圖是經過 V6 壓測兩分鐘前後的 snapshot，可以看到 <code><strong>instance</strong></code> 這項資料成長了近一倍，且隨著請求數而增長，不會自動被回收。</p>
+<p>第一次壓測，instance 佔用 16%</p>
+<p>第二次壓測，instance 成長到 23%，佔用 19 MB 的 heap</p>
+<p>從圖中我們看見資料型態 <strong>Map</strong>，以及子元素的資料型態 <strong>HashArrayMapNode</strong>，這些都來自 <code><strong>immutable.js </strong></code><code>套件</code>。而在我們專案中，相依 immutable 的套件只有 Facebook 開源的文本編輯器 <a href="https://github.com/facebook/draft-js"><code>draft.js</code></a><code>。</code></p>
+<p>經過搜尋，發現我們不是第一個遇到此問題的人，早在 2020 就有人回報這個<a href="https://github.com/facebook/draft-js/issues/2391">issue</a>，trace code 就會發現 <code>draft.js </code>有兩項 global scope 資料是沒有主動回收的：</p>
+<h3>DraftEntity.js</h3>
+<p>在這個<a href="https://github.com/facebook/draft-js/blob/master/src/model/entity/DraftEntity.js">檔案</a>中，我們首先看到一個宣告在 global scope 的資料 <code>instance</code>。</p>
+<p><br></p>
+<p><br>
+接著，從這個模組的 <code><strong>__add</strong></code> 方法，我們看見 <code><strong>instance</strong></code> 資料量會不斷增長。</p>
+<p><br></p>
+<p><br>
+但它並沒有提供一個清除 <code>instance </code>的方法，還好有一個 <strong>setter</strong> 可以讓我們利用，只要將它初始化就能順利觸發 JavaScript 的回收機制，把所有子節點佔用的記憶體都釋放掉。</p>
+<blockquote>Entity.__loadWithEntities(Map());</blockquote>
+<h3><br>
+CharacterMetadata.js</h3>
+<p>在 <a href="https://github.com/facebook/draft-js/blob/master/src/model/immutable/CharacterMetadata.js#L125">這裡</a> 我們一樣看到不斷增長的 global scope 物件 <code><strong>pool</strong></code>：</p>
+<p><br></p>
+<p><br>
+比較麻煩的是，這項資料連個 setter 都沒有，我們只能<strong>手動增加清除方法</strong>將其初始化：</p>
+<p><br></p>
+<p><br>
+老實說，如果 draft.js 是單純在瀏覽器上執行，應該是不會有問題的，因為使用上並不會一直開新的文本編輯器 instance。只是我們的 Next.js Server 在收到請求並編譯時，就意外地將初始化的資料留一份在 Server 端了（而且也完全用不到這項資料）。隨著使用者在網站上打開文本編輯器，記憶體空間也逐漸變少，最後導致程式崩潰。</p>
+<p>修正完程式碼後，終於讓記憶體使用量回歸正常，看看下面這張圖，真的是讓人法喜充滿啊！如果你也因 memory leak 困擾的話，就用 DevTool 來找出病灶吧，希望這篇記錄有幫助到大家，謝謝一起苦惱的隊友們 XD。</p>
+<p>終於 ⋯⋯ 看見平原了啊！<br>
+稍晚後端又加上了機器分流，讓 loading 變得更低了 🤩🤩！</p>
+<p><br></p>
+<p><br></p>
+<h2>延伸閱讀</h2>
+<ul>
+  <li><a href="https://v8.dev/blog/trash-talk">詳細說明新的 V8 Garbage Collector 如何運作</a></li>
+  <li><a href="https://developer.chrome.com/docs/DevTools/memory-problems/heap-snapshots/">Chrome 的 heap-snapshot 文件</a></li>
+</ul>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p><br></p>
