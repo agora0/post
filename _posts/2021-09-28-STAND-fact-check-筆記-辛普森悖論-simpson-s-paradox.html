@@ -1,0 +1,259 @@
+---
+layout: post
+title: "【Fact Check 筆記】辛普森悖論（Simpson’s paradox）"
+date: 2021-09-28 10:32:39.007000000 Z
+link: https://www.thestandnews.com/society/fact-check-%E7%AD%86%E8%A8%98%E8%BE%9B%E6%99%AE%E6%A3%AE%E6%82%96%E8%AB%96simpsons-paradox
+categories: stand
+tags: blog
+author: 事實查核實驗室 Factcheck Lab
+---
+
+<figure><img src="https://images.weserv.nl/?url=assets.thestandnews.com/media/photos/768345617625462345612_gbU8pue.png"><figcaption><span>事實查核實驗室製圖</span></figcaption></figure><p>假設有100個大人及100個小孩分別到X餐廳或Y餐廳試食（只可以去其中一家），並決定是否要推薦有關餐廳，結果到X餐廳試食的100人當中，共有65人推薦，而到Y餐廳試食的100人當中則只有45人推薦。</p>
+
+<p>這樣看來，X餐廳應該比較受歡迎吧？</p>
+
+<p>但如果大人及小孩到兩家餐廳的試食結果如下呢？</p>
+
+<table>
+	<thead>
+		<tr>
+			<td rowspan="2">&nbsp;</td>
+			<td colspan="3"><strong>X餐廳</strong></td>
+			<td colspan="3"><strong>Y餐廳</strong></td>
+		</tr>
+		<tr>
+			<td><strong>推薦人數</strong></td>
+			<td><strong>試食人數</strong></td>
+			<td><strong>推薦比率</strong></td>
+			<td><strong>推薦人數</strong></td>
+			<td><strong>試食人數</strong></td>
+			<td><strong>推薦比率</strong></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><strong>大人</strong></td>
+			<td>5</td>
+			<td>20</td>
+			<td>25％</td>
+			<td>28</td>
+			<td>80</td>
+			<td><strong>35％</strong></td>
+		</tr>
+		<tr>
+			<td><strong>小孩</strong></td>
+			<td>60</td>
+			<td>80</td>
+			<td>75％</td>
+			<td>17</td>
+			<td>20</td>
+			<td><strong>85％</strong></td>
+		</tr>
+		<tr>
+			<td><strong>總數</strong></td>
+			<td>65</td>
+			<td>100</td>
+			<td><strong>65％</strong></td>
+			<td>45</td>
+			<td>100</td>
+			<td>45％</td>
+		</tr>
+		<tr>
+			<td colspan="7"><em>表1</em></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>表1出現一個奇怪現象︰無論大人抑或小孩，推薦Y餐廳的比例都比X餐廳高出10%，<strong>然而一旦合起來計算，推薦比例卻反轉過來</strong>，推薦X餐廳的比例比Y餐廳高出20%。</p>
+
+<p>這個現象就是統計學中的「辛普森悖論」（Simpson’s paradox）——分組的數據和整體數據呈現完全相反的趨勢。最近Factcheck Lab查核一則關於Delta變種病毒與疫苗的資訊，發現錯誤訊息源於有人演繹數據出現此現象︰</p>
+
+<table>
+	<thead>
+		<tr>
+			<td colspan="7"><strong>注意︰此表格展示誤導訊息的計算方法，詳見<a href="https://www.thestandnews.com/society/%E9%8C%AF%E8%AA%A4%E8%8B%B1%E5%9C%8B%E5%85%AC%E4%BD%88%E4%BA%86%E4%BB%A4%E5%B0%88%E5%AE%B6%E4%B8%8D%E9%96%8B%E5%BF%83%E7%9A%84%E6%95%B8%E6%93%9A" target="_blank">此事實查核報告</a>分析</strong></td>
+		</tr>
+		<tr>
+			<th rowspan="2">年齡</th>
+			<th colspan="3">已接種2劑疫苗</th>
+			<th colspan="3">未接種疫苗</th>
+		</tr>
+		<tr>
+			<th>住院人數</th>
+			<th>感染DELTA病毒人數</th>
+			<th>比率</th>
+			<th>住院人數</th>
+			<th>感染DELTA病毒人數</th>
+			<th>比率</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>&lt;50</td>
+			<td>224</td>
+			<td>25,536</td>
+			<td>0.88%</td>
+			<td>2,290</td>
+			<td>147,612</td>
+			<td><strong>1.55%</strong></td>
+		</tr>
+		<tr>
+			<td>≥50</td>
+			<td>1,131</td>
+			<td>21,472</td>
+			<td>5.27%</td>
+			<td>670</td>
+			<td>3,440</td>
+			<td><strong>19.48%</strong></td>
+		</tr>
+		<tr>
+			<td>總數</td>
+			<td>1,355</td>
+			<td>47,008</td>
+			<td><strong>2.88%</strong></td>
+			<td>2,960</td>
+			<td>151,054</td>
+			<td>1.96%</td>
+		</tr>
+		<tr>
+			<td colspan="7"><em>表2</em></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>按年齡分組比較的話，未接種疫苗而感染Delta變種病毒人數的住院比率較高，但合起來計算卻是已接種疫苗組別較高——由於兩組別的年齡分佈不同，只看總數會得到錯誤結論。（詳情請參考<a href="https://www.thestandnews.com/society/%E9%8C%AF%E8%AA%A4%E8%8B%B1%E5%9C%8B%E5%85%AC%E4%BD%88%E4%BA%86%E4%BB%A4%E5%B0%88%E5%AE%B6%E4%B8%8D%E9%96%8B%E5%BF%83%E7%9A%84%E6%95%B8%E6%93%9A" target="_blank">Factcheck Lab的事實查核報告</a>。）</p>
+
+<p>雖然辛普森悖論看起來違反直覺，但只要仔細查看數據也不難理解。從表1我們可以注意到幾個現象︰</p>
+
+<ol>
+	<li>大人和小孩去兩家餐廳的分佈並不平均，有20%大人去了X餐廳，但有80%大人去了Y餐廳，小孩的比例則相反。</li>
+	<li>每家餐廳的試食人數分佈並不平坦，X餐廳有20%大人、80%小孩試食，Y餐廳則相反。</li>
+	<li>無論是哪一家餐廳，小孩推薦的比例都明顯高於大人。</li>
+</ol>
+
+<p>因此X餐廳的推薦比例會較受小孩的評價影響，而Y餐廳的推薦比例較受大人影響，由於小孩較傾向推薦餐廳，所以合起來計算的話，X餐廳會較具優勢。</p>
+
+<p>這個悖論看來違反直覺的原因，在於呈現方式把焦點只放在推薦比率上，而忽略了產生比例的分母（即試食人數）不同，但計算整體比例時人數的差異就會影響結果。</p>
+
+<p>假如去兩家餐廳試食的大人人數相同（20人），去兩家餐廳試食的小孩人數也相同（80人）（但大人和小孩的人數不必一樣），就不會產生辛普森悖論，以下例子可以說明這一點︰</p>
+
+<table>
+	<thead>
+		<tr>
+			<td rowspan="2">&nbsp;</td>
+			<td colspan="3"><strong>X餐廳</strong></td>
+			<td colspan="3"><strong>Y餐廳</strong></td>
+		</tr>
+		<tr>
+			<td><strong>推薦人數</strong></td>
+			<td><strong>試食人數</strong></td>
+			<td><strong>推薦比率</strong></td>
+			<td><strong>推薦人數</strong></td>
+			<td><strong>試食人數</strong></td>
+			<td><strong>推薦比率</strong></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><strong>大人</strong></td>
+			<td>5</td>
+			<td>20</td>
+			<td>25％</td>
+			<td>7</td>
+			<td>20</td>
+			<td>35％</td>
+		</tr>
+		<tr>
+			<td><strong>小孩</strong></td>
+			<td>60</td>
+			<td>80</td>
+			<td>75％</td>
+			<td>68</td>
+			<td>80</td>
+			<td>85％</td>
+		</tr>
+		<tr>
+			<td><strong>總數</strong></td>
+			<td>65</td>
+			<td>100</td>
+			<td>65％</td>
+			<td>75</td>
+			<td>100</td>
+			<td>75％</td>
+		</tr>
+		<tr>
+			<td colspan="7"><em>表3</em></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>另一方面，假如在同一家餐廳試食的大人與小孩人數相同，即X餐廳分別有20名大人及20名小孩試食；Y餐廳分別有80名大人及80名小孩試食，也不會產生辛普森悖論，以下例子可以說明這一點︰</p>
+
+<table>
+	<thead>
+		<tr>
+			<td rowspan="2">&nbsp;</td>
+			<td colspan="3"><strong>X餐廳</strong></td>
+			<td colspan="3"><strong>Y餐廳</strong></td>
+		</tr>
+		<tr>
+			<td><strong>推薦人數</strong></td>
+			<td><strong>試食人數</strong></td>
+			<td><strong>推薦比率</strong></td>
+			<td><strong>推薦人數</strong></td>
+			<td><strong>試食人數</strong></td>
+			<td><strong>推薦比率</strong></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><strong>大人</strong></td>
+			<td>5</td>
+			<td>20</td>
+			<td>25％</td>
+			<td>28</td>
+			<td>80</td>
+			<td>35％</td>
+		</tr>
+		<tr>
+			<td><strong>小孩</strong></td>
+			<td>15</td>
+			<td>20</td>
+			<td>75％</td>
+			<td>68</td>
+			<td>80</td>
+			<td>85％</td>
+		</tr>
+		<tr>
+			<td><strong>總數</strong></td>
+			<td>20</td>
+			<td>40</td>
+			<td>50%</td>
+			<td>96</td>
+			<td>160</td>
+			<td>60%</td>
+		</tr>
+		<tr>
+			<td colspan="7"><em>表4</em></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>如果數據涉及重要內容——例如是疫情數據——當發現各組比例有顯著分別時，我們也應該進一步了解背後是否有甚麼原因，以及如何影響結果。</p>
+
+<p>除了英國的Delta變種病毒與疫苗數據外，2020年初意大利及中國的COVID-19個案死亡率（case fatality rate, CFR）數據同樣出現類似現象——若按年齡分組意大利的CFR較低，但以全部個案計算則是中國較低。詳情可參考以下這段由維多利亞大學（University of Victoria）數學及統計學助理教授Trefor Bazett拍攝的影片︰</p>
+
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/t-Ci3FosqZs" title="YouTube video player" width="560"></iframe></p>
+
+<p>在COVID-19的疫情期間，辛普森悖論很可能不斷出現，各位讀者務必小心檢視數據，以免被這個奇特的統計現象誤導。</p>
+
+<p><strong>相關事實查核報告︰</strong><a href="https://www.thestandnews.com/society/%E9%8C%AF%E8%AA%A4%E8%8B%B1%E5%9C%8B%E5%85%AC%E4%BD%88%E4%BA%86%E4%BB%A4%E5%B0%88%E5%AE%B6%E4%B8%8D%E9%96%8B%E5%BF%83%E7%9A%84%E6%95%B8%E6%93%9A" target="_blank">【錯誤】英國公佈了「令專家不開心」的數據？</a></p>
+
+<p>&nbsp;</p>
+
+<p><a href="https://www.factchecklab.org/donate/" target="_blank"><strong>💰請捐款支持Factcheck Lab運作</strong></a></p>
+
+<p>撰文︰鄭家榆（執行編輯）<br>
+編輯︰區家麟（編審成員）、鄭佩珊 （編審成員）</p>
+
+<p>本文出自<a href="https://www.factchecklab.org/20210928/" target="_blank">事實查核實驗室（Factcheck Lab）</a>，轉載前請先參考其<a href="https://www.factchecklab.org/copyright/" target="_blank">版權聲明</a>。</p>
