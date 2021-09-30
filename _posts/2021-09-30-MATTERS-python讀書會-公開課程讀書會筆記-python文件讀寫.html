@@ -1,0 +1,79 @@
+---
+layout: post
+title: Python讀書會 - 公開課程讀書會筆記 - Python文件讀寫
+date: 2021-09-30 13:39:59.000000000 +00:00
+link: https://matters.news/@CHWang/python%E8%AE%80%E6%9B%B8%E6%9C%83-%E5%85%AC%E9%96%8B%E8%AA%B2%E7%A8%8B%E8%AE%80%E6%9B%B8%E6%9C%83%E7%AD%86%E8%A8%98-python%E6%96%87%E4%BB%B6%E8%AE%80%E5%AF%AB-bafyreib3b5gj6fdnzrv2vzuihdxx6s4vldyxcmxxs52y7uiirwxg4p37y4
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<p><a href="https://github.com/chwang12341/book_club/tree/master/python_basic/read_write_file" target="_blank">Github 連結</a></p><figure class="image"><img src="https://assets.matters.news/embed/6f2c2002-3baa-42d8-9fe0-168647beee13.jpeg" data-asset-id="6f2c2002-3baa-42d8-9fe0-168647beee13" referrerpolicy="no-referrer"><figcaption><span>攝影師：Roberto Nickson，連結：Pexels</span></figcaption></figure><p>哈囉，大家好!!由於小弟最近接到擔任舉辦讀書會的講師，而這個讀書會是根據莫凡Python公開課程所開設的，大家希望我可以帶他們看過莫凡Python的相關系列課程，所以讀書會這個系列主要是根據莫凡Python的公開系列課程講解和筆記，當然我也會額外找尋資料並補充給大家，也因為是根據公開課程的筆記，所以我都會明確記錄出處，如果有違反作者權力，麻煩告知，我會在第一時間立即刪除這系列的文章，感謝大家，當然也要特別感謝莫凡Python這麼厲害的公開課程，讓大家可以無痛初探Python的魔法世界!!</p><p>我是跟其他優秀的講師一起開設莫凡Python讀書會的，所以我不會每個章節都有筆記喔XD!!</p><p><br></p><h2><strong>1. Python #15</strong></h2><p>讀書會內容來源: <a href="https://www.youtube.com/watch?v=hkMQaooXkgs&list=PLXO45tsB95cIRP5gCi8AlYwQ1uFO2aQBw&index=15" target="_blank">https://www.youtube.com/watch?v=hkMQaooXkgs&list=PLXO45tsB95cIRP5gCi8AlYwQ1uFO2aQBw&index=15</a></p><h3><br></h3><p><strong>撰寫文件內容</strong></p><ul><li>撰寫文件內容</li></ul><pre class="ql-syntax">## 撰寫內容
+## \n空行
+context = 'This is my first test.\nThis is next line.\nThis is last line'
+print(context)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">This is my first test.
+This is next line.
+This is last line
+</pre><p><br></p><p><strong>補充 - 更多轉義字幅運用</strong></p><ul><li>\t tab鍵</li></ul><pre class="ql-syntax">context1 = 'This is my first test.\tThis is next line.\tThis is last line'
+print(context1)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">This is my first test. This is next line. This is last line
+</pre><p>轉義字符可以參考: <a href="https://blog.csdn.net/XuFangfang5206/article/details/80030300" target="_blank">https://blog.csdn.net/XuFangfang5206/article/details/80030300</a></p><p><br></p><p><strong>寫進文件</strong></p><pre class="ql-syntax">## 打開文件(創建文件)
+## w: write
+## r: read
+file = open('first_file.txt', 'w')
+## 寫入文件
+file.write(context)
+## 關閉文件
+file.close()
+</pre><p><strong>執行結果</strong>: 會產生一個first_file文件，打開後如下圖內容</p><figure class="image"><img src="https://assets.matters.news/embed/5ec2b995-61ab-4ded-8ab3-fd9547f7990a.png" data-asset-id="5ec2b995-61ab-4ded-8ab3-fd9547f7990a" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><h3><strong>補充</strong></h3><p><strong>不同模式的開啟文件</strong></p><p><a href="https://www.runoob.com/python/python-func-open.html" target="_blank">https://www.runoob.com/python/python-func-open.html</a></p><pre class="ql-syntax">## r+和w+一樣都是讀寫文件，但是如果檔案不存在r+會報錯，w+會創建文件
+## 寫進檔案
+f = open('test.txt', 'w+')
+f.write('Hello Everyone')
+## 寫進檔案
+f = open('test.txt', 'r+')
+f.write('Hi Everybody\n')
+## 累加文件
+f = open('test.txt', 'a+')
+f.write('Welcome')
+f.close()
+</pre><p><strong>執行結果: 可以看到前面寫進文件的時候，第一次的寫入被第二次覆蓋掉了，第三次才會累加上去</strong></p><figure class="image"><img src="https://assets.matters.news/embed/634406f6-669a-4699-a620-b645717402d6.png" data-asset-id="634406f6-669a-4699-a620-b645717402d6" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><h2><strong>2. Python #16</strong></h2><p>讀書會內容來源: <a href="https://www.youtube.com/watch?v=TBemVnOITjk&list=PLXO45tsB95cIRP5gCi8AlYwQ1uFO2aQBw&index=16" target="_blank">https://www.youtube.com/watch?v=TBemVnOITjk&list=PLXO45tsB95cIRP5gCi8AlYwQ1uFO2aQBw&index=16</a></p><h3><strong>追加文字</strong></h3><pre class="ql-syntax">## 追加文字
+append_context = '\nThis is appended file.'
+## 追加方式打開文件
+file = open('first_file.txt', 'a')
+file.write(append_context)
+file.close()
+</pre><p><strong>執行結果</strong>: 可以看到，我們在原本的first_file文件中添加了一行文字 - This is appended file.</p><figure class="image"><img src="https://assets.matters.news/embed/7787a96a-0145-4ecd-9e1d-c27ba76f9a6a.png" data-asset-id="7787a96a-0145-4ecd-9e1d-c27ba76f9a6a" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><h2><strong>3. Python 17</strong></h2><p>讀書會內容來源: <a href="https://www.youtube.com/watch?v=pz3I-9MgxGo&list=PLXO45tsB95cIRP5gCi8AlYwQ1uFO2aQBw&index=17" target="_blank">https://www.youtube.com/watch?v=pz3I-9MgxGo&list=PLXO45tsB95cIRP5gCi8AlYwQ1uFO2aQBw&index=17</a></p><h3><strong>讀取文件 - 整個</strong></h3><pre class="ql-syntax">## 讀取文件
+file = open('first_file.txt', 'r')
+## 全部讀取
+content = file.read()
+print(content)
+file.close()
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">This is my first test.
+This is next line.
+This is last line
+This is appended file.
+</pre><h3><strong>讀取文件 - 一行</strong></h3><pre class="ql-syntax">file = open('first_file.txt', 'r')
+## 讀取一行
+content1 = file.readline()
+print(content1)
+file.close()
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">This is my first test.
+</pre><h3><strong>讀取文件 - 一行一行寫進Python List裡面</strong></h3><pre class="ql-syntax">file = open('first_file.txt', 'r')
+## 一行一行讀取
+content1 = file.readlines()
+print(content1)
+file.close()
+</pre><p><strong>執行結果: 會用list的型態，將一行一行的內容存成list傳回</strong></p><pre class="ql-syntax">['This is my first test.\n', 'This is next line.\n', 'This is last line\n', 'This is appended file.']
+</pre><h2><strong>補充: 使用list資料寫進檔案</strong><a href="http://localhost:8888/notebooks/read_write_file_1.ipynb#%E8%A3%9C%E5%85%85:-%E4%BD%BF%E7%94%A8list%E8%B3%87%E6%96%99%E5%AF%AB%E9%80%B2%E6%AA%94%E6%A1%88" target="_blank"><strong>¶</strong></a></h2><p>讀書會內容來源: <a href="https://shengyu7697.github.io/python-write-text-file/" target="_blank">https://shengyu7697.github.io/python-write-text-file/</a></p><pre class="ql-syntax">context = ['Welcome\n', 'Hello\t', '123456789']
+f = open('test1.txt', 'w')
+f.writelines(context)
+f.close()
+</pre><p><strong>執行結果</strong></p><figure class="image"><img src="https://assets.matters.news/embed/3f4935ea-30f1-431f-a126-93c0f6dc022a.png" data-asset-id="3f4935ea-30f1-431f-a126-93c0f6dc022a" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><h2><strong>補充: 使用print()的方式寫進檔案</strong></h2><pre class="ql-syntax">f = open('test2.txt', 'w')
+print('Welcome', file = f)
+print('Hello', file = f)
+print('123456789', file = f)
+f.close()
+</pre><p><strong>執行結果</strong></p><figure class="image"><img src="https://assets.matters.news/embed/e015a1ce-90b6-4fbf-94b3-fdb7b6ad9533.png" data-asset-id="e015a1ce-90b6-4fbf-94b3-fdb7b6ad9533" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><h2><strong>補充: 使用open as的方法來讀寫文件</strong></h2><pre class="ql-syntax">with open('test3.txt', 'a') as f:
+  f.write('Welcome\n')
+</pre><p><strong>執行結果</strong></p><figure class="image"><img src="https://assets.matters.news/embed/e383e52d-27ae-4534-9ea6-3dc86768d358.png" data-asset-id="e383e52d-27ae-4534-9ea6-3dc86768d358" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><h2><strong>Reference</strong></h2><p><a href="https://www.youtube.com/watch?v=hkMQaooXkgs&list=PLXO45tsB95cIRP5gCi8AlYwQ1uFO2aQBw&index=15" target="_blank">https://www.youtube.com/watch?v=hkMQaooXkgs&list=PLXO45tsB95cIRP5gCi8AlYwQ1uFO2aQBw&index=15</a></p><p><a href="https://blog.csdn.net/XuFangfang5206/article/details/80030300" target="_blank">https://blog.csdn.net/XuFangfang5206/article/details/80030300</a></p><p><a href="https://www.runoob.com/python/python-func-open.html" target="_blank">https://www.runoob.com/python/python-func-open.html</a></p><p><a href="https://www.youtube.com/watch?v=TBemVnOITjk&list=PLXO45tsB95cIRP5gCi8AlYwQ1uFO2aQBw&index=16" target="_blank">https://www.youtube.com/watch?v=TBemVnOITjk&list=PLXO45tsB95cIRP5gCi8AlYwQ1uFO2aQBw&index=16</a></p><p><a href="https://www.youtube.com/watch?v=pz3I-9MgxGo&list=PLXO45tsB95cIRP5gCi8AlYwQ1uFO2aQBw&index=17" target="_blank">https://www.youtube.com/watch?v=pz3I-9MgxGo&list=PLXO45tsB95cIRP5gCi8AlYwQ1uFO2aQBw&index=17</a></p><p><a href="https://shengyu7697.github.io/python-write-text-file/" target="_blank">https://shengyu7697.github.io/python-write-text-file/</a></p><p><br></p>
