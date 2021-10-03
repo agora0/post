@@ -1,0 +1,377 @@
+---
+layout: post
+title: 魷魚遊戲必勝大法
+date: 2021-10-03 10:40:35.503000000 Z
+link: https://www.thestandnews.com/cosmos/%E9%AD%B7%E9%AD%9A%E9%81%8A%E6%88%B2%E5%BF%85%E5%8B%9D%E5%A4%A7%E6%B3%95
+categories: stand
+tags: blog
+author: 史丹福
+---
+
+<figure><img src="https://images.weserv.nl/?url=assets.thestandnews.com/media/photos/squidgame.jpg"><figcaption><span>《魷魚遊戲》劇照</span></figcaption></figure><p>Netflix 推出的《魷魚遊戲》最近熱爆全球。劇集講述一個神秘的組織邀請了 456 位負債累累的失敗人士在六天內玩六個遊戲，遊戲都是大家兒時玩的簡單遊戲。勝出這六個遊戲的玩家可以獲得 456 億韓圓，輸掉的話就會被殺。</p>
+
+<p>劇集一推出便立即引起了網民的熱烈討論，不少網民都提出了破解這些遊戲的策略。史丹福也想到了第四個遊戲的必勝策略，當中牽涉到一些組合數學 (combinatorics) 的理論。&nbsp;（以下含有劇透，還未看《魷魚遊戲》而又想保持神秘感的朋友可以留待看完劇集才看史丹福的文章。）</p>
+
+<p>第四個遊戲是波子遊戲，兩位玩家為一組，大家在起初各有 10 粒波子，玩家必須在 30 分鐘內贏得對方的 10 粒波子。至於規則則是由玩家自行決定，兩者同意便可。</p>
+
+<p>因此，如果你的對手並不熟悉數學的話，你大可以提出一些有必勝策略的遊戲。研究有必勝策略的遊戲，本來就是組合數學中的重要範疇。</p>
+
+<p>根據遊戲設定，雙方共有 20 粒波子。其中一個可以玩的遊戲如下。</p>
+
+<p><strong>簡單的取波子遊戲</strong></p>
+
+<p>開局共有 20 粒波子，玩家們輪流拿波子，每次最少拿1粒，最多拿3粒，可以拿到最後一粒波子的就是贏家。這是一個史丹福在兒時常玩的遊戲（當然，對方並不知道有必勝策略，所以史丹福是必勝的），因此也很符合《魷魚遊戲》的精神。</p>
+
+<p>讓我們分析一下這遊戲。遊戲的目標是拿取第 20 粒波子。但其實如果我們能拿到第16粒波子，就必定可以拿到第 20 粒波子。因為你取得第 16 粒波子後，如果對方取 1 粒，你就取 3 粒；如果對方取 2 粒，你就取 2 粒；如果對方取 3 粒，你就取 1&nbsp;粒，這就確保你必然可以拿到第 20 粒波子。同樣地，只要你拿到第 12 粒波子，就必定拿到第 16 粒波子。繼續推下去，只要拿到第 4 粒波子，就可以拿到第 8 粒，就可以拿到第 12 粒，就可以拿到第16粒，就可以拿到第 20 粒。因此，後行的一方有必勝的策略，只要對方每次取1粒，你就取 3 粒；對方取 2 粒，你就取 2 粒；對方取 3 粒，你就取1粒，這就確保你可以拿到剛才提及的關鍵波子。</p>
+
+<p>讓我們改一點遊戲規則，如果玩家每次最少拿1粒，最多拿 4 粒，那又如何呢？這時後行的一方依然有必勝的策略。這次關鍵的波子是第 5 、 10 、 15 及 20 粒。策略是只要對方每次取 1 粒，你就取 4 粒；對方取 2 粒，你就取 3 粒；對方取 3 粒，你就取2粒；對方取 4 粒，你就取 1 粒。這就必然可以取得關鍵波子，嬴得遊戲。</p>
+
+<p>如果玩家每次最少拿1粒，最多拿 2 粒，那又如何呢？這次關鍵的波子是第 2 、 5 、 8 、 11 、 14 、 17 及 20 粒。因此這次有必勝策略的是先行的一方。你先取 2&nbsp;粒，之後如果對方取 2 粒，你就取 1 粒；如果對方取 1 粒，你就取 2 粒，這樣就可以必勝。</p>
+
+<p><strong>尼姆遊戲</strong></p>
+
+<p>不過，這個遊戲其實非常簡單，玩家只需要細心思考，即使未曾受過組合數學的訓練都可以想到必勝策略。因此，史丹福想再介紹一個更可怕的遊戲－－尼姆遊戲 (Nim game) 。在《魷魚遊戲》中，主腦曾說過「魷魚遊戲」是所有兒時遊戲中最暴力的一個，但史丹福覺得尼姆遊戲相較起要暴力得多。尼姆遊戲的暴力是一種制度上的暴力，因為懂得必勝策略的人可以在制度上完全壓到對方，但對方如果未受過相關的數學訓練，恐怕是想爆頭都不會想得出遊戲的必勝玩法，甚至會以為這是個公正的遊戲，不知就理地被騙得團團轉。</p>
+
+<p>尼姆遊戲的玩法同樣很簡單。開局時有 3 組波子。兩名玩家輪流取波子，他們每次都必須選取一組波子，並最少從該組中取一粒，最多可以全取，取得最後一粒波子的人勝出遊戲。</p>
+
+<p>尼姆遊戲必勝策略是在上世紀初由哈佛大學數學系副教授查理士．理昂納德．包頓&nbsp;(Chales Leonard Bouton)&nbsp;所提出的。不少人都視包頓的結論為組合博弈論 (combinatorial game theory) 的開端。如果大家有玩過奧林匹克數學的話，大概對這個遊戲的必勝策略相當熟悉，因為這遊戲是奧林匹克組合數學中的重要課題。</p>
+
+<p>包頓提出的策略如下：首先，將各列波子的數量化成二進制數字，相加，但不進位，然後再看和的各個位數。如果和的各個位數都是偶數，則表示玩家有必勝策略；否則，如果有一位是奇數，則為對方有必勝策略。而必勝策略就每次都取波子去使得二進制數字相加位數的和全是偶數。值得留意的是，在這情況下，不論對方如何取波子，那一組的波子數量所對應的二進制數字中，必有某一位或數位由&nbsp;0&nbsp;變成&nbsp;1&nbsp;或者由&nbsp;1&nbsp;變成&nbsp;0 ，&nbsp;其相加的和也相對的有某一位或數位由偶數變成奇數。因此，無論對方如何取，當不會離得開那個對他而言必敗的局面。</p>
+
+<p>上述的策略聽起來很複雜，大家也許不易理解，我們不如直接看一個例子吧。&nbsp;如果開局時 20 粒波子被分成三組，每組分別有 5 、 7 及 8 粒波子，化成二進制數字後情況如下：</p>
+
+<table class="MsoTableGrid" style="color:#222222;font-family:Arial, Tahoma, Helvetica, FreeSans, sans-serif;font-size:13.2px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;background-color:#ffffff;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;border-collapse:collapse;border:none">
+	<tbody>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="4" style="border-bottom:1px solid black;padding:0cm 7px;width:481px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">二進制數字</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">第一組：</span>5</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">0</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">第二組：</span>7</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">第三組：</span>8</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">0</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">0</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">0</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">二進制數字相加位數的和</span></span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">2</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">2</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>這時你應先取波子去使得二進制數字相加位數的和全是偶數。這可以如何做到呢？你可以從第 3 組波子中取 6 粒，令第 3 組的波子數量變成 2 粒。最新的情況如下：</p>
+
+<table class="MsoTableGrid" style="color:#222222;font-family:Arial, Tahoma, Helvetica, FreeSans, sans-serif;font-size:13.2px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;background-color:#ffffff;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;border-collapse:collapse;border:none">
+	<tbody>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="4" style="border-bottom:1px solid black;padding:0cm 7px;width:481px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">二進制數字</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">第一組：</span>5</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">0</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">第二組：</span>7</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">第三組：</span>2</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">0</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">二進制數字相加位數的和</span></span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">2</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">2</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">2</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>這時候，對方無論怎樣取，都必定會令到二進制數字相加位數的和有奇數，也就是說對手又回到一個必敗的情況。我們假設他從第 2 組中取了 4 粒波子，令該組波子只剩 3 粒。情況變成：</p>
+
+<table class="MsoTableGrid" style="color:#222222;font-family:Arial, Tahoma, Helvetica, FreeSans, sans-serif;font-size:13.2px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;background-color:#ffffff;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;border-collapse:collapse;border:none">
+	<tbody>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="4" style="border-bottom:1px solid black;padding:0cm 7px;width:481px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">二進制數字</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">第一組：</span>5</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">0</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">第二組：</span>3</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">第三組：</span>2</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">0</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">二進制數字相加位數的和</span></span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">2</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">2</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>這時你應從第 1 組中取了 4 粒波子，令該組波子只剩 1 粒。二進制數字相加位數的和又再次變成全為偶數。情況變成：</p>
+
+<table class="MsoTableGrid" style="color:#222222;font-family:Arial, Tahoma, Helvetica, FreeSans, sans-serif;font-size:13.2px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;background-color:#ffffff;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;border-collapse:collapse;border:none">
+	<tbody>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td colspan="4" style="border-bottom:1px solid black;padding:0cm 7px;width:481px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">二進制數字</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">第一組：</span>1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">第二組：</span>3</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">第三組：</span>2</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">1</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">0</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:1px solid black;border-right:1px solid black;border-left:1px solid black" valign="top">
+			<p><span style="line-height:normal"><span lang="ZH-TW" style="font-family:PMingLiU, serif">二進制數字相加位數的和</span></span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p>&nbsp;</p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">2</span></p>
+			</td>
+			<td style="border-bottom:1px solid black;padding:0cm 7px;width:120px;background-color:#ffffff;border-top:none;border-right:1px solid black;border-left:none" valign="top">
+			<p><span style="line-height:normal">2</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>之後的玩法已經變得相當簡單，史丹福就不多作說明了。簡單地來說，只要你一值順著這策略，最终應可做到只剩2組波子，各有1粒。明顯地，你必定拿到最後一粒，成為勝出者。</p>
+
+<p>對於一般未受過組合數學訓練的人，應該不可能想到運用二進制數字作分析的數學方法吧？因此，不要以為數學是沒有用的學問。在某些時候（如玩《魷魚遊戲》中的遊戲時），數學是可以助你活命的。</p>
+
+<p>在《魷魚遊戲》劇集中，尚佑騙去了阿里的所有波子。其實這只不過是利用阿里的同情心而作的卑鄙手段而已，算不上甚麼聰明才智。這手法也配不起他在劇集設定中的天才高材生的身份。如果他提出要與阿里玩尼姆遊戲，這才是真正的高智能天才策略啊，史丹福會非常尊敬與欣賞他。</p>
