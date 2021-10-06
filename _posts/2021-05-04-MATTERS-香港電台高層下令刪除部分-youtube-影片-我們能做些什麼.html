@@ -1,0 +1,13 @@
+---
+layout: post
+title: 香港電台高層下令刪除部分 YouTube 影片：我們能做些什麼
+date: 2021-05-04 12:17:35.000000000 +00:00
+link: https://matters.news/@whisper/%E9%A6%99%E6%B8%AF%E9%9B%BB%E5%8F%B0%E9%AB%98%E5%B1%A4%E4%B8%8B%E4%BB%A4%E5%88%AA%E9%99%A4%E9%83%A8%E5%88%86-you-tube-%E5%BD%B1%E7%89%87-%E6%88%91%E5%80%91%E8%83%BD%E5%81%9A%E4%BA%9B%E4%BB%80%E9%BA%BC-bafyreihnd7ks5dos6yueekdnw2mcr3sftkbuk32yapesvomvtgxdeato3q
+categories: matters
+tags: blog
+author: slash
+---
+
+<p>雖然昨日已有報道，還是沒想到香港電台高層今日就動刀下令刪除香港電台 YouTube 影片，尤其是</p><ul><li>鏗鏘集</li><li>頭條新聞</li><li>傳媒春秋</li><li>警訊</li></ul><p>對此，並不在香港電台內部的我們能做些什麼？</p><p>除了通常的表達反對、不滿，以致其他行動外，由於這次政權動刀的是影片，我們還可以將相關影片下載下來存檔，甚至放到 IPFS 上分享。</p><blockquote>注意：以下方法需要有少許有關 Terminal 的知識，同時預設你會安裝軟件。</blockquote><h2>如何下載</h2><p>爲了確保所有人下載的影片是一致的（這樣便於在 IPFS 上分享），建議使用著名的影片下載軟件 <a href="https://ytdl-org.github.io/youtube-dl/download.html" target="_blank">youtube-dl</a>。</p><p>安裝完成後，使用方法非常簡單（當然，你還是得先會使用 Terminal...）。例如，如果想存檔頭條新聞（<a href="https://www.youtube.com/playlist?list=PLuwJy35eAVaJS6yf7ne6m61lR5_-N1nrR" target="_blank">https://www.youtube.com/playlist?list=PLuwJy35eAVaJS6yf7ne6m61lR5_-N1nrR</a>），只須先創建一個專門用來存放的目錄，然後在目錄下在 Terminal 鍵入</p><pre class="ql-syntax">youtube-dl "https://www.youtube.com/playlist?list=PLuwJy35eAVaJS6yf7ne6m61lR5_-N1nrR"
+</pre><p>就可以將整個播放清單的影片一次下載下來。</p><p><code>youtube-dl</code> 默認選擇的是最清晰的影片/聲音，因此不同人也會下到最佳且相同的 preset。</p><p>較大的影片，YouTube 會把它們切割成幾個片段，而 <code>youtube-dl</code> 會自動合併成 <code>mkv</code>格式。據我所知，由於 <code>mkv</code> 只是一個容器，不同人合併應該會有一樣的 Hash？（有問題請指出）</p><h2>如何放到 IPFS</h2><p>在相同目錄下，鍵入</p><pre class="ql-syntax">ipfs add --pin -r .
+</pre><p><br></p>

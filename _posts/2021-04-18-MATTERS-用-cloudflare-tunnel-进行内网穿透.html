@@ -1,0 +1,45 @@
+---
+layout: post
+title: 用 Cloudflare Tunnel 进行内网穿透
+date: 2021-04-18 15:34:29.000000000 +00:00
+link: https://matters.news/@outloudvi/%E7%94%A8-cloudflare-tunnel-%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F-bafyreigk5b2jsvlgv2dsiblaicvqfwzwbrvmr3wtgzfulps2axpkbpwdo4
+categories: matters
+tags: blog
+author: Out65
+---
+
+<blockquote>配图来自 Cloudflare Blog 文章 "<a href="https://blog.cloudflare.com/tunnel-for-everyone/" target="_blank">A Boring Announcement: Free Tunnels for Everyone</a>"。</blockquote><h2>内网穿透是什么？</h2><p>内网穿透，指的是将内网端口暴露到公网。由于防火墙的限制，或者中国大陆普遍的 NAT 宽带接入方式，大多用户没有属于自己的公网 IP，因此其它用户无法访问其设备上对外开放的服务（例如 Web 服务器，或者比较常见的案例是 Minecraft 服务器）。过去有许多常见的内网穿透解决方案（例如<a href="https://hsk.oray.com/" target="_blank">花生壳</a>、<a href="https://ngrok.com/" target="_blank">Ngrok</a>、<a href="https://gofrp.org/" target="_blank">frp</a> 及一系列衍生自 frp 的服务等），而 Cloudflare Tunnel 的免费开放，又为我们提供了一种看起来不错的新选择。</p><p><a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation" target="_blank">cloudflared 的下载地址在这里</a>。</p><h2>配置自己的域名（可选）</h2><p>Cloudflare Tunnel 可以绑定到自己的域名上，也可以直接用 Cloudflare 自己提供的域名。如果希望使用 Cloudflare 提供的域名，可以跳过此节。</p><h3>授权域名</h3><p>运行 <code>cloudflared tunnel login</code>，并在浏览器中选择一个域名来授权。</p><p>你的家目录中会出现 <code>~/.cloudflared/cert.pem</code>。在我们创建隧道和设置 DNS 解析的时候，我们会用到这个文件。</p><h3>创建隧道</h3><p>运行 <code>cloudflared tunnel create [名字]</code>，创建一个隧道。这条命令需要之前的 <code>cert.pem</code> 用来验证身份。</p><p>你的家目录中会出现 <code>~/.cloudflared/[一长串UUID].json</code>，里面保存这运行这条隧道所需要的授权信息。</p><h3>配置路由</h3><p>创建了隧道之后，我们还需要让它可以被访问。Cloudflare 支持将其部署到负载均衡器后端，或者通过 DNS 直接访问。这里只介绍后者的使用方法。</p><pre class="ql-syntax">cloudflared tunnel route dns [名字或者 UUID] [想要绑定到的域名或其二级域名]
+</pre><p>你会发现这个域名被设置了一个指向 <code>[UUID].cfargotunnel.com</code> 的 CNAME 记录，并且通过 Cloudflare 进行代理（即橙云）。</p><h3>范例</h3><p>例如，创建一条隧道，设置隧道名字为 <code>mltd</code>，并将其绑定到 <code>cgss.example.com</code>：</p><ol><li>运行 <code>cloudflare tunnel login</code>，并在网页中授权 <code>example.com</code></li><li>运行 <code>cloudflare tunnel create mltd</code></li><li>运行 <code>cloudflare tunnel route dns mltd cgss.example.com</code></li></ol><h2>暴露本地网站到公网</h2><p>服务端需要下载 cloudflared 并拥有一个 Cloudflare 帐号。客户端…什么都不需要。</p><pre class="ql-syntax"># 如果使用自己配置好的域名/隧道
+cloudflared tunnel --name [隧道名称] --url http://[站点地址]
+# 例如：假设要将在本地的 8080 端口的网站暴露给名为 mltd 的隧道：
+# cloudflared tunnel --name mltd --url http://127.0.0.1:8080
+</pre><p>或者：</p><pre class="ql-syntax"># 如果使用 Cloudflare 提供的域名
+cloudflared tunnel --url http://[站点地址]
+# 例如：假设要暴露本地 8080 端口上的网站：
+# cloudflared tunnel --url http://127.0.0.1:8080
+</pre><p>之后就可以通过自己绑定的域名，或者 Cloudflare 生成的域名对网站进行访问。在后一种情况下，cloudflared 会给出一个域名供你使用，像这样：</p><pre class="ql-syntax">+-------------------------------------------------------------+
+|  Your free tunnel has started! Visit it:                    |
+|    https://do-the-idol-hardcore-techno.trycloudflare.com    | +-------------------------------------------------------------+
+</pre><h2>搭建 Minecraft 服务器（或者任何其它 TCP 服务）</h2><h3>服务端配置</h3><p>服务端需要下载 cloudflared 并拥有一个 Cloudflare 帐号。方法和上节类似，只不过把 <code>http://</code> 改为 <code>tcp://</code>：</p><pre class="ql-syntax"># 如果使用自己配置好的域名/隧道
+cloudflared tunnel --name [隧道名称] --url tcp://[服务地址]
+# 例如：假设要将在本地的 25565 端口的 Minecraft 服务器暴露给名为 mltd 的隧道：
+# cloudflared tunnel --name mltd --url tcp://127.0.0.1:25565
+</pre><p>或者：</p><pre class="ql-syntax"># 如果使用 Cloudflare 提供的域名
+cloudflared tunnel --url tcp://[服务地址]
+# 例如：假设要暴露本地 25565 端口上的 Minecraft 服务器
+# cloudflared tunnel --url tcp://127.0.0.1:25565
+</pre><p>后一种情况下，cloudflared 会给出 一个域名供你使用，依旧像这样：</p><pre class="ql-syntax">+-------------------------------------------------------------+
+|  Your free tunnel has started! Visit it:                    |
+|    https://do-the-idol-hardcore-techno.trycloudflare.com    | +-------------------------------------------------------------+
+</pre><h3>客户端配置</h3><p>客户端需要下载 cloudflared，并且从服务端处得到 Minecraft 服务器绑定到的域名（<code>*.trycloudflare.com</code> 也可以哟）。</p><p>cloudflared 默认直接作为字节流输入源（<a href="https://developers.cloudflare.com/cloudflare-one/tutorials/ssh" target="_blank">给 </a><code><a href="https://developers.cloudflare.com/cloudflare-one/tutorials/ssh" target="_blank">ProxyCommand</a></code><a href="https://developers.cloudflare.com/cloudflare-one/tutorials/ssh" target="_blank"> 用</a>）。不过为了方便起见，我们在这里给远端服务设置一个本地端口转发：</p><pre class="ql-syntax">cloudflared access tcp --hostname [绑定到的域名] --listener [本地监听地址]
+# 例如：假设要将绑定到 cgss.example.com 的隧道的 Minecraft 服务器映射到本地的 35565 端口
+# cloudflared access tcp --hostname cgss.example.com --listener 127.0.0.1:35565
+# 之后在 Minecraft 中连接到 127.0.0.1:35565 就可以啦！
+</pre><h2>跳板机（<code>--bastion</code>）</h2><p>所谓跳板机，即可以根据需求访问跳板机可以连接到的的任何一个端口。</p><h3>跳板机配置</h3><pre class="ql-syntax"># 如果使用自己配置好的域名/隧道
+cloudflared tunnel --name [隧道名称] --bastion
+</pre><p>或者：</p><pre class="ql-syntax"># 如果使用 Cloudflare 提供的域名
+cloudflared tunnel --bastion
+</pre><h3>客户端配置</h3><pre class="ql-syntax">cloudflared access tcp --hostname [绑定到的域名] --destination [跳板目的地址] --listener [本地监听地址]
+# 例如：假设要将绑定到 cgss.example.com 的隧道的跳板机内网的 10.1.2.3 的 22 端口的 TCP 服务映射到本地的 8022 端口
+# cloudflared access tcp --hostname cgss.example.com --destination 10.1.2.3:22 --listener 127.0.0.1:8022
+</pre><h2>更多配置</h2><p>也可以在服务端指定配置文件以避免每次重新输入好长好长的命令，或做到同时配置多个服务。</p><p><a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/config" target="_blank">配置文档在这里</a>，本文就不详谈了。</p><hr><blockquote>本文为 Blog 上原文稍作修改后的版本。所有修改均以 Blog 原文为准。由于 IPFS 的不可变性，Matters 的副本无法更新。欲查看原文，请参见 <a href="https://blog.outv.im/2021/cloudflared-tunnel/" target="_blank">Re:Linked</a> 。</blockquote><blockquote>本文以 CC BY-NC-SA 4.0 协议发布。</blockquote>
