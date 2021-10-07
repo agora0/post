@@ -20,6 +20,8 @@ exclude:
   - _posts/2020*
   - _posts/201*
 paginate: 50
+feed:
+  posts_limit: 100
 plugins:
   - jekyll-feed
   - jekyll-paginate
