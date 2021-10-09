@@ -1,0 +1,57 @@
+---
+layout: post
+title: "【Journal Club 筆記】大腦中的年輪蛋糕，演算法告訴你哪塊比較集中。"
+date: 2021-10-09 13:51:52.000000000 +00:00
+link: https://vocus.cc/user/@5e8dffe0fd89780001c7805a/61552e9bfd8978000170c309
+categories: vocus
+tags: blog
+author: 陳政佑
+---
+
+<p>PO影像分析真的好難啊</p>
+<p>　　大家好，我是菜編，今天要分享的跟上次一樣，是屬於影像分析的研究成果，因為sky in the wall希望除了科普外，也希望在文章中介紹各地的研究者跟機構，仔細搜尋後，發現<strong>這篇論文不管是學校還是作者都超級有戲</strong>！</p>
+<h3>上次的文章：</h3>
+<figure>E</figure>
+<h3><br></h3>
+<h3>來自大聯盟的資料分析師，與醉心發育生物學的科學家</h3>
+<p>　　這篇論文有兩位通訊作者，也就是有兩位計畫主持人共同主導這個研究，分別為<strong>班(Benjamin S. Baumer)跟麥可(Michael Barresi )</strong>，他們都任教於<a href="https://www.smith.edu/">美國史密斯大學</a>。這間從創始至今都<strong>只收女性學員</strong>的學校，是蘇菲亞·史密斯 (Sophia Smith)以她在65歲時繼承的鉅額遺產所創建，現今已成為全美規模最大，由本國女性捐建的學院，遵循蘇菲亞女士在遺囑中提及的理念，至今仍致力於提供女性教育資源。</p>
+<p>I hereby make the following provisions for the establishment and maintenance of an Institution for the higher education of young women, with the design to furnish for my own sex means and facilities for education equal to those which are afforded now in our colleges to young men.<br>
+<br>
+為建立和維持一間提供年輕女性高等教育的機構，我將在此設定一些規則，旨在為與我相同性別的人，提供同等於其他大學為年輕男性所提供的教育方法和設施。</p>
+<p>論文計畫主持人 /  Michael Barresi (左)、Benjamin S. Baumer (右) / 個人twitter</p>
+<p>　　也因為至今仍維持只收女性學員的規定，我第一次在校網QA頁面看到<strong>跨性別學生是否能夠申請的提問</strong>，感覺蠻新奇的，這間學院從始至今都走在性別議題的尖端。書寫至此，突然想到菜編高中時去女校參加社團或園遊會活動，尋找男廁是一個巨大的挑戰，不知道這兩位男性教授是否也會遇到這些生活上的不便？</p>
+<p>　　<strong>班助理教授</strong>曾任大聯盟紐約大都會隊的統計分析師，個人網站甚至還有針對棒球描述的分頁，是個熱愛野球的數據科學家，2016年獲得當代棒球分析獎，而<strong>麥可教授</strong>則醉心於研究斑馬魚大腦發育，有趣的是他以前還做過海洋生物研究，搭過研究船環繞加勒比海！藝術方面的造詣或許也體現在論文上，難怪我覺得圖都還不錯看。</p>
+<h3>2D、3D大不同，全新分析技術解密斑馬魚腦中年輪蛋糕的疏密差</h3>
+<p>　　隨著影像分析技術進展，研究工作可以做得越來越準確，速度也變得越來越快，但是<strong>針對三維影像的分析技術還有許多進步空間</strong>，直接分析立體空間比藉二維平面研究能得更多資訊，然而作者認為現存的方法不是很難對比，就是會有不可知的誤差產生，所以麥可跟班想合作發展一個更好的3D影像分析方法。</p>
+<p>目標神經發育影像 (Morgan S. Schwartz et al. 2020)</p>
+<p>　　發展分析方法當然也需要影像證明有沒有用，<strong>這次的目標是POC(post-optic commissure)</strong>，一條位於前腦的神經束，從上圖可清晰看到受精後幾小時(hpf)的發育狀況，POC由軸突(AT,綠色)形成，伴隨著神經膠質細胞(Gfap,紅色)所構成的外框，這可視為引導神經束形成，及支持神經束的結構，好玩的是我覺得形狀頗像年輪蛋糕！另外，you-too突變是斑馬魚的一種品系，牠們沒辦法形成收束完整的POC。</p>
+<p>普通品系(左)跟you-too突變(右)的差別 (Morgan S. Schwartz et al. 2020)</p>
+<h3>△SCOPE大解密，它如何做好影像分析？</h3>
+<blockquote>最後成功建立了一個新的3D影像分析技術：△SCOPE。</blockquote>
+<p>　　獲得影像樣本後，首先要以機器學習演算法ilastik辨識哪些是真的訊號，依此<strong>去除背景雜訊</strong>，然後用統計的PCA方法標示座標軸，並<strong>校準影像至正確位置</strong>，最後為了方便比較，作者將影像<strong>從垂直坐標系轉換至圓柱坐標系</strong>，然後以每個點跟理想模型的距離差距，還有各區間內訊號點的數量進行統計分析，<strong>比較樣本間是否有顯著差異</strong>。</p>
+<p>△SCOPE分析流程圖(Morgan S. Schwartz et al. 2020)</p>
+<p>　　<strong>實際操作確實可行！</strong>完成分析後可知，如果都是普通品系相互比較不會有顯著性，而若是you-too突變跟普通品系比較會有很明顯的差異性被發現，後續他們還針對蛋白質<strong>Slit1a進行研究，發現此物質與初始發育位置準確性有關</strong>，然而跟後續發育的關係就沒那麼大。</p>
+<h3>跨域合作新碰撞，資料科學與生物學的新滋味</h3>
+<p>　　這篇論文我覺得是一個<strong>很好的跨領域合作結果</strong>，現在越來越多這類型的計畫出產，俗話說隔行如隔山，但如果不同專長的人可以一起合作，就能爆發出新的火花。雖然過程中有些人工校正部分不免讓人懷疑：「<strong>這樣真的可以？</strong>」但這或許需要實際操作後才能辨其可行性，總之這樣的研究程序，讓我們看到一種影像分析的可能性，還有在新技術支援下對生物學能帶來多大的助益。</p>
+<h3>原文：</h3>
+<figure>E</figure>
+<p><br></p>
+<p><strong>追蹤我個人的粉專→</strong><a href="https://www.facebook.com/brainhavemouth">https://www.facebook.com/brainhavemouth</a> <br>
+<strong>追蹤Sky in the wall</strong>→<a href="https://www.facebook.com/skyinthewall">https://www.facebook.com/skyinthewall</a></p>
+<h2>喜歡我的文章按讚追蹤加分享！或是斗內抖起來！</h2>
+<h3>也能在留言處提出你的看法喔！</h3>
+<p><br>
+ </p>
+<p><br></p>
+<h2>資料來源：</h2>
+<h3>史密斯學院歷史：</h3>
+<ol>
+  <li>史密斯學院官網：<a href="https://www.smith.edu/about-smith/smith-history">https://www.smith.edu/about-smith/smith-history</a></li>
+  <li>維基百科：<a href="https://zh.wikipedia.org/wiki/%E5%8F%B2%E5%AF%86%E6%96%AF%E5%AD%B8%E9%99%A2">https://zh.wikipedia.org/wiki/%E5%8F%B2%E5%AF%86%E6%96%AF%E5%AD%B8%E9%99%A2</a></li>
+</ol>
+<h3>研究者資料：</h3>
+<ol>
+  <li>Benjamin S. Baumer：<a href="https://www.smith.edu/academics/faculty/ben-baumer">https://www.smith.edu/academics/faculty/ben-baumer</a></li>
+  <li>Michael Barresi ：<a href="https://sophia.smith.edu/blog/barresilab/about-us/">https://sophia.smith.edu/blog/barresilab/about-us/</a></li>
+</ol>
+<p><br></p>
