@@ -1,0 +1,27 @@
+---
+layout: post
+title: 複雜系統
+date: 2021-10-08 10:46:37.964000000 Z
+link: https://www.thestandnews.com/cosmos/%E8%A4%87%E9%9B%9C%E7%B3%BB%E7%B5%B1
+categories: stand
+tags: blog
+author: 羅家聰
+---
+
+<figure><img src="https://images.weserv.nl/?url=assets.thestandnews.com/media/photos/SH_oYiwg224.png"><figcaption><span>資料圖片，來源：Agustín Lautaro @ Unsplash</span></figcaption></figure><p><a href="https://www.thestandnews.com/cosmos/%E7%A0%94%E7%A9%B6%E6%B0%A3%E5%80%99%E8%AE%8A%E5%8C%96%E7%89%A9%E7%90%86%E6%A8%A1%E5%9E%8B%E7%AD%89%E9%A1%8C%E7%9B%AE-%E6%97%A5%E5%BE%B7%E6%84%8F%E5%AD%B8%E8%80%85%E5%A5%AA%E8%AB%BE%E8%B2%9D%E7%88%BE%E7%89%A9%E7%90%86%E5%AD%B8%E7%8D%8E" target="_blank">今屆諾貝爾物理學獎</a>頒予「groundbreaking contributions to our understanding of complex physical systems」。雖謂複雜系統，但其實今次所頒的主題仍圍繞氣候；畢竟，近一、兩年的極端氣候已「很貼地」地殺埋身。然而，複雜系統絕不限於氣候研究。</p>
+
+<p>何謂複雜系統？其實很可能是由若干條微分方程組成，簡單的有疫情發展模型：</p>
+
+<div><figure><img src="https://images.weserv.nl/?url=assets.thestandnews.com/media/photos/00001fukwgush.png"></figure></div>
+
+<p>這類算簡單的。在是次評審發表的文件中，那氣候模型是涉四次偏微分方程的：</p>
+
+<div><figure><img src="https://images.weserv.nl/?url=assets.thestandnews.com/media/photos/00002fukwgush.png"></figure></div>
+
+<p>偏微分還要加上高次方，麻煩得多，多以數值積分（numerical integration）求解。以前的物理佬會用 Fortran 77 做。區區近年讀物理都解過這類數值積分，但已用 C++，不過兩套軟件都舊式兼難寫。近年的已多用 Python，速度不差很多，但編碼易得多。</p>
+
+<p>這類方程，只要多一、兩條或每條複雜些少，求解起來的難度可以高很多。另外，這些很可能是混沌現象，取決於初始條件，一旦要考慮很多（接近無數）的可能性時，計算量會幾何級數甚至指數式暴增。於是，之後要「解」的已是怎找部超級電腦了。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>羅家聰 </strong><a href="https://mewe.com/join/lawkachung" target="_blank"><strong>mewe.com/join/lawkachung</strong></a><strong>、</strong><a href="https://www.facebook.com/kachung.law.988" target="_blank"><strong>facebook.com/kachung.law.988</strong></a>、<a href="mailto:lawkachung@gmail.com" target="_blank"><strong>lawkachung@gmail.com</strong></a></p>
