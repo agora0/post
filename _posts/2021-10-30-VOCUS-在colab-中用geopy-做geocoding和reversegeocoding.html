@@ -1,0 +1,87 @@
+---
+layout: post
+title: 在Colab 中用Geopy 做Geocoding和ReverseGeocoding
+date: 2021-10-30 01:51:34.000000000 +00:00
+link: https://vocus.cc/user/@ecyY/617c905ffd897800012047a3
+categories: vocus
+tags: blog
+author: REDBRIC
+---
+
+<p>Geocoding (地理編碼 - 將物理地址轉換為經緯度yx坐標) 及ReverseGeocoding (逆向地理編碼 - 將經緯度yx坐標轉換為物理地址) 是地理資訊系統 GIS 分析的基本需求。儘管谷歌地圖Google Map也有提供識別位置和轉換坐標的功能，但手動地一個一個去找實在太費時乏味。大家如有使用昂貴 GIS 軟件的經驗，一定懂得使用地理編碼和逆向地理編碼的功能，則大可忽略本文。然而，若想找一種可結合人工智能和機器學習程式的地理編碼和逆向編碼程式，且易用兼毋需訂閱費，則可繼續閱讀如何在 Colab 中使用 Geopy 輕鬆進行Geocoding和ReverseGeocoding。</p>
+<p>譬如本欄上月示範繪製的奧克蘭商學院地理位置地圖(圖1，姚2021a)，地圖中只標示了地址為 12 Grafton Road, Auckland，如何找出其經緯度坐標?</p>
+<p>地圖來源；姚 (2021a) https://ecyy.medium.com/make-a-map-by-datawrapper-c7ff70696e88</p>
+<h2>地理編碼</h2>
+<p>讓我們先從最簡單找尋一個地址的坐標開始，首先當然是打開 Google Colab 平台 [若您從未使用Colab，可先看一段Yiu, 2021的Youtube]並安裝 geopy，並從 geopy.geocoders 導入 Nominatim:</p>
+<p><br></p>
+<p>!pip install geopy</p>
+<p><strong>import</strong> <strong>geopy</strong> </p>
+<p><strong>from</strong> <strong>geopy.geocoders</strong> <strong>import</strong> Nominatim</p>
+<p><br></p>
+<p>Nominatim只是眾多地理編碼服務提供商之一的OpenStreetMap的地理資訊聯結名稱，其他還有例如谷歌地圖平台的 GoogleV3、 和必應地圖的 Bing等，如下圖摘自 Geopy Documentation所示的關係：</p>
+<p>Geopy 和地理編碼服務。來源：Geopy 文檔 — Geocoders。 https://geopy.readthedocs.io/en/stable/#module-geopy.geocoders</p>
+<p>只需輸入以下簡單指令geolocator.geocode便可找到該地址的經緯度坐標：</p>
+<p><br></p>
+<p>geolocator = Nominatim(timeout=10, user_agent = "my-application")</p>
+<p>location = geolocator.geocode('12 Grafton Road, Auckland')</p>
+<p>print(location)</p>
+<p>print((location.latitude, location.longitude))</p>
+<p><br></p>
+<p>得出的結果如下，它不但找到相對應的坐標，還會顯示更完整的地址，包括郵政編碼和國家/地區名稱：</p>
+<p>12, Grafton Road, Learning Quarter, Auckland Central, Auckland, Waitematā, Auckland, 1053, New Zealand / Aotearoa</p>
+<p>(-36.8533028, 174.7709309)</p>
+<h2>逆向地理編碼</h2>
+<p>逆向地理編碼同樣簡單，只需輸入yx坐標，又稱為Latitude (緯度) 和 Longitude (經度)，輸入指令locator.reverse 便會得出地址：</p>
+<p><br></p>
+<p>locator = Nominatim(timeout=10, user_agent="my-application")</p>
+<p>coordinates = "-36.8533028, 174.7709309"</p>
+<p>location = locator.reverse(coordinates)</p>
+<p>print(location.latitude, location.longitude)</p>
+<p>print(location.address)</p>
+<p><br></p>
+<p>得出的結果如下，它甚至能顯示建築物的名稱 OGGB 而不是街道號碼。這要好得多，因為建築物名稱比街道編號更不容易出錯：</p>
+<p>36.853128749999996 174.7712888303203</p>
+<p>Owen G. Glenn Building, Grafton Gully Cycleway, Learning Quarter, Auckland Central, Auckland, Waitematā, Auckland, 1053, New Zealand / Aotearoa</p>
+<h2>全自動化地理編碼程式</h2>
+<p>若需要進行多項地理編碼，首先當然需要把所需地理編碼的地址放在一份如 .csv 的檔案，為方便對答案，讓我們使用本欄文章(姚，2021b)曾介紹如何下載的「香港居者有其屋計劃 (HOS) 屋苑地理資訊檔案」進行地理編碼，以下的下載文件程式相信大家早已非常熟悉，毋須多解釋。若你是首次使用Colab下載檔案，請先參考 姚(2021b)。</p>
+<p><br></p>
+<p><strong>from google.colab import</strong> drive</p>
+<p>drive.mount('/content/drive/')</p>
+<p>data = gpd.read_file("drive/MyDrive/Colab Notebooks/Home_Ownership_Scheme_Courts_in_Hong_Kong.shp")</p>
+<p>data.head()</p>
+<p><br></p>
+<p>這份HOS屋苑的地理資訊包含屋苑名稱和經緯度坐標，正好用作對答案之用。圖2顯示首五個屋苑的一些資訊，第三欄 Estate_Nam 是各屋苑的名稱，以下讓我們嘗試輸入這個屋苑名稱，看看能否找出相對應的經緯度坐標，然後與檔案中的坐標欄The_map_la 和 The_map_lo 比較，便知答案是否正確。全檔有多達210個屋苑的資訊，其中更有一些資訊問題，令地址無法被機器閱讀，這些都是編程常見的問題。</p>
+<p>首五項有關「香港居者有其屋計劃 (HOS) 屋苑」的地理資訊。來源ESRI at https://opendata.esrichina.hk/search?tags=housing</p>
+<p>今次的自動化程式使用一個 FOR Loop 循環地理編碼過程重複 N 次以自動將地址轉換為 yx 坐標（緯度和經度），內容大致與上同，只是加入了一個FOR Loop 循環，再用一個 try - except 來處理萬一遇上數據格式不符的情況。</p>
+<p><br></p>
+<p><strong>for</strong> index, row <strong>in</strong> data.iterrows():</p>
+<p><strong>try</strong>:</p>
+<p>    geolocator = Nominatim(timeout=10, user_agent = "my-application")</p>
+<p>    location = geolocator.geocode(row.Estate_Nam)</p>
+<p>    print(index, location.latitude, location.longitude)</p>
+<p><strong>exceptAttributeError</strong>:</p>
+<p>    print('nan')</p>
+<p><br></p>
+<p>以下是一些結果，其中譬如比較第一項富雅花園，坐標的相同度高達小數點後第三位，事實上，屋苑並非地理上的一小點，而是一片土地，因此輕微的坐標差別完全可以接受。更有趣是第86項資訊因數據出現誤差，未能找出坐標，透過try - except編碼的處理可避免中途死機。</p>
+<p><br></p>
+<p>0 22.4441117 114.16812085484153</p>
+<p>1 22.44065245 114.16576753096723</p>
+<p>2 22.45293585 114.17016884648434</p>
+<p>3 22.454933150000002 114.16686970989814</p>
+<p>4 22.443053749999997 114.16755847146352</p>
+<p>...</p>
+<p>84 22.34146505 114.20776507803848</p>
+<p>85 22.3441998 114.19970973102028</p>
+<p>nan</p>
+<p>87 22.3460944 114.187932175</p>
+<p>88 22.34435475 114.18696403843002</p>
+<p>89 22.340690350000003 114.20915794027268</p>
+<p><br></p>
+<p>Github 版程式可參考：<a href="https://github.com/Chung-collab/GREAT-LAB/blob/main/Geocode_n_Reverse.ipynb"><u>https://github.com/Chung-collab/GREAT-LAB/blob/main/Geocode_n_Reverse.ipynb</u></a></p>
+<p>參考：</p>
+<p>Geopy (2018) GeoPy’s Documentation, <a href="https://geopy.readthedocs.io/en/stable/#module-geopy.geocoders"><u>https://geopy.readthedocs.io/en/stable/#module-geopy.geocoders</u></a></p>
+<p>Hass, P. (2020) How to Geocode with Python and Pandas, Medium. Jan 27. <a href="https://peterhaas-me.medium.com/how-to-geocode-with-python-and-pandas-4cd1d717d3f7"><u>https://peterhaas-me.medium.com/how-to-geocode-with-python-and-pandas-4cd1d717d3f7</u></a></p>
+<p>ReverseGeocoding, Colab. <a href="https://colab.research.google.com/github/shakasom/geocoding/blob/master/ReverseGeocoding.ipynb"><u>https://colab.research.google.com/github/shakasom/geocoding/blob/master/ReverseGeocoding.ipynb</u></a></p>
+<p>姚松炎 (2021a) 輕鬆畫地圖，方格子，10月12日。https://vocus.cc/AI_and_ML/61653c90fd8978000188adaf </p>
+<p>姚松炎 (2021b) 在Colab用Geopandas和Contextily畫地圖，方格子，7月4日。 https://vocus.cc/AI_and_ML/60e12920fd89780001c270fc</p>
+<p>Yiu (2021) Workshop on Colab，Youtube, Oct 12. https://youtu.be/thSkPlP40bg </p>
