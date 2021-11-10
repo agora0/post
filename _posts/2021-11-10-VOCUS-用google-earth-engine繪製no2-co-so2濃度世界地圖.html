@@ -1,0 +1,56 @@
+---
+layout: post
+title: 用Google Earth Engine繪製NO2/CO/SO2濃度世界地圖
+date: 2021-11-10 04:30:59.000000000 +00:00
+link: https://vocus.cc/user/@ecyY/618aec8ffd89780001005c3f
+categories: vocus
+tags: blog
+author: REDBRIC
+---
+
+<p>日前本欄介紹了如何使用谷哥地球引擎 (Google Earth Engine，GEE) 繪製不同日期的全球甲烷 (CH4) 濃度地圖 (姚，2021)，同樣方法也可以繪製其他氣體的濃度地圖，對研究空氣污染和全球暖化等課題有重大幫助，關鍵在於有沒有相關的氣體濃度數據可以公開下載。</p>
+<p>上文所用的甲烷數據來自人造衛星：歐盟/歐空局/哥白尼計劃 (EU/ESA/Copernicus) 的哨兵人造衛星5P (Sentinel-5P) 所收集的離線甲烷數據 (OFFL CH4)，而哥白尼計劃原名為 GMES (Global Monitoring for Environment and Security), 暫翻譯為全球環境與保安監察，所搜集的資料可分為五項：大氣監察 (atmosphere monitoring)，海洋環境監察 (marine environment monitoring)，土地監察 (land monitoring)，氣候變化 (climate change)，危急管理 (emergency management)，保安 (security)。(圖1) 另有Youtube 短片介紹https://youtu.be/MGJss4lDaBo </p>
+<p>圖1 歐盟/歐空局/哥白尼計劃https://www.copernicus.eu/en/about-copernicus</p>
+<p>因此，我們可以從哨兵人造衛星5P (Sentinel-5P) 收集其他多項氣體數據，本文以NO2/CO/SO2) 介紹如何利用GEE的JavaScript，介紹一套較為百搭(易於轉換作其他數據)的程式，以便大家更易掌握。程式簡單分為四部份，這程式參考了 Paul Moraga 的GEE教材 (https://www.paulamoraga.com/tutorial-gee/)，程式的優點是只須更改參數，如國家名稱、氣體名稱、年月份、顏色等便可繪製不同氣體濃度的地圖，但由於不同氣體的濃度區間差別可以很大，所以在定義顏色區間的最小和最大值較為複雜，可能須要多試不同區間或參考<a href="https://developers.google.com/earth-engine/datasets">Earth Engine Data Catalog</a>的資料 (連線在文末)：</p>
+<ol>
+  <li>輸入國家底圖 - 可直接輸入國家名稱自動找尋</li>
+  <li>輸入相關氣體的數據 - 可直接輸入NO2/CO/SO2等</li>
+  <li>定義年份和月份及計算平均值 - 可直接輸入某年的某幾個月的平均</li>
+  <li>定義顏色區間並在地圖著色 - 可直接輸入顏色名稱及區間值</li>
+</ol>
+<p><br></p>
+<p>//import country boundary 輸入國家底圖 </p>
+<p>var countries = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017');</p>
+<p>var filterCountry = ee.Filter.eq('country_na', 'United States');</p>
+<p>var country = countries.filter(filterCountry);</p>
+<p>Map.addLayer(country);</p>
+<p>Map.centerObject(country, 6);</p>
+<p><br></p>
+<p>// Importing NO2 values 輸入NO2數據</p>
+<p>var no2ic = ee.ImageCollection('COPERNICUS/S5P/NRTI/L3_NO2').select('NO2_column_number_density');</p>
+<p><br></p>
+<p>// Filtering and averaging NO2 values 定義年份和月份及計算平均值</p>
+<p>var filterMonth = ee.Filter.calendarRange(10, 12, 'month');</p>
+<p>var  no2 = no2ic.filter(filterMonth);</p>
+<p>var filter20 = ee.Filter.calendarRange(2020, 2020, 'year');</p>
+<p>var no2_yy = no2.filter(filter20).mean().multiply(1e6).clip(country);</p>
+<p><br></p>
+<p>// Adding data to the map 定義顏色區間並在地圖著色</p>
+<p>var vizParams = {</p>
+<p>  min: 0,</p>
+<p>  max: 200,</p>
+<p>  palette: ['black', 'purple', 'green', 'red']</p>
+<p>};</p>
+<p>Map.addLayer(no2_yy, vizParams, 'no2_yy');</p>
+<p><br></p>
+<p>簡單四步便可繪製如下圖在香港附近地區的NO2濃度地圖。可參考我的Youtube詳細講解 https://youtu.be/B8kN7A73848：</p>
+<p>圖2 用GEE繪製香港附近的NO2濃度地圖 (顏色區間0-200)。</p>
+<p>只要把國家名稱改為德國 ‘Germany’，顏色區間由0-200改為0-100，便可得出圖3的地圖。</p>
+<p>圖2 用GEE繪製德國NO2濃度地圖 (顏色區間0-100)。</p>
+<p>詳細數據參數資料可參考：<a href="https://developers.google.com/earth-engine/datasets">Earth Engine Data Catalog</a> - Datasets - Sentinel-5P NRTI CO: Near Real-Time </p>
+<p>Nitrogen Dioxide (NO2): https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_NRTI_L3_NO2</p>
+<p>Sulphur Dioxide (SO2): https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_NRTI_L3_SO2</p>
+<p>Carbon Monoxide (CO): https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_NRTI_L3_CO</p>
+<p>參考：</p>
+<p>姚松炎 (2021) 用Google Earth Engine繪製CH4濃度世界地圖，方格子，11月7日。https://vocus.cc/article/6186e67afd89780001e9d6c9</p>
+<p><br></p>
