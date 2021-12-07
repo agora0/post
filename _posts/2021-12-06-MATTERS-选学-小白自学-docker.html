@@ -1,0 +1,38 @@
+---
+layout: post
+title: "（选学）小白自学 docker"
+date: 2021-12-06 23:04:35.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E9%80%89%E5%AD%A6-%E5%B0%8F%E7%99%BD%E8%87%AA%E5%AD%A6-docker-bafyreig4d2flwtpq7bgs5xdnqfb35yllh27j62aarojsaboceslx2hjtaa
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<figure class="image"><img src="https://assets.matters.news/embed/807ced35-94ab-45ae-98ad-26eb4e97de50.png" data-asset-id="807ced35-94ab-45ae-98ad-26eb4e97de50" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>docker 是一种 container 管理工具，标志是一只蓝海豚。Docker 可以帮助程序员解决环境配置问题。有了 docker image，把代码甩给另外一个程序员，瞬间跑起来，节省折腾配置环境，版本、系统兼容等问题的时间和精力。</p><p>likecoin 链也是因为有了 docker image，因此搭建节点过程比其他币种简单省事不少。</p><p><br></p><h2>1 container VS 虚拟机 （VM：Virtual Machine）</h2><p>container 较传统虚拟机，最大的区别就是 container 没有单个的操作系统，但虚拟机有。所以 container 比虚拟机需要占用的资源少（light-weight），同时还好移动。</p><figure class="image"><img src="https://assets.matters.news/embed/5241276a-670c-46b6-ae66-803eddd5c361.png" data-asset-id="5241276a-670c-46b6-ae66-803eddd5c361" referrerpolicy="no-referrer"><figcaption><span>https://www.docker.com/blog/containers-and-vms-together/</span></figcaption></figure><p>安装传统虚拟机，需要 hypervisor 虚拟一套硬件设备和操作系统，而 container 在结构上最大的区别就是没有 OS，只包含 app 和 bin 代码文件。</p><p>如果 app 不需要折腾操作系统，选 container 可以比用传统 VM 省不少事。</p><p><br></p><h2>2 Docker Desktop</h2><p>要用 docker，需要先安装 docker。</p><p>先安装 docker desktop 玩玩，安装 docker desktop 的过程和安软件差不多 <a href="https://docs.docker.com/desktop/" rel="noopener noreferrer" target="_blank">https://docs.docker.com/desktop/ </a>根据自己电脑操作系统安装，鼠标点点点。</p><figure class="image"><img src="https://assets.matters.news/embed/adf362a4-038f-420b-9865-18309c34f212.png" data-asset-id="adf362a4-038f-420b-9865-18309c34f212" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>安装好后，双击海豚圆按钮就可以启动啦：</p><figure class="image"><img src="https://assets.matters.news/embed/2a331637-ded7-422a-a55d-c9cae7234a84.png" data-asset-id="2a331637-ded7-422a-a55d-c9cae7234a84" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>检查 docker 有没有安装成功：</p><pre class="ql-syntax" spellcheck="false">docker version
+</pre><p><br></p><h2>2 image VS container</h2><p>要有一个 container，首先需要创建 image。</p><p>image 的概念类似蓝图（blueprint），container 的概念类似实例（instance）；和程序开发中的类（Class）和实例化类（Object）的概念类似。</p><figure class="image"><img src="https://assets.matters.news/embed/6aac7521-f38e-4ad1-b1fb-d9b9f321642a.jpeg" data-asset-id="6aac7521-f38e-4ad1-b1fb-d9b9f321642a" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><blockquote>造车需要一张车蓝图（class），蓝图为车配备引擎、轮子、品牌……等必备元素。有了车蓝图，再根据自己的需要生产车（object）。车车可以是奔驰也可以是宝马……但不论奔驰车还是宝马车，都有 4 个轮子一个引擎，都需要根据蓝图（class）实例化（instance）后才能在马路上跑……<strong>没有被实例化的车，不论奔驰还是宝马，都是脑海中的臆想（还是蓝图），不能开上马路奔向豪车人生</strong>。</blockquote><blockquote>为了简省配置 likecoin 节点的时间，likecoin 提供了 docker image。直接把 image 找来 build 一下，根据 image 的指标重复生产 container，就可以跑啦……不用再挨个根据配置要求找零件安装可互相兼容的引擎、轮子、车牌……</blockquote><p><br></p><h2>3 Docker Hub</h2><p>一个存放各种 docker image 的网站，可以去上面 pull 你需要的各种 image 然后组装一下。</p><figure class="image"><img src="https://assets.matters.news/embed/4eecb050-cb9b-49b1-b5e5-79c3fc5ca2ba.png" data-asset-id="4eecb050-cb9b-49b1-b5e5-79c3fc5ca2ba" referrerpolicy="no-referrer"><figcaption><span>docker hub 上常见各种代码都有</span></figcaption></figure><p>docker hub 之于 docker 的概念，和 git hub 之于 git 的概念差不多。</p><blockquote><strong>git 又是啥？</strong>我曾经<a href="https://matters.news/@potato_pepper/%E5%B0%8F%E7%99%BD%E8%87%AA%E5%AD%A6%E4%BB%A3%E7%A0%81%E5%81%9Aapp-%E9%87%8E%E8%B7%AF%E5%AD%90%E4%B9%9F%E6%9C%89%E6%98%A5%E5%A4%A9-3-bafyreib6raqkollt7is3kxphz6c4fvfsui4twnovuxvsjfyhs3ww5dyrsy" rel="noopener noreferrer" target="_blank">略讲过 git</a>，能看就将就看吧……</blockquote><p><br></p><h2>4 Dockerfile</h2><p>以 Vue3 为例。跑 Vue3 需要安装 node，还可能会用到各种包。有的时候因为 node 版本不同，相同代码换到另一台电脑就跑不起来了，很是头痛。</p><p>为了解决这种浪费时间折腾环境版本问题，程序员A 在项目里添加一个 Dockerfile 文件，再把做好的 Vue3 代码给下一个程序员 B。程序员B 拿到 Vue3 代码后，在已安装 docker 环境的电脑上 build 一下image 就可以跑 Vue3 了。</p><p>跑 Vue3 的 Dockerfile 长这样：</p><pre class="ql-syntax" spellcheck="false"># 从 docker hub 获取 node image，指定 node 版本为 14.14.0
+FROM node:14.14.0
+
+# 指定 container 路径
+WORKDIR /vue_app
+
+# npm 安装各种包
+RUN npm install
+
+# 复制源码进 container，“ .”即 WORKDIR 中指定的  /vue_app
+COPY ./vue_app/ .
+
+# 跑 Vue dev 
+CMD ["npm", "run", "serve"]
+</pre><p>（更多 Dockerfile 代码命令参见：<a href="https://docs.docker.com/engine/reference/builder/" rel="noopener noreferrer" target="_blank">https://docs.docker.com/engine/reference/builder/</a>）</p><p><br></p><p>有了Dockerfile，就可以 build image 了：</p><pre class="ql-syntax" spellcheck="false">docker build -t vueapp:0.0.1 .
+</pre><p>-t：即 tag，标记该 image 叫啥名字( repo )。这里 image 取名 vueapp，暂定版本 0.0.1。最后的“.”即当前 Dockerfile 所在位置。</p><p><br></p><p>给电脑一些时间 build image，完成后检查 image 有没有创建成功：</p><pre class="ql-syntax" spellcheck="false">docker images
+</pre><p><br></p><h2>5 Container</h2><p>有了 image，还不能跑，需要把 image 向 container 实例化后才跑。</p><pre class="ql-syntax" spellcheck="false">docker run --name vue_app_container --rm -it -d -p 8080:8080 vueapp:0.0.1
+</pre><p><br></p><p>把之前创建好的 vueapp 生成一个叫 vue_app_container 的 container，并且绑定 8080 端口号。container 起来后，终于可以在浏览器输入 local host:8080 看看 Vue3 长啥样了。</p><p>当然可以查看进程查看正在运作的 container：</p><pre class="ql-syntax" spellcheck="false">docker ps
+</pre><p><br></p><h2>6 docker-compose</h2><p>一些项目需要几个 container 同时运作，比如 前端 + 后端 + 数据库，于是要搞 3 个 Dockerfile 吗？</p><p>所以需要引入 docker-compose，一次就可以把需要的 container 全跑起来啦。</p><p>创建 docker-compose 配置文件步骤同单个 container 的 Dockerfile，在项目文件夹创建 docker-compose.yml 文件。</p><p>还是以 Vue3 为例，docker-compose.yml 文件长这样：</p><pre class="ql-syntax" spellcheck="false">version: '3'
+services:
+  vue:
+    build: ./vue
+    image: vueapp:0.0.2
+    container_name: "vue_app_container"
+    ports:
+      - "8080:8080"
+</pre><ul><li>version：指定使用 docker-compose 版本，这里使用 3；</li><li>services：即把 1+ 个 container 放在 services 里面；</li></ul><p><br></p><p>（更多 docker-compose 文件配置代码请查：<a href="https://docs.docker.com/compose/compose-file/compose-file-v3/" rel="noopener noreferrer" target="_blank">https://docs.docker.com/compose/compose-file/compose-file-v3/</a>）</p><p><br></p><h2>7 Docker 入门自学教程（ 2 小时）</h2><p>基础概念科普完成有了大致印象后，奉送 Docker 入门自学视频：</p><figure class="embed-video"><div class="iframe-container"><iframe src="https://www.youtube.com/embed/i7ABlHngi1Q?rel=0" frameborder="0" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups"></iframe></div><figcaption><span>这是我认为在 Youtube 上讲 docker 讲得最好的视频，只需 1 个小时即可完成小白扫盲入门</span></figcaption></figure><p><br></p><h2>8 课后作业</h2><p>实战才是王道，看完教程不做作业和没学是一回事。Docker 选学作业如下：</p><ul><li>build 一个最简单的 Vue3 image</li><li>用 docker-compose 再 build 一个 Vue3</li></ul><p><br></p><hr><p><br></p><p>参考资料：</p><p><a href="https://linuxtut.com/en/09384726105eee53bbb6/" rel="noopener noreferrer" target="_blank">https://linuxtut.com/en/09384726105eee53bbb6/</a></p>
