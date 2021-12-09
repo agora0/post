@@ -1,0 +1,36 @@
+---
+layout: post
+title: 小白搭建 Likecoin 节点加盟验证人步骤
+date: 2021-12-09 01:12:51.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%B0%8F%E7%99%BD%E6%90%AD%E5%BB%BA-likecoin-%E8%8A%82%E7%82%B9%E5%8A%A0%E7%9B%9F%E9%AA%8C%E8%AF%81%E4%BA%BA%E6%AD%A5%E9%AA%A4-bafyreig4kmbob5vxded4xtuuhikczmi2jq6gholzv2qfxuypbxnmlvalsq
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<h2>1 Digital Ocean 买 Droplet</h2><p>购买时可以要求预装 docker：</p><figure class="image"><img src="https://assets.matters.news/embed/0601997c-343c-424b-8549-ebd3972a8ae2.jpeg" data-asset-id="0601997c-343c-424b-8549-ebd3972a8ae2" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>选择服务器位置后，生成一对 SSH key 创建远程登录。</p><figure class="image"><img src="https://assets.matters.news/embed/c0737a77-c389-49b1-84cb-9eee63884fdc.jpeg" data-asset-id="c0737a77-c389-49b1-84cb-9eee63884fdc" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>用 Mac 的话，直接跑：</p><pre class="ql-syntax" spellcheck="false">ssh-keygen
+</pre><p>（用 Windows 貌似需要先安装一个 Putty）</p><p><br></p><p>接着把公钥复制粘贴到 digital ocean：</p><pre class="ql-syntax" spellcheck="false">cat ~/.ssh/<key name>.pub
+</pre><figure class="image"><img src="https://assets.matters.news/embed/d53e244b-41d3-4382-8a31-c72404324bf7.jpeg" data-asset-id="d53e244b-41d3-4382-8a31-c72404324bf7" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><h2>2 用 SSH key 登录服务器</h2><p>用刚刚创建的 SSH key 登录 Digital Ocean：</p><pre class="ql-syntax" spellcheck="false">ssh -i <user>@<ip address>
+</pre><p><br></p><p>链接成功后，检查 docker 有没有安装：</p><pre class="ql-syntax" spellcheck="false">docker version
+docker-compose version
+</pre><p><br></p><p>Likecoin chain 要求 Docker compose 版本最低 1.28.0，所以貌似需要升下级：</p><pre class="ql-syntax" spellcheck="false">curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+</pre><p><br></p><p>添加权限：</p><pre class="ql-syntax" spellcheck="false">chmod +x /usr/local/bin/docker-compose
+</pre><p><br></p><h2>3 创建节点</h2><p>docker 环境版本没问题后，去 github 下载代码。Digital Ocean 已经预装 git 了，于是直接跑：</p><pre class="ql-syntax" spellcheck="false">git clone https://github.com/likecoin/likecoin-chain — branch fotan-1.1 — single-branch
+</pre><p><br></p><p>进入 likecoin-chain 目录，并创建 docker image：</p><pre class="ql-syntax" spellcheck="false">cd likecoin-chain
+./build.sh
+</pre><p><br></p><p>这一步需要跑一段时间，跑完后复制环境配置文件模版到根目录：</p><pre class="ql-syntax" spellcheck="false">cp docker-compose.yml.template docker-compose.yml
+cp .env.template .env
+</pre><p><br></p><p>修改<strong> </strong>.env 信息，加入 mainnet：</p><pre class="ql-syntax" spellcheck="false">LIKECOIN_MONIKER="choose a COOL name for your node" LIKECOIN_DOCKER_IMAGE="likecoin/likecoin-chain:fotan-1.1" LIKECOIN_CHAIN_ID="likecoin-mainnet-2" LIKECOIN_GENESIS_URL="https://gist.githubusercontent.com/williamchong/de1bdf2b2a8f3bce50a4b5e46af26959/raw/4e21bff586771c849d22e1916bcb88c6463fbaa0/genesis.json" LIKECOIN_SEED_NODES="913bd0f4bea4ef512ffba39ab90eae84c1420862@34.82.131.35:26656,e44a2165ac573f84151671b092aa4936ac305e2a@nnkken.dev:26656"
+</pre><p><br></p><p>如果是 root 用户，需要把 uid 改为 0:</p><pre class="ql-syntax" spellcheck="false">LIKECOIN_UID="0"
+</pre><figure class="image"><img src="https://assets.matters.news/embed/e1e78b4e-bc25-4d5e-8105-008b63188ca1.png" data-asset-id="e1e78b4e-bc25-4d5e-8105-008b63188ca1" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>.env 修改完毕后，执行：</p><pre class="ql-syntax" spellcheck="false">docker-compose run — rm init
+</pre><p><br></p><p>几秒钟后，.liked 文件夹在项目文件夹下被创建出来，继续执行：</p><pre class="ql-syntax" spellcheck="false">docker-compose run — rm liked-command keys
+</pre><p>这一步，终端会输出 mnemonic phrase，像这样：</p><figure class="image"><img src="https://assets.matters.news/embed/fddb0c95-fa10-4476-9cfd-70f196ca6ad9.png" data-asset-id="fddb0c95-fa10-4476-9cfd-70f196ca6ad9" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><h2>⚠️ 截图只是示范，把 24 个单词保存好，不要泄漏给任何人。</h2><p><br></p><p>接下来启动节点：</p><pre class="ql-syntax" spellcheck="false">docker-compose up -d
+</pre><p><br></p><p>查看 log 有没有错误：</p><pre class="ql-syntax" spellcheck="false">docker-compose logs
+</pre><p><br></p><h2>3 同步节点</h2><p>Likecoin 文档提供了<strong>[State Sync] 的方法，</strong>让节点可以快速同步，但貌似不是很好用<strong>。</strong></p><p>可以用 Likecoin Discord 群内提供的一个比较简单的办法：把所有节点数据下载到服务器：</p><figure class="image"><img src="https://assets.matters.news/embed/ab2ecfd9-db17-41f9-a770-8a3475013178.png" data-asset-id="ab2ecfd9-db17-41f9-a770-8a3475013178" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>把最新数据下载并解压到 .liked 的 data 文件夹下，这样节点可以很快完成同步。</p><p>查看节点状态：</p><pre class="ql-syntax" spellcheck="false">curl localhost:26657/status
+</pre><figure class="image"><img src="https://assets.matters.news/embed/1b3e5762-e504-4d48-a024-ebff2c700143.png" data-asset-id="1b3e5762-e504-4d48-a024-ebff2c700143" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><strong>“catching_up”: false</strong> 预示节点已完成同步。</p><p><br></p><h2>4 创建验证人节点</h2><p>节点数据完成同步后，创建验证人加入 Likecoin 链：</p><pre class="ql-syntax" spellcheck="false">docker-compose run — rm create-validator \
+— amount <AMOUNT> \
+— details <DETAILS> \
+— commission-rate <COMMISSION_RATE>
+</pre><p>初始化时需要最少1000000000nanolike 的自我委托，即 1 like。所以创建之前确保钱包里有些钱，可以用 Keplr Browser Extension 导入钱包并充值。</p><p><br></p><figure class="image"><img src="https://assets.matters.news/embed/6a7387b7-4023-481c-8a56-bd881016c081.png" data-asset-id="6a7387b7-4023-481c-8a56-bd881016c081" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>如果遇到气费不足，添加 fees：</p><pre class="ql-syntax" spellcheck="false">--fees 200000nanolike
+</pre><p><br></p><figure class="image"><img src="https://assets.matters.news/embed/8b02c173-cac4-4aea-af8d-3a1f7a5548b6.png" data-asset-id="8b02c173-cac4-4aea-af8d-3a1f7a5548b6" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>如果遇到链接错误，添加 node：</p><pre class="ql-syntax" spellcheck="false">— node tcp://liked-service:26657
+</pre><p><br></p><p>我第一次创建验证人节点时，遇到了 “RPC error”：</p><figure class="image"><img src="https://assets.matters.news/embed/1af051aa-a948-4afe-ba4f-62a2078644e3.png" data-asset-id="1af051aa-a948-4afe-ba4f-62a2078644e3" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>但这貌似是 Likecoin chain 的一个 bug，其实交易已经创建了。遇到这类错误时，可以去 big dipper 查看记录详情：</p><figure class="image"><img src="https://assets.matters.news/embed/a2e62b30-7138-42ba-bcb1-afbd7587ad8e.png" data-asset-id="a2e62b30-7138-42ba-bcb1-afbd7587ad8e" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>这样我的验证人节点就创建好了，这时我可以看到我的头像出现在验证人列表里。</p><p><br></p><hr><p><br></p><p>参考资料：</p><p><a href="https://thumbb13555.pixnet.net/blog/post/334026700-likecoin_validator" rel="noopener noreferrer" target="_blank">https://thumbb13555.pixnet.net/blog/post/334026700-likecoin_validator</a></p><p><a href="https://docs.like.co/validator/likecoin-chain-node/setup-a-node" rel="noopener noreferrer" target="_blank">https://docs.like.co/validator/likecoin-chain-node/setup-a-node</a></p>
