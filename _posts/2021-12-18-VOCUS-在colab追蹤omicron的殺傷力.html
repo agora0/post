@@ -1,0 +1,74 @@
+---
+layout: post
+title: 在Colab追蹤Omicron的殺傷力
+date: 2021-12-18 09:23:11.000000000 +00:00
+link: https://vocus.cc/user/@ecyY/61b8eab0fd89780001bcfad3
+categories: vocus
+tags: blog
+author: REDBRIC
+---
+
+<p><br></p>
+<p>上月本欄與大家討論與病毒共存 (姚，2021a)，只要重症及死亡率不高，就讓它成為像流感般往返。但正當全球大多數國家啟動與病毒共存政策之際，南非忽然出現超強變種，世衛稱之為Omicron，引發Black Friday黑色星期五的全球股災 (姚，2021c)。變種病毒公佈至今已有三星期，據報已蔓延全球多個國家，但有不少研究發現，雖然Omicron的傳播力驚人，但大多屬輕症患者，死亡個案不多云云。</p>
+<p>誠然，三個星期的時間尚短，需知由潛伏到病發，再到入院治療，若不治到公佈死亡統計需時可以被三星期長，因此現階段一般科學界的回應均是言之尚早，必須更多數據才可下結論。然而，昨日英國出現首宗Omicron患者的死亡個案，倫敦的確診個案中，已有超過4成4的患者是感染Omicron病毒。但無論官方或民間公佈的統計數字都未見有定點追蹤有關Omicron的殺傷力數據，本文試從南非和英國的新增死亡數目佔新增確診數目比(New Deaths/New Cases, ND/NC)來追蹤病毒的殺傷力，當然，這一方法既非針對某一變種，亦沒有控制其他因素，旨在討論如何使用網上數據計算ND/NC比。</p>
+<h2>在Colab用Our World in Data計算ND/NC</h2>
+<p>Our World in Data (2021) 提供每日更新的全球疫情數據，當中包括每日每國每百萬人的疫症死亡人數和確診人數等資料，但未見提供有關ND/NC比的數據或圖表，當然，大家可以每日從網站下載數據，然後自行每日更新追蹤ND/NC比，並繪製圖表，但這樣做有點費時，若改為在Colab寫Python程式，只需40行程式，以後只要按一個掣便可隨時自動更新圖表，方便快捷。程式是根據Sepdek (2020) 的程式改編而成，詳細程式討論可參考原作者的網站。</p>
+<h2>Colab 程式</h2>
+<p>以下是該40行程式，詳細解釋及示範運作可觀看 Youtube 短片 (https://youtu.be/8S6146DuORI)</p>
+<p><br></p>
+<p>import pandas as pd<br>
+from google.colab import files<br>
+from datetime import datetime<br>
+from pandas.plotting import register_matplotlib_converters<br>
+from matplotlib import dates as dts<br>
+from matplotlib import pyplot as plt<br>
+from matplotlib import style<br>
+style.use('fivethirtyeight')</p>
+<p>url = 'https://covid.ourworldindata.org/data/owid-covid-data.csv' <br>
+data = pd.read_csv(url,parse_dates=['date'],index_col=['date'])</p>
+<p>fig = plt.figure(figsize=(25,6)) <br>
+ax1 = fig.add_subplot( 1, 3, 1) <br>
+ax1.set_title( 'Confirmed new cases per million')<br>
+ax1.set_xlabel( 'Time')<br>
+ax1.set_ylabel( 'Confirmed new cases per million')<br>
+ax2 = fig.add_subplot( 1, 3, 2) <br>
+ax2.set_title( 'Confirmed new deaths per million')<br>
+ax2.set_xlabel( 'Time')<br>
+ax2.set_ylabel( 'Confirmed new deaths per million')<br>
+ax3 = fig.add_subplot( 1, 3, 3) <br>
+ax3.set_title( 'Confirmed new deaths to new cases ratio')<br>
+ax3.set_xlabel( 'Time')<br>
+ax3.set_ylabel( 'Confirmed new deaths to new cases ratio')</p>
+<p>locations = ['South Africa', 'United Kingdom'] <br>
+for loc in locations:<br>
+  df = data.query( "location=='"+loc+"'") <br>
+  x = df.index # get the date field (now the 'index')<br>
+  ax1.scatter( x, df.new_cases_per_million, label=loc)   <br>
+  ax2.scatter( x, df.new_deaths_per_million, label=loc)<br>
+  ax3.scatter( x, df.new_deaths/df.new_cases, label=loc)</p>
+<p>ax1.legend(loc='best') <br>
+ax2.legend(loc='best')<br>
+ax3.legend(loc='best')<br>
+plt.tight_layout() <br>
+days = dts.DayLocator() <br>
+ax1.xaxis.set_minor_locator(days)<br>
+ax2.xaxis.set_minor_locator(days)<br>
+ax3.xaxis.set_minor_locator(days)<br>
+ax3.yaxis.set_view_interval(0, 0.3, True) <br>
+plt.show() </p>
+<p><br></p>
+<h2>ND/NC圖表</h2>
+<p>以下是上述程式所得出的三幅圖表，左邊圖1a是每日每國每百萬人的新增確診人數，藍色線代表南非，紅色線代表英國，最新更新日期至2021年12月13日，反映兩國在近期均出現確診人數大幅回升的情況。中間的圖1b是每日每國每百萬人的新增死亡數字，暫時未見有明顯的回升跡象。</p>
+<p>圖1 程式結果</p>
+<p>右邊圖1c 是ND/NC比，現時兩國的ND/NC比仍處於相對較低的水平，反映即使確診宗數大幅上升，但暫時未見死亡個案隨著確診個案上升而上升，有待繼續追蹤跟進，這程式可方便持續跟蹤Omicron的殺傷力。若想追蹤其他國家的情況，只需在程式中有關Locations的設定中輸入相關國家的名稱即可，詳細示範可觀看短片(https://youtu.be/8S6146DuORI)。</p>
+<h2>在Excel 用 Pivot Table 追蹤</h2>
+<p>若大家較喜歡每日更新數據，亦可在Excel 畫圖，但由於 Our World in Data (2021) 提供的數據檔是採用Stack format，須用 Pivot Table 功能建立矩陣數據表才可繪製圖表，詳細方法可參考 姚 (2021d) 的介紹。圖2是用Pivot Table繪畫的兩國每日每百萬人的死亡人數，大致與圖1b相同；圖3是用Pivot Table 的兩國在2021年10月、11月及12月(截至12月13日)的每日新增確診人數、每日新增死亡人數及ND/NC比，與及其月度增長率。數據反映截至12月13日南非的月度新增確診個案大幅上升678%，但ND/NC比則持續下降至0.1%。</p>
+<p>圖2 兩國的每日新增死亡人數</p>
+<p>圖3 兩國在2021年10月、11月及12月(截至12月13日)的每日新增確診人數、每日新增死亡人數及ND/NC比，與及其月度增長率。</p>
+<p>參考：</p>
+<p>Our World in Data (2021) Statistics and Research，https://ourworldindata.org/covid-deaths</p>
+<p>Sepdek (2020) Analysis of Live COVID-19 Data - a Python/Colab Approach, March 29. http://georgepavlides.info/analysis-of-live-covid-19-data-a-python-colab-approach/ </p>
+<p>姚松炎 (2021a) 世紀疫症兩年 - 重症與長期病患，方格子，11月17日。https://vocus.cc/article/619449d2fd89780001c87c26</p>
+<p>姚松炎 (2021b) 新型變種病毒B.1.1.529，方格子，11月26日。https://vocus.cc/article/61a022f3fd89780001deb33e</p>
+<p>姚松炎 (2021c) 黑色星期五 - Omicron (B.1.1.529) 引發全球股災，方格子，11月27日。https://vocus.cc/article/61a13a71fd89780001e35a57</p>
+<p>姚松炎 (2021d) 用Excel Pivot Table畫國際樓價指數圖，方格子，12月12日。https://vocus.cc/AI_and_ML/61b5a67cfd8978000106ff6a</p>
