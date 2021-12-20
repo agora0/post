@@ -1,0 +1,53 @@
+---
+layout: post
+title: "【這陷阱，偏我遇上？】授權智能合約的潛在風險與補救"
+date: 2021-12-19 23:00:09.996000000 Z
+link: https://www.thestandnews.com/technology/%E9%80%99%E9%99%B7%E9%98%B1%E5%81%8F%E6%88%91%E9%81%87%E4%B8%8A%E6%8E%88%E6%AC%8A%E6%99%BA%E8%83%BD%E5%90%88%E7%B4%84%E7%9A%84%E6%BD%9B%E5%9C%A8%E9%A2%A8%E9%9A%AA%E8%88%87%E8%A3%9C%E6%95%91
+categories: stand
+tags: blog
+author: 范健文
+---
+
+<figure><img src="https://images.weserv.nl/?url=assets.thestandnews.com/media/photos/electronic-gd00469119_1280.jpg"><figcaption><span>圖片來源: mohamed_hassan, pixabay</span></figcaption></figure><p dir="ltr">如果有人要你開一張不填銀碼的支票，你只要頭腦清醒，<wbr>都很大機會拒絕。不過在 Defi（去中心化金融）的世界裡，<wbr>你卻常常開出這樣的支票，<wbr>授權智能合約可以無上限地動用你的資金，<wbr>如果遇到有心人設下陷阱，便很容易血本無歸，<wbr>所以今次我想介紹一些工具，<wbr>讓你檢視一下自己到底授權了多少智能合約可動用你戶口的資產，<wbr>以及如何取消或改變這些授權，保障自己。</p>
+
+<p dir="ltr">無論你想交易代幣、抵押代幣收息（Yield Farming），抑或購買心儀的 NFT（非同質化代幣），<wbr>很多時都要向執行這些服務的智能合約作出授權，<wbr>容許其轉移你銀包內的代幣資產，讓相關交易可以完成。<wbr>有時為了用家體驗，不用每次交易或修改條款都要你重新授權，<wbr>智能合約可能會要求你給予一個無金額上限的授權，<wbr>這在行內並不少見。</p>
+
+<p dir="ltr">不過，這種做法尤如開出一張不填銀碼的支票，<wbr>理論上合約是可以挪用你指定戶口內的所有代幣資產，<wbr>雖然智能合約都是公開的，若出蠱惑不難被發現，<wbr>但過去亦有一些例子，是有心人在合約上開了後門，<wbr>用家即使不再使用其服務，合約仍可以控制該錢包，<wbr>並轉走內裡的代幣，因此損失逾百萬的大有人在。</p>
+
+<p dir="ltr">這幾年去中心化應用越來越多，<wbr>活躍的用家都可能簽下一大堆合約授權而不自知，<wbr>風險日積月累便不可以忽視。幸好近期主要的區塊鏈瀏覽器如&nbsp;<a data-saferedirecturl="https://www.google.com/url?q=http://etherscan.io&amp;source=gmail&amp;ust=1640040726518000&amp;usg=AOvVaw3jTk3E0iL_-NiYf_KnPZhY" href="http://etherscan.io/" target="_blank">eth<wbr>erscan.io</a>, <a data-saferedirecturl="https://www.google.com/url?q=http://bscscan.io&amp;source=gmail&amp;ust=1640040726518000&amp;usg=AOvVaw0vy1NaXT2kN__9GVHW5yc0" href="http://bscscan.io/" target="_blank">bscscan.io</a>, <a data-saferedirecturl="https://www.google.com/url?q=http://polygonscan.io&amp;source=gmail&amp;ust=1640040726518000&amp;usg=AOvVaw2IMQllffa3zgd9u8JvCizW" href="http://polygonscan.io/" target="_blank">polygonscan.io</a>，都相繼推出了代幣核准（<wbr>Token Approvals）的功能，<wbr>提供一份你的錢包戶口的綜合授權清單，<wbr>並且可以即席修改或取消授權。</p>
+
+<p dir="ltr">以最流行的以太坊瀏覽器 etherscan 為例，讀者只要到其<a data-saferedirecturl="https://www.google.com/url?q=https://etherscan.io/tokenapprovalchecker&amp;source=gmail&amp;ust=1640040726518000&amp;usg=AOvVaw2ABReqvm_5hIf0kckLgwrk" href="https://etherscan.io/tokenapprovalchecker" target="_blank">代<wbr>幣核准網頁</a>（圖一），輸入錢包地址，<wbr>便可以找到與這地址有關的合約授權，以及當中授權的金額（<wbr>Allowance) （圖二）。程式還會告訴你涉及有風險的金額及NFT有多少（at risk)。</p>
+
+<p dir="ltr">圖一</p>
+
+<p dir="ltr"><img alt="" height="336" src="https://lh4.googleusercontent.com/e1Xctey99-mxWr5RAorjKQ0NGqtI6Kwgjp26KXpeMCnAFNSYwwrX3D-KaOlGBb3JkIL5piSf_1pvEWkcL6_8J9QvT50YQ7O1_qqWQcE7Qfh2jpufYLLATcHwfBHyMpus4v9qg0OD" tabindex="0" title="圖一" width="624"></p>
+
+<p dir="ltr">圖二</p>
+
+<p dir="ltr"><img alt="" height="231" src="https://lh3.googleusercontent.com/S6-mPMi7AhWx94dYitQG3Ns-Dr6e78TJqqtpTAUifHHBrU1Asb-xUrb2-EXqNKu3CNlzBBTDKrQVzKxryIvO6TQGcWJHzz__pUI25_rLZcQwmgG5lj5NKAf2eiZHSpWhMa6OnMWX" tabindex="0" width="624"></p>
+
+<p dir="ltr">若想修改授權，則要先把錢包地址連結上 etherscan，<wbr>然後選取Reset，便可以進行修改（圖三），<wbr>當然在區塊鏈上的任何手續都需要付費（圖四）。</p>
+
+<p dir="ltr">圖三<img alt="" height="544" src="https://lh3.googleusercontent.com/OxL4xPQVYWGjE9iJr9_ZnXHoIpLoMY4qcl_eeg20BCbPHkynfQczAdDiB9StD2KfoP1hLf0f_zVCeNazXS8w0hAO8j9ym0vl_bbszvee9GgdevbBwyW1UxAepwfbfWe6rXcA1Z8w" tabindex="0" width="624"></p>
+
+<p dir="ltr">圖四</p>
+
+<p dir="ltr"><img alt="" height="333" src="https://lh5.googleusercontent.com/hPWdcbvPF8wW2mkIzXaD6614eSxnpX9H34VFeo6XCU2TebzdCHoZuc7KvkPvCxzoa1sE3AgAlcmP7GL0g38CrWbJwhdBJPraL46VaK03Qu8T-PgYnY2zpLbkFIKyqwFUvft0imG7" tabindex="0" width="624"></p>
+
+<p dir="ltr">若想索性取消授權，則可以按清單上右手面的revoke，<wbr>並出現如圖五的畫面，再按一次Revoke，確認取消授權。</p>
+
+<p dir="ltr">圖五</p>
+
+<p dir="ltr"><img alt="" height="372" src="https://lh4.googleusercontent.com/aalzOPfo4qo83_24tzgj4GFsL0Yu-uKYcFqhjpDJJn6HQ-vSHZQjt_tSy9y6qDcBewwPwypIywv10kmIkQxY8Fiv1wsqjRyE4OjUMyu1qOQgJDgXd6jRkeClcpPm4aX5Rvt_SJ6j" tabindex="0" width="624"></p>
+
+<p dir="ltr">在去中心化的世界裡，每日都湧現各種各樣的創新，<wbr>但同時亦潛伏著不少陷阱，一不留神，<wbr>把擁抱新世界賺回來的回報不明不白地回吐，殊為不值。<wbr>不想因為大開中門被乘虛而入，亡羊補牢，未為晚也。</p>
+
+<p dir="ltr">注：現時運行智能合約的主要區塊鏈，<wbr>其瀏覽器都有提供代幣核准的功能，以下列出數個供讀者參考：</p>
+
+<p dir="ltr"><a data-saferedirecturl="https://www.google.com/url?q=https://etherscan.io/tokenapprovalchecker&amp;source=gmail&amp;ust=1640040726519000&amp;usg=AOvVaw2zKTJ0OBgA-BT9_88ds_cF" href="https://etherscan.io/tokenapprovalchecker" target="_blank">Etherscan</a></p>
+
+<p dir="ltr"><a data-saferedirecturl="https://www.google.com/url?q=https://bscscan.com/tokenapprovalchecker&amp;source=gmail&amp;ust=1640040726519000&amp;usg=AOvVaw2_4FdDAMVFpoy5YECuoh2w" href="https://bscscan.com/tokenapprovalchecker" target="_blank">Bscscan</a></p>
+
+<p dir="ltr"><a data-saferedirecturl="https://www.google.com/url?q=https://polygonscan.com/tokenapprovalchecker&amp;source=gmail&amp;ust=1640040726519000&amp;usg=AOvVaw106r0V5IMpVQ8So9v5zcLV" href="https://polygonscan.com/tokenapprovalchecker" target="_blank">PolygonScan</a></p>
+
+<p dir="ltr"><a data-saferedirecturl="https://www.google.com/url?q=https://ftmscan.com/tokenapprovalchecker&amp;source=gmail&amp;ust=1640040726519000&amp;usg=AOvVaw1xvU09mfMttIIrb7OxzOzG" href="https://ftmscan.com/tokenapprovalchecker" target="_blank">FtmScan</a></p>
