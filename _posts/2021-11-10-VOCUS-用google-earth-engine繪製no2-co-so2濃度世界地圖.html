@@ -8,8 +8,10 @@ tags: blog
 author: REDBRIC
 ---
 
+<iframe title="https://youtu.be/B8kN7A73848" class="video-screen" src="https://www.youtube.com/embed/B8kN7A73848" allowfullscreen="" frameborder="0"></iframe>
 <p>日前本欄介紹了如何使用谷哥地球引擎 (Google Earth Engine，GEE) 繪製不同日期的全球甲烷 (CH4) 濃度地圖 (姚，2021)，同樣方法也可以繪製其他氣體的濃度地圖，對研究空氣污染和全球暖化等課題有重大幫助，關鍵在於有沒有相關的氣體濃度數據可以公開下載。</p>
 <p>上文所用的甲烷數據來自人造衛星：歐盟/歐空局/哥白尼計劃 (EU/ESA/Copernicus) 的哨兵人造衛星5P (Sentinel-5P) 所收集的離線甲烷數據 (OFFL CH4)，而哥白尼計劃原名為 GMES (Global Monitoring for Environment and Security), 暫翻譯為全球環境與保安監察，所搜集的資料可分為五項：大氣監察 (atmosphere monitoring)，海洋環境監察 (marine environment monitoring)，土地監察 (land monitoring)，氣候變化 (climate change)，危急管理 (emergency management)，保安 (security)。(圖1) 另有Youtube 短片介紹https://youtu.be/MGJss4lDaBo </p>
+<img alt="圖1 歐盟/歐空局/哥白尼計劃https://www.copernicus.eu/en/about-copernicus" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F58a0d98d-7d22-4c42-97ec-14b8aa5c7783.jpg&amp;width=740&amp;sign=0_saRoV6vfuy3tARzLHA07jUJ7dL8JzpqqQAiGFhwh8" class="" style="max-width: 740px;" width="740" height="411.2133">
 <p>圖1 歐盟/歐空局/哥白尼計劃https://www.copernicus.eu/en/about-copernicus</p>
 <p>因此，我們可以從哨兵人造衛星5P (Sentinel-5P) 收集其他多項氣體數據，本文以NO2/CO/SO2) 介紹如何利用GEE的JavaScript，介紹一套較為百搭(易於轉換作其他數據)的程式，以便大家更易掌握。程式簡單分為四部份，這程式參考了 Paul Moraga 的GEE教材 (https://www.paulamoraga.com/tutorial-gee/)，程式的優點是只須更改參數，如國家名稱、氣體名稱、年月份、顏色等便可繪製不同氣體濃度的地圖，但由於不同氣體的濃度區間差別可以很大，所以在定義顏色區間的最小和最大值較為複雜，可能須要多試不同區間或參考<a href="https://developers.google.com/earth-engine/datasets">Earth Engine Data Catalog</a>的資料 (連線在文末)：</p>
 <ol>
@@ -44,9 +46,11 @@ author: REDBRIC
 <p>Map.addLayer(no2_yy, vizParams, 'no2_yy');</p>
 <p><br></p>
 <p>簡單四步便可繪製如下圖在香港附近地區的NO2濃度地圖。可參考我的Youtube詳細講解 https://youtu.be/B8kN7A73848：</p>
+<img alt="圖2 用GEE繪製香港附近的NO2濃度地圖 (顏色區間0-200)。" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Fd1d9377c-c006-4bab-b434-43603517e4c1.jpg&amp;width=740&amp;sign=iAF3L_tps1Mm_FFkh1qCvF9i9gH-rm6ucJSAygQIu1c" class="" style="max-width: 740px;" width="740" height="416.232">
 <p>圖2 用GEE繪製香港附近的NO2濃度地圖 (顏色區間0-200)。</p>
 <p>只要把國家名稱改為德國 ‘Germany’，顏色區間由0-200改為0-100，便可得出圖3的地圖。</p>
-<p>圖2 用GEE繪製德國NO2濃度地圖 (顏色區間0-100)。</p>
+<img alt="圖3 用GEE繪製德國NO2濃度地圖 (顏色區間0-100)。" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F1ad04a04-6f2d-4683-8931-5c64b6fbcbd8.jpg&amp;width=740&amp;sign=TSOLyfQ-Uyc2dPLJSkWAQGyRQ3N7TEkwklXHKKz5apo" class="" style="max-width: 740px;" width="740" height="416.232">
+<p>圖3 用GEE繪製德國NO2濃度地圖 (顏色區間0-100)。</p>
 <p>詳細數據參數資料可參考：<a href="https://developers.google.com/earth-engine/datasets">Earth Engine Data Catalog</a> - Datasets - Sentinel-5P NRTI CO: Near Real-Time </p>
 <p>Nitrogen Dioxide (NO2): https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_NRTI_L3_NO2</p>
 <p>Sulphur Dioxide (SO2): https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_NRTI_L3_SO2</p>

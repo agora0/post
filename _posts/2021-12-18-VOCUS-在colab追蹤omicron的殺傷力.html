@@ -8,7 +8,7 @@ tags: blog
 author: REDBRIC
 ---
 
-<p><br></p>
+<iframe title="https://youtu.be/8S6146DuORI" class="video-screen" src="https://www.youtube.com/embed/8S6146DuORI" allowfullscreen="" frameborder="0"></iframe>
 <p>上月本欄與大家討論與病毒共存 (姚，2021a)，只要重症及死亡率不高，就讓它成為像流感般往返。但正當全球大多數國家啟動與病毒共存政策之際，南非忽然出現超強變種，世衛稱之為Omicron，引發Black Friday黑色星期五的全球股災 (姚，2021c)。變種病毒公佈至今已有三星期，據報已蔓延全球多個國家，但有不少研究發現，雖然Omicron的傳播力驚人，但大多屬輕症患者，死亡個案不多云云。</p>
 <p>誠然，三個星期的時間尚短，需知由潛伏到病發，再到入院治療，若不治到公佈死亡統計需時可以被三星期長，因此現階段一般科學界的回應均是言之尚早，必須更多數據才可下結論。然而，昨日英國出現首宗Omicron患者的死亡個案，倫敦的確診個案中，已有超過4成4的患者是感染Omicron病毒。但無論官方或民間公佈的統計數字都未見有定點追蹤有關Omicron的殺傷力數據，本文試從南非和英國的新增死亡數目佔新增確診數目比(New Deaths/New Cases, ND/NC)來追蹤病毒的殺傷力，當然，這一方法既非針對某一變種，亦沒有控制其他因素，旨在討論如何使用網上數據計算ND/NC比。</p>
 <h2>在Colab用Our World in Data計算ND/NC</h2>
@@ -59,11 +59,14 @@ plt.show() </p>
 <p><br></p>
 <h2>ND/NC圖表</h2>
 <p>以下是上述程式所得出的三幅圖表，左邊圖1a是每日每國每百萬人的新增確診人數，藍色線代表南非，紅色線代表英國，最新更新日期至2021年12月13日，反映兩國在近期均出現確診人數大幅回升的情況。中間的圖1b是每日每國每百萬人的新增死亡數字，暫時未見有明顯的回升跡象。</p>
+<img alt="圖1 程式結果" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Ff45edc9e-5fcc-4b42-bcd5-b1018d37902d.jpg&amp;width=1138&amp;sign=4VfQwofdZOpuqwjrAiNBDFAdl58PpqKHfoMJDE7uN7A" class="" style="max-width: 1138px;" width="1138" height="265.5328">
 <p>圖1 程式結果</p>
 <p>右邊圖1c 是ND/NC比，現時兩國的ND/NC比仍處於相對較低的水平，反映即使確診宗數大幅上升，但暫時未見死亡個案隨著確診個案上升而上升，有待繼續追蹤跟進，這程式可方便持續跟蹤Omicron的殺傷力。若想追蹤其他國家的情況，只需在程式中有關Locations的設定中輸入相關國家的名稱即可，詳細示範可觀看短片(https://youtu.be/8S6146DuORI)。</p>
 <h2>在Excel 用 Pivot Table 追蹤</h2>
 <p>若大家較喜歡每日更新數據，亦可在Excel 畫圖，但由於 Our World in Data (2021) 提供的數據檔是採用Stack format，須用 Pivot Table 功能建立矩陣數據表才可繪製圖表，詳細方法可參考 姚 (2021d) 的介紹。圖2是用Pivot Table繪畫的兩國每日每百萬人的死亡人數，大致與圖1b相同；圖3是用Pivot Table 的兩國在2021年10月、11月及12月(截至12月13日)的每日新增確診人數、每日新增死亡人數及ND/NC比，與及其月度增長率。數據反映截至12月13日南非的月度新增確診個案大幅上升678%，但ND/NC比則持續下降至0.1%。</p>
+<img alt="圖2 兩國的每日新增死亡人數" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Fdd7760a9-f132-4e9b-a237-9ef31908e37d.jpg&amp;width=740&amp;sign=lUxUusnvIfA4rJsvsmaw6rlQRWZE_ab3RKQsOFG88jc" class="" style="max-width: 740px;" width="740" height="537.2476">
 <p>圖2 兩國的每日新增死亡人數</p>
+<img alt="圖3 兩國在2021年10月、11月及12月(截至12月13日)的每日新增確診人數、每日新增死亡人數及ND/NC比，與及其月度增長率。" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F9485211e-9b35-4362-afac-ce7e6a229ec5.jpg&amp;width=740&amp;sign=pC9t8AKSEOETwFYzah9KrPuqNydsQtBsF-WD5Vx4oL0" class="" style="max-width: 740px;" width="740" height="138.30180000000001">
 <p>圖3 兩國在2021年10月、11月及12月(截至12月13日)的每日新增確診人數、每日新增死亡人數及ND/NC比，與及其月度增長率。</p>
 <p>參考：</p>
 <p>Our World in Data (2021) Statistics and Research，https://ourworldindata.org/covid-deaths</p>
