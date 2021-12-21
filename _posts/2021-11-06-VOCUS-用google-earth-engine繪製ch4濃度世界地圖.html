@@ -8,34 +8,35 @@ tags: blog
 author: REDBRIC
 ---
 
-<p>COP26提出Global Methane Pledge令到CH4濃度突然廣受關注 (姚，2021ａ)，到底過去幾年的CH4濃度在世界各地的分佈情況為何？是否有上升的趨勢？本文嘗試利用歐盟/歐空局/哥白尼計劃 (EU/ESA/Copernicus) 的哨兵人造衛星5P (Sentinel-5P) 所收集的離線甲烷數據 (OFFL CH4)，介紹如何使用谷哥地球引擎 (Google Earth Engine，GEE) 繪製不同日期的全球CH4濃度 (以空氣混合比的柱平均值 ppbV量度)。</p>
+<iframe title="https://youtu.be/WrrAxk-_arw" class="video-screen" src="https://www.youtube.com/embed/WrrAxk-_arw" allowfullscreen="" frameborder="0"></iframe>
+<p>COP26提出Global Methane Pledge令到CH4濃度突然廣受關注 (姚，2021a)，到底過去幾年的CH4濃度在世界各地的分佈情況為何？是否有上升的趨勢？本文嘗試利用歐盟/歐空局/哥白尼計劃 (EU/ESA/Copernicus) 的哨兵人造衛星5P (Sentinel-5P) 所收集的離線甲烷數據 (OFFL CH4)，介紹如何使用谷哥地球引擎 (Google Earth Engine，GEE) 繪製不同日期的全球CH4濃度 (以空氣混合比的柱平均值 ppbV量度)。</p>
 <p>首先，由於GEE平台須要在網上登記 (https://earthengine.google.com/)，圖1是GEE的版面，可分為上下兩部份，下部為地圖，上部可分為左中右三欄，左邊為檔案等資料，中間是程式編寫器，使用JavaScripts，右邊為處理器。</p>
+<img alt="圖1 Google Earth Engine" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F9e75600f-aec4-43e8-affd-bb3c716a3e76.jpg&amp;width=466&amp;sign=EBGzHO6M_HQ9W9ANpwl2bBak3gp5MdZDo2V9LPJOPiA" class="" style="max-width: 466px;" width="466" height="218.2905">
 <p>圖1 Google Earth Engine</p>
-<p>GEE在Earth Engine Data Catalog提供了相關利用人造衛星數據繪製CＨ４濃度地圖的資料和程式：Sentinel-5P OFFL CH4: Offline Methane （https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_OFFL_L3_CH4），資料由２０１９年２月８日起至今 （圖２），詳情可觀看我的Yｏｕｔｕｂｅ（姚，２０２１ｂ）。</p>
-<p>圖２ ＧＥＥ的 Ｄａｔａ　Ｃａｔｌｏｇ　—　ＯＦＦＬ　ＣＨ４</p>
-<p>ＧＥＥ提供的JａｖａＳｒｉｐｔｓ非常簡單易明，只要直接抄入GＥＥ便可按RＵＮ。程式可分為三段 — 第一段是定義資料來源：</p>
-<p><br></p>
+<p>GEE在Earth Engine Data Catalog提供了相關利用人造衛星數據繪製CH4濃度地圖的資料和程式：Sentinel-5P OFFL CH4: Offline Methane （https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_OFFL_L3_CH4），資料由2019年2月8日起至今 （圖2），詳情可觀看我的Youtube（姚，2021b）。</p>
+<img alt="圖2 GEE的 Data Catlog - OFFL CH4" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Fd58b9659-da2c-4498-b457-f2181c33297b.jpg&amp;width=466&amp;sign=rN2Z0RotHrozCitcImat67V8NVtTtWX4-PZcbzv0H64" class="" style="max-width: 466px;" width="466" height="223.696">
+<p>圖2 GEE的 Data Catlog - OFFL CH4</p>
+<p>GEE提供的JavaScripts非常簡單易明，只要直接抄入GEE便可按RUN。程式可分為三段 — 第一段是定義資料來源：</p>
 <p><br></p>
 <p>var collection = ee.ImageCollection('COPERNICUS/S5P/OFFL/L3_CH4')</p>
 <p>  .select('CH4_column_volume_mixing_ratio_dry_air')</p>
 <p>  .filterDate('2020-10-01', '2020-10-31');</p>
 <p>１。定義變量 collection ＝ee.ImageCollection（檔案名稱）</p>
-<p>２。選擇有關ＣＨ４的數據 （數據檔的第一欄)</p>
-<p>３。界定日期為２０２０年１０月份</p>
+<p>２。選擇有關CH4的數據 （數據檔的第一欄)</p>
+<p>３。界定日期為2020年10月份</p>
 <p><br></p>
-<p>第二段則定義顏色與數據關係，如圖１以“黑色”、“藍色”、“紫色”、“青色”、“綠色”、“黃色”、“紅色”代表1750至1900 ppbV的ＣＨ４水平，藍、黑色地區表示CH4水平較低，黃、紅色表示CH4水平較高。</p>
+<p>第二段則定義顏色與數據關係，如圖1以“黑色”、“藍色”、“紫色”、“青色”、“綠色”、“黃色”、“紅色”代表1750至1900 ppbV的CH4水平，藍、黑色地區表示CH4水平較低，黃、紅色表示CH4水平較高。</p>
 <p>var band_viz = {</p>
 <p>  min: 1750,</p>
 <p>  max: 1900,</p>
 <p>  palette: ['black', 'blue', 'purple', 'cyan', 'green', 'yellow', 'red']</p>
 <p>};</p>
 <p><br></p>
-<p>第三段畫地圖，以 ｃｏｌｌｅｃｔｉｏｎ．ｍｅａｎ（）作為數值，根據顏色區間在地圖加上一層CＨ４濃度水平，並指明地圖的中心座標即成：</p>
+<p>第三段畫地圖，以 collection.mean() 作為數值，根據顏色區間在地圖加上一層CH4濃度水平，並指明地圖的中心座標即成：</p>
 <p>Map.addLayer(collection.mean(), band_viz, 'S5P CH4');</p>
 <p>Map.setCenter(0.0, 0.0, 2);</p>
-<p><br></p>
-<p><br></p>
-<p>圖３ 製成圖</p>
+<img alt="圖3 製成圖" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F0d649e9f-412b-441e-9cec-44f3a96e1fda.jpg&amp;width=466&amp;sign=p-9NUntXpl6c05tTiOTFqCMEUeLROU4ODn_S1FSc6oA" class="" style="max-width: 466px;" width="466" height="262.116">
+<p>圖3 製成圖</p>
 <p>參考</p>
-<p>姚松炎 （２０２１ａ）COP26的CH4目標，方格子，１１月５日。https://vocus.cc/SD_ecofriendly/6184b706fd89780001dd6865 </p>
-<p>姚松炎 （２０２１ｂ）用Google Earth Engine 繪製全球 CH4 地圖，ｙｏｕｔｕｂｅ，１１月７日。https://youtu.be/WrrAxk-_arw </p>
+<p>姚松炎 （2021a）COP26的CH4目標，方格子，11月5日。https://vocus.cc/SD_ecofriendly/6184b706fd89780001dd6865 </p>
+<p>姚松炎 （2021b）用Google Earth Engine 繪製全球 CH4 地圖，Youtube，11月7日。https://youtu.be/WrrAxk-_arw </p>

@@ -9,6 +9,7 @@ author: REDBRIC
 ---
 
 <p>上期學過在Colab用Numpy建一部按揭計數機 (姚，2021)，今期可以利用上期學過嘅程式增建一部樓宇投資分析器，當中主要使用Numpy-financial的NPV及IRR功能，NPV的中文翻譯為淨現值 (Net Present Value)，而IRR的中文翻譯為內回報率 (Internal Rate of Return)，兩者是建基於DCF Model (貼現現金流模型) 計算，若以按揭供樓作為樓宇投資的朋友，在分析NPV和IRR時必須利用按揭計數機才可計算出每月的供款金額，這是一個很好的例子解釋為什麼即使坊間已有不少免費的按揭計數機，我們仍要學習自製一部，因為有興趣從事開發程式的朋友在進行其他分析用途時，不少程式本身需要計算按揭供款的數值。</p>
+<img alt="圖1 ARGUS Enterprise 13. http://koreabizwire.com/altus-group-simplifies-commercial-real-estate-asset-and-investment-management-with-powerful-argus-enterprise-13/171759" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Fbef656a2-b402-4e03-b15c-01527bd23049.jpg&amp;width=740&amp;sign=jharTOM9q6cjuBEJgHuL4c4n7imLw4PeCUOI7XngrPc" class="" style="max-width: 512px;" width="512" height="287">
 <p>圖1 ARGUS Enterprise 13. http://koreabizwire.com/altus-group-simplifies-commercial-real-estate-asset-and-investment-management-with-powerful-argus-enterprise-13/171759</p>
 <p>Excel試算表或ARGUS Enterprise (圖1) 也可以計算 NPV 和 IRR，網上亦有一些現成的NPV和IRR計算表，本文則嘗試在 Colab用 numpy 構建 NPV 和 IRR 投資分析器 e-Analyser。假設以一百萬元購買一房屋，投資計劃是向銀行借八成按揭，以十年為還款期，年利率2.55厘，回報是根據預期可賺取的10年租金收入，並假設十年後出售的市價為120萬元，分析該投資項目的淨現值和內回報率：</p>
 <p>首先，在Colab安裝numpy-financial及其npv和irr功能如下：</p>

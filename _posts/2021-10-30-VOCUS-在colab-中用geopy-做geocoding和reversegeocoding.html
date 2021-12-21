@@ -10,7 +10,8 @@ author: REDBRIC
 
 <p>Geocoding (地理編碼 - 將物理地址轉換為經緯度yx坐標) 及ReverseGeocoding (逆向地理編碼 - 將經緯度yx坐標轉換為物理地址) 是地理資訊系統 GIS 分析的基本需求。儘管谷歌地圖Google Map也有提供識別位置和轉換坐標的功能，但手動地一個一個去找實在太費時乏味。大家如有使用昂貴 GIS 軟件的經驗，一定懂得使用地理編碼和逆向地理編碼的功能，則大可忽略本文。然而，若想找一種可結合人工智能和機器學習程式的地理編碼和逆向編碼程式，且易用兼毋需訂閱費，則可繼續閱讀如何在 Colab 中使用 Geopy 輕鬆進行Geocoding和ReverseGeocoding。</p>
 <p>譬如本欄上月示範繪製的奧克蘭商學院地理位置地圖(圖1，姚2021a)，地圖中只標示了地址為 12 Grafton Road, Auckland，如何找出其經緯度坐標?</p>
-<p>地圖來源；姚 (2021a) https://ecyy.medium.com/make-a-map-by-datawrapper-c7ff70696e88</p>
+<img alt="圖1 地圖來源；姚 (2021a) https://ecyy.medium.com/make-a-map-by-datawrapper-c7ff70696e88" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F5900815d-ecdc-40f2-a666-dca2f926ca85.jpg&amp;width=466&amp;sign=5RtowtQa9Jic1AwE39GG-aP6lQ_0b2PF8uDaUPsBYAc" class="" style="max-width: 466px;" width="466" height="471.7552">
+<p>圖1 地圖來源；姚 (2021a) https://ecyy.medium.com/make-a-map-by-datawrapper-c7ff70696e88</p>
 <h2>地理編碼</h2>
 <p>讓我們先從最簡單找尋一個地址的坐標開始，首先當然是打開 Google Colab 平台 [若您從未使用Colab，可先看一段Yiu, 2021的Youtube]並安裝 geopy，並從 geopy.geocoders 導入 Nominatim:</p>
 <p><br></p>
@@ -19,7 +20,8 @@ author: REDBRIC
 <p><strong>from</strong> <strong>geopy.geocoders</strong> <strong>import</strong> Nominatim</p>
 <p><br></p>
 <p>Nominatim只是眾多地理編碼服務提供商之一的OpenStreetMap的地理資訊聯結名稱，其他還有例如谷歌地圖平台的 GoogleV3、 和必應地圖的 Bing等，如下圖摘自 Geopy Documentation所示的關係：</p>
-<p>Geopy 和地理編碼服務。來源：Geopy 文檔 — Geocoders。 https://geopy.readthedocs.io/en/stable/#module-geopy.geocoders</p>
+<img alt="圖2 Geopy 和地理編碼服務。來源：Geopy 文檔 — Geocoders。 https://geopy.readthedocs.io/en/stable/#module-geopy.geocoders" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F83bcb25c-5c57-4a2e-b7ff-bf22c3487b99.jpg&amp;width=466&amp;sign=xdtM4DScoHrGxWBDxnpjDRytl6-ndXprTFoa8uRiFmM" class="" style="max-width: 466px;" width="466" height="209.72699999999998">
+<p>圖2 Geopy 和地理編碼服務。來源：Geopy 文檔 — Geocoders。 https://geopy.readthedocs.io/en/stable/#module-geopy.geocoders</p>
 <p>只需輸入以下簡單指令geolocator.geocode便可找到該地址的經緯度坐標：</p>
 <p><br></p>
 <p>geolocator = Nominatim(timeout=10, user_agent = "my-application")</p>
@@ -51,7 +53,8 @@ author: REDBRIC
 <p>data.head()</p>
 <p><br></p>
 <p>這份HOS屋苑的地理資訊包含屋苑名稱和經緯度坐標，正好用作對答案之用。圖2顯示首五個屋苑的一些資訊，第三欄 Estate_Nam 是各屋苑的名稱，以下讓我們嘗試輸入這個屋苑名稱，看看能否找出相對應的經緯度坐標，然後與檔案中的坐標欄The_map_la 和 The_map_lo 比較，便知答案是否正確。全檔有多達210個屋苑的資訊，其中更有一些資訊問題，令地址無法被機器閱讀，這些都是編程常見的問題。</p>
-<p>首五項有關「香港居者有其屋計劃 (HOS) 屋苑」的地理資訊。來源ESRI at https://opendata.esrichina.hk/search?tags=housing</p>
+<img alt="圖3 首五項有關「香港居者有其屋計劃 (HOS) 屋苑」的地理資訊。來源ESRI at https://opendata.esrichina.hk/search?tags=housing" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F9d1e6401-0549-47e3-a00b-72a3251bd211.jpg&amp;width=466&amp;sign=CKjSzGkSvPd590hKeoYbMAebjQkqvqCSlsIJIwprx8g" class="" style="max-width: 466px;" width="466" height="481.3155">
+<p>圖3 首五項有關「香港居者有其屋計劃 (HOS) 屋苑」的地理資訊。來源ESRI at https://opendata.esrichina.hk/search?tags=housing</p>
 <p>今次的自動化程式使用一個 FOR Loop 循環地理編碼過程重複 N 次以自動將地址轉換為 yx 坐標（緯度和經度），內容大致與上同，只是加入了一個FOR Loop 循環，再用一個 try - except 來處理萬一遇上數據格式不符的情況。</p>
 <p><br></p>
 <p><strong>for</strong> index, row <strong>in</strong> data.iterrows():</p>

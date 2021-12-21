@@ -15,17 +15,23 @@ author: REDBRIC
 <p>但在介紹人臉辨識技術前，必先學會編寫電腦程式自拍照片 (selfie)，再把不同的自拍照進行人臉辨識，看看人工智能的水平如何。當然大家可以使用很多不同的平台編碼，但我習慣了使用 Google Colaboratory (Colab)，好處是不但免費，更提供GPU/CPU雲端存取，又可直接存檔至Github，感覺非常方便，大家可以考慮。但在自拍程式上則較為複雜，由於照片不是從本身的電腦檔案存取，編碼較為困難。但幸好網上已有不少編碼圖書館可以參考。</p>
 <p>在介紹編碼前，不如我先把程式的結果示範一些結果讓大家明白程式可做到甚麼，當然我懂的只是小兒科，希望拋磚引玉，一起學習，一起進步。</p>
 <p>我為了測試人臉辨識技術的能力，以下是兩款測試結果，首先如圖1所示，我手中持著有我樣貌的照片，看看人臉辨識技術能否辨識出兩張臉孔。</p>
+<img alt="圖1 自編電腦自拍程式相片一" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F270984c1-748b-4c16-b324-12ceb1bd7c9d.jpg&amp;width=740&amp;sign=s18cQn4UzK2_x4p0xDH4_A-rX22zB54PwRuV_kVAnrE" class="" style="max-width: 400px;" width="400" height="300">
 <p>圖1 自編電腦自拍程式相片一</p>
 <p>預訓機器學習的程式能夠在相片中(或鏡頭中)辨識出人臉，然後用藍色正方框加以顯示，圖2是使用預訓程式辨識，它能發覺有兩張人臉，一大一小都能辨認出來。此外，還有眼和口的辨識程式，甚至是笑臉辨識技術等，十分有趣。</p>
+<img alt="圖2 自編電腦人臉辨識程式相片一" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Fbe295167-e874-4a3b-b073-d1e0bf4e2e4b.jpg&amp;width=740&amp;sign=ZLtipBkC3jF0rD65-AN-DojS_D9J8-R5o_Z_UFbBJhM" class="" style="max-width: 400px;" width="400" height="300">
 <p>圖2 自編電腦人臉辨識程式相片一</p>
 <p>第二項測試是把手機擋著半邊面，看看人臉辨識能否分辨出來。圖3是自拍的相片2，手機中的相片是側面，而機後的臉孔被手機檔了一半，背景也較暗，且看辨識能力，到底能辨出正半面、側全面，或是兩者皆能，或皆不能？</p>
+<img alt="圖3 自編電腦自拍程式相片二" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F42d740a2-8698-4a4c-b10f-70ef49e65f99.jpg&amp;width=740&amp;sign=EftUxW3Wdvd4RVSW_yDfzkS8S9W0DyoN0mjPaKZ10aM" class="" style="max-width: 598px;" width="598" height="453">
 <p>圖3 自編電腦自拍程式相片二</p>
 <p>圖3顯示結果，辨識器只能辨識出手機中的側面人臉，並未能辨識出後面的人臉，到底是因為光線不足，抑或因為手機阻擋？有興趣的朋友可以自行測驗，甚至可以加入很多人一起自拍，考考它能辨識多少人。</p>
+<img alt="圖4 自編電腦人臉辨識程式相片二" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Fbf7db926-2366-490d-a60b-c89d6cdc7ee3.jpg&amp;width=740&amp;sign=1IoZwcww1XUo-0Zm_4I0qrMWMmdRJ86vz_8MI388rzw" class="" style="max-width: 598px;" width="598" height="453">
 <p>圖4 自編電腦人臉辨識程式相片二</p>
 <p>誠然，我這介紹的只是人臉辨識技術的最基礎應用，只辨出人臉，卻說不出該人是誰，比起最新科技仍有一段相當大的距離，還要慢慢學習。</p>
 <p>關於編碼內容，這裡主要是參考了Open CV and Deep Learning 的程式，可直接在Colab使用(https://colab.research.google.com/github/dortmans/ml_notebooks/blob/master/face_detection.ipynb#scrollTo=N77mENRp_cDV) 及相關的Blog: https://www.pyimagesearch.com/2018/02/26/face-detection-with-opencv-and-deep-learning/，圖5是把技術應用到Video / GIF 之上，用途更廣。</p>
+<img alt="圖5 Face Detection by OpenCV and Deep Learning, by Adrian Rosebrock on February 26, 2018https://www.pyimagesearch.com/2018/02/26/face-detection-with-opencv-and-deep-learning/" src="https://images.vocus.cc/49e0d0a8-ae13-4a25-8404-8f8a1ca58fdd.gif" class="" style="max-width: 401px;" width="401" height="242">
 <p>圖5 Face Detection by OpenCV and Deep Learning, by Adrian Rosebrock on February 26, 2018https://www.pyimagesearch.com/2018/02/26/face-detection-with-opencv-and-deep-learning/</p>
 <p>我同時使用了CascadeClassifier的程式，把人臉辨識的編碼簡化了很多，大家不防參考 https://colab.research.google.com/github/computationalcore/introduction-to-opencv/blob/master/notebooks/4-Cascade_classification.ipynb#scrollTo=rOG12Rey7g9C，同樣是Colab平台的程式，可直接使用，他們採用了Haar feature-based cascade classifiers，有人臉、笑口和眼等辨識預訓程式，但效果未如理想，錯漏的情況頗多，網頁自介照片也說明有多處錯處，把T-Shirt摺紋都當成笑口 (圖6)。</p>
+<img alt="圖6 ”it detected the smiles correctly (the right guy, who is actually me, is not giving a full smile) but there are a lot of false positives, as usual in cascade models.’ https://colab.research.google.com/github/computationalcore/introduction-to-opencv/blob/master/notebooks/4-Cascade_classification.ipynb#scrollTo=_IEdRb4-gU3a" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Fbc84ec2f-3bef-4bcf-b5ea-a59e94993d93.jpg&amp;width=740&amp;sign=VYYJ4CvpazW1G4DanMv5soVMOZzWR0BXFleLLDMjGMc" class="" style="max-width: 598px;" width="598" height="453">
 <p>圖6 ”it detected the smiles correctly (the right guy, who is actually me, is not giving a full smile) but there are a lot of false positives, as usual in cascade models.’ https://colab.research.google.com/github/computationalcore/introduction-to-opencv/blob/master/notebooks/4-Cascade_classification.ipynb#scrollTo=_IEdRb4-gU3a</p>
 <p>如果大家意猶未盡，想再加以改良，上星期Youtube有新片介紹如何編碼用電腦連續自拍笑容，毋須按掣拍攝，只要笑口，便會自拍，示範了如何用人工智能把人生美好時光留下。有興趣可以瀏覽Programming Hero (2021) Take Automatic Selfie Using Python, Youtube, June 23.<a href="https://youtu.be/xhG2AeyJXcU">https://youtu.be/xhG2AeyJXcU</a></p>
 <p><br></p>

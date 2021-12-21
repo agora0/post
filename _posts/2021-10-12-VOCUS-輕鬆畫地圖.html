@@ -8,18 +8,22 @@ tags: blog
 author: REDBRIC
 ---
 
+<iframe title="https://youtu.be/bLAv4ILgYY0" class="video-screen" src="https://www.youtube.com/embed/bLAv4ILgYY0" allowfullscreen="" frameborder="0"></iframe>
 <p>過往學生在大學需要花上起碼一個學期，而且大學需要購買昂貴的軟件，學生才有機會學識利用電腦繪製地圖，後來即使有些免費地圖軟件，譬如QGIS和Geopandas in Google Colab (詳細可參考Yiu, 2021)，但要學以致用仍是非常困難，令不少人望而卻步，不想嘗試。幸好隨著網絡數據的開放和人工智能編程的普及，現時已有工具可讓普羅大眾自製地圖，毋須購買軟件和數據，亦毋須花時間學習使用甚麼GIS (地理資訊系統)，便可輕鬆畫地圖，效果媲美專業軟件。</p>
 <p>本文試以Datawrapper為例，繪製兩類地圖，讓大家多些了解，亦可一起嘗試，看看是否簡單易用，也可分享您的心得，與網友教學相長：</p>
 <p>Datawrapper 應用網頁可以在 https://app.datawrapper.de/ 找到，它提供三種自製地圖的類型，包括 (1) 分區著色圖 choropleth map — 如圖1, (2) 符號地圖 symbol map — 如圖2, 及 (3) 定位地圖 locator map — 如圖3。本文將展示如何製作(1) choropleth map和 (3) locator map，大家也可自行試試繪製(2) symbol map。Datawrapper 提供一個互動式平台以供繪製地圖，因此毋須學習複雜的編程或牢記功能鍵等內容。譬如在繪製分區著色圖只需四個簡單步驟，分別是：1. 選擇地區和地圖種類，2. 採用分區數據，3. 製作地圖，便可 4. 發佈。</p>
+<img alt="圖1 分區著色圖 choropeth map。來源：Datawrapper" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Fa747cb12-fcdc-465d-bc70-20681ab3f4c4.jpg&amp;width=1280&amp;sign=IkqM3nNQnQuC9TAFZouUoos0MGdhKK5j_9WPlMQHCGc" class="" style="max-width: 1280px;" width="1280" height="775.4856">
 <p>圖1 分區著色圖 choropeth map。來源：Datawrapper</p>
-<p><br></p>
+<img alt="圖2 符號地圖 symbol map。來源：Datawrapper" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Fabbfaf11-5867-4778-9bac-eabf1278ee1b.jpg&amp;width=1280&amp;sign=USoJfIz4buYWKJ0z4C0liiTYLbDxZmD1zFB44X0dtEY" class="" style="max-width: 1280px;" width="1280" height="777.155">
 <p>圖2 符號地圖 symbol map。來源：Datawrapper</p>
+<img alt="圖3 定位地圖 locator map。來源：Datawrapper" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F4d3dc08c-9b79-41be-90a8-94b6d0cab337.jpg&amp;width=1280&amp;sign=KbwPh45M_HKBCZscjecTL7JYDyob8NPWzbkCoy4bnSY" class="" style="max-width: 1280px;" width="1280" height="775.3264">
 <p>圖3 定位地圖 locator map。來源：Datawrapper</p>
 <h2><strong>1. 製作分區著色地圖</strong></h2>
 <p>1.1 第一步：選擇分區地圖</p>
 <p>Datawrapper提供了一個搜索引擎來查找您想要的分區底圖 (basemap)，這樣便可省卻尋找合適分區底圖的麻煩，不需要學習甚麼shape files之類的複雜地圖檔案下載方法。所謂分區著色圖 choropleth map ，顧名思義就是一幅具有明確分區邊界的地圖，例如以國家、城市、行政地區或選區分界等劃分區域的地圖。我以紐西蘭 (New Zealand) 的 Statistical Areas 2 (統計處分區2 - SA2) 為例，透過 Datawrapper 提取一個內置的紐西蘭 SA2 地圖如下。</p>
 <p>1.2 第二步：加入分區數據</p>
 <p>視乎您想著色的目的，譬如要比較各區的人口，年齡或家庭入息中位數等數據，只要把各區的數據輸入便可繪製出以顏色代表高低的分區著色地圖，Datawrapper提供多種數據輸入方法，包括上傳數據檔，如 .csv 檔，或直接輸入分區數據。我為了方便示範，採用隨機配置 SA2 分區數據的方法繪製出圖4如下：</p>
+<img alt="圖4 紐西蘭分區SA2著色地圖。作者試繪 " src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Fd6e94168-c65a-4b6b-aa00-bd549352b9b1.jpg&amp;width=1280&amp;sign=5Xb4YjjJ26-McWKHCItbIAOLkNNhdUxTq0EM5F_1wLA" class="" style="max-width: 1280px;" width="1280" height="1585.6127999999999">
 <p>圖4 紐西蘭分區SA2著色地圖。作者試繪 </p>
 <p>1.3 第三和第四步：製圖及發佈</p>
 <p>基本上，只需兩步已可完成一幅分區著色地圖，餘下只是一些調整及改良，更可以將其保存為 png 格式等發佈，非常方便。</p>
@@ -29,11 +33,10 @@ author: REDBRIC
 <p>2.2 第二步：設計地圖</p>
 <p>在地圖的下方，Datawrapper提供了一些簡明易用的工具來設計立體地圖，例如，它可以放大尺寸、改變旋轉角度和傾斜平面等，可隨心所欲地畫出立體地圖，更可加入附近的灰色立體建築物和綠色公園及白色道路，令人有置身現場的效果。它還提供比例尺、指北針、放大圖等製圖必備工具。圖 5是以傾斜 60 度繪製的UABS定位地圖工具的版面，其中顯示上述的工具；圖 6則顯示最終的製成地圖。</p>
 <p>2.3 第三及第四步：註釋和佈局及發布</p>
+<img alt="圖5 製作定位地圖的工具版面。來源：Datawrapper" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F5d734e58-065b-4b0b-a8f6-ca2dae3f9a53.jpg&amp;width=1280&amp;sign=O8uMeqIqRlvczP4Vki-Bh3jlG9H1gXSMxZGLy2Qoz6k" class="" style="max-width: 1280px;" width="1280" height="750.665">
 <p>圖5 製作定位地圖的工具版面。來源：Datawrapper</p>
+<img alt="圖6 以奧克蘭大學商學院為例繪製的定位地圖。作者試製https://www.datawrapper.de/_/aBMT1/ " src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Fae88f14b-2112-49ee-b590-01fe046bf65c.jpg&amp;width=1280&amp;sign=C-Qp3qwzGuB1oJLboP3GOC6S9U04lqAFdXSlWeyW63Y" class="" style="max-width: 1280px;" width="1280" height="1295.7112">
 <p>圖6 以奧克蘭大學商學院為例繪製的定位地圖。作者試製https://www.datawrapper.de/_/aBMT1/ </p>
 <p>它非常易用，而且效果專業，既不需要學習任何GIS軟件，又可隨時隨地免費使用，毋須安裝或下載程式，是小朋友學畫地圖的好幫手。</p>
 <p>參考</p>
 <p>Yiu, C.Y. (2021) Mapping GIS Data on a Basemap by Contextily in Colab, Medium, June 29. <a href="https://ecyy.medium.com/mapping-gis-data-on-a-basemap-by-contextily-in-colab-dfff5837eec"><u>https://ecyy.medium.com/mapping-gis-data-on-a-basemap-by-contextily-in-colab-dfff5837eec</u></a></p>
-<p><br></p>
-<p><br></p>
-<p><br></p>

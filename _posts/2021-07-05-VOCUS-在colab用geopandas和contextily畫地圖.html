@@ -9,7 +9,9 @@ author: REDBRIC
 ---
 
 <p>隨著人工智能的普及，愈來愈多在線應用程式APPS是與地理資訊相關，比如Uber或Airbnb都會提供汽車或房屋的地理位置，當中須要連接兩套系統，一套是以座標定位物件的地理位置，稱之為地理資訊系統 (Geographical Information System, GIS)，但這些以點或面呈現出來的座標資訊必須配上一幅以相同座標系統的地圖才能讓使用者知悉所示的位置在那條街道或那座建築物。譬如圖1是香港居屋的位置圖，即使有座標軸顯示，但若沒有配上地圖，根本無法知道屋苑在那裡。圖2把座標位置配上地圖，地理資訊便一目了然。</p>
+<img alt="圖1 居屋位置座標。" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Fe024e11d-1f9a-41f4-8ea9-15e6b6372660.jpg&amp;width=740&amp;sign=4LgPx9ZuajDNE700AlOO0vrKnwEXximHNYDjPdUP6Ec" class="" style="max-width: 451px;" width="451" height="323">
 <p>圖1 居屋位置座標。</p>
+<img alt="圖2 配上地圖的居屋座標位置圖。" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F01d360a0-50b3-4f58-a5e1-18b94a2d11d6.jpg&amp;width=740&amp;sign=LoM8GmtiA1HWEERb0-MrZj6Z3Bv77TPvI46ArUyUdLQ" class="" style="max-width: 640px;" width="640" height="437">
 <p>圖2 配上地圖的居屋座標位置圖。</p>
 <p>過去繪製這些地理資訊地圖必須使用複雜的GIS軟件，有些費用高昂，而且未能連接機器學習的軟件，難以應用到人工智能的程式。</p>
 <p>以下是在Colab平台，透過使用Geopandas和Contextily兩款函數庫(libraries)來繪製地圖，只須九行程式便能畫出圖2的居屋地圖來。</p>
@@ -30,10 +32,12 @@ author: REDBRIC
 <p>第8句為顯示座標數據；及第9句為配上底圖。</p>
 <p>誠然，這裡是假設所需的地理資訊已有製成的座標資料，只須讀取即可畫圖，否則由零開始搜集及製作地理資訊資料檔案可以相當費時。譬如這裡所讀取的居屋位置座標資料便是取自ERSI的公開地理資訊網站 <a href="https://opendata.esrichina.hk/"><u><em>https://opendata.esrichina.hk/</em></u></a></p>
 <p>圖3 是該網頁的其中一頁截圖，最底一項為今次採用的居屋數據，大家只要自行到上址，點擊相關的數據檔，選擇下載shp檔的格式，下載到自己的google drive 便可。</p>
+<img alt="圖3 “香港開放地理空間數據”網站截圖，此ERSI網站提供14類GIS數據，搜索“住房”的類別，其中包括許多不同的數據集。香港居屋只是其中之一。t https://opendata.esrichina.hk/search?tags=housing" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Fd289d06e-fa3e-45f2-87a2-35bcd7a623a1.jpg&amp;width=740&amp;sign=1GQdiFQnqbkkSZx_S_hGOkzppADNdksY3-SSdWogHbk" class="" style="max-width: 740px;" width="740" height="961.26">
 <p>圖3 “香港開放地理空間數據”網站截圖，此ERSI網站提供14類GIS數據，搜索“住房”的類別，其中包括許多不同的數據集。香港居屋只是其中之一。t https://opendata.esrichina.hk/search?tags=housing</p>
 <p>若想知道所讀取的數據內容包括甚麼資料，只需在上述的程式中加一句 data.head()，便會顯示頭五條資料和欄目如下：</p>
-<p>圖 4 下載文件中 GIS 數據的前 5 行和最左邊的 10 列。資料來源：ESRI</p>
-<p>由於表格很大，在這裡只展示頭 5 行和最左邊的 10 列（圖4）。就本文而言，最重要的兩列是 The_map_la 和 The_map_lo，它們表示居屋位置的經緯度（即坐標）。</p>
+<img alt="圖4 下載文件中GIS數據的前5行和最左邊的10列。資料來源：ESRI" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Fff9b4930-78ef-4fbf-82e5-34850b52a47c.jpg&amp;width=740&amp;sign=rr3AX6CZC9tYLceDr8aPpQOSK-vvLDYFS0PM2-ys0uE" class="" style="max-width: 740px;" width="740" height="764.3781">
+<p>圖4 下載文件中GIS數據的前5行和最左邊的10列。資料來源：ESRI</p>
+<p>由於表格很大，在這裡只展示頭5行和最左邊的10列（圖4）。就本文而言，最重要的兩列是 The_map_la 和 The_map_lo，它們表示居屋位置的經緯度（即坐標）。</p>
 <p>在這裡我嘗試使用Open Street Map作為底圖以顯示居屋位置與街道的關係，你也可以選擇其他底圖，譬如改用Stamen.Terrain便可顯示與地勢的關係。有關 Contextily 中更多不同底圖的信息，可參考 Hamed (2020)。另有關Contextily的介紹指南，可瀏覽 https://contextily.readthedocs.io/en/latest/intro_guide.html</p>
 <p>這篇文章的程式代碼保存在我的 github-GreatLab 中，地址為 https://github.com/Chung-collab/GREAT-LAB/blob/main/GIS_data_on_basemap.ipynb，若需要觀看短片逐行程式介紹和示範，可看Yiu (2021) youtube (只有英文版)。</p>
 <p>參考：</p>
