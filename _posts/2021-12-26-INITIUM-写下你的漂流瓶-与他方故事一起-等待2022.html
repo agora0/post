@@ -164,7 +164,7 @@ author: 端传媒国际组
               <div v-if="paper.id <= 17">
                 <div class="paper-head">
                   <div class="cover">
-                    <figure><img class="img-fluid" :src="`img/cover-${paper.id}.jpg`" src="https://theinitium.com/article/20211227-international-message-in-a-bottle-2021-2022/%60img/cover-$%7Bpaper.id%7D.jpg%60" referrerpolicy="no-referrer"></figure><span class="caption" v-if="figCaption">{{figCaption}}</span>
+                    <figure :id="`cover-${paper.id}`"></figure><span class="caption" v-if="figCaption">{{figCaption}}</span>
                   </div>
                   <div class="title text-center">
                     <h3>{{paper.nickname}}</h3>
