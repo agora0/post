@@ -26,9 +26,8 @@ author: REDBRIC
 <p>分析水災先要搜集如降兩量等相關資料，各地的天文台網站常有提供，但要每個國家搜尋，非常費時，本文介紹如何在Google Earth Engine (GEE) 利用 NASA 的GPＭ衛星數據，不需一分鐘便可繪製出全球任何地方任何日期的降雨量地圖，有興趣進階學習更可製作如timelapse的風暴移動圖動畫。</p>
 <p>首先，大家若錯過了月前介紹如何登入GEE，請先閱讀前文 (<a href="https://vocus.cc/AI_and_ML/6186e67afd89780001e9d6c9">姚，2021</a>)登入GEE，關於全球降雨量的衛星數據，現時有最少三套不同的資料，今次為大家介紹是一套由美國太空總署NASA提供的NASA/GPM_L3/IMERG_V06每半小時降雨量的衛星數據 (Huffman et al., 2019: GPM IMERG Final Precipitation L3 Half Hourly 0.1 degree x 0.1 degree V06, <strong>DOI:</strong> 10.5067/GPM/IMERG/3B-HH/06)</p>
 <p>圖1顯示2021年12月25日聖誕節當天巴西巴伊亞州的降雨量衛星圖，紅色位置的全日最高降雨量達到每小時50毫米，清楚顯示暴雨成災的位置和變化，對研究和分析或預測水災有莫大幫助。但以文字表達如何在GEE利用NASA衛星數據繪畫地圖比較困難，將會製作一條短片逐步示範，清楚易明 (Youtube: https://youtu.be/ZtKRSKBvqWs)。</p>
-<p><br></p>
-<p><br></p>
-<p><br></p>
+<iframe class="embedly-embed" src="//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FZtKRSKBvqWs%3Ffeature%3Doembed&amp;display_name=YouTube&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DZtKRSKBvqWs&amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FZtKRSKBvqWs%2Fhqdefault.jpg&amp;key=07668a9ac4f243de9f6814e3e7b91420&amp;type=text%2Fhtml&amp;schema=youtube" scrolling="no" title="YouTube embed" allow="autoplay; fullscreen" allowfullscreen="true" data-connected="1" width="740" height="417" frameborder="0"></iframe>
+<img alt="圖1 在GEE用NASA的降雨量衛星數據繪製2021年12月25日巴西東北部的情況。" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Feb025d1b-2fe8-42dc-b5a0-9bf782635fa4.png&amp;width=740&amp;sign=pZI06nxF9Oe091DlmGcjO6QCdE6hOwbmbRY_u1JdCUQ" class="" style="max-width: 740px;" width="740" height="416.232">
 <p>圖1 在GEE用NASA的降雨量衛星數據繪製2021年12月25日巴西東北部的情況。</p>
 <p>GEE data catalog 本身有提供程式，可直接Run便可，簡單介紹如下：</p>
 <p><br></p>
@@ -49,18 +48,17 @@ author: REDBRIC
 <h3>2018年山竹襲港</h3>
 <p>每小時50毫米降雨量是甚麼概念？以下試與香港人記憶猶新和心有餘悸的2018年十號颱風「山竹」襲港來比較，天文台較多報導中心風力，較少提供降雨量的資料。大家只要在GEE更改程式中第一行的日期為2018-09-16，再把最後一行的座標改為114, 22便可得出山竹襲港當日的降雨量地圖。</p>
 <p>以下圖2，圖3，圖4是2018年9月14、15、16日的香港區域降雨量地圖，圖中紅色部份的降雨量高達85、96、82毫米。<a href="https://www.hko.gov.hk/tc/informtc/mangkhut18/tabrf.htm">香港天文台</a>更在當日錄得最高每小時279毫米雨量(石崗站)。</p>
+<img alt="圖2 2018年9月14日香港區域的降雨量衛星圖" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Fc8d13eea-af1d-4c6d-928d-9a139b6b0d70.png&amp;width=740&amp;sign=ea8slWc4GULhY8-qHEvpTRf2VGJfenLJsMq4TMQ-qtM" class="" style="max-width: 740px;" width="740" height="416.232">
 <p>圖2 2018年9月14日香港區域的降雨量衛星圖</p>
+<img alt="圖3 2018年9月15日香港區域的降雨量衛星圖" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F101fd948-6980-4c87-bf18-346d4fc57fd3.png&amp;width=740&amp;sign=c9vp9FOXvlPpPRbPEGMt29wyUtDuRnuc97HxdJSxYrE" class="" style="max-width: 740px;" width="740" height="416.232">
 <p>圖3 2018年9月15日香港區域的降雨量衛星圖</p>
+<img alt="圖4 2018年9月16日香港區域的降雨量衛星圖" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F5e942324-f9aa-442c-bc6c-d27011efc5e7.png&amp;width=740&amp;sign=_esk6s0pyPOHgtWNwaYbDDVyuBDZe_iIKkrXHjGrjgw" class="" style="max-width: 740px;" width="740" height="416.232">
 <p>圖4 2018年9月16日香港區域的降雨量衛星圖</p>
 <h3>Timelapse時序動態短片</h3>
 <p>把每日或每小時的衛星地圖放在Timelapse軟件上便可製作出一條時序動態短片，簡介山竹襲港的威力，有興趣學習的讀者可以閱讀<a href="https://blog.gishub.org/gee-tutorial-39-how-to-create-landsat-timelapse-animations-without-coding">Wu (2020)</a> 的介紹，即使用Adobe的video已經可以有類似的效果，大家不妨試試。</p>
-<p><br></p>
-<p><br></p>
-<p><br></p>
+<iframe class="embedly-embed" src="//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FdnNxGQCg2Fo%3Ffeature%3Doembed&amp;display_name=YouTube&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DdnNxGQCg2Fo&amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FdnNxGQCg2Fo%2Fhqdefault.jpg&amp;key=07668a9ac4f243de9f6814e3e7b91420&amp;type=text%2Fhtml&amp;schema=youtube" scrolling="no" title="YouTube embed" allow="autoplay; fullscreen" allowfullscreen="true" data-connected="1" width="740" height="417" frameborder="0"></iframe>
 <p>參考</p>
 <p>Christian Aid (2021) Counting the cost 2021 A year of climate breakdown, December. https://www.christianaid.org.uk/sites/default/files/2021-12/Counting%20the%20cost%202021%20-%20A%20year%20of%20climate%20breakdown.pdf</p>
 <p>Huffman, G.J., E.F. Stocker, D.T. Bolvin, E.J. Nelkin, Jackson Tan (2019), GPM IMERG Final Precipitation L3 Half Hourly 0.1 degree x 0.1 degree V06, Greenbelt, MD, Goddard Earth Sciences Data and Information Services Center (GES DISC), Accessed: <strong>[</strong><em><strong>2</strong></em>9 December 2021<strong>]</strong>, <a href="https://doi.org/10.5067/GPM/IMERG/3B-HH/06" target="_blank">10.5067/GPM/IMERG/3B-HH/06</a></p>
 <p>Wu, Q. (2020) GEE Tutorial #39 - How to create Landsat timelapse animations without coding，Geospatial Data Science, Oct 14. https://blog.gishub.org/gee-tutorial-39-how-to-create-landsat-timelapse-animations-without-coding</p>
 <p>姚松炎 (2021) 用Google Earth Engine繪製CH4濃度世界地圖，方格子，11月7日。https://vocus.cc/AI_and_ML/6186e67afd89780001e9d6c9</p>
-<p><br></p>
-<p><br></p>
