@@ -12,9 +12,9 @@ comments_id: 1
 
 Read blog on demand.
 
-| swenⒸ | muitinⒾ | srettaⓂ | dnatⓈ | sucoⓋ |
-| -- | -- | -- | -- | -- |
-| [![HKCNews](https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/hkcnews.jpg)](https://hkcnews.com/) | [![Initium](https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/initium.jpg)](https://theinitium.com/) | [![Matters](https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/matters.jpg)](https://matters.news/) | [![Stand](https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/stand.jpg)](https://thestandnews.com/) | [![Vocus](https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/vocus.jpg)](https://vocus.cc/) |
+| swenⒸ | muitinⒾ | aidemnⒾ | srettaⓂ | dnatⓈ | sucoⓋ |
+| -- | -- | -- | -- | -- | -- |
+| [![HKCNews](https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/hkcnews.jpg)](https://hkcnews.com/) | [![Initium](https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/initium.jpg)](https://theinitium.com/) | [![Inmedia](https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/inmedia.jpg)](https://inmediahk.net/) | [![Matters](https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/matters.jpg)](https://matters.news/) | [![Stand](https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/stand.jpg)](https://thestandnews.com/) | [![Vocus](https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/vocus.jpg)](https://vocus.cc/) |
 
 ## Test and Deploy
 
