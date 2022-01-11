@@ -11,15 +11,8 @@ timezone: Asia/Singapore
 future: true
 theme: minima
 exclude:
-  - _posts/2021-09*
-  - _posts/2021-08*
-  - _posts/2021-07*
-  - _posts/2021-06*
-  - _posts/2021-05*
-  - _posts/2021-04*
-  - _posts/2021-03*
-  - _posts/2021-02*
-  - _posts/2021-01*
+  - _posts/2021-10*
+  - _posts/2021-0*
   - _posts/2020*
   - _posts/201*
 paginate: 50
