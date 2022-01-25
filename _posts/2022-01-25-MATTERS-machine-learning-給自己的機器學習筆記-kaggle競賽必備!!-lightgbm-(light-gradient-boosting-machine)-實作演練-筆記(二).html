@@ -1,0 +1,98 @@
+---
+layout: post
+title: Machine Learning - 給自己的機器學習筆記 - Kaggle競賽必備!! - LightGBM (Light Gradient Boosting
+  Machine) - 實作演練 - 筆記(二)
+date: 2022-01-25 14:05:25.000000000 +00:00
+link: https://matters.news/@CHWang/machine-learning-%E7%B5%A6%E8%87%AA%E5%B7%B1%E7%9A%84%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-kaggle%E7%AB%B6%E8%B3%BD%E5%BF%85%E5%82%99-light-gbm-light-gradient-boosting-machine-%E5%AF%A6%E4%BD%9C%E6%BC%94%E7%B7%B4-%E7%AD%86%E8%A8%98-%E4%BA%8C-bafyreigqihgvixmnnikwmxaxgxzihuzbnj7bwsnus77izo2j7x34zx24nq
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<h1><a href="https://github.com/chwang12341/Machine-Learning/tree/master/LightGBM/Part2" target="_blank">Github連結</a></h1><figure class="image"><img src="https://assets.matters.news/embed/3ba08836-1eb9-4b9e-ab4e-f5988444da69.jpeg" data-asset-id="3ba08836-1eb9-4b9e-ab4e-f5988444da69" referrerpolicy="no-referrer"><figcaption><span>攝影師：Chris Schippers，連結：Pexels</span></figcaption></figure><p><br></p><p><br></p><h2><strong>5. 參數介紹</strong></h2><h3><strong>XGBoost、LightGBM、CatBoost重要參數比較</strong></h3><figure class="image"><img src="https://assets.matters.news/embed/3b29d039-9a8f-4a52-bad1-ffe579e8b5bd.png" data-asset-id="3b29d039-9a8f-4a52-bad1-ffe579e8b5bd" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><strong>圖片來源: </strong><a href="https://towardsdatascience.com/catboost-vs-light.gbm-vs-xgboost-5f93620723db" target="_blank">https://towardsdatascience.com/catboost-vs-light.gbm-vs-xgboost-5f93620723db</a></p><p><br></p><p><br></p><h3><strong>LightGBM常用超參數說明</strong></h3><h3><br></h3><p><strong>處理過擬和的參數</strong></p><figure class="image"><img src="https://assets.matters.news/embed/52e4590d-ea52-41e9-97f1-512b25e5d24b.png" data-asset-id="52e4590d-ea52-41e9-97f1-512b25e5d24b" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><strong>控制速度</strong></p><figure class="image"><img src="https://assets.matters.news/embed/58680a07-e365-4e2d-8efe-93495f1a4103.png" data-asset-id="58680a07-e365-4e2d-8efe-93495f1a4103" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><strong>輸入輸出參數</strong></p><figure class="image"><img src="https://assets.matters.news/embed/fa3f2dd7-0a4a-4bea-83d3-60dc70227b2b.png" data-asset-id="fa3f2dd7-0a4a-4bea-83d3-60dc70227b2b" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><strong>度量方法</strong></p><p><br></p><ol><li>metric: 設定模型的損失函數，以下為幾種常用的迴歸和分類的損失函數</li></ol><ul><li>mae: 絕對值平均誤差</li><li>mse: 均方誤差</li><li>binary_logloss: 二元分類對數損失</li><li>multi_logloss: 多分類對數損失</li></ul><p><br></p><p><strong>重要參數</strong></p><p><br></p><ol><li>Task: 設定需要在數據上執行的任務、訓練或是預測</li><li>application: 設定模型的應用，非常重要!!有迴歸或是分類，預設為迴歸模型</li></ol><ul><li>regression: 迴歸</li><li>binary: 二元分類</li><li>multiclass: 多類分類</li></ul><ol><li>boosting: 設定執行的算法類型，預設為gbdt</li></ol><ul><li>gbdt: 傳统的梯度提升樹</li><li>rf: 隨機森林</li><li>dart: 使用dropout的多重迴歸樹相加總</li><li>goss: 基於梯度的單側取樣</li></ul><ol><li>num_boost_round: 設定提升的疊代數量，通常為100以上</li><li>device: 預設為cpu，可以傳人gpu</li></ol><p><br></p><p><strong>其他控制參數</strong></p><p><br></p><ol><li>early_stopping_round: 設定當評估方法在幾輪中沒有提升就提前停止，避免過多的疊代，而這</li><li>個參數就是設定幾輪的數量</li><li>lambda: 設定正則化的參數，值介於0-1</li><li>min_gain_to_split: 設定進行樹分裂時，最小的增長數量，用來控制樹中有用的分裂數量</li><li>max_cat_threshold: 預設為32，限制分類特徵考慮的分割點數</li></ol><p><br></p><p><br></p><p>完整參數可以參考: <a href="https://lightgbm.readthedocs.io/en/latest/Parameters.html" target="_blank">https://lightgbm.readthedocs.io/en/latest/Parameters.html</a></p><h2><br></h2><h2><strong>6. 實作</strong></h2><p><br></p><h3><strong>安裝LightGBM</strong></h3><pre class="ql-syntax">pip install lightgbm
+</pre><h3><br></h3><h3><strong>導入套件</strong></h3><pre class="ql-syntax">## 導入lightgbm
+import lightgbm as lgb
+## 導入Scikit-Learn的評量套件
+from sklearn import metrics
+from sklearn.metrics import mean_squared_error
+## 導入Scikit-Learn的內建數據集
+from sklearn. datasets import load_iris
+## 導入Scikit-Learn用來拆分訓練集和測試集的套件
+from sklearn.model_selection import train_test_split
+</pre><h3><br></h3><h3><strong>載入數據集</strong></h3><pre class="ql-syntax">## 載入數據集
+iris_dataset = load_iris()
+data = iris_dataset.data
+target = iris_dataset.target
+​
+## 拆分訓練集與測試集
+X_train, X_test, y_train, y_test = train_test_split (data, target, test_size = 0.3)
+</pre><h3><br></h3><h3><strong>將數據集轉成gb特徵的數據集格式</strong></h3><pre class="ql-syntax">## 創建成符合lgb特徵的數據集格式
+## 將數據保存成LightGBM二進位文件，加載速度更快，占用更少內存空間
+## 訓練集
+lgb_train = lgb.Dataset(X_train, y_train)
+​
+## 測試集
+lgb_test = lgb.Dataset(X_test, y_test, reference = lgb_train)
+</pre><h3><br></h3><h3><strong>設定Igb參數</strong></h3><pre class="ql-syntax">## 撰寫訓練用的參數
+params = {
+  'task': 'train',
+  ## 算法類型
+  'boosting': 'gbdt',
+  'num_trees': 100,
+  'num_leaves': 20,
+  'max_depth': 6,
+  'learning_rate': 0.04,
+  ## 構建樹時的特徵選擇比例
+  'feature_fraction': 0.5,
+  'feature_fraction_seed': 8,
+  "bagging_fraction":0.5,
+  ## k 表示每k次迭代就進行bagging
+  'bagging_freq':5,
+  ## 如果數據集樣本分布不均衡，可以幫助明顯提高準確率
+  'is_unbalance': True,
+  'verbose':0,
+  ## 目標函數
+  'objective': 'regression',
+  ## 度量指標
+  'metric': {'rmse', 'auc'},
+  # 度量輸出的頻率
+  'metric_freq': 1,
+}
+</pre><h3><br></h3><h3><strong>訓練模型</strong></h3><pre class="ql-syntax">​
+## 訓練模型
+test_results = {}
+lgbm = lgb.train(params, lgb_train, valid_sets = lgb_test, num_boost_round = 20, early stopping_rounds = 5, evals_result = test_results)
+​
+## 保存模型
+lgbm.save_model('save_model.txt')
+</pre><h3><br></h3><h3><strong>預測測試集</strong></h3><pre class="ql-syntax">## 預測測試集
+## 在訓練期間有啟動early_stopping_rounds， 就可以透過best_iteration來從最佳送代中獲得預測結果
+y_pred = lgbm.predict(X_test, num_iteration = lgbm.best_iteration)
+print(y_pred)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">[0.87122796 1.2157111 0.87122796 0.87122796 1.2157111 1.2157111
+ 1.2157111 1.05520253 0.87122796 0.87122796 0.87122796 0.87122796
+ 1.05520253 0.87122796 0.87122796 1.05520253 1.05520253 0.92051469
+ 1.2157111 0.87122796 1.2157111 1.05520253 0.87122796 1.05520253
+ 0.87122796 0.87122796 0.91811222 1.2157111 1.2157111 0.87122796
+ 1.2157111 1.2157111 1.2157111 0.96739896 0.92051469 1.2157111
+ 1.2157111 1.2157111 1.05520253 1.2157111 1.05520253 0.92051469
+ 1.05520253 0.87122796 1.2157111 ]
+</pre><h3><br></h3><h3><strong>評估模型好壞</strong></h3><pre class="ql-syntax">## 評估模型的好壞
+## RMSE
+rmse = mean_squared_error (y_test, y_pred) ** 0.5
+print('RMSE of the model: ', rmse)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">RMSE of the model: 0.8199142880537924
+</pre><h3><br></h3><h3><br></h3><h2><strong>視覺化</strong></h2><p><br></p><p><strong>安裝套件</strong></p><pre class="ql-syntax">pip install graphviz
+</pre><p><br></p><p><strong>視覺化</strong></p><pre class="ql-syntax">## 視覺化
+import matplotlib.pyplot as plt
+​
+fig = plt.figure(figsize = (28, 30))
+ax = fig.subplots()
+lgb.plot_tree(lgbm, tree_index = 1, ax = ax) plt.show()
+</pre><p><br></p><p><strong>視覺化-訓練結果</strong></p><pre class="ql-syntax">## 訓練結果視覺化
+ax = lgb.plot_metric(test_results, metric = 'auc')
+plt.show()
+</pre><p><strong>執行結果</strong></p><figure class="image"><img src="https://assets.matters.news/embed/6510c272-25ae-467c-b643-7a8a893c17de.png" data-asset-id="6510c272-25ae-467c-b643-7a8a893c17de" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><p><strong>視覺化 - 特徵重要性排序</strong></p><pre class="ql-syntax">## 視覺化 • 特徵重要性排序
+ax = lgb.plot_importance(Igbm, max_num_features = 10)
+plt.show()
+</pre><p><strong>執行結果</strong></p><figure class="image"><img src="https://assets.matters.news/embed/df159745-8568-46cc-882a-44495309fa06.png" data-asset-id="df159745-8568-46cc-882a-44495309fa06" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><strong>大功告成！！恭喜恭喜</strong></p><h2><br></h2><h2><br></h2><h2><strong>Reference</strong></h2><p><a href="https://en.wikipedia.org/wiki/LightGBM" target="_blank">https://en.wikipedia.org/wiki/LightGBM</a></p><p>論文： 1999 REITZ LECTURE GREEDY FUNCTION APPROXIMATION: A GRADIENT BOOSTING MACHINE1 By Jerome H. Friedman</p><p><a href="https://zhuanlan.zhihu.com/p/52583923" target="_blank">https://zhuanlan.zhihu.com/p/52583923</a></p><p><a href="https://kknews.cc/zh-tw/tech/y3a3x8j.html" target="_blank">https://kknews.cc/zh-tw/tech/y3a3x8j.html</a></p><p><a href="https://github.com/denistanjingyu/LTA-Mobility-Sensing-Project" target="_blank">https://github.com/denistanjingyu/LTA-Mobility-Sensing-Project</a></p><p><a href="https://codertw.com/" target="_blank">https://codertw.com/</a>程式語言/510420/</p><p><a href="https://lightgbm.readthedocs.io/en/latest/Parameters.html" target="_blank">https://lightgbm.readthedocs.io/en/latest/Parameters.html</a> <a href="https://towardsdatascience.com/catboost-vs-light-gbm-vs-xgboost-5f93620723db" target="_blank">https://towardsdatascience.com/catboost-vs-light-gbm-vs-xgboost-5f93620723db</a></p>
