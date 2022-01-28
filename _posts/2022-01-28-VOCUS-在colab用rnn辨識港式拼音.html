@@ -1,0 +1,73 @@
+---
+layout: post
+title: 在Colab用RNN辨識港式拼音
+date: 2022-01-28 21:56:06.000000000 +00:00
+link: https://vocus.cc/user/@ecyY/61f42f31fd897800014e88b4
+categories: vocus
+tags: blog
+author: REDBRIC
+---
+
+<p>近期恒大主席許家印的報導很多 (Bloomberg, 2022a)，但不懂中文的讀者相信一定在網上搜尋遇到不少問題，不但是姓氏排先 (last name first)，更有多種不同的英文拼音。譬如在Google Translate輸入「許家印」，翻譯的英文是 Xǔjiāyìn，但若在彭博社十億富豪榜(Bloomberg Billionaires Index，Bloomberg, 2022b)裡找尋 Xu Jiayin，卻從頭到尾也找不到，原因是彭博社用香港獨有的中文名字廣東話羅馬拼音系統的拼音(港式拼音)，許家印在排名榜中的英文名字為 Hui Ka Yan，最新排名第431 (圖1)。</p>
+<p>圖1 彭博社十億富豪榜排名431的Hui Ka Yan，Bloomberg (29 January 2022) https://www.bloomberg.com/billionaires/</p>
+<p>誠然，讀者只要查查維基百科便可知道他的兩個英文拼音，但對自動識別人名系統而言，卻會帶來不少難題。傳統的解決辦法大多會建立一套中文名字在不同地區的拼音系統對照表，如圖2所示，以姓陳為例，內地拼音為Chen，香港拼音是Chan，新加坡則可以是Tan，韓文可變成Jin等。由於名字可以千變萬化，若要建立一套完整的資料庫，並持續維護，所需資源不少。</p>
+<p>圖2 中文名字在不同地區的拼音例子。來源：Cheung, Chan, Li & Yiu (2021)</p>
+<p>因此，有專家利用人工智能的機器學習中的RNN (遞迴神經網路RNN，Recurrent Neural Network) 開發出一套簡單易用的辨識中文名字的羅馬拼音地域的程式，最近我們 (<a href="https://doi.org/10.3390/jrfm14090423">Cheung, Chan, & Yiu, 2021</a>) 利用這套《中文名字辨識系統》 (Chinese Names Classifer，CNC) 就內地和香港買家在香港樓市的價格差異進行研究，文章發表於風險及財務管理期刊 (JRFM) 的上期專題：<em>機器學習在財經領域的應用 </em>(<em>Special Issue - Machine Learning Applications in Finance</em>) 中，詳細內容可下載全文參考。本文集中介紹如何在Google Colab平台上使用RNN的神經網路辨識港式拼音。</p>
+<h3>甚麼是RNN</h3>
+<p>機器學習的主要系統是ANN人工神經網路，但對於有前紋後理的資料，ANN因為沒有記憶迴路設定而有所不足，RNN (遞迴神經網路，Recurrent Neural Network) 針對這一要求，在ANN加入記憶迴路，有助辨識有前紋後理的資料串，如名字、文章、樂章等等。(圖3)</p>
+<p>圖3 RNN 遞迴神經網路。https://morioh.com/p/1bc305d7dbd</p>
+<h3>中文名字拼音辨識系統 (Chinese Names Classifer)</h3>
+<p>首先，有關的RNN程式主要來自研究團隊的<a href="https://github.com/ctszkin/Chinese-names-classifier/">Chan (2022) </a>的Github開放程式，我把它改編到Colab平台使用，原來的程式可以辨識不同國家的名字或公司名，但需要自行提供資料訓練機器。本文只示範利用03_Example中的香港和內地兩套拼音辨識，有關的訓練資料也有提供。</p>
+<h3>1.下載訓練資料</h3>
+<p>首先，大家可在<a href="https://github.com/ctszkin/Chinese-names-classifier/">Chan (2022)</a> 的Github中的Model中下載以下三個訓練資料檔案到你的Google Drive：</p>
+<p><a href="https://github.com/ctszkin/Chinese-names-classifier/blob/main/model/le.pkl" title="le.pkl">le.pkl</a></p>
+<p><a href="https://github.com/ctszkin/Chinese-names-classifier/blob/main/model/m1.h5" title="m1.h5">m1.h5</a></p>
+<p><a href="https://github.com/ctszkin/Chinese-names-classifier/blob/main/model/tokenizer.pkl" title="tokenizer.pkl">tokenizer.pkl</a></p>
+<p>舉例，我在Google Drive中開了個Colab Notebooks/model/的Directory，把三個檔案存到這個Directory，以便以下的編程使用。</p>
+<h3>2.輸入各類程式單元</h3>
+<p>首先，請到https://colab.research.google.com/開啟一項新Colab Notebook，輸入以下程式單元的編碼，這些都是一些常用於機器學習的程式單元，不作詳解：</p>
+<p><strong>import</strong> pandas <strong>as</strong> pd<br>
+<strong>import</strong> tensorflow <strong>as</strong> tf <br>
+<strong>from</strong> sklearn <strong>import</strong> preprocessing<br>
+<strong>from</strong> tensorflow.python.client <strong>import</strong> device_lib<br>
+<strong>from</strong> keras.layers <strong>import</strong> Activation, Dense, Dropout, Input, Embedding, CuDNNLSTM, CuDNNGRU,  GlobalMaxPooling1D, GlobalAveragePooling1D, Reshape, Conv1D, MaxPooling1D<br>
+<strong>import</strong> sklearn.model_selection<br>
+<strong>from</strong> sklearn.model_selection  <strong>import</strong> train_test_split<br>
+<strong>import</strong> keras<br>
+<strong>import</strong> numpy <strong>as</strong> np <br>
+<strong>import</strong> os<br>
+<strong>import</strong> keras<br>
+<strong>import</strong> pickle</p>
+<h3>3.安裝Google Drive及GPU</h3>
+<p>輸入以下編碼，主要是安裝Drive及keras model，另請安裝GPU (用Edit - Notebook Settings - Hardware Accelerator)：</p>
+<p>from google.colab import drive</p>
+<p>drive.mount('/content/drive')</p>
+<p>with open('/content/drive/My Drive/Colab Notebooks/model/tokenizer.pkl' , 'rb') as f:</p>
+<p>tokenizer = pickle.load(f)</p>
+<p>GRU_model = keras.models.load_model('/content/drive/My Drive/Colab Notebooks/model/m1.h5')</p>
+<p>with open('/content/drive/My Drive/Colab Notebooks/model/le.pkl' , 'rb') as f:</p>
+<p>le = pickle.load(f)</p>
+<h3>4.進行訓練</h3>
+<p><strong>import</strong> numpy <strong>as</strong> np<br>
+<strong>def</strong> proc_x(x, tokenizer):<br>
+    tensor <strong>=</strong> tokenizer<strong>.</strong>texts_to_sequences(x)<br>
+    tensor <strong>=</strong> tf<strong>.</strong>keras<strong>.</strong>preprocessing<strong>.</strong>sequence<strong>.</strong>pad_sequences(tensor,padding<strong>=</strong>'post',maxlen<strong>=</strong>50)<br>
+    <strong>return</strong> tensor<br>
+<br>
+<br>
+<strong>def</strong> predict_name(name, model, tokenizer,le, max_len<strong>=</strong>50):<br>
+    fit <strong>=</strong> le<strong>.</strong>classes_[np<strong>.</strong>argmax(model<strong>.</strong>predict( proc_x(name, tokenizer) ), axis<strong>=</strong>1)]<br>
+    <strong>return</strong> pd<strong>.</strong>DataFrame({'name':name, 'prediction':fit})</p>
+<h3>5.使用</h3>
+<p>以下輸入Hui Ka Yan 和 Xu Jiayin測試程式能否辨識出那一個名字是港式拼音：</p>
+<p>predict_name(["HUI KA YAN","XU JIAYIN"], GRU_model, tokenizer, le, max_len=50)</p>
+<h3>6.結果</h3>
+<p>|0|HUI KA YAN|HK|</p>
+<p>|1|XU JIAYIN|ML|</p>
+<p>程式能自動辨識出Hui Ka Yan 是港式拼音，而Xu Jia Yin 是內地拼音，大家可以試試輸入不同的港式(HK)和內地(ML)拼音，測試系統的準確性。當然，也有些名字拼音是兩地皆可，程式未必能夠分辨出來。譬如當輸入Mei Mei，程式辨識為內地拼音，但也有可能是港式拼音。</p>
+<p>若在編程時遇到困難，可參考即將提供的Youtube短片，逐步試驗。</p>
+<p>參考：</p>
+<p>Chan, T.K. (2022) Chinese Names Classifier, Github, 15 January. https://github.com/ctszkin/Chinese-names-classifier</p>
+<p>Cheung, K.S., Chan, J.T., Li, S. & Yiu, C.Y. (2021) Anchoring and Asymmetric Information in the Real Estate Market: A Machine Learning Approach, <em>Journal of Risk and Financial Management</em>, 14(9), 423. <a href="https://doi.org/10.3390/jrfm14090423">https://doi.org/10.3390/jrfm14090423</a></p>
+<p>Bloomberg (2022a) How Evergrande Became China’s Biggest Financial Headache, Youtube, Jan. 28. https://youtu.be/OABQT3gyYmA</p>
+<p>Bloomberg (2022b) Bloomberg Billionaires Index, 29 January. https://www.bloomberg.com/billionaires</p>
