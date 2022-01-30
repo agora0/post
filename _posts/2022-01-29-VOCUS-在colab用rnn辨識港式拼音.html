@@ -9,12 +9,15 @@ author: REDBRIC
 ---
 
 <p>近期恒大主席許家印的報導很多 (Bloomberg, 2022a)，但不懂中文的讀者相信一定在網上搜尋遇到不少問題，不但是姓氏排先 (last name first)，更有多種不同的英文拼音。譬如在Google Translate輸入「許家印」，翻譯的英文是 Xǔjiāyìn，但若在彭博社十億富豪榜(Bloomberg Billionaires Index，Bloomberg, 2022b)裡找尋 Xu Jiayin，卻從頭到尾也找不到，原因是彭博社用香港獨有的中文名字廣東話羅馬拼音系統的拼音(港式拼音)，許家印在排名榜中的英文名字為 Hui Ka Yan，最新排名第431 (圖1)。</p>
+<img alt="圖1 彭博社十億富豪榜排名431的Hui Ka Yan，Bloomberg (29 January 2022) https://www.bloomberg.com/billionaires/" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F0bda209e-6a7c-4b52-bbbd-1fbcc1eb5f9e.jpg&amp;width=400&amp;sign=aPuGPl_8jqGVIp5gcM1zqgTyLyMKEuo_N6LuZiubTmI" class="" style="max-width: 400px;" width="400" height="533.6492000000001">
 <p>圖1 彭博社十億富豪榜排名431的Hui Ka Yan，Bloomberg (29 January 2022) https://www.bloomberg.com/billionaires/</p>
 <p>誠然，讀者只要查查維基百科便可知道他的兩個英文拼音，但對自動識別人名系統而言，卻會帶來不少難題。傳統的解決辦法大多會建立一套中文名字在不同地區的拼音系統對照表，如圖2所示，以姓陳為例，內地拼音為Chen，香港拼音是Chan，新加坡則可以是Tan，韓文可變成Jin等。由於名字可以千變萬化，若要建立一套完整的資料庫，並持續維護，所需資源不少。</p>
+<img alt="圖2 中文名字在不同地區的拼音例子。來源：Cheung, Chan, Li &amp; Yiu (2021)" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2Fdb256f1f-ff94-4cb1-a41f-83a0a906c240.webp&amp;width=466&amp;sign=3KtrZqubrpcudhS0dQFcsjRsNJdeInBjDyMWlq9HTsU" class="" width="100%">
 <p>圖2 中文名字在不同地區的拼音例子。來源：Cheung, Chan, Li & Yiu (2021)</p>
 <p>因此，有專家利用人工智能的機器學習中的RNN (遞迴神經網路RNN，Recurrent Neural Network) 開發出一套簡單易用的辨識中文名字的羅馬拼音地域的程式，最近我們 (<a href="https://doi.org/10.3390/jrfm14090423">Cheung, Chan, Li & Yiu, 2021</a>) 利用這套《中文名字辨識系統》 (Chinese Names Classifer，CNC) 就內地和香港買家在香港樓市的價格差異進行研究，文章發表於風險及財務管理期刊 (JRFM) 的上期專題：<em>機器學習在財經領域的應用 </em>(<em>Special Issue - Machine Learning Applications in Finance</em>) 中，詳細內容可下載全文參考。本文集中介紹如何在Google Colab平台上使用RNN的神經網路辨識港式拼音。</p>
 <h3>甚麼是RNN</h3>
 <p>機器學習的主要系統是ANN人工神經網路，但對於有前紋後理的資料，ANN因為沒有記憶迴路設定而有所不足，RNN (遞迴神經網路，Recurrent Neural Network) 針對這一要求，在ANN加入記憶迴路，有助辨識有前紋後理的資料串，如名字、文章、樂章等等。(圖3)</p>
+<img alt="圖3 RNN 遞迴神經網路。https://morioh.com/p/1bc305d7dbd" src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fimages.vocus.cc%2F065775c3-7045-4d46-b215-b8f41981c8b2.png&amp;width=466&amp;sign=7n4StJqqRjSJvx6RkAPt0MKx2ManvWB-BcziK_OPDoA" class="" style="max-width: 466px;" width="466" height="239.50080000000003">
 <p>圖3 RNN 遞迴神經網路。https://morioh.com/p/1bc305d7dbd</p>
 <h3>中文名字拼音辨識系統 (Chinese Names Classifer)</h3>
 <p>首先，有關的RNN程式主要來自研究團隊的<a href="https://github.com/ctszkin/Chinese-names-classifier/">Chan (2022) </a>的Github開放程式，我把它改編到Colab平台使用，原來的程式可以辨識不同國家的名字或公司名，但需要自行提供資料訓練機器。本文只示範利用03_Example中的香港和內地兩套拼音辨識，有關的訓練資料也有提供。</p>
@@ -65,8 +68,7 @@ def proc_x(x, tokenizer):<br>
 <p>|1|XU JIAYIN|ML|</p>
 <p>程式能自動辨識出Hui Ka Yan 是港式拼音，而Xu Jia Yin 是內地拼音，大家可以試試輸入不同的港式(HK)和內地(ML)拼音，測試系統的準確性。當然，也有些名字拼音是兩地皆可，程式未必能夠分辨出來。譬如當輸入Mei Mei，程式辨識為內地拼音，但也有可能是港式拼音。</p>
 <p>若在編程時遇到困難，可參考以下的Youtube短片，逐步試驗。</p>
-<p><br></p>
-<p><br></p>
+<iframe class="embedly-embed" src="//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FTalX6OhRry8%3Ffeature%3Doembed&amp;display_name=YouTube&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DTalX6OhRry8&amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FTalX6OhRry8%2Fhqdefault.jpg&amp;key=07668a9ac4f243de9f6814e3e7b91420&amp;type=text%2Fhtml&amp;schema=youtube" scrolling="no" title="YouTube embed" allow="autoplay; fullscreen" allowfullscreen="true" data-connected="1" width="451" height="254" frameborder="0"></iframe>
 <p>參考：</p>
 <p>Chan, T.K. (2022) Chinese Names Classifier, Github, 15 January. https://github.com/ctszkin/Chinese-names-classifier</p>
 <p>Cheung, K.S., Chan, J.T., Li, S. & Yiu, C.Y. (2021) Anchoring and Asymmetric Information in the Real Estate Market: A Machine Learning Approach, <em>Journal of Risk and Financial Management</em>, 14(9), 423. <a href="https://doi.org/10.3390/jrfm14090423">https://doi.org/10.3390/jrfm14090423</a></p>
