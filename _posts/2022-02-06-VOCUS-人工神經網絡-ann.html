@@ -9,39 +9,32 @@ author: REDBRIC
 ---
 
 <p>應讀者要求，今次為大家簡介人工神經網絡 ANN。</p>
-<p><br></p>
-<p><br></p>
-<p><br></p>
+<iframe class="embedly-embed" src="https://www.youtube.com/embed/63rRgtjvWRU" scrolling="no" title="YouTube embed" allow="autoplay; fullscreen" allowfullscreen="true" width="740" height="417" frameborder="0"></iframe>
 <p>人工智能中的機器學習 (Machine Learning) 常用人工神經網絡 (Artificial Neural Network，ANN) 模型作為學習的系統，所謂的ANN，是指參考動物的神經網絡原理，建構一套機器學習系統，如圖1所示，動物神經網絡中透過突觸 (Synapses) 互相聯繫，從而作出分析、學習和判斷。</p>
+<img alt="圖1 生物神經網絡。生物神經網絡。" src="https://images.vocus.cc/c8fb33f1-84a0-42b5-8d45-8e33e01c2bf6.jpg">
 <p>圖1 生物神經網絡。<a href="https://phys.org/news/2019-04-neuron-synapse-mimetic-spintronics-devices.html">生物神經網絡。</a></p>
 <h3>何謂人工神經網絡？</h3>
 <p>人工神經網絡模仿生物神經網絡概念，把學習判斷簡化為合計多項參數及其加權後能否通過突觸的數值，發展出一套機器學習的人工智能模型。人工神經網絡的單元分為輸入層 (Input Layer)，隱藏層 (Hidden Layer)，輸出層 (Output Layer)。</p>
+<img alt="圖2 生物神經網絡與人工神經網絡。生物神經網絡與人工神經網絡。生物神經網絡與人工神經網絡。" src="https://images.vocus.cc/969bd62e-71e0-47ba-89e3-0192830de688.png">
 <p>圖2 生物神經網絡與人工神經網絡。生物神經網絡與人工神經網絡。<a href="https://towardsdatascience.com/the-differences-between-artificial-and-biological-neural-networks-a8b46db828b7">生物神經網絡與人工神經網絡</a>。</p>
 <p>圖3示範人工神經網絡如何運作，首先，假設這一決策只有三項輸入參數，即使沒有向機器提供決策定律，只要為機器提供大量參數和答案數據訓練，機器便可學習如何為不同的輸入參數作出判斷和決策。</p>
 <p>每次訓練輸入不同的參數 (左邊輸入層箭頭)，機器為它們調整加權(0.7，0.6，1.4)，然後合計 (sum) 並加上偏權值 (bias)，然後嘗試通過突觸激活 (activate)，若所得數值與實際數值(答案)相差太大，判斷便不能通過，須回饋調整加權，直至加權能準確判斷為止。</p>
+<img alt="圖3 人工神經網絡概念。人工神經網絡概念。人工神經網絡概念。" src="https://images.vocus.cc/76e31a18-1d66-46c7-b551-0f729715af22.gif">
 <p>圖3 人工神經網絡概念。人工神經網絡概念。<a href="https://www.analyticsvidhya.com/blog/2020/02/cnn-vs-rnn-vs-mlp-analyzing-3-types-of-neural-networks-in-deep-learning/">人工神經網絡概念</a>。</p>
 <h3>突觸激活功能</h3>
 <p>從錯誤中學習是生物學習的過程，機器學習亦然 (<a href="https://doi.org/10.1108/02632770610677646">Yiu & Yau, 2006</a>)，機器學習決策必然有可能犯錯，數據分析必定有誤差，因此經過加權計算分析所輸入的參數後，人工神經網絡的決策依賴一組激活功能 (Activation Function)，以決定應該判斷為0或1。常用的激活功能如S函数或TANH函数 (圖4)，決定通過與否。</p>
+<img alt="圖4a Sigmoid函数Sigmoid函数Sigmoid函数" src="https://images.vocus.cc/814d4eb9-71fd-46fb-8cb6-ef946f389b17.png">
 <p>圖4a Sigmoid函数Sigmoid函数<a href="https://laptrinhx.com/activation-functions-in-neural-network-1596742022/">Sigmoid函数</a></p>
 <p>機器學習的重點在於訓練 (學習)! 所謂的訓練就是把機器的判斷與正確的答案比較，看看機器的判斷有多準確，初學時犯錯不要緊，只要不斷把誤差回饋至神經網絡，再學習時修正加權，把判斷的準確度不斷提高，直至準確度達至預定水平為止。一切就像訓練小朋友學習一樣，在學習階段身邊必須有一位誠實可靠的教練，為小朋友的判斷加以提醒，加以鼓勵，自然有所成就！</p>
+<img alt="圖4b Tanh函数Tanh函数Tanh函数" src="https://images.vocus.cc/376531c7-dabe-4399-8f5f-c1a1b8da2df7.png">
 <p>圖4b Tanh函数Tanh函数<a href="https://laptrinhx.com/activation-functions-in-neural-network-1596742022/">Tanh函数</a></p>
-<p><br></p>
-<p><br></p>
-<p><br></p>
-<p><br></p>
 <h3>機器學習估算樓價</h3>
 <p>以估算樓價為例，假設一機器學習模型根據住宅單位的三項參數評估樓價 (其他參數相同)，即房間數量 (BR)，落成年份 (YEAR BUILT) 及樓面面積 (GFA)，如圖5所示，不同住宅單位的參數各有不同，第一伙為一房單位，面積23平方米，建於1990年，機器為此單位估算樓價，得出十萬元，然後與實際售價比較，應為205,500，錯得離譜；但機器把誤差修正，下次再估類似單位，準確度有所提高。經過多次的訓練，機器在訓練組別的數據中已達至預定的準確度，得出可靠的加權數值和隱蔽層的數值 (圖6)，現在可以到現實世界測試，如圖5輸入最後一行的數據，即2房，50平方米，建於2000年的單位售價，您估應是多少？</p>
+<img alt="圖5 樓價估算訓練數據" src="https://images.vocus.cc/ea5487ba-2cee-4d73-b59f-f9c753b6fcb2.png">
 <p>圖5 樓價估算訓練數據</p>
+<img alt="圖6 經過訓練後的加權數值和隱蔽層的數值。" src="https://images.vocus.cc/ae8df70c-3907-4b99-97cc-7f14b6ceb7e1.png">
 <p>圖6 經過訓練後的加權數值和隱蔽層的數值。</p>
 <p>網上有不少短片提供更詳細和更有趣的ANN例子，如以下的Youtube，介紹如何用ANN訓練機器判斷手寫0，1，2，...，9，但只有英文版: 3Blue1Brown，But what is a neural network? | Chapter 1, Deep learning。</p>
-<p><br></p>
-<p><br></p>
-<p><br></p>
-<p><br></p>
+<iframe allowfullscreen="1" allow="accelerometer; autoplay; fullscreen; picture-in-picture" title="YouTube video player" src="https://www.youtube.com/embed/aircAruvnKk" width="640" height="360" frameborder="0"></iframe>
 <p>參考：</p>
 <p>Yiu, C.Y. and Yau, Y. (2006), "A learning model of intelligent home", <em>Facilities</em>, Vol. 24 No. 9/10, pp. 365-375. <a href="https://doi.org/10.1108/02632770610677646" title="DOI: https://doi.org/10.1108/02632770610677646">https://doi.org/10.1108/02632770610677646</a></p>
-<p><br></p>
-<p><br></p>
-<p><br></p>
-<p><br></p>
-<p><br></p>
