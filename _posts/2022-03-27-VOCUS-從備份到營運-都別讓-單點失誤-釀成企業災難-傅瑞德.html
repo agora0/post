@@ -9,8 +9,7 @@ author: 吐納商業評論
 ---
 
 <h3 class="draft-block draft--h3">日前公共電視台的影片檔案在交由外部廠商備份時，出現了數十萬筆資料完全消失的嚴重錯誤。無論是備份的技術問題、或是人為操作失誤，這個現象都凸顯了「災難性單點失誤」在公視流程中的存在。這種失誤不僅會出現在備份時，也會在人事、財務、管理上發生；於是本文就以備份為例，來討論一下這個問題。</h3>
-<div class="draft--imgFull"><div><div style="height:400px" class="image-block-prerender" data-src="https://images.vocus.cc/abaea949-b7f4-4869-b8cc-66fbfc1a15a3.jpg" data-width="1280" data-height="865" data-position="full"></div><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></div>
-<div class="draft-block draft--p left"></div>
+<div class="draft--imgFull"><img src="https://images.vocus.cc/abaea949-b7f4-4869-b8cc-66fbfc1a15a3.jpg"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div>
 <blockquote class="draft-block draft--blockquote">財團法人公共電視新聞「片庫」驚傳重大災情，公視新聞部、客家電視台及台語台，近5年約42萬筆新聞資料畫面，竟遭外包資訊公司人員全數刪除，其中包括許多具歷史意義的珍貴影像，未來要剪輯相關畫面只能花公帑向華視購買。離譜的是，去年6月公視才遭駭客入侵，為防再遭駭客入侵，才找來專業資訊公司備份片庫等資料，沒想到竟出現如此低級錯誤。本刊調查，公視董事會已要求相關單位在24日前提出調查報告，並委託律師向廠商求償。<br><br>──鏡新聞〈<a href="https://www.mirrormedia.mg/story/20220314inv013/" target="_blank" class="draft--a">公視認片庫遭全刪　強調：正研擬提告求償</a>〉</blockquote>
 <div class="draft-block draft--p left">以我當過業主、也當過外包廠商的經驗，把唯一一份資料交給外包廠商去備份，是最容易出錯的事情之一。</div>
 <div class="draft-block draft--p left">其實不只是資料，企業中包括營運、人事、資源管理、工作程序等等，都必須遵循一個最高原則，就是：</div>
@@ -25,7 +24,7 @@ author: 吐納商業評論
   <li class="draft-block draft--li">A、B內容可以各自獨立開啟；</li>
 </ul>
 <div class="draft-block draft--p left">……的前提下，就算是完整的備份作業（這些前提適用於以下所有敘述，不再重複）。</div>
-<div class="draft--imgNormal draft-block"><div><div style="height:400px" class="image-block-prerender" data-src="https://cdn.substack.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6bd1ed50-379b-48a6-82b1-445b5d4f9a91_788x344.png" data-width="449" data-height="196.01015228426397" data-isblurred="false" data-position="center"></div><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></div>
+<div class="draft--imgNormal draft-block"><img src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/6bd1ed50-379b-48a6-82b1-445b5d4f9a91_788x344.png"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div>
 <div class="draft-block draft--p left">或許「完全相同」、「可各自開啟」看起來像是廢話；但在人類歷史上，備份完A、B內容不太一樣或有缺損，或是A打得開B打不開、甚至兩個都無法打開（例如<a href="https://www.linwei.com.tw/forum-detail/12/" target="_blank" class="draft--a">RAID 1</a>嚴重損毀）的案例都發生過太多，所以千萬不要覺得不可能。</div>
 <div class="draft-block draft--p left">以個人的非關鍵資料而言，或許從A到B的備份就夠用了；但是對於多人、多部門的企業而言，就必須有妥善的備份策略，才能避免如公視（和其他許多沒有上新聞的企業）這樣的慘劇發生。</div>
 <h3 class="draft-block draft--h3">一切都要「分散」</h3>
@@ -33,7 +32,7 @@ author: 吐納商業評論
 <div class="draft-block draft--p left">異地、多份的觀念比較常聽說，「分時」則比較少人談；簡單的說，就是各部門不要在同一時間進行備份作業，以免例如公司大樓停電，導致同時進行的作業全部失敗。</div>
 <div class="draft-block draft--p left">總之，就是必須假設每一個程序都會出問題（這很正常，誰來做都一樣），但盡量將每一個可能出問題的環節錯開，將「單點失誤」導致全毀的機率降到最低。</div>
 <div class="draft-block draft--p left">以全公司的檔案備份而言，理想狀況下的基本策略應該是如下圖所示：</div>
-<div class="draft--imgFull"><div><div style="height:400px" class="image-block-prerender" data-src="https://cdn.substack.com/image/fetch/w_2400,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc13b197a-b8c3-4140-8aea-9e45feeb34d8_3232x1254.png" data-width="1200" data-height="465.65934065934067" data-isblurred="false" data-position="full"></div><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></div>
+<div class="draft--imgFull"><img src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/c13b197a-b8c3-4140-8aea-9e45feeb34d8_3232x1254.png"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div>
 <ul>
   <li class="draft-block draft--li">各部門自己先將資料從A拷備份成B拷；</li>
   <li class="draft-block draft--li">交出B拷給中央MIS彙整成C拷、並備份成D拷；</li>
