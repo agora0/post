@@ -1,0 +1,41 @@
+---
+layout: post
+title: 周末闲谈：虚拟货币、区块链世界二三事：二零二二（十五）
+date: 2022-05-02 02:34:45.000000000 +00:00
+link: https://matters.news/@lnakuma/278287-%25E5%2591%25A8%25E6%259C%25AB%25E9%2597%25B2%25E8%25B0%2588-%25E8%2599%259A%25E6%258B%259F%25E8%25B4%25A7%25E5%25B8%2581-%25E5%258C%25BA%25E5%259D%2597%25E9%2593%25BE%25E4%25B8%2596%25E7%2595%258C%25E4%25BA%258C%25E4%25B8%2589%25E4%25BA%258B-%25E4%25BA%258C%25E9%259B%25B6%25E4%25BA%258C%25E4%25BA%258C-%25E5%258D%2581%25E4%25BA%2594-bafyreifywncr7772uo475iitgd4pr2y57o72dpfkebrytukjalibe3xdgi
+categories: matters
+tags: blog
+author: 阿酷
+---
+
+<h2>推特 vs Web 3.0</h2><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/dee16e47-936d-4cb8-8902-84210d578b65.webp" onerror="this.srcset='https://assets.matters.news/embed/dee16e47-936d-4cb8-8902-84210d578b65.png'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/dee16e47-936d-4cb8-8902-84210d578b65.png" onerror="this.srcset='https://assets.matters.news/embed/dee16e47-936d-4cb8-8902-84210d578b65.png'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/dee16e47-936d-4cb8-8902-84210d578b65.webp">
+
+        <img src="https://assets.matters.news/embed/dee16e47-936d-4cb8-8902-84210d578b65.png" srcset="https://assets.matters.news/processed/540w/embed/dee16e47-936d-4cb8-8902-84210d578b65.png" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>[图像源自：https://pixabay.com/</span></figcaption></figure><p>在过去的一周中我们看到伊隆·马斯克花了四百四十亿收购推特；在他的计划中将要把推特变为私人公司。</p><p>不少新闻界，以及推特上的自媒体在热炒马斯克将把庞大的推特平台升级为Web 3.0。其原因为特斯拉老板想要新版的推特取消现有的审查制度，每一个人都应该能够有在推特上发声的权力，等等。</p><p>从某种意义来讲，整个Web 3.0的价值观就是上面所述。但是，把推特变成一个去中心化的Web 3.0的应用可行吗？</p><p>首先我们要先看一看推特是怎么储存数据的。</p><p>推特使用MySQL和Manhattan作为主要贮存数据的数据库系统。这个叫曼哈顿的系统是一个实时，分布式的数据库。这种分布式的处理方法是通过Hadoop来完成。一个Hadoop簇可能有上千台单独的系统串联起来。</p><p>Hadoop可以让整个系统在处理数据的时候更加快速。根据推特自己的统计平均每秒钟将有5700条推文存储到数据库当中[1]。</p><p>现在我们来看看区块链中的老大比特币，以及代币中的王者以太坊的数据。</p><p>比特币可以在一个小时内完成9734次交易（Transaction），相当于2.70每秒[2]；以太坊则比比特币多很多，一小时48463，也就是每秒钟13.49次交易[3]。</p><p>当然，我们要考虑到每一个交易在网络中传输的数据的实际尺寸大小不一，有可能达到几个MB，我们姑且猜测1MB，为1024<em>1024=1048576字节。而推文只能拥有140个字符，140</em>4为560个8位字节。</p><p>虽然一条推文可能在无边无际的网络中的传送的数据大小远远小于比特币或者以太坊，但是当我们把1048576缩小为560字节（1872倍），导致区块链的交易提速：2.70*1872=5055.63，还是不能达到现有的推特传输数据的速度。</p><p>有人可能说以太坊速度要快啊；但是以太坊的费用也高。请问有谁想发一条推文，还要看着矿工拿走自己几十美刀的矿工费？</p><p>再看推特上的私信功能，私信，顾名思义，就是不想让第三方看到的信件。我们知道区块链上面的数据都是公开的，即便交易双方可以用地址来代替账户或者真实姓名，但是，一条“王宝强老婆出轨了”私信，估计不管说话的双方是谁，是什么目的，可能也都不应该全公开地暴露在大庭广众之下。</p><p>而区块链上面的数据，即便一个去中心化应用闭屏，也不能保证其他的也会那么做，所以没有隐私而言。</p><p>要想降低费用，则需要减少能够为推特挖矿的矿工；像币安智能链一样。不过币安一直被人诟病不够去中心化。而使用一个相对中心化的系统被推特挖矿则违背了Web 3.0的宗旨。</p><p>用每秒推文和每秒交易相比有太多的变量，可比性其实不高。上面只是在不深度研究推特或者区块链的基础操作方式的情况下，以常识的方法解析两者不同之处。</p><p>个人觉得，不管马斯克如果改变推特。他不会从根本上改变推特的数据储存方式。他是一个商人，不会为自己挖一个投资上的无底洞。</p><p>再说，对一个说要恢复往可口可乐中添加可卡因的人，老百姓应该信他说的多少话[4]？</p><hr><h2>中非的虚拟货币法币</h2><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/255ddefc-10eb-4105-a900-a2c2f1fd985b.webp" onerror="this.srcset='https://assets.matters.news/embed/255ddefc-10eb-4105-a900-a2c2f1fd985b.jpeg'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/255ddefc-10eb-4105-a900-a2c2f1fd985b.jpeg" onerror="this.srcset='https://assets.matters.news/embed/255ddefc-10eb-4105-a900-a2c2f1fd985b.jpeg'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/255ddefc-10eb-4105-a900-a2c2f1fd985b.webp">
+
+        <img src="https://assets.matters.news/embed/255ddefc-10eb-4105-a900-a2c2f1fd985b.jpeg" srcset="https://assets.matters.news/processed/540w/embed/255ddefc-10eb-4105-a900-a2c2f1fd985b.jpeg" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>[图像源自：https://www.bankofengland.co.uk/</span></figcaption></figure><p>在塞尔瓦多之后，中非成为了世界上第二个将比特币定位法币的国家。据说处于前不着村，后不着店，被困在几个国家中间的中非，想利用虚拟货币增加能够自由出入国境线的资金[5]。</p><p>中非财政部长表示：非洲国家常被认为是新科技落后的地区，这一次我们的国家则领先了全世界[6]。</p><p>当然，和塞尔瓦多一样，媒体上各种批判的声音接踵而至；甚至还有将俄罗斯利用虚拟货币逃脱经济制裁的话题也再次被搬出来[7]。</p><p>虚拟货币的支持者则很支持。也许是这段时间虚拟货币的价格跌多增少，大家都需要一股强心剂，让自己少损失点吧？</p><p>以我个人的意愿，还是希望更多的国家将虚拟货币指定为法币，或者建立属于自己国家的区块链金融系统。越早的完成这种转换，越能更早的让全世界共同指定一个属于全体地球人的虚拟货币金融机制。从而，个别政府担心的利用虚拟货币从事非法活动等等弊端都能在全世界共同的理念下解决。</p><hr><h2>跨链质押DAO</h2><figure class="image">
+      <picture>
+        <source type="image/webp" media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f6c2ac44-0f9c-40c1-ab10-dad533bcd6a7.webp" onerror="this.srcset='https://assets.matters.news/embed/f6c2ac44-0f9c-40c1-ab10-dad533bcd6a7.jpeg'">
+
+        <source media="(min-width: 768px)" srcset="https://assets.matters.news/processed/1080w/embed/f6c2ac44-0f9c-40c1-ab10-dad533bcd6a7.jpeg" onerror="this.srcset='https://assets.matters.news/embed/f6c2ac44-0f9c-40c1-ab10-dad533bcd6a7.jpeg'">
+
+        <source type="image/webp" srcset="https://assets.matters.news/processed/540w/embed/f6c2ac44-0f9c-40c1-ab10-dad533bcd6a7.webp">
+
+        <img src="https://assets.matters.news/embed/f6c2ac44-0f9c-40c1-ab10-dad533bcd6a7.jpeg" srcset="https://assets.matters.news/processed/540w/embed/f6c2ac44-0f9c-40c1-ab10-dad533bcd6a7.jpeg" loading="lazy" referrerpolicy="no-referrer">
+      </picture>
+    <figcaption><span>[图片源自：https://www.porttechnology.org/</span></figcaption></figure><p>这段时间经常介绍坚果盒Nutbox的跨链质押DAO创建平台。</p><p>在刚刚过去的一周中，坚果盒的Walnut平台先后开放了质押Cosmos链上ATOM铸造币安智能链上的代币的功能。在Nutbox官方以及WhereIN社区质押都可获得社区的原生币。</p><p>对于没有自己的DAO，或者只在一条区块链上建立DAO的团体，Nutbox的Walnut平台可以提供迅速跨链的帮助。</p><p>Nutbox的原生币$NUT也经过了6个月的锁仓之后，将在今天解除锁仓，开始免费转让[8]。</p><hr><h3>引用的文章</h3><ol><li><a href="https://blog.twitter.com/engineering/en_us/a/2013/new-tweets-per-second-record-and-how" rel="noopener noreferrer" target="_blank">https://blog.twitter.com/engineering/en_us/a/2013/new-tweets-per-second-record-and-how</a></li><li><a href="https://bitinfocharts.com/bitcoin/" rel="noopener noreferrer" target="_blank">https://bitinfocharts.com/bitcoin/</a></li><li><a href="https://bitinfocharts.com/ethereum/" rel="noopener noreferrer" target="_blank">https://bitinfocharts.com/ethereum/</a></li><li><a href="https://www.msn.com/en-us/news/technology/fact-check-was-there-ever-cocaine-in-coca-cola-as-elon-musk-implied/ar-AAWIDxe" rel="noopener noreferrer" target="_blank">https://www.msn.com/en-us/news/technology/fact-check-was-there-ever-cocaine-in-coca-cola-as-elon-musk-implied/ar-AAWIDxe</a></li><li><a href="https://coinpricepredict.com/news/the-central-african-republic-adopts-crypto-for-financial-markets/" rel="noopener noreferrer" target="_blank">https://coinpricepredict.com/news/the-central-african-republic-adopts-crypto-for-financial-markets/</a></li><li><a href="https://www.coindesk.com/business/2022/04/27/central-african-republic-adopts-bitcoin-as-legal-tender/" rel="noopener noreferrer" target="_blank">https://www.coindesk.com/business/2022/04/27/central-african-republic-adopts-bitcoin-as-legal-tender/</a></li><li><a href="https://www.cnbc.com/2022/04/28/central-african-republic-adopts-bitcoin-as-legal-tender.html" rel="noopener noreferrer" target="_blank">https://www.cnbc.com/2022/04/28/central-african-republic-adopts-bitcoin-as-legal-tender.html</a></li><li><a href="https://walnut.nutbox.io/" rel="noopener noreferrer" target="_blank">https://walnut.nutbox.io</a></li></ol><p><br></p>
