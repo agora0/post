@@ -1,0 +1,20 @@
+---
+layout: post
+title: 白票 ～ Github Pages 发布免费个人介绍页
+date: 2022-09-21 00:22:54.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E7%99%BD%E7%A5%A8-github-pages-%E5%8F%91%E5%B8%83%E5%85%8D%E8%B4%B9%E4%B8%AA%E4%BA%BA%E4%BB%8B%E7%BB%8D%E9%A1%B5-bafyreia33kdn3r4vm7b3ir5yslglnrwt6aaww6nf62agfoq442akhszprq
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<figure class="image"><img src="https://assets.matters.news/embed/ad4c79b6-7af7-4f12-8b75-03de0a8ad498.jpeg" data-asset-id="ad4c79b6-7af7-4f12-8b75-03de0a8ad498" referrerpolicy="no-referrer"><figcaption><span>屌丝不能错过的免费神器</span></figcaption></figure><p>我发现 Github pages 是用来放个免费个人展示页的绝佳选择——免费，省事，好掌控……</p><p>准备工具：</p><pre class="ql-syntax" spellcheck="false">git
+Github 账号
+VScode
+</pre><p>将本地编辑好的页面 push 到 Github repo 后，按顺序点按钮即可：Settings - Pages - Branch</p><figure class="image"><img src="https://assets.matters.news/embed/dbb78bc4-10eb-4726-8867-0caf2e09d941.png" data-asset-id="dbb78bc4-10eb-4726-8867-0caf2e09d941" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>如果没有多余 branch，那就指向默认 main。过几秒钟后，就可以在浏览器看到 Github 提供的免费页面啦。</p><p><br></p><hr><p>个人页面 / 个人网站，一般都带有一些个人品牌的需求，如果有个人域名，把域名绑定过来，就可以个人网站瞬间上线。</p><figure class="image"><img src="https://assets.matters.news/embed/2bc2a554-1207-481d-88a0-7eb05d6304bf.png" data-asset-id="2bc2a554-1207-481d-88a0-7eb05d6304bf" referrerpolicy="no-referrer"><figcaption><span>Github Pages 提供个性域名绑定</span></figcaption></figure><p><br></p><hr><p>2022 年，三大前端框架 angular react vue 火爆全球，用框架创建页面效率提高不少。用框架创建的 repo 绑定 Github pages 展示，步骤稍有不同。</p><p><strong>1 发布 distribution</strong></p><p>编辑完成后，build 项目</p><pre class="ql-syntax" spellcheck="false">npm run build
+</pre><p>项目根目录下，有了/dist 成品后，将 /dist 从 .gitignore 文件中移除，确保 /dist 成品可以被 push 到 Github 相应 repo。</p><figure class="image"><img src="https://assets.matters.news/embed/c17077a1-c1ca-427d-b271-89b4d129f914.png" data-asset-id="c17077a1-c1ca-427d-b271-89b4d129f914" referrerpolicy="no-referrer"><figcaption><span>此时 /dist 不会被忽略。。。</span></figcaption></figure><p><br></p><p><strong>2 创建 config 文件</strong></p><p>以 Vue 为例，创建 vue.config.js 文件</p><pre class="ql-syntax" spellcheck="false">// in vue.config.js
+module.exports = {    
+  publicPath: process.env.NODE_ENV === "production" ? "/&lt;Github repo&gt;/" : "/"
+}
+</pre><p><br></p><p><strong>3 创建 subtree</strong></p><p>创建名为 gh-pages 的 subtree，--prefix 指定要放入 subtree 的文件夹是 /dist</p><pre class="ql-syntax" spellcheck="false">git subtree push --prefix dist origin gh-pages
+</pre><p>记得去 Settings - Pages 下，指定 branch 为 gh-pages</p><figure class="image"><img src="https://assets.matters.news/embed/bbe684fd-2efe-4c1e-9bf5-221ad71303d8.png" data-asset-id="bbe684fd-2efe-4c1e-9bf5-221ad71303d8" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>不久之后，相同 URL 下即可看到刚刚用 vue build 的页面了。</p><p>此时 gh-pages branch 下的内容是 /dist，原 master branch 是源代码工程文件。。。Github Pages 指向 gh-pages 下的 index.html 。。。</p><p><br></p><hr><p>参考资料：https://learnvue.co/tutorials/deploy-vue-to-github-pages</p><p><br></p>
