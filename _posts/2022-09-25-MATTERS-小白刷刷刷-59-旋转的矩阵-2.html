@@ -1,0 +1,61 @@
+---
+layout: post
+title: 小白刷刷刷 59 ～ 旋转的矩阵 2
+date: 2022-09-25 22:51:53.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%B0%8F%E7%99%BD%E5%88%B7%E5%88%B7%E5%88%B7-59-%E6%97%8B%E8%BD%AC%E7%9A%84%E7%9F%A9%E9%98%B5-2-bafyreibutvbl4ea4k3a5ta54cs7ntybfqmqswhbadzda5bntwaeqatycue
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：59</li><li>题厂：微软</li><li>难度系数：中</li></ul><p><br></p><hr><figure class="image"><img src="https://assets.matters.news/embed/f9ad098d-6040-4339-b315-4c21fcdf8cbf.jpeg" data-asset-id="f9ad098d-6040-4339-b315-4c21fcdf8cbf" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><strong>解题思路</strong></p><p>在 n * n 的正方形矩阵中按顺时针螺旋方式填入 1 ～ n^2</p><ul><li>我们可以先创建一个 n * n 的空白矩阵，再按顺时针旋转思路对号填入数字。</li><li>每到拐点（左上，右上，左下，右下）四个角时，改变旋转方向。</li></ul><p><br></p><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+  def generateMatrix(self, n: int) -&gt; List[List[int]]:
+       # 创建 n * n 空白矩阵
+       matrix = [[0] * n for i in range(n)]
+       # 上、下、左、右 边界
+       t, b, l, r = 0, n - 1, 0, n - 1 
+       
+       # i 为填入数字，从 1 开始填
+       i = 1
+       # 当前行、列 index 号，从 [0][0] 开始填
+       cur_r, cur_c = 0, 0
+  
+       while l &lt;= r and t &lt;= b:
+           # 从左往右填，每填一次 i + 1，当前列往右移动一格，直到矩阵最右列跳出循环
+           while cur_c &lt; r and cur_r == t:
+              matrix[cur_r][cur_c] = i
+              i += 1
+              cur_c += 1
+           # 填完之后，top 边界 + 1，已备下次循环旋转时判断
+           t += 1
+    
+           # 沿着最右边界，从上往下填。。。每一次行数 + 1 而列数不变
+           while cur_r &lt; b and cur_c == r:
+              matrix[cur_r][cur_c] = i
+              i += 1
+              cur_r += 1   
+
+           r -= 1
+
+           # 重复以上步骤，沿着下边界从右往左填。。。 
+           while cur_r == b and cur_c &gt; l:
+              matrix[cur_r][cur_c] = i
+              i += 1
+              cur_c -= 1
+  
+           b -= 1
+  
+           # 沿左边界，由下往上填   
+           while cur_r &gt; t and cur_c == l:
+              matrix[cur_r][cur_c] = i
+              i += 1
+              cur_r -= 1
+
+           l += 1
+
+        # 不要忘了，跳出循环后，最后一个格子还没有填。。。
+        matrix[cur_r][cur_c] = i   
+
+        return matrix
+
+</pre><p>   </p><hr><p><strong>Constraints</strong></p><ul><li>题目限制 <code>1 &lt;= n &lt;= 20</code></li></ul><p>考试时，<strong>向考官确认 n 的取值范围</strong>。</p><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（n^2）</li><li>space：因为创建矩阵，自然复杂度为 O（n^2）</li></ul><p><br></p><p><strong>测试</strong></p><ul><li>常规测试：n == 某奇数；n == 某偶数</li><li>边界测试： 当 n == 1 时的特殊案例; n == 20 时，算法是否效率够快</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>微软著名旋转矩阵系列题，中规中矩中档难度题。</li><li>旋转矩阵问题在思路上，解体思路不难分析。</li><li>此类问题在于处理转角时，最后一个格子不算，从而实现数组不越界又不漏掉格子</li></ul><figure class="image"><img src="https://assets.matters.news/embed/c8c3365b-be9e-4972-9ee8-6f289d218f05.jpeg" data-asset-id="c8c3365b-be9e-4972-9ee8-6f289d218f05" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p>
