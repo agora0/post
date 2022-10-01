@@ -1,0 +1,30 @@
+---
+layout: post
+title: 继续刷啊刷 11 ～ 装最多水的容器
+date: 2022-10-01 00:39:45.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E7%BB%A7%E7%BB%AD%E5%88%B7%E5%95%8A%E5%88%B7-11-%E8%A3%85%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-bafyreiaumn7y2ruxx7736v25g2b7mnqt5d4jdoutrwixnkpz3zqk2vueay
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：11</li><li>题厂：脸书，谷歌</li><li>难度系数：中</li></ul><p><br></p><hr><figure class="image"><img src="https://assets.matters.news/embed/2bde9086-9ad2-4b65-9f17-3571cf641510.jpeg" data-asset-id="2bde9086-9ad2-4b65-9f17-3571cf641510" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>数组数字代表容器两边的高度，在哪两个容器边界内，可装水做多？</p><p><strong>解题思路</strong></p><ul><li>根据日常水桶原理，装水要以最短的那个边算</li></ul><figure class="image"><img src="https://assets.matters.news/embed/a5608be2-5db5-4bc4-8282-30f567ee0456.jpeg" data-asset-id="a5608be2-5db5-4bc4-8282-30f567ee0456" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><ul><li>到了本题，自然就是任选两个边（x 和 y），x 和 y 中较小者为高，x 和 y 之间的横轴距离为底。「底 * 高」为可装水量，遍历所有可装水组合，返回最大值即可</li><li>如何遍历所有装水组合？brute force 可以，但是采用双指针原理，可以把时间复杂度降低到 O（n）—— 左、右指针相向而行直到交叉为止，在此过程中把最大值找出作为结果返回</li></ul><p><br></p><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def maxArea(self, height: List[int]) -&gt; int:
+        # 初始返回值为 0
+        res = 0
+        
+        # 创建左，右双指针，相向而行
+        l, r = 0, len(height) - 1
+        
+        while l &lt; r:
+            area = (r - l) * min(height[l], height[r])
+            res = max(res, area)
+
+            # 更新最大容水量后，为了获取最大值，移动数值较小的那个指针
+            if height[l] &lt; height[r]:
+                l += 1
+            else:
+                r -= 1
+                
+        return res
+</pre><p><br></p><hr><p><strong>Constraints</strong></p><ul><li><code>n == height.length</code></li><li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li><li><code>0 &lt;= height[i] &lt;= 10<sup>4</sup></code></li></ul><p>本题数据基本于是 brute force 是不行的。考试时，可以向考官确认 n 的最小值。</p><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（n）</li><li>Space：O（1）</li></ul><p><br></p><p><strong>测试</strong></p><ul><li>n = 2&nbsp;</li><li>n 取最大值，测试算法效率</li><li>……</li></ul><p><br></p><hr><p><strong>总结</strong></p><p>正常难度中档题。</p><p>考点除了要熟悉双指针代码套路，还要反应过来本题可以用双指针思路简化。</p>
