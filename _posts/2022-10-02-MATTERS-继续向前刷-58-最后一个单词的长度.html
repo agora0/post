@@ -1,0 +1,28 @@
+---
+layout: post
+title: 继续向前刷 58 ～ 最后一个单词的长度
+date: 2022-10-02 01:52:10.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E7%BB%A7%E7%BB%AD%E5%90%91%E5%89%8D%E5%88%B7-58-%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E5%8D%95%E8%AF%8D%E7%9A%84%E9%95%BF%E5%BA%A6-bafyreihqvep353prxis2ejr6masqostuwu33txy6ac6ngdcadvakwjzzzy
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：58</li><li>题厂：亚麻</li><li>难度系数：低</li></ul><p><br></p><hr><p>输入一个带有空格的句子，问最后一个单词的长度是多少？</p><p>区分单词：就是连续字符串中间无空格</p><p><strong>解题思路</strong></p><ul><li>处理字符串基础题，创建一个 counter 计数就好</li><li>但是要注意的是，输入句子可以空格结尾，只要处理好空格即可</li></ul><p><br></p><hr><pre class="ql-syntax" spellcheck="false"># 创建名为 length 的 counter 计数
+# 从后往前做 for 循环，一旦检测到非末尾空格 length +1
+# 第二次遇上空格后，跳出循环返回 length
+
+class Solution:
+    def lengthOfLastWord(self, s: str) -&gt; int:
+        length = 0
+        
+        for i in range(len(s) - 1, -1, -1):
+            if s[i] != " ":
+                length += 1
+            elif length &gt; 0:
+                break
+            else:
+                continue
+                
+        return length
+</pre><p><br></p><hr><p><strong>Constraints</strong></p><ul><li><code>1 &lt;= s.length &lt;= 104</code></li><li><code>s consists of only English letters and spaces ' '.</code></li><li><code>There will be at least one word in s.</code></li></ul><p>本题取值范围确认了无特殊状况分析。考试的时候，解题前可以向考官咨询讨论：</p><ul><li>除了空格，还会不会有其他特殊字符；如果有，特殊字符算 word 还是不算？</li><li>会不会遇上没有 word 返回的情况？</li></ul><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（n），最坏的情况就是整个句子都是 word，要遍历完整才能返回；</li><li>Space：O（1）</li></ul><p><br></p><p><strong>测试</strong></p><ul><li>将空格安插在不同的位置</li><li>……</li></ul><p><br></p><hr><p><strong>总结</strong></p><p>入门级简单题，适合刷题小白热身进入刷题状态。</p><p>考点：熟悉字符串操作 + 会倒着写 for 循环……</p>
