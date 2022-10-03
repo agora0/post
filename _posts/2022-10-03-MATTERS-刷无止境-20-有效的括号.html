@@ -1,0 +1,39 @@
+---
+layout: post
+title: 刷无止境 20 ～ 有效的括号
+date: 2022-10-03 01:36:37.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%88%B7%E6%97%A0%E6%AD%A2%E5%A2%83-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-bafyreiajkq7jnpbgg6o5og5qhv4q4jfbkajc5u3ppyqszazum2wjsaa6ea
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：20</li><li>题厂：脸书</li><li>难度系数：低</li></ul><p><br></p><hr><p>给出一组只包含大，中，小括号的字符串，如果括号们能配对就返回 true，否则返回 false</p><p><strong>解题思路</strong></p><ul><li>配对题，常见<strong>引用 stack 先进后出原理</strong>查询</li><li>本题为了书写方便，再引入 hashmap 方便查询</li></ul><p><br></p><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def isValid(self, s: str) -&gt; bool:
+        # 如果要查询的字符串长度为奇数，则根本不可能配对，提前返回 false
+        if len(s) % 2 == 1: return False
+        
+        # 初始化 stack 和 hashmap
+        stack = []
+        pairs = {
+            "(": ")",
+            "{": "}",
+            "[": "]"
+        }
+        
+        # 做 for 循环的时候，
+        # 如果遇上前括号，就把对应的后括号放进 stack
+        # 如果遇上后括号，将 stack 最后一个元素取出；如果能配对则 for 循环继续，如果不能配对，提前返回 false ～game over
+        for i in s:
+            if i in pairs:
+                stack.append(pairs[i])
+            elif not stack:
+                return False
+            else:
+                pop = stack.pop()
+                if pop != i:
+                    return False
+        
+        # 做完整个 for 循环都没有返回，如果 stack 为空就返回 true，说明括号们全部配对成功……        
+        return True if not stack else False
+</pre><p><br></p><hr><p><strong>Constraints</strong></p><ul><li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li><li><code>s</code>&nbsp;consists of parentheses only&nbsp;<code>'()[]{}'</code>.</li></ul><p>解题前，可以向考官确认除了括号，还会不会有其他符号……</p><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（n）</li><li>Space：引入 stack，故 O（n）</li></ul><p><br></p><p><strong>测试</strong></p><ul><li>配对括号组：‘（）’，‘（（））’</li><li>不配对括号组……</li></ul><p><br></p><hr><p><strong>总结</strong></p><p>一道比较正常的简单题，考察对 stack 的认知水平。引用 stack 后解题方案有好些，但都是大同小异的原理……</p><p>stack 常常作为解题关键出现在中难档题里，所以<strong>本题需要时常复习，深度理解如何使用 stack 解决问题</strong>……</p><p><br></p><p><br></p>
