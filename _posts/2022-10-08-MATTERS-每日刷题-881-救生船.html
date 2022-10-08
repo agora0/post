@@ -1,0 +1,30 @@
+---
+layout: post
+title: 每日刷题 881 ～ 救生船
+date: 2022-10-08 01:23:04.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98-881-%E6%95%91%E7%94%9F%E8%88%B9-bafyreigceuv6pfook5jasz3li4b2ysvyioql32cmhxzdfzvampwoptv6oi
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：881</li><li>题厂：亚麻</li><li>难度系数：中</li></ul><p><br></p><hr><p>数组 people：待救人员的体重</p><p>limit：救生船最大承重</p><p>每艘船只能装 2 个人，问要<strong>最少</strong>派多少艘船可以把人全部救回……</p><pre class="ql-syntax" spellcheck="false">例如：people = [1,2], limit = 3
+</pre><p>只需派一艘船装 2 人即可：1 + 2 = 3</p><p><strong>解题思路</strong></p><p>题目限制个人体重最大值 大于等于 limit 上限</p><ul><li>如果个人体重刚好等于 limit 上线，无需配对；2 人搭船配对的情况只发生在 2 人体重都小于 limit 上限且 2 人体重相加也不超标……</li><li>为了让派出船的数量最小，2 人搭船配对时要尽量接近上限值不要浪费。例如 limit 为 10，9 + 1 = 10；4 + 6 = 10 不造成浪费；而 1 + 4 配对将造成 9 + 6 超标需要多派一艘船……于是<strong>著名的贪心算法闪亮登场了</strong>……</li><li>怎么才能 9 + 1 完美配对？可以考虑先将数组进行排序，再按照双指针逻辑相向而行……</li></ul><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def numRescueBoats(self, people: List[int], limit: int) -&gt; int:
+        people.sort()
+        
+        res = 0 # 船只初始数量
+        l, r = 0, len(people) - 1
+        
+        # 右指针每移动一格，就派出一艘船……
+        # 如果左指针刚好可以和右指针配对，左指针也跟着移动一格……直到左右指针相遇为止……
+        while l &lt;= r:
+            remain = limit - people[r]
+            r -= 1
+            res += 1
+            
+            if l &lt;= r and remain &gt;= people[l]:
+                l += 1
+                
+        return res
+</pre><hr><p><strong>Constraints</strong></p><ul><li><code>1 &lt;= people.length &lt;= 5 * 104</code></li><li><code>1 &lt;= people[i] &lt;= limit &lt;= 3 * 104</code></li></ul><p>个人体重最大限就是等于 limit 上限，即一人独享一艘船。考试时，要向考官咨询问清楚……</p><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（nlog n），双指针虽然复杂度为 O（n），但用了排序，所以时间复杂度以最高额度计算……</li><li>Space：O（1）</li></ul><p><br></p><p><strong>测试</strong></p><ul><li>当只有一个人时</li><li>当混合时……</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>本题虽然代码简单，但需要运用到略高级的贪心算法，应该划归中档偏难</li><li>除了熟练掌握双指针，还要在理解题意后反应到需要运用贪心算法解决问题……</li><li>本题可作为贪心算法入门题定期复习……🙈</li></ul>
