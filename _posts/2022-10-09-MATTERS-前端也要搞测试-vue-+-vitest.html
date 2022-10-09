@@ -1,0 +1,83 @@
+---
+layout: post
+title: 前端也要搞测试 ～ vue + vitest
+date: 2022-10-09 01:33:30.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%89%8D%E7%AB%AF%E4%B9%9F%E8%A6%81%E6%90%9E%E6%B5%8B%E8%AF%95-vue-vitest-bafyreiejisgaogayuotiezuyc64ytjozx64j5glkxhosowvekrl3lcztgy
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p>关于 JavaScript 的测试，听到比较多的有 jest，但各知名博主强烈推荐 vitest，于是我也来玩玩 vitest……</p><h2>vitest VS jest</h2><ul><li>vitest 比 jest 快，更多各种 powerful😳</li><li>支持 vue，reactJS 等火热前端框架</li><li>jest 支持的各种 API，vitest 也可以🤪</li></ul><p><u>——博主们的推荐理由</u></p><p><br></p><h2>安装 vitest</h2><p>以 vue3 为例，安装 vitest 之前需要有 vue 项目……</p><pre class="ql-syntax" spellcheck="false">npm install -g @vue/cli
+vue create &lt;project-name&gt;
+</pre><p><br></p><p>项目创建好后，即可安装 vitest</p><pre class="ql-syntax" spellcheck="false">npm install -D vitest
+</pre><p><br></p><p>vitest 可以使用 jsdom 和 happy-dom，这里以 <strong>happy-dom 安装为例</strong></p><pre class="ql-syntax" spellcheck="false">npm install @vitejs/plugin-vue @vue/test-utils happy-dom -D
+</pre><p><br></p><p>安装完需要的各种包，可以在 package.json 文件下看到刚刚的安装成果。还可以<strong>在 package.json 里添加 vitest script</strong></p><pre class="ql-syntax" spellcheck="false">  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+</pre><p>在 script 栏，添加 test 和 coverage 脚本……</p><p><br></p><h2>创建 vitest.config.js</h2><p>在项目文件夹下创建&nbsp;vitest.config.js</p><pre class="ql-syntax" spellcheck="false">import { defineConfig } from "vitest/config"
+import vue from "@vitejs/plugin-vue"
+
+export default defineConfig({
+    plugins: [vue()],
+    test: {
+        globals: true,
+        environment: "happy-dom",
+    },
+    root: ".", // define the root
+})
+</pre><h2><br></h2><hr><p><u>环境配置完成后，可以测试了……</u></p><p>以 HelloWorld 为例，component 里有 HelloWorld.vue， 代码如下：</p><pre class="ql-syntax" spellcheck="false">&lt;template&gt;
+  &lt;p&gt; {{ msg }} &lt;/p&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+    name: "HelloWorld",
+    props: {
+        message: {
+            type: String,
+            default: "World",
+        },
+    },
+    setup(props) {
+        return {
+            msg: props.message,
+        }
+    }
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+&lt;/style&gt;
+</pre><p><br></p><h2>测试 HelloWorld Component</h2><p>在项目文件下创建 tests 文件夹，用于存放各种测试代码……</p><p>在创建的 tests 文件夹下创建 HelloWorld.test.js —— <strong>测试文件命名规则：&lt;component name&gt;.test.js</strong></p><pre class="ql-syntax" spellcheck="false">import { mount } from "@vue/test-utils"
+import HelloWorld from "../src/components/HelloWorld.vue"
+import { describe, it, expect } from "vitest"
+
+describe("HelloWorld.vue", () =&gt; {
+    it("should renders is page content is correct", () =&gt; {
+        const message = "Happy People"
+        const testMessage = "Happy People"
+        const wrapper = mount(HelloWorld, {
+            props: { message }
+        })
+        expect(wrapper.text()).toBe(testMessage)
+    })
+
+    it("should render if props value is correct", () =&gt; {
+        const message = "Happy People"
+        const testMessage = "Happy People"
+        const wrapper = mount(HelloWorld, {
+            props: { message }
+        })
+        expect(wrapper.vm.message).toBe(testMessage)
+    })
+    
+})
+</pre><p><br></p><p>看看测试效果如何……</p><pre class="ql-syntax" spellcheck="false">npx vitest tests/HelloWorld.test.js
+</pre><p><br></p><figure class="image"><img src="https://assets.matters.news/embed/c72993f8-301b-46e2-841d-8b3e9bab4f7f.png" data-asset-id="c72993f8-301b-46e2-841d-8b3e9bab4f7f" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>HelloWorld 测试文件中有两个测试案例。没有问题的话，就都通过了……</p><p>……</p><p>……</p><p>继续往 tests 文件夹创建一一对应的测试文件。</p><p>创建各种测试案例，什么 edge case 之类的……</p><p>……</p><p>……</p><p>想要一次跑所有的测试文件，可以借用刚刚在 package.json 创建的 vitest 脚本</p><pre class="ql-syntax" spellcheck="false">npm run test 
+</pre><p><br></p><p>使用 coverage 则可以生成报告 😅</p><pre class="ql-syntax" spellcheck="false"> npm run coverage
+</pre><figure class="image"><img src="https://assets.matters.news/embed/39149c0b-2176-4219-9880-77b73ad6eb9f.png" data-asset-id="39149c0b-2176-4219-9880-77b73ad6eb9f" referrerpolicy="no-referrer"><figcaption><span>coverage 测试成果……</span></figcaption></figure><p>这时项目文件夹下还会多出 coerage 的文件夹，即测试报告的网页版……</p><figure class="image"><img src="https://assets.matters.news/embed/4e4fc12d-3365-4589-b5f9-e5d0f42cb833.png" data-asset-id="4e4fc12d-3365-4589-b5f9-e5d0f42cb833" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>网页版当然可以在浏览器里查看详情……非常先进……🤪</p><p><br></p><hr><p>参考文献：</p><p>https://www.thisdot.co/blog/getting-started-with-vue-and-vitest</p>
