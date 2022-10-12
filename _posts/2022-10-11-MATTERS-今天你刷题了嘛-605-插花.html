@@ -1,0 +1,33 @@
+---
+layout: post
+title: 今天你刷题了嘛 605 ～插花？
+date: 2022-10-11 23:23:39.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E4%BB%8A%E5%A4%A9%E4%BD%A0%E5%88%B7%E9%A2%98%E4%BA%86%E5%98%9B-605-%E6%8F%92%E8%8A%B1-bafyreicbmewibpyahxjjfrtckatsr47ichk4xebctdjsxfu54qgzwoczne
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：605</li><li>题厂：谷歌</li><li>难度系数：低</li></ul><p><br></p><hr><p>数组 flowerbed代表插花位：1 代表该位已种花，0 代表还没种……</p><p>要求只能隔空插花，即不能出现 2+ 连续 1</p><p>问：改数组能插入 n 朵花嘛？能——返回 true，不能——返回 false</p><pre class="ql-syntax" spellcheck="false">例如：flowerbed = [1,0,0,0,1], n = 1
+
+返回 true，插在第三个槽位即可满足条件，即：[1,0,1,0,1]
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>本题的解题思路是显而易见的——遍历数组，当卡位可插花时，counter 加 1；</li><li>判断当前卡位能否插花：元素 flowerbed[i] 为 0 且前后卡位 flowerbed[i + 1] flowerbed[i - 1] 均为 0</li><li>一旦 counter 大于等于 n，即可返回 true</li></ul><p>  </p><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def canPlaceFlowers(self, flowerbed: List[int], n: int) -&gt; bool:
+        count = 0
+        
+        for i in range(len(flowerbed)):
+            if count &gt;= n:
+                return True
+            
+            if flowerbed[i] == 0:
+                # 判断前卡位是否可以插花
+                left = (i == 0) or (flowerbed[i - 1] == 0)
+                # 判断后卡位能否插花
+                right = (i == len(flowerbed) - 1) or (flowerbed[i + 1] == 0)
+                
+                if left and right:
+                    flowerbed[i] = 1
+                    count += 1
+                    
+        return count &gt;= n
+</pre><hr><p><strong>Constraints</strong></p><ul><li><code>1 &lt;= flowerbed.length &lt;= 2 * 104</code></li><li><code>flowerbed[i] is 0 or 1.</code></li><li><code>There are no two adjacent flowers in flowerbed.</code></li><li><code>0 &lt;= n &lt;= flowerbed.length</code></li></ul><p>考试时可以向考官询问已知的花床数组会不会自带 2+ 连续 1</p><p>需不需哟判断当 n 大于花床数组长度的案例</p><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（n）</li><li>Space：O（1）</li></ul><p><br></p><p><strong>测试</strong></p><ul><li>花床 0 开头，0 结尾案例</li><li>花床 1 开头，1 结尾案例</li><li>花床为单数，偶数时……</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>本题代码以及解体思路属于简单级别。但要在想出解题思路后迅速写出无 bug 漏洞的代码，需要思维严密</li><li>本题作为基础题，勤加练习方能熟能生巧😭</li></ul><p><br></p>
