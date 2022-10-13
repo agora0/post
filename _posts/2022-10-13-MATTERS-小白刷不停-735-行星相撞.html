@@ -1,0 +1,37 @@
+---
+layout: post
+title: 小白刷不停 735 ～ 行星相撞
+date: 2022-10-13 00:46:35.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%B0%8F%E7%99%BD%E5%88%B7%E4%B8%8D%E5%81%9C-735-%E8%A1%8C%E6%98%9F%E7%9B%B8%E6%92%9E-bafyreihsejdl2rwz5vnofhdmre3n4ehadzbtgn6f2r7xf4ru4cs436vivy
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：735</li><li>题厂：lya</li><li>难度系数：中</li></ul><p><br></p><hr><p>数组 asteroid 代表一些行星，正数代表星星右行，负数代表星星左行……星星不能为 0。</p><p>如果两行星发生撞击，绝对值较小的撞没；如果绝对值相等，则 2 个一起被撞没……</p><pre class="ql-syntax" spellcheck="false">例如：asteroids = [10,2,-5]，返回 [10]
+
+2 ～ -5 发生相撞，-5 绝对值较大，2 被撞没；-5 继续前行和 10 发生相撞，10 绝对值较大，这次 -5 被撞没
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>撞击 ～ 即在数组内部发生配对问题——此类问题一般采用 stack 先进后出原理解决。例如<a href="https://matters.news/@potato_pepper/334091-%E5%88%B7%E6%97%A0%E6%AD%A2%E5%A2%83-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-bafyreiajkq7jnpbgg6o5og5qhv4q4jfbkajc5u3ppyqszazum2wjsaa6ea" rel="noopener noreferrer" target="_blank"><strong>脸书著名 #20 括号判断问题</strong></a><strong>，都是异曲同工的思路模型</strong></li></ul><p><br></p><ul><li>分析相撞条件：只有前右行（正数）后左行（负数）的条件下才可能发生撞击</li></ul><ol><li>当 stack 为空时，无论正数负数，都不会发生撞击</li><li>当遇上正数时，是不会发生撞击的</li><li>只有遇上负数，且 stack 最后一个元素为正时，撞击才会发生</li></ol><p><br></p><ul><li>检测撞击后，还需要进一步分析：</li></ul><ol><li>相撞 2 星绝对值相等还是不相等；</li><li>以及循环撞击问题。即 stack 被 pop 后下一个元素还为正时</li></ol><p>  </p><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def asteroidCollision(self, asteroids: List[int]) -&gt; List[int]:
+        stack = []
+        
+        for a in asteroids:
+            while stack and a &lt; 0 and stack[-1] &gt; 0:
+                diff = a + stack[-1]
+                
+                # 撞击发生后，我们通过重置 a = 0 解决达到当前行星绝对值较小或者相等的问题
+                # 剩下的绝对值比较问题，则 stack 不断 pop 就好……
+                if diff &lt; 0:
+                    stack.pop()
+                elif diff &gt; 0:
+                    a = 0
+                else:
+                    a = 0
+                    stack.pop()
+
+            # 如果没有发生撞击，或者当前行星没有因为绝对值较小已经被撞没（重设 a = 0 了），还需要把 a 添加进 stack……     
+            if a != 0:
+                stack.append(a)
+                    
+        return stack
+</pre><hr><p><strong>Constraints</strong></p><ul><li><code>2 &lt;= asteroids.length &lt;= 104</code></li><li><code>-1000 &lt;= asteroids[i] &lt;= 1000</code></li><li><code>asteroids[i] != 0</code></li></ul><p>本题告知 「行星」不为 0；考试时可就此取值问题与考官讨论确认。</p><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（n）</li><li>Space：O（n）， stack 引入</li></ul><p><br></p><p><strong>测试</strong></p><ul><li>相等行星相撞时</li><li>不等相撞时，发生循环相撞</li><li>不发生相撞时</li><li>因为不断相撞导致 stack 为空的情况</li><li>……</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>如果<strong>熟悉 stack 原理及 stack 适合解决的套路问题</strong>，还是会比较容易想出解法</li><li>一旦想到需要引用 stack 解题，剩下的逻辑判断相对容易</li><li>但就各种撞击情况的判断问题，考察仔细思维严密性，以及解题后的各种测试分析</li></ul><p><br></p>
