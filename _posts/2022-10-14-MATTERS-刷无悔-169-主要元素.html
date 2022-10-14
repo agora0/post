@@ -1,0 +1,27 @@
+---
+layout: post
+title: 刷无悔 169 ～ 主要元素
+date: 2022-10-14 01:16:26.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%88%B7%E6%97%A0%E6%82%94-169-%E4%B8%BB%E8%A6%81%E5%85%83%E7%B4%A0-bafyreibe2vlu2nhp7cbz52scvmd3isatagyow6fuvjv37vckna5vquirlu
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：169</li><li>题厂：脸书</li><li>难度系数：低</li></ul><p><br></p><hr><p>数组里面有一个数出现次数是数组长度一半以上，即数组主要元素。</p><p>问：把主要元素找出来……</p><pre class="ql-syntax" spellcheck="false">例如：nums = [3,2,3]
+
+3 是主要元素，返回 3
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>计算出现次数这种事，一般都靠 hashmap 辅助。</li><li>本题如果靠 hashmap，当 count 计数超过一半时就返回。</li><li>一半上限，即 数组长度 / 2</li></ul><p><br></p><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def majorityElement(self, nums: List[int]) -&gt; int:
+        if len(nums) == 1:
+            return nums[0]
+        
+        half = len(nums) // 2
+        counter = {}
+        
+        for num in nums:
+            counter[num] = 1 + counter.get(num, 0)
+            
+            if counter[num] &gt; half:
+                return num
+</pre><hr><figure class="image"><img src="https://assets.matters.news/embed/cbdcf8a4-5b9a-44c3-9590-837eb5994938.png" data-asset-id="cbdcf8a4-5b9a-44c3-9590-837eb5994938" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>靠以上 hashmap 计数的解法，我们在 5 分钟内击败了 85% 的解法，<strong>然而本题还有后续🐮</strong>：</p><figure class="image"><img src="https://assets.matters.news/embed/20ce46bb-40b7-4728-b83c-71a5208668b3.png" data-asset-id="20ce46bb-40b7-4728-b83c-71a5208668b3" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><strong><em><u>如何使用 O（1）的空间利用率解决问题？？？！！！</u></em></strong></p><p>如果要用 O（1）解决空间利用率，意味着 hashmap 这种数据结构无法登场。所以请出了<strong>超高级的人名算法——Boyer-Moore 🤪</strong></p><p>题目确定了<em><u>已知数组一定有主要元素（出现次数超过一半），[2,1,3] 这种无主要元素的状况不会出现</u></em>，于是引用 Boyer-Moore 解题。简单理解就是：</p><ul><li>如果当前计数器为 0， 就初始化返回值为当前元素；</li><li>如果当前元素和返回值相等，计数器 +1；</li><li>如果当前元素和返回值不等，计数器 -1；</li><li>因为主要元素出现次数超过一半，能把计数器清零后在获得重置权的肯定就只有主要元素了……所以这样一来，当 for 循环遍历完成后，返回值一定就是当前数组主要元素😵</li></ul><p><strong>Constraints</strong></p><ul><li><code>n == nums.length</code></li><li><code>1 &lt;= n &lt;= 5 * 104</code></li><li><code>-109 &lt;= nums[i] &lt;= 109</code></li></ul><p>考试时可以向考官确认主要元素到底存不存在，需不需要考虑不存在情况🙈</p><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（n）</li><li>Space：引入 hashmap 为 O（n）；Boyer-Moore 最优解为 O（1）</li></ul><p><br></p><p><strong>测试</strong></p><ul><li>数组为 1 时</li><li>主要元素插空出现</li><li>主要元素在开头出现</li><li>主要元素在末尾出现</li><li>次要元素有一个多个值</li><li>……</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>本题如果就是 hashmap 计数，这是一道 10 分钟内即可搞定的简单题；</li><li>最优解法&nbsp;Boyer-Moore 虽然代码依然简单，但<strong>算法小白是一定不可能想出来的，所以最优解甚至可以归为难挡😭</strong></li><li>考试时当你第一时间完成了 hashmap 解法后，考官一定还会问你有没有其他解法，优化解法（此处即算法小白几乎不可能想出的 Boyer-Moore）……😭</li></ul><p><br></p><hr><p>更多Boyer-Moore 强大介绍 🙈：</p><p><a href="https://www.geeksforgeeks.org/boyer-moore-majority-voting-algorithm/" rel="noopener noreferrer" target="_blank">https://www.geeksforgeeks.org/boyer-moore-majority-voting-algorithm/</a></p>
