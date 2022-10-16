@@ -1,0 +1,11 @@
+---
+layout: post
+title: 在中国用Metamask连接不上BSC该如何解决
+date: 2022-10-16 01:56:30.000000000 +00:00
+link: https://matters.news/@czyouge/%E5%9C%A8%E4%B8%AD%E5%9B%BD%E7%94%A8metamask%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8Absc%E8%AF%A5%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3-bafyreihlgtynxm5zp5qsrbqsxgoagx4otpcb4q7ilsinmwdwdpwqch6nke
+categories: matters
+tags: blog
+author: 游虫斜会
+---
+
+<p>前段时间，我发现我在 Metamask 上配置的  BNB Smart Chain（BSC）钱包连接不上了，但 Binance Wallet 却能继续使用。但因为很少用，也没在意。昨天偶然想起，研究了下，找到了原因。这个问题估计很多中国人会遇到，所以在这里分享一下。</p><h2>问题在哪里？</h2><p>大多数人在 Metamask 配置 BSC 钱包都会参考这一套方案：</p><ul><li><strong>网络名称（ Network Name）：</strong>Smart Chain</li><li><strong>新的RPC URL（ New RPC URL）：</strong><a href="https://bsc-dataseed.binance.org/" rel="noopener noreferrer" target="_blank">https://bsc-dataseed.binance.org/</a></li><li><strong>智能链ID（ChainID）：</strong>56</li><li><strong>符号（Symbol）：</strong>BNB</li><li><strong>区块浏览器URL（Block Explorer URL）：</strong><a href="https://bscscan.com/" rel="noopener noreferrer" target="_blank">https://bscscan.com</a></li></ul><p>而且<a href="https://academy.binance.com/zh/articles/connecting-metamask-to-binance-smart-chain" rel="noopener noreferrer" target="_blank">币安官网</a>也是这么说的。但现在的问题是在中国国内，我们没法直接连接 binance.org 了——至少我使用的运营商没办法。具体原因不明，但我试过 <code>ping binance.org</code>，结果每一次都是不同的 IP 地址而且结果无一例外都是 <code>请求超时</code>。</p><p>也就是说，我的 Metamask 根本没办法连接到上面配置的 RPC URL！</p><h2>解决方法</h2><p>问题找到了，方案就来了。</p><p>虽然上面的官方教程没有提到，但其实我们可以更换 RPC URL。</p><p>访问 <a href="https://www.bnbchainlist.org/" rel="noopener noreferrer" target="_blank">https://www.bnbchainlist.org/</a>，我们可以找到 BNB Smart Chain Mainnet 的 RPC URL 列表：</p><figure class="image"><img src="https://assets.matters.news/embed/7d83eb33-a253-4da2-949b-51cfa41b5393.png" data-asset-id="7d83eb33-a253-4da2-949b-51cfa41b5393" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>选择一个当前网络能成功连接的服务器地址（即 Score 栏为绿色），替换掉原有配置中的 RPC URL 即可。</p><p>如此，便能继续在 Metamask 上使用 BSC 了。</p><p>备注：RPC 的意思是 remote procedure call，即远程过程调用。</p>

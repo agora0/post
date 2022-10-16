@@ -1,0 +1,33 @@
+---
+layout: post
+title: 每天都要刷 665 ～ 非递减数列
+date: 2022-10-16 00:18:07.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E6%AF%8F%E5%A4%A9%E9%83%BD%E8%A6%81%E5%88%B7-665-%E9%9D%9E%E9%80%92%E5%87%8F%E6%95%B0%E5%88%97-bafyreifmb4aiwmh5zs3ohkvu3ohdfpk2yky3m4pxpbbr6e5kqf4t7dtxbq
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：665</li><li>题厂：亚麻</li><li>难度系数：中</li></ul><p><br></p><hr><p>已知一个数列，问最多改动数列一个元素的情况下，能否上数列成为一个从头到尾不递减数列？如果可以，返回 true；不行返回 false。</p><pre class="ql-syntax" spellcheck="false">例如：nums = [4,2,3]
+
+返回 true。只要把 4 换成 1 或者其他比 1 小的整数，就完成整个数列完全非递减了……
+</pre><p><strong>解题思路</strong></p><p><u>判断递增递减，常见思路就是遍历数组然后比较前后元素大小；</u></p><ul><li>对于本题，如果遇上递增情况，什么也不用做……</li><li>如果遇上递减，查看是否使用了唯一一次的替换机会；如果已经使用了，返回 false 结束循环</li><li>最麻烦的就是<strong>第一次遇上递减，如何合理替换元素达到全员递增</strong>？</li></ul><p>例如&nbsp;[2,3,2,2]， 3-2 处我们遇上了递减状况，为了改变元素成为非递减，我们可以考虑降格 3 到 2，数组变为[2,2,2,2]，也可以升格 2 到 3 为 [2,3,3,2]；</p><p>如果我们选择升格 2 到 3，虽然 3-2 区间的递减问题解决了，但又会造成后续递减……<strong>所以选择谁降格谁升格问题，比较复杂……  </strong></p><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def checkPossibility(self, nums: List[int]) -&gt; bool:
+        # 初始计数器为 0
+        count = 0
+        
+        for i in range(len(nums) - 1):
+            # 在遍历过程中，为了让数列尽可能实现只替换一次元素完成非递减，我们优先选择降格模式；在不能降格的情况下，再升格后者……
+            if nums[i] &lt;= nums[i + 1]:
+                continue
+            elif count &gt; 0:
+                return False
+            else:
+                if i == 0 or nums[i + 1] &gt;= nums[i - 1]:
+                    nums[i] = nums[i + 1]
+                else:
+                    nums[i + 1] = nums[i]
+                count += 1
+                 
+        return True       
+</pre><hr><p><strong>Constraints</strong></p><ul><li><code>n == nums.length</code></li><li><code>1 &lt;= n &lt;= 104</code></li><li><code>-105 &lt;= nums[i] &lt;= 105</code></li></ul><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（n）</li><li>Space：O（1）</li></ul><p><br></p><p><strong>测试</strong></p><ul><li><strong>本题可以测试的案例很多，一定要把各种情况都考虑到</strong></li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>就算法难度和成型代码复杂度来说，中规中矩中档题；解题思路也非常显而易见……</li><li>体现难度系数考点：如何处理第一次替换元素的情况分析，以及涉及的数组边界问题和多种测试情况😵</li></ul><p><br></p>
