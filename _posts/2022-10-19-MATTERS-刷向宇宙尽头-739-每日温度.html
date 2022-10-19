@@ -1,0 +1,36 @@
+---
+layout: post
+title: 刷向宇宙尽头 739 ～ 每日温度
+date: 2022-10-19 02:08:07.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%88%B7%E5%90%91%E5%AE%87%E5%AE%99%E5%B0%BD%E5%A4%B4-739-%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6-bafyreiayxs3iaq7kn6q2faaxtplhvc4jr6mnewg46brz3qyk4a2crz4yzm
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：739</li><li>题厂：脸书</li><li>难度系数：中</li></ul><p><br></p><hr><p>已知一个数列，数据代表每日温度。返回一个数组，内容为：需要等待气温升高的天数</p><pre class="ql-syntax" spellcheck="false">例如：temperatures = [73,74,75,71,69,72,76,73]，
+返回 [1,1,4,2,1,1,0,0]
+
+第一天气温 73， 第二天气温 74，从第一天到第二天一共等待了 1 天就迎来升温；1 号位填 1
+第二天气温 74， 第三天气温 75，从第二天到第三天一共等待了 1 天也迎来升温，所以 2 号位填 1
+……以此类推……
+
+……最后一天因为不知下一天的天气，所以返回 0 🐮
+</pre><p><br></p><p><strong>解题思路</strong></p><p><u>不知道什么是 「monotonic stack」的小白是不可能做出这道题的</u></p><blockquote><strong>「monotonic stack」是 「stack」的一种升级版。在「stack」先进后出的原理下，「monotonic stack」只添加递减元素，一旦发现超标，在 pop 出来🙈</strong></blockquote><p>本题只要熟悉并理解啥是 「monisonic stack」就能解题了😵</p><ul><li>创建一个 stack，气温不超标就往 stack 添加当前气温的 index；</li><li>超标（升温），就 pop 出来，计算间隔天数，从而解答……</li></ul><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -&gt; List[int]:
+        # 初始一个长度为天气数组，内容全为 0 的数组，用于返回
+        res = [0] * len(temperatures)
+        # 创建 stack pair: [temp, index]
+        stack = []
+        
+        # 遍历「天气」数组，一旦当前气温高于 stack 最后一天的气温，就从 「stack」 pop，并计算相差天数，存入 res
+        for i, t in enumerate(temperatures):
+            while stack and stack[-1][0] &lt; t:
+                tem, index = stack.pop()
+                res[index] = i - index
+            
+            # 如果不是升温情况，就要把当前气温数据存入 stack    
+            stack.append([t, i])
+          
+        return res       
+</pre><p><br></p><hr><p><strong>Constraints</strong></p><ul><li><code>1 &lt;=&nbsp;temperatures.length &lt;= 10<sup>5</sup></code></li><li><code>30 &lt;=&nbsp;temperatures[i] &lt;= 100</code></li></ul><p>遇上此题，可以向考官讨论数组最小长度，最大长度。于是本题无需考虑数组为空情况……</p><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（n）</li><li>Space：因为 stack 介入 O（n）</li></ul><p><br></p><p><strong>测试</strong></p><ul><li>递增序列</li><li>递减序列</li><li>递增递减混合序列</li><li>序列长度为 1 时的 edge case</li><li>……</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>就算法难度和成型代码复杂度来说，中规中矩中档题；</li><li>然而 「monotonic stack」属于较高难度算法，略难略偏；本题可作为小白<strong>从基础 「stack」向中高级「monotonic stack」进阶</strong>定期复习🥲。</li></ul><p><br></p>
