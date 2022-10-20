@@ -1,0 +1,32 @@
+---
+layout: post
+title: 刷无敌 27 ～ 删除元素
+date: 2022-10-19 23:07:04.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%88%B7%E6%97%A0%E6%95%8C-27-%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0-bafyreihqvwf5ebnta2dmv37xt766eavgcu2ew5qnl7wd35s6xpnn5ccozq
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：27</li><li>题厂：微软</li><li>难度系数：低</li></ul><p><br></p><hr><p>删除一个数列中指定元素，删除后返回剩余元素的数组。</p><p>「⚠️」在空间复杂度 O（1）的情况下完成本题</p><pre class="ql-syntax" spellcheck="false">例如：nums = [3,2,2,3], val = 3
+返回 2, nums = [2,2,_,_]
+
+序列删除制定的 3 后，剩下两个 2，空位往后移；返回 2，刚好显示有元素的数组
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>本题如果没有空间复杂度限制，在 O（n）情况下是一道 5 分钟内解答的简单题目，没有任何数据结构和算法基础的小白也能解；</li><li>限制空间复杂度为 O（1）后，不能创建额外序列，那当遇到需要删除的元素时，让它与后面的元素进行替换……<strong>于是本题演变成了「双指针」问题</strong>；</li><li>一旦想到了「双指针」本题也就迎刃而解了。</li></ul><p><br></p><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def removeElement(self, nums: List[int], val: int) -&gt; int:
+        l, r = 0, len(nums) - 1
+        
+        # 创建左右双指针后，当左边元素不为要删除的元素，左指针右移 1 位
+        # 当左边元素为要删除元素，如果右指针元素也为要删除的元素，右指针向左移；直到右指针为非删除元素时，左右指针互换……
+        # 左右指针相遇后，说明完成互换，这时左指针刚好就是我们要返回的值
+        while l &lt;= r:
+            if nums[l] != val:
+                l += 1
+            elif nums[r] == val:
+                r -= 1
+            else:
+                # swap
+                nums[l], nums[r] = nums[r], nums[l]
+                
+        return l       
+</pre><p><br></p><hr><p><strong>Constraints</strong></p><ul><li><code>0 &lt;= nums.length &lt;= 100</code></li><li><code>0 &lt;= nums[i] &lt;= 50</code></li></ul><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（n）</li><li>Space：O（1）</li></ul><p><br></p><p><strong>测试</strong></p><ul><li>数列为空时</li><li>数列元素全部需要替换时</li><li>数列元素混合替换时</li><li>……</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>限制空间复杂度后，需要反应过来可以用<strong>「双指针」套路解题</strong></li><li>就代码复杂度以及涉及算法高级程度，的确算简单题……</li></ul><p><br></p>
