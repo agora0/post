@@ -1,0 +1,36 @@
+---
+layout: post
+title: 刷无尽 6 ～ 蛇形阵转换
+date: 2022-10-23 23:43:20.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%88%B7%E6%97%A0%E5%B0%BD-6-%E8%9B%87%E5%BD%A2%E9%98%B5%E8%BD%AC%E6%8D%A2-bafyreibgdsixusdlnf2jgbtacbimjwtd5sr6rvzpeoazugxt6u5s4xmv5m
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：6</li><li>题厂：谷歌</li><li>难度系数：中</li></ul><p><br></p><hr><p>把一个字符串按蛇形路线转化后输出……</p><pre class="ql-syntax" spellcheck="false">例如："PAYPALISHIRING" 以 3 行模式蛇形输出后长相如下：
+P   A   H   N
+A P L S I I G
+Y   I   R
+
+再行数从左往右输出，返回："PAHNAPLSIIGYIR"；
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>可以创建 1 个以行为单位的 hashmap，按行存入字符，最后按行 join 输出。于是<strong>解题关键为：如何找到每个字符转换为蛇形阵后的对应行数？？？</strong></li><li>很明显，需要运用一点数学思维寻找规律……</li><li>每个轮回长度为 （行数 + 行数 - 2）；如果余数小于行数，蛇形阵对应行数就是当前行数；如果余数大于行数，蛇形阵对应行数为（循环长度 - 余数），即（行数 + 行数 - 2 - 余数）……</li></ul><p><br></p><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def convert(self, s: str, numRows: int) -&gt; str:
+        # 如果行数为 1，该算法不成立；而蛇形阵和原字符串相等，提前返回即可……
+        if numRows == 1:
+            return s
+        
+        rows = [""] * numRows
+        
+        # put char to each row arrordingly
+        fullRound = numRows + (numRows - 2)
+        for i in range(len(s)):
+            remainder = i % fullRound
+            if remainder &lt; numRows:
+                rows[remainder] += s[i]
+            else:
+                rows[fullRound - remainder] += s[i]
+        
+        # join row by row
+        return "".join([r for r in rows])
+</pre><h2><br></h2><hr><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>1 &lt;= s.length &lt;= 1000</code></li><li><code>s consists of English letters (lower-case and upper-case), ',' and '.'.</code></li><li><code>1 &lt;= numRows &lt;= 1000</code></li></ul><p>本题主要涉及行数为 1 时的边界处理问题🙈，比较容易被忽略……</p><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（n + m）；n 字符串长度，m 为蛇形阵长度；</li><li>Space：O（m）—— 因为创建了一个以蛇形阵长度的数组</li></ul><p><br></p><p><strong>测试</strong></p><ul><li>字符串为 1 时</li><li>蛇形行数为 1 时</li><li>……</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>看似挺唬人的，其实还好，正常中档题……</li><li>小学奥数升级后的编程版🤪</li></ul><p><br></p>
