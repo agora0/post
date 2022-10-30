@@ -1,0 +1,42 @@
+---
+layout: post
+title: 刷更多题 621 ～ 任务安排
+date: 2022-10-30 01:47:28.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%88%B7%E6%9B%B4%E5%A4%9A%E9%A2%98-621-%E4%BB%BB%E5%8A%A1%E5%AE%89%E6%8E%92-bafyreiav6k5twvs7a4luyhklinqgzf7tudrca7eqr4fdvibr6wijjdpvla
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：621</li><li>题厂：谷歌</li><li>难度系数：中</li></ul><p><br></p><hr><p>有一个数组，元素代表一种任务，相同字符代表相同任务。整数 n 代表相同任务之间需要间隔的时间。所有任务执行时间都是 1……</p><p>问：执行任务，最少需要花费的时间……</p><pre class="ql-syntax" spellcheck="false">例如：tasks = ["A","A","A","B","B","B"], n = 2
+为了花最少时间完成任务，可以安排的顺序为：A -&gt; B -&gt; idle -&gt; A -&gt; B -&gt; idle -&gt; A -&gt; B，花费时间为 8
+
+A 任务之间间隔 2 次，B 任务之间间隔 2 次，再安排两次轮空……
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>初看此题，貌似没有想法。为解题，需要引入比较复杂的数据结构——heap 和 deque……😵</li><li>heap 把任务数组按照优先级排序，解决了让频率高的任务优先轮回的问题，以此实现花最少时间完成所有任务</li><li>deque 则帮助计算时间……</li><li>另外还需要 hashmap 计算频率（即 heap 的优先级）……</li></ul><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def leastInterval(self, tasks: List[str], n: int) -&gt; int:
+        # count character to a hashmap
+        count = Counter(tasks)
+        
+        # 此 heap 为 max heap，所以需要把元素绝对值负化
+        maxHeap = [-cnt for cnt in count.values()]
+        heapq.heapify(maxHeap)
+
+        time = 0
+        # pairs of [-cnt, idleTime]
+        q = deque()
+        
+        # 当 heap 或 q 不为空时，说明还有任务没完成，循环需要继续
+        # 按照 heap 优先级取出任务，每取出一次，剩余任务 counter -1
+        # 同时把为完成任务放进 deque 冷却，当时间匹配时，说明执行相同任务之间保证了最小间隔，可以把任务放回 heap……
+        while maxHeap or q:
+            time += 1
+            if maxHeap:
+                cnt = 1 + heapq.heappop(maxHeap)
+                if cnt:
+                    q.append([cnt, time + n])
+                    
+            if q and q[0][1] == time:
+                heapq.heappush(maxHeap, q.popleft()[0])
+        
+        return time
+</pre><hr><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>1 &lt;= task.length &lt;= 10<sup>4</sup></code></li><li><code>tasks[i]</code>&nbsp;is upper-case English letter.</li><li>The integer&nbsp;<code>n</code>&nbsp;is in the range&nbsp;<code>[0, 100]</code>.</li></ul><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（n）</li><li>Space：O（n）</li></ul><p><br></p><p><strong>测试</strong></p><ul><li>不同任务混合出现</li><li>时间为 0 的特殊情况</li><li>……</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>重点考察对 heap 的认知……不知道什么是 heap 的小白是不可能做出来的</li><li>本题应作为 heap 主要题定期复习</li><li>在思路上绕来绕去，其实挺难的😭</li></ul><p><br></p>
