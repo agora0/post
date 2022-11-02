@@ -1,0 +1,43 @@
+---
+layout: post
+title: 刷到天荒地老 1985 ～ 找到数组中第 K 大的整数
+date: 2022-11-02 01:51:39.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%88%B7%E5%88%B0%E5%A4%A9%E8%8D%92%E5%9C%B0%E8%80%81-1985-%E6%89%BE%E5%88%B0%E6%95%B0%E7%BB%84%E4%B8%AD%E7%AC%AC-k-%E5%A4%A7%E7%9A%84%E6%95%B4%E6%95%B0-bafyreih7kvd5k2eoqjzcmvcxd74rbysbis6dus733epgqwixustxtie32y
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：1985</li><li>题厂：谷歌、脸书、亚麻</li><li>难度系数：中</li></ul><p><br></p><hr><p>有一个数组，找到排行 k 的整数，并返回</p><pre class="ql-syntax" spellcheck="false">例如：nums = ["3","6","7","10"], k = 4 
+
+第 4 大的是 3，返回 3（当然这里需要做字符与整数之间数据类型转换）
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>寻找 K 。。。的元素，一般需要 heap 登场</li><li><strong>如果本题能想到运用 heap（priority queue），剩下的逻辑还是很简单的</strong></li></ul><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def kthLargestNumber(self, nums: List[str], k: int) -&gt; str:
+        # 初始化 minHeap
+        minHeap = []
+        heapq.heapify(minHeap)
+        
+        for n in nums:
+            # 如果 minHeap 的长度小于 k，说明还可以往里面塞;
+            # 如果 minHeap 长度等于 k，考察当前元素 与 minHeap 最小值——如果当前元素大于 minHeap 最小值，说明可以替换……
+            if len(minHeap) &lt; k:
+                heapq.heappush(minHeap, int(n))
+            elif int(n) &gt; curMin:
+                heapq.heappop(minHeap)
+                heapq.heappush(minHeap, int(n))
+        
+        # 遍历结束后，返回 minHeap 第一个元素，即最小值          
+        return str(heapq.heappop(minHeap))
+</pre><hr><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>1 &lt;= k &lt;= nums.length &lt;= 104</code></li><li><code>1 &lt;= nums[i].length &lt;= 100</code></li><li><code>nums[i] consists of only digits.</code></li><li><code>nums[i] will not have any leading zeros.</code></li></ul><p>解题前，可以就 k 和 nums 数组长度取值范围，与考官进行讨论并确认</p><p>另外本题涉及字符和整数之间转换问题，也需要就此进行确认……</p><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（ n * logn ）做了一遍循环 O（n），每次遍历时 minHeap 需要整理一次 O（logn）</li><li>Space：O（n）</li></ul><p><br></p><hr><p><strong><u>当然本题既然可以用 minHeap 做，稍微反一下，用 maxHeap 也一样可以反向操作，原理都是利用 heap；</u></strong></p><p>而此时的big O 为 O（n + klogn），考虑到 k 有很大的情况</p><pre class="ql-syntax" spellcheck="false">class Solution:
+    def kthLargestNumber(self, nums: List[str], k: int) -&gt; str:
+        maxHeap = [-int(n) for n in nums ]
+        heapq.heapify(maxHeap)
+        
+        # 当 k 大于 1 时，就不停 pop；
+        # 最后那个留给返回 🙈
+        while k &gt; 1:
+            heapq.heappop(maxHeap)
+            k -= 1
+        
+        return str(-heapq.heappop(maxHeap))
+</pre><p><br></p><p><u>不过，貌似无论 minHeap 还是 maxHeap，效率半斤八两😅</u></p><figure class="image"><img src="https://assets.matters.news/embed/51d3465e-2358-4f16-8e6c-2f87c6b8565d.png" data-asset-id="51d3465e-2358-4f16-8e6c-2f87c6b8565d" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>当 nums 为 1 时</li><li>当 nums 有元素重复时</li><li>……</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>不熟悉 heap 操作特征是不可能想出解答的，知道用 heap 后其实本题还是很 easy 的</li><li>虽然代码简单，但 heap 属于较高级数据结构，所以本题划归中档🥲</li><li>本题有多种解题方法，考察了 heap 使用的经典用法——<strong>heap 常常用来解决“找第 k 元素”题型</strong></li><li>本题需要作为 heap 类别经典面试题型定期复习，<strong>熟悉各种解题思路加深对 heap 的认知</strong></li></ul>
