@@ -1,0 +1,40 @@
+---
+layout: post
+title: 坚持刷题 295 ～ 数据流中位数
+date: 2022-11-14 02:18:41.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%9D%9A%E6%8C%81%E5%88%B7%E9%A2%98-295-%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E4%BD%8D%E6%95%B0-bafyreihqahcctdo347nwdmxbstxo6mpqgmh7bodgx4bqsrdgq3blqo3ane
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li><strong><u>题号：295</u></strong></li><li>题厂：微软</li><li>难度系数：难</li></ul><p><br></p><hr><p>OOP 设计</p><pre class="ql-syntax" spellcheck="false">MedianFinder()&nbsp;初始化.
+void addNum(int num)&nbsp;添加一个整数到数据流.
+double findMedian()&nbsp;返回当前数据流的中位数.
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>要找中位数，根据中位数公式，想到添加数组时将数组排序，在 findMedian 时，根据数组长度即可非常容易返回中位数；</li><li>另外一种解法也可以用两个 minHeap 和 maxHeap，两个 heap 长度相当（不超过1），寻找中位数时根据两个 heap 长度判断返回</li></ul><hr><pre class="ql-syntax" spellcheck="false">class MedianFinder:
+    
+    # 初始化 heap，把数据流分为 bigHeap 和 smallHeap 两组
+    def __init__(self):
+        self.bigHeap = []
+        self.smallHeap = []
+    
+    # 当添加数据流时，现将整数存入 bigHeap，如果 bigHeap 的长度大于 smallHeap，将 bigHeap 中最小值摞入 smallHeap，这样 bigHeap 和 smallHeap 的长度差最多为 1
+    # 当 bigHeap 的最小值小于 smallHeap 的最大值时，需要将 2 着进行对换
+    def addNum(self, num: int) -&gt; None:
+        heapq.heappush(self.bigHeap, num)
+        if len(self.bigHeap) &gt; len(self.smallHeap):
+            heapq.heappush(self.smallHeap, -heapq.heappop(self.bigHeap))
+            
+        if self.bigHeap and self.smallHeap and self.bigHeap[0] &lt; -self.smallHeap[0]:
+            swapBig = -heapq.heappop(self.bigHeap)
+            swapSmall = -heapq.heappop(self.smallHeap)
+            heapq.heappush(self.bigHeap, swapSmall)
+            heapq.heappush(self.smallHeap, swapBig)
+
+    # 查找中位数：当 bigHeap 和 smallHeap 长度相等时，bigHeap 最小值与 smallHeap 最大值相加除以 2；当smallHeap 长度较大时，中位数就是 smallHeap 最大值……
+    def findMedian(self) -&gt; float:
+        if len(self.bigHeap) == len(self.smallHeap):
+            return (self.bigHeap[0] + -self.smallHeap[0]) / 2
+        else:
+            return float(-self.smallHeap[0])
+</pre><hr><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>-105 &lt;= num &lt;= 105</code></li><li><code>There will be at least one element in the data structure before calling findMedian.</code></li><li><code>At most 5 * 104 calls will be made to addNum and findMedian.</code></li></ul><p>考试时，可以和考官讨论返回中位数时，数组是否为空</p><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（&nbsp; logn ）</li><li>Space：O（n）</li></ul><p><br></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>当数据流只有一个元素时；</li><li>当数据流有 2 个元素时；</li><li>当随机添加多个相同元素时</li><li>……</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>排序在找出中位数的做法比较容易想到，用 heap 原理把数据分两组的思路不大容易想到；</li><li>本题归为难档，主要 heap 属于中高难度数据结构，然后本题还需要把两个 heap 组装一下😵</li></ul><p><br></p>
