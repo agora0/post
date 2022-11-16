@@ -1,0 +1,46 @@
+---
+layout: post
+title: 刷无穷 1383 ～ 团队表现最大化
+date: 2022-11-16 00:23:05.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%88%B7%E6%97%A0%E7%A9%B7-1383-%E5%9B%A2%E9%98%9F%E8%A1%A8%E7%8E%B0%E6%9C%80%E5%A4%A7%E5%8C%96-bafyreienx26zhz4cd4djpbi565cvqm5uuokifzqbynrkwg7q4y5vhyhxlu
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：1383</li><li>题厂：脸书</li><li>难度系数：难</li></ul><p><br></p><hr><p>一个团队有 n 个码工，每个码工有对应的效率和速度。问从中选「最多」k 个码工，怎么实现工作表现最大化？？？！！！</p><pre class="ql-syntax" spellcheck="false">例如 n = 6, speed = [2,10,3,1,5,8], efficiency = [5,4,3,9,7,2], k = 2，返回 60. 
+选择码工 （10，4）和（5，7）可达效率最高，performance = (10 + 5) * min(4, 7) = 60
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>遇上此题就不要死磕「效率」「速度」「表现」三者之间的关系到底是怎么回事了，想办法让 performance 达到最大值极了</li><li>根据数学计算公式，就是如何让「速度和」和「最小效率」取到最大值。于是「贪心算法」登场了。</li><li>答案得知，<strong>最小效率值为 4，意味着如果码工的效率大于 4 是不可能参加计数的</strong>，于是想到用 maxHeap；</li><li>至于<strong>累积速度，只能在效率大于或等于 4 的码工当中选择</strong>。如果最多要选 k 个码工，那可以准备一个长度为 k 的 minHeap，累积速度 minHeap 存放 top k 速度……</li></ul><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def maxPerformance(self, n: int, speed: List[int], efficiency: List[int], k: int) -&gt; int:
+        # 初始化 maxHeap，配对为「-efficiency ～ speed」
+        maxHeap = []
+        heapq.heapify(maxHeap)
+        for i in range(n):
+            maxHeap.append([-efficiency[i], speed[i]])
+            
+        # 初始化存放 top k 速度的 minHeap    
+        availableSpeed = []
+        heapq.heapify(availableSpeed)
+        
+        accSpeed = 0
+        res = 0
+        
+        # 遍历已配对的 maxHeap
+        # availableSpeed 长度小于 k 时，直接往里面添加速度
+        # availableSpeed 长度大于等于 k 时，看是否需要让最小值和当前速度替换
+        while maxHeap:
+            eff, speed = heapq.heappop(maxHeap)
+            
+            if len(availableSpeed) &lt; k:
+                accSpeed += speed
+                heapq.heappush(availableSpeed, speed)               
+            elif availableSpeed[0] &lt; speed:
+                accSpeed -= heapq.heappop(availableSpeed)
+                accSpeed += speed
+                
+                heapq.heappush(availableSpeed, speed)
+            
+            res = max(res, -eff * accSpeed)
+        
+        return res % (10**9+7)
+</pre><hr><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>1 &lt;= k &lt;= n &lt;= 105</code></li><li><code>speed.length == n</code></li><li><code>efficiency.length == n</code></li><li><code>1 &lt;= speed[i] &lt;= 105</code></li><li><code>1 &lt;= efficiency[i] &lt;= 108</code></li></ul><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（ nlogn ），遍历了长度为 n 的 maxHeap，遍历过程中用到了 heappop 和 heappush，复杂度为 logn</li><li>Space：O（n + k），创建了长度为 n 的maxHeap 和长度为 k 的 availableSpeed</li></ul><p><br></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>当 k =&nbsp; 1 时；</li><li>……</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>绕来绕去想了 2 天才想出来😭</li><li><strong>突破口为思考用「贪心」思路获得最大值，再根据贪心思路初始化相应 maxHeap 和 minHeap 帮忙解题</strong></li><li>鉴于贪心和 heap 都属于中难档算法 + 数据结构，然后还要二者结合，此题非难挡莫属😭</li><li>考场上遇到，赶脚很难在 30 分钟内有思路😭</li></ul><p><br></p>
