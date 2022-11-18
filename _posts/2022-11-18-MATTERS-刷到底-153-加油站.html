@@ -1,0 +1,39 @@
+---
+layout: post
+title: 刷到底 153 ～ 加油站
+date: 2022-11-18 00:47:49.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%88%B7%E5%88%B0%E5%BA%95-153-%E5%8A%A0%E6%B2%B9%E7%AB%99-bafyreihi43etrx36clbwrgfgat4v542rfj4whncjswpk7dyx67eabby3li
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：153</li><li>题厂：脸书</li><li>难度系数：中</li></ul><p><br></p><hr><p>有 n 个站，gas 数组代表该站可加油量，cost 代表从该站到下一站的耗油量。问：能不能靠着到站加油的方式循环一周？？如果可以返回开始地的 index，如果不行返回 -1</p><pre class="ql-syntax" spellcheck="false">例如 gas = [1,2,3,4,5], cost = [3,4,5,1,2]，我们可以从第 4 站（index 为 3）开始循环一周，于是返回 3……
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>要想循环一周，肯定需要加油量大于等于耗油量才行；</li><li>确定油量能否绕场一周后，我们再开分析到底要从那一站加油才能绕场一周？？</li></ul><pre class="ql-syntax" spellcheck="false">例如：我在 A 站加油 1，但是需要耗油 2 才能到下一站，于是 A 站就不能成为起点……
+</pre><ul><li>要想成为起点需要满足两个条件：</li></ul><ol><li>该站的加油量大于耗油量；</li><li>从该站开始后，在后续站台不会出现盈余不够的情况，即存油量小于 0</li></ol><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def canCompleteCircuit(self, gas: List[int], cost: List[int]) -&gt; int:
+        # 创建 accum 和 balance 变量。accum 记录绕场一周的总耗油量/加油量，balance 记录当某站 i 加油量大于耗油量时，剩余油量能否支撑到终点……
+        # res = -1 代表还没有找到可以加油的起始站
+        res = -1
+        accum, balance = 0, 0
+        
+        for i in range(len(gas)):
+            gap = gas[i] - cost[i]
+            accum += gap
+            
+            # 如果本站加油量有盈余且 res 等于 -1，可以进入该站 balance 考察周期
+            # 后续过程中，balance 都要更具盈余增减
+            if gap &gt;= 0 and res == -1:
+                res = i
+                balance = gap
+            elif res &gt;= 0:
+                balance += gap
+            
+            # 循环结束前如果出现 balance 小于 0 的情况，说明该起点 i 不能支撑全场，需要清零重制 balance 和 res
+            if balance &lt; 0:
+                res = -1
+                balance = 0
+        
+        # 循环结束后如果累积油量大于等于 0 则返回 res，否则返回 -1           
+        return res if accum &gt;= 0 else -1
+</pre><hr><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>n == gas.length == cost.length</code></li><li><code>1 &lt;= n &lt;= 105</code></li><li><code>0 &lt;= gas[i], cost[i] &lt;= 104</code></li></ul><p>除了取值范围外，还可以和考官讨论一下加油起点会不会出现多种可行情况……</p><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（ n ）</li><li>Space：O（1）</li></ul><p><br></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>当 k =&nbsp;1 时；</li><li>……</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>本题可作为<strong>「贪心算法」重点题目定期复习</strong>，熟悉「贪心算法」分析思路……</li></ul><p><br></p>
