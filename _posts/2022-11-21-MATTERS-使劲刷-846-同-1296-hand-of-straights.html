@@ -1,0 +1,44 @@
+---
+layout: post
+title: 使劲刷 846（同 1296）～ Hand of Straights
+date: 2022-11-21 03:04:29.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E4%BD%BF%E5%8A%B2%E5%88%B7-846-%E5%90%8C-1296-hand-of-straights-bafyreibxwlhg7nkblzsjog3dxw4qa5rilbgojh3une6l2hqtd4ohwjmbli
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：846（同 1296）</li><li>题厂：谷歌</li><li>难度系数：中</li></ul><p><br></p><hr><p>爱丽丝有一些牌，要把牌们分成等分组，每组牌元素为连续整数。如果可以，返回 True，不能返回 False</p><pre class="ql-syntax" spellcheck="false">例如 hand = [1,2,3,6,2,3,4,7,8], groupSize = 3.
+返回 True
+把名为 hand 的数组分为 3 组，根据 groupsize 每组 3 张牌，分别为 [1,2,3],[2,3,4],[6,7,8]。组内成员均为连续整数。
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li><strong>要满足等分条件，说明数组长度一定是 groupsize 的整数倍</strong>，不然无法分组。</li><li>在数组长度满足 groupsize 整数倍的条件下，在研究能否每组元素都是连续整数。</li><li>要分组为连续整数，需要<strong>研究数组内有些啥元素？每个元素有几个？？</strong>于是思考使用 hashmap。</li><li><strong>有了 hashmap 计数后，再思考怎么把它们按顺序均摊</strong>？？如果把 hashmap 的 key 按不重复排序，就可以解决问题了。即：由小到大遍历，如果该数在 hashmap 中出现，在寻找和它连续的整数是否在 hashmap 内，如果有继续，如果没有可以提前返回 False。</li></ul><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def isNStraightHand(self, hand: List[int], groupSize: int) -&gt; bool:
+        # 当 hand 长度和 groupsize 不为整数倍时，提前返回 False
+        if len(hand) % groupSize != 0:
+            return False
+        
+        # hand 内元素出线频率计数
+        count = Counter(hand)
+        # 将 hand 转换为 set，剔除重复元素
+        elements = set(hand)
+        # 再将 set 转化为数组并排序……
+        eleList = list(elements)
+        eleList.sort()
+        
+        # for 循环时，如果当前元素 count 为 0，说明没有了，啥也不做继续
+        # 如果当前元素还有剩不为 0，则检测和它连续的整数们是否也在 count 里：如果有，-1更新 count；如果没有，可以直接返回 False
+        for e in eleList:
+            if count[e] == 0:
+                continue
+        
+            while count[e] &gt; 0:
+                count[e] -= 1
+                for j in range(1, groupSize):
+                    if count[e + j] &lt;= 0:
+                        return False
+                    else:
+                        count[e + j] -= 1
+        
+        # for 循环后如果还没有返回 false，说明满足等分且组内元素全部为连续的条件，返回 True              
+        return True
+</pre><hr><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>1 &lt;= hand.length &lt;= 104</code></li><li><code>0 &lt;= hand[i] &lt;= 109</code></li><li><code>1 &lt;= groupSize &lt;= hand.length</code></li></ul><p>做题前可以和考官讨论下 groupszie 和 hand 长度的大小关系，以及hand 内元素能否重复使用（本题明显不能重复使用）</p><p><br></p><p><strong>Big O</strong></p><ul><li>Time：sort 复杂度为 O（nlogn）；for 循环内遍历了一遍 hand 长度，内部又根据 groupsize 检测一遍，复杂度为 O（m*n）。于是最终复杂度为 O（m*n）</li></ul><p><u>（如果分析不正确，欢迎大佬指正😵）</u></p><ul><li>Space：O（n）创建了基于 hand 长度的 hashmap</li></ul><p><br></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>存在重复元素且满足连续分组需要返回 True 时；</li><li>数组长度满足 groupsize 整数倍，但不能满足组内元素全部连续分组需返回 False 时；</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>都已经出现撞题了，你说要不要重点复习，温故知新😭</li></ul><p><br></p>
