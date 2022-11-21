@@ -22,6 +22,7 @@ exclude:
   - _posts/2021*
   - _posts/2020*
   - _posts/201*
+  - _posts/*-INITIUM-*
 paginate: 50
 feed:
   posts_limit: 100
