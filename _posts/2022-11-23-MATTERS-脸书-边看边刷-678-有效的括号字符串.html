@@ -1,0 +1,53 @@
+---
+layout: post
+title: "「脸书」边看边刷 678 ～ 有效的括号字符串"
+date: 2022-11-23 00:25:15.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E8%84%B8%E4%B9%A6-%E8%BE%B9%E7%9C%8B%E8%BE%B9%E5%88%B7-678-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7%E5%AD%97%E7%AC%A6%E4%B8%B2-bafyreihgedyvfaxcbljey2iss5if4tda6pbj7ceisimssqih4y2fe2bmim
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：678</li><li>题厂：脸书</li><li>难度系数：中</li></ul><p><br></p><hr><p>字符串由 （ ， ），*组成，如果有效返回 True，无效返回 False……</p><p><u>那什么是有效的字符串？？？</u></p><ul><li>圆括号（）成对出现，即 （ 要出现在 ）的前面</li><li>* 可以根据情况替换为 （ 或 ）或 空字符串</li></ul><pre class="ql-syntax" spellcheck="false">例如 s = "(*)"
+返回 True， 这时把 * 当作空字符串 
+
+再例如 s = "(*))" 
+同样返回 True，这时要把 * 当作 （ 与后面的 ）配对
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>字符括号配对题，首先想到 stack：当遇到 （ 时，把 （ 存入 stack，遇到 ） 时再从 stack pop 出来与之配对</li><li><strong>为了实现更多配对，优先从 （ 里面配对，没有 （ 时再从 * 里面配对</strong>。所以需要准备两个 stack 分别存 （ 和 *</li><li>当 ） 完成配对后，（ 如果有剩，还需要把剩余 （ 与 * 配对</li></ul><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def checkValidString(self, s: str) -&gt; bool:
+        # 创建 2 个 stack，分别存出现（ 和 * 的 index
+        left = []
+        star = []
+        
+        # 遍历字符串时，如果遇上（ 或 *，将它们存入 stack
+        # 遇上 ）时，优先于（ 配对，再和 * 配对。如果（ 和 * 都无法配对，可提前返回 False
+        for i in range(len(s)):
+            if s[i] == "(":
+                left.append(i)
+            elif s[i] == "*":
+                star.append(i)
+            else:
+                if left:
+                    left.pop()
+                elif star:
+                    star.pop()
+                else:
+                    return False
+                
+        # i: index left; j: index star
+        i = j = 0
+        # 如果（ 还有剩，再 * 配对，此时 * 当做 ）使用
+        # 能与（ 配对的 * 需要满足 index 大于 star。如果不能满足，可以提前返回 False
+        while i &lt; len(left):
+            while j &lt; len(star) and star[j] &lt; left[i]:
+                j += 1
+            
+            # find a pair of (*, move both i and j 
+            if j &lt; len(star) and star[j] &gt; left[i]:
+                i += 1
+                j += 1
+            else:
+                return False
+        
+        return True
+</pre><hr><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>1 &lt;= s.length &lt;= 100</code></li><li><code>s[i] is '(', ')' or '*'.</code></li></ul><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（n）</li><li>Space：O（n）创建了 stack</li></ul><p><br></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>字符串为 1 时</li></ul><p>……</p><p><br></p><hr><p><strong>总结</strong></p><ul><li><strong><u>简单档 stack 组装变形「贪心」后升级成了中档！！！</u></strong></li></ul>
