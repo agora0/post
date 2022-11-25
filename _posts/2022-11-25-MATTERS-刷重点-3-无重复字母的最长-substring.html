@@ -1,0 +1,43 @@
+---
+layout: post
+title: 刷重点 3 ～ 无重复字母的最长 substring
+date: 2022-11-25 00:11:01.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%88%B7%E9%87%8D%E7%82%B9-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E6%AF%8D%E7%9A%84%E6%9C%80%E9%95%BF-substring-bafyreig5gkowgdfihzqbq5bqyqzlrfuzz46nvpbqjbjc3hf5r4fkqmdmcq
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：3</li><li>题厂：脸书</li><li>难度系数：中</li></ul><p><br></p><hr><p>已知一个字符串，问字符串里不重复的最长 substring 长度是多少？？？</p><pre class="ql-syntax" spellcheck="false">例如 s = "abcabcbb"
+返回 3，最长不重复的 substring 为 “abc”……
+
+再例如 s = "bbbbb"
+返回 1，这时最长不重复的字符串就是“b”……
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>欲解此题，需要了解「sliding window」原理——滑动窗口左右指针……<strong><u>一旦滑动窗口里出现相同字符，那就要把左指针往右滑动到无重复字符的地方</u></strong>……</li><li>遍历字符串的时候，记录滑动窗口开过的最大值……</li></ul><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def lengthOfLongestSubstring(self, s: str) -&gt; int:
+        # 创建 set 用于检测当前滑动窗口包含的各种字符……
+        appears = set()
+        # 初始化左指针
+        l = 0
+        res = 0
+        
+        for r in range(len(s)):
+            # 如果当前指针不再 set 里出现过，将当前字符添加到 set 中
+            # 如果出现了，我们需要重新定位左指针：把左指针滑动到窗口内重复字符的下一个元素，同时左指针重新定位过程中遇到的元素也需要在 set 列表中移除——因为滑动窗口往右缩短了……
+            if s[r] not in appears:
+                appears.add(s[r])
+            else:
+                new = 0
+                for j in range(l, r):
+                    if s[j] != s[r]:
+                        appears.remove(s[j])
+                        continue
+                    else:
+                        new = j + 1
+                        break
+                l = new
+            
+            res = max(res, r + 1 - l)
+        
+        return res
+</pre><hr><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>0 &lt;= s.length &lt;= 5 * 104</code></li><li><code>s consists of English letters, digits, symbols and spaces.</code></li></ul><p><br></p><p><strong>Big O</strong></p><ul><li>Time：O（n）</li><li>Space：O（n）</li></ul><p><br></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>字符串为 1 时</li><li>当字符串间隔出现重复时……检查左指针移动逻辑是否顺畅……</li></ul><p>……</p><p><br></p><hr><p><strong>总结</strong></p><ul><li>本题作为「<strong>sliding window」重点题，题号高居前三，非常需要不定期反复复习</strong>，深度理解「sliding window」滑动原理……</li><li>简单理解<strong>「sliding window」类似小学奥数的同向问题，与之对应的「双指针」类似小学奥数的相向问题</strong>😭</li></ul><p><br></p>
