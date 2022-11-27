@@ -1,0 +1,40 @@
+---
+layout: post
+title: "「脸书」一心一意只为刷题 763 ～ 标签分组。。。。"
+date: 2022-11-27 01:38:55.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E8%84%B8%E4%B9%A6-%E4%B8%80%E5%BF%83%E4%B8%80%E6%84%8F%E5%8F%AA%E4%B8%BA%E5%88%B7%E9%A2%98-763-%E6%A0%87%E7%AD%BE%E5%88%86%E7%BB%84-bafyreian5aut4iijfbcmyfs55tssqp4xy2co6n4bxqhjupvysxra3gjtwq
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：763</li><li>题厂：脸书</li><li>难度系数：中</li></ul><p><br></p><hr><p>已知一个字符串，要把字符串分组。分组后实现单个字符只出现在一个小组里，即：单个字符不会跨组出现。。。。。。分组原则：要尽可能多分组。。。。。。</p><pre class="ql-syntax" spellcheck="false">例如 s = "ababcbacadefegdehijhklij"
+返回 [9,7,8]
+
+分组结果为："ababcbaca", "defegde", "hijhklij"，返回数字分别对应分组后 substring 的长度。。。。。。
+虽然"ababcbacadefegde", "hijhklij" 也满足单个字符不串组，但是没有满足尽可能多分组原则，因此不能作为正确答案。。。。。。
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>欲解此题，需要<strong>查询单个字符「第一次」和「最后一次」出现的 index 值，以此判断substring 可以 span 的区间</strong></li></ul><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def partitionLabels(self, s: str) -&gt; List[int]:
+        # 创建 lastIndex hashmap，记录单个字符最后一次出现的 index
+        # 「字符」：「last index position」
+        lastIndex = {}
+        for i, c in enumerate(s):
+            lastIndex[c] = i
+        
+        # size：记录当前小组的长度
+        # end：记录小组可以 span 的最后位置。。。。    
+        res = []
+        size, end = 0, 0
+        for i, c in enumerate(s):
+            # 如果当前字符最后一次出现的 index 值大于当前 end，则 end 需要后移至 lastIndex[c]
+            size += 1
+            end = max(end, lastIndex[c])
+            
+            # 如果当前 index 和 end 相等，说明到达小组末端，可以分组
+            # 此时忘 res 添加当前小组长度，同时 size 清零用于下一周期
+            if i == end:
+                res.append(size)
+                size = 0
+                
+        return res
+</pre><hr><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>1 &lt;= s.length &lt;= 500</code></li><li><code>s consists of lowercase English letters.</code></li></ul><p><br></p><p><strong>Big O</strong></p><ul><li><code>时间复杂度：O（n）</code></li><li>空间复杂度：O（1）。字符串中只出现 26 个小写英文字母，所以 hashmap 的长度最多为 26——是一个常数。。。。。。</li></ul><p><br></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>字符串为 1 时</li><li>当字符串不能出现分组时。。。。。。</li></ul><p>……</p><p><br></p><hr><p><strong>总结</strong></p><ul><li>词穷 😭</li></ul><p><br></p>
