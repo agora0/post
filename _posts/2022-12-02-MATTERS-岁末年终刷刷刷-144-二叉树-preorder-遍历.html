@@ -1,0 +1,47 @@
+---
+layout: post
+title: 岁末年终刷刷刷 144 ～ 二叉树 preorder 遍历
+date: 2022-12-02 04:44:12.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%B2%81%E6%9C%AB%E5%B9%B4%E7%BB%88%E5%88%B7%E5%88%B7%E5%88%B7-144-%E4%BA%8C%E5%8F%89%E6%A0%91-preorder-%E9%81%8D%E5%8E%86-bafyreic5dj6czzlnrn5pwqbqwr7bb2mwea4vvxppk4zdj7iv4pkpbzwbri
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：144</li><li>题厂：广义模板</li><li>难度系数：低</li></ul><p><br></p><hr><p>preorder 顺序遍历二叉树</p><figure class="image"><img src="https://assets.matters.news/embed/18e7cb88-cff0-4182-8401-8f14f8497c4b.jpeg" data-asset-id="18e7cb88-cff0-4182-8401-8f14f8497c4b" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><pre class="ql-syntax" spellcheck="false">例如 root = [1,null,2,3]
+返回 [1,2,3]
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>preorder 遍历顺序：节点 - 左节点 - 右节点</li></ul><h1># recursion 模板</h1><pre class="ql-syntax" spellcheck="false"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def preorderTraversal(self, root: Optional[TreeNode]) -&gt; List[int]:
+        res = []
+        # 创建 dfs 方法，按照节点-左-右的顺序遍历
+        def dfs(node):
+            if node:
+                res.append(node.val)
+                dfs(node.left)
+                dfs(node.right)
+                
+        dfs(root)
+        
+        return res
+</pre><hr><h1># stack mu ban</h1><pre class="ql-syntax" spellcheck="false">class Solution:
+    def preorderTraversal(self, root: Optional[TreeNode]) -&gt; List[int]:
+        res = []
+        stack = [root]
+        # 创建 stack，按照 节点-右-左 顺序放入
+        while stack:
+            node = stack.pop()
+            if node:
+                res.append(node.val)
+            if node and node.right:
+                stack.append(node.right)
+            if node and node.left:
+                stack.append(node.left)
+                
+        return res
+</pre><figure class="image"><img src="https://assets.matters.news/embed/b4fbaf12-a149-4c2c-8bf4-5d8fa8a1fae8.png" data-asset-id="b4fbaf12-a149-4c2c-8bf4-5d8fa8a1fae8" referrerpolicy="no-referrer"><figcaption><span>两种方法遍历后，貌似采用「stack」模式更快捷</span></figcaption></figure><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>The number of nodes in the tree is in the range [0, 100].</code></li><li><code>-100 &lt;= Node.val &lt;= 100</code></li></ul><p><br></p><p><strong>Big O</strong></p><ul><li><code>时间复杂度：O（n）所有节点轮一遍</code></li><li>空间复杂度：O（logn）stack 的长度为树的高度，即 log n</li></ul><p><br></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>当树只有一个节点时</li><li>当树没有节点时</li></ul><p>……</p><p><br></p><hr><p><strong>总结</strong></p><ul><li><s>这道题都不会做，可以直接回家歇菜了</s></li><li>虽然这是一道简单题，但<strong>是 DFS（深度查找）系列的基础模板——考点无数的 DFS BFS 均由此题发展演变……所以本题作为 DFS 核心思想定期复习熟练操作</strong>！！！！</li><li>对于 <strong>DFS 的两种遍历模式 stack 和 recursion 也要烂熟于心，涉及的 bigO 也要了如指掌</strong></li><li><strong>在复习 DFS preorder 的同时，还可以顺带把对应的 BFS Queue，以及系列的 inorder 和 postorder 也一起巩固复习一次</strong></li><li>考试时多半不会遇上这种模板基础题。但是如果小概率事件遇上了，只有 10 分钟内熟练解题且 「bug free」才能通关！！！</li></ul><p><br></p>
