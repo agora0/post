@@ -1,0 +1,50 @@
+---
+layout: post
+title: "「脸书+亚麻」刷题看球两不误 257 ～ 二叉树路径"
+date: 2022-12-04 02:30:23.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E8%84%B8%E4%B9%A6-%E4%BA%9A%E9%BA%BB-%E5%88%B7%E9%A2%98%E7%9C%8B%E7%90%83%E4%B8%A4%E4%B8%8D%E8%AF%AF-257-%E4%BA%8C%E5%8F%89%E6%A0%91%E8%B7%AF%E5%BE%84-bafybeidrhkkacnxcwvqwmz6nrbmuf446uyobzbqaf5hu6x4vl25hgvc2ci
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：257</li><li>题厂：脸书，亚麻</li><li>难度系数：低</li></ul><p><br></p><hr><p>遍历二叉树路径</p><figure class="image"><img src="https://assets.matters.news/embed/1186c19d-1788-464c-932f-7a49957a209b.jpeg" data-asset-id="1186c19d-1788-464c-932f-7a49957a209b" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><pre class="ql-syntax" spellcheck="false">例如 root = [1,2,3,null,5]
+返回 ["1-&gt;2-&gt;5","1-&gt;3"]
+
+就有两条路径，1-2-5 和 1-3，用“-&gt;“串联返回 string 就好
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>熟悉套路之后，一眼看出这是 「DFS」查询，当然顺便还需要用到一点 backtrack 逻辑……</li></ul><hr><pre class="ql-syntax" spellcheck="false"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def binaryTreePaths(self, root: Optional[TreeNode]) -&gt; List[str]:
+        res = []
+
+        # 创建 dfs 方法 走 recursive 路线……
+        def dfs(node, stack):
+            # 已知二叉树至少有一个节点，遍历时先将其对应 string 值放入 stack
+            stack.append(str(node.val))
+            
+            # 如果该节点的左右节点均为空，说明路径到头，把 stack 添加到 res 返回
+            if not node.left and not node.right:
+                res.append("-&gt;".join(stack))
+                return
+            
+            # 如果左节点存在，就往左节点深度遍历
+            # 当到头返回时，要把 stack 最后一个元素 pop 出来，即：「backtrack 精髓」所在
+            if node.left:
+                dfs(node.left, stack)
+                stack.pop()
+
+            # 同理，如果右节点存在，就往右节点深度遍历
+            # 当到头返回时，同样要把 stack 最后一个元素 pop 出来
+            if node.right:
+                dfs(node.right, stack)
+                stack.pop()
+            
+        dfs(root, [])
+        
+        return res
+</pre><hr><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>The number of nodes in the tree is in the range [1, 100].</code></li><li><code>-100 &lt;= Node.val &lt;= 100</code></li></ul><p>做题前要和考官讨论会不会有空节点？？？</p><p><br></p><p><strong>Big O</strong></p><ul><li><code>时间复杂度：O（n），每个节点走一遍；</code></li><li>空间复杂度：O（logn）。stack 长度巅峰时为二叉树高度。。。。。。</li></ul><p><br></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>只有一个节点时</li><li>左节点为空或右节点为空时。。。。。。</li></ul><p>……</p><p><br></p><hr><p><strong>总结</strong></p><ul><li>这题也可以用 stack 走 iteration 路线，当然本题的考点还是 DFS + backtracking</li><li>虽然题意很容易理解，属于基础概念，但 backtracking 是很容易搞混的一种高级思想，所以还是需要经常复习以免遗忘——毕竟是一道<strong>涵盖 二叉树 + DFS + backtrack 多重知识考点</strong>的经典基础题。。。。。。</li></ul><p><br></p>
