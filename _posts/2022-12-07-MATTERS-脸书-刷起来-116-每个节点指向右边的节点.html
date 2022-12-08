@@ -1,0 +1,44 @@
+---
+layout: post
+title: "「脸书」刷起来 116 ～ 每个节点指向右边的节点"
+date: 2022-12-07 19:36:37.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E8%84%B8%E4%B9%A6-%E5%88%B7%E8%B5%B7%E6%9D%A5-116-%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E6%8C%87%E5%90%91%E5%8F%B3%E8%BE%B9%E7%9A%84%E8%8A%82%E7%82%B9-bafybeigabcs6cqq2ocnl3mhgqyl7iyarycamm7oxtjblphvjmahabg2za4
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：116</li><li>题厂：脸书</li><li>难度系数：中</li></ul><p><br></p><hr><p>已知一个标准的二叉树，让每个节点指向它右边的节点。初始时，下一个节点默认为空；如果该节点本身就是最右节点，那就还是指向空。</p><figure class="image"><img src="https://assets.matters.news/embed/a7706a07-cc5e-4c33-96fc-d391b279d55e.png" data-asset-id="a7706a07-cc5e-4c33-96fc-d391b279d55e" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><pre class="ql-syntax" spellcheck="false">例如 root = [1,2,3,4,5,6,7]
+返回 [1,#,2,3,#,4,5,6,7,#]
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>了解题目叫我们干什么之后，首先观察一下题目给出的二叉树结构：</li></ul><pre class="ql-syntax" spellcheck="false"># Definition for a Node.
+class Node:
+    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
+        self.val = val
+        self.left = left
+        self.right = right
+        self.next = next
+</pre><p><br></p><ul><li>本题里，二叉树除了由常见的左右节点，还多了一个 next 节点。而我们要做的就是把 next 节点指向正确。</li><li>同层节点指向问题，就是一个「BFS」遍历问题，而和「BFS」配套的数据结构是「queue」。</li></ul><p><br></p><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def connect(self, root: 'Optional[Node]') -&gt; 'Optional[Node]':
+        # 如果节点为空，可以直接提前返回
+        if not root:
+            return root
+        # 如果节点不为空，初始化 que 开始遍历   
+        que = [root]
+
+        # 每一层用 for 循环便利，如果当前节点有同层右边还有节点，就把该节点的 next 指向右边的节点
+        # 遍历同时生成下一层参加遍历的 que，按照左右顺序放入 nextLevel
+        while que:
+            nextLevel = []
+            for i in range(len(que)):
+                if i + 1 &lt; len(que):
+                    que[i].next = que[i + 1]
+                if que[i] and que[i].left:
+                    nextLevel.append(que[i].left)
+                if que[i] and que[i].right:
+                    nextLevel.append(que[i].right)
+            
+            que = nextLevel
+
+
+        return root
+</pre><hr><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>The number of nodes in the tree is in the range [0，2^12 - 1].</code></li><li><code>-1000 &lt;= Node.val &lt;= 1000</code></li></ul><p>做题前和考官讨论会不会有空节点</p><p><br></p><p><strong>Big O</strong></p><ul><li><code>时间复杂度：O（n），每个节点走一遍；</code></li><li>空间复杂度：O（logn）。stack 长度巅峰时为二叉树最后一层的长度，即 logn，因为题目告知这是一个标准二叉树。</li></ul><p><br></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>节点为空时</li></ul><p>……</p><p><br></p><hr><p><strong>总结</strong></p><ul><li><strong>以「BFS + queue」 基础知识展开的考点题</strong>。思路很容易想到，属于中档偏简单档。</li><li>本题和 #117 是同一系列。</li><li>本题可作为 「BFS + queue」模板题定期复习，同时结合 「DFS + stack」类比复习。</li></ul><p><br></p>
