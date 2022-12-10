@@ -1,0 +1,70 @@
+---
+layout: post
+title: "「谷歌」我接着刷 384 ～ 数组洗牌"
+date: 2022-12-10 03:08:01.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E8%B0%B7%E6%AD%8C-%E6%88%91%E6%8E%A5%E7%9D%80%E5%88%B7-384-%E6%95%B0%E7%BB%84%E6%B4%97%E7%89%8C-bafybeidzle6pconocnvsbtgsiuj2pkkwgsl4rlakh46qnkuqrrnwwyc3em
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：384</li><li>题厂：谷歌</li><li>难度系数：中</li></ul><p><br></p><hr><p>已知一个数组，设计两个方法：</p><ol><li>将数组元素洗牌，每个元素都有相同洗牌几率。</li><li>将数组重新归回为初始状态。</li></ol><pre class="ql-syntax" spellcheck="false">["Solution", "shuffle", "reset", "shuffle"]
+[[[1, 2, 3]], [], [], []]
+返回 [null, [3, 1, 2], [1, 2, 3], [1, 3, 2]]
+“Solution” 表示初始化了一个 [1, 2, 3] 的数组
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>「初始化」：既然要设计两个方法，一个洗牌一个还原——可以在初始化对象时创建两个数组：一个洗牌数组，一个初始数组；</li><li>「还原」：当调用还原方法时，我们把洗牌数组的值还原到初始数组；</li><li>「洗牌」：随机洗牌多半需要调用 random，此处需要设计如何具体洗牌。。。</li></ul><p><br></p><hr><pre class="ql-syntax" spellcheck="false">import random
+
+class Solution:
+    # 初始化数组时，需要使用深度拷贝，以免数组串位。
+    def __init__(self, nums: List[int]):
+        self.array = nums
+        self.original = nums.copy()
+
+    # 同样重置数组时，也需要使用深度拷贝。
+    def reset(self) -&gt; List[int]:
+        self.array = self.original
+        self.original = self.original.copy()
+        return self.array
+    
+    # 洗牌时，我们通过 for 循环遍历，每个元素和它后面的元素随机置换。。。
+    def shuffle(self) -&gt; List[int]:
+        for i in range(len(self.array)):
+            swap_idx = random.randrange(i, len(self.array))
+            self.array[i], self.array[swap_idx] = self.array[swap_idx], self.array[i]
+        return self.array
+</pre><hr><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>1 &lt;= nums.length &lt;= 50</code></li><li><code>-106 &lt;= nums[i] &lt;= 106</code></li><li><code>All the elements of nums are unique.</code></li><li><code>At most 104 calls in total will be made to reset and shuffle.</code></li></ul><p><br></p><p><strong>Big O</strong></p><ul><li><code>时间复杂度：O（n）</code></li><li>空间复杂度：O（n）</li></ul><p><br></p><hr><p><br></p><p><strong>Java 版</strong></p><p>Object 设计题推荐 Java。</p><p>对比之后发现，实现同样的功效，Java 需要比 Python 多写很多行代码……</p><pre class="ql-syntax" spellcheck="false">import java.util.Random;
+
+class Solution {
+
+    private int[] original;
+    private int[] array;
+    Random rand = new Random();
+
+    public Solution(int[] nums) {
+        array = nums;
+        original = nums.clone();
+    }
+    
+    public int[] reset() {
+        array = original;
+        original = original.clone();
+        return array;
+    }
+
+    private int randRange(int min, int max) {
+        return rand.nextInt(max -  min) + min;
+    }
+    
+    public int[] shuffle() {
+        for (int i = 0; i &lt; array.length; i ++ ) {
+            int swapIdx = randRange(i, array.length);
+            int temp = array[i];
+            array[i] = array[swapIdx];
+            array[swapIdx] = temp;
+        }
+        return array;
+    }
+}
+</pre><p><br></p><hr><p><strong>总结</strong></p><ul><li>除了洗牌算法外，本题还考察了有实际通途的「<strong>数组深度拷贝</strong>」。</li></ul><figure class="image"><img src="https://assets.matters.news/embed/e28f6af1-11b9-4ecb-927e-9008f505126b.png" data-asset-id="e28f6af1-11b9-4ecb-927e-9008f505126b" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><pre class="ql-syntax" spellcheck="false">original = nums.clone();
+</pre><figure class="image"><img src="https://assets.matters.news/embed/72382e71-9c49-4b3d-8baa-70f4f77b346b.png" data-asset-id="72382e71-9c49-4b3d-8baa-70f4f77b346b" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><pre class="ql-syntax" spellcheck="false">original = nums;
+</pre><p><br></p><ul><li>作为一道有实际考点，考点略不常规的题，需要重点复习，不留死角！！！</li></ul><p><br></p>
