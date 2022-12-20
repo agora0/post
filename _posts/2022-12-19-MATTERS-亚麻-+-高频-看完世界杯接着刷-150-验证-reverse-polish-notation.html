@@ -1,0 +1,35 @@
+---
+layout: post
+title: "「亚麻 + 高频」看完世界杯接着刷 150 ～ 验证 Reverse Polish notation"
+date: 2022-12-19 21:54:04.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E4%BA%9A%E9%BA%BB-%E9%AB%98%E9%A2%91-%E7%9C%8B%E5%AE%8C%E4%B8%96%E7%95%8C%E6%9D%AF%E6%8E%A5%E7%9D%80%E5%88%B7-150-%E9%AA%8C%E8%AF%81-reverse-polish-notation-bafybeigunhrlrg5rpobjg33x5yjmdnwbdfqpn75qhmp7l74wk7wtx5fnzm
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：150</li><li>题厂：亚麻</li><li>难度系数：中</li></ul><p><br></p><hr><p>已知一个数组，根据规则计算结果……</p><pre class="ql-syntax" spellcheck="false">例如 tokens = ["2","1","+","3","*"]
+返回 9：((2 + 1) * 3) = 9
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>Reverse Polish Notation 貌似是一道有<a href="https://en.wikipedia.org/wiki/Reverse_Polish_notation" rel="noopener noreferrer" target="_blank">维基百科的学术问题</a>……Reverse Polish Notation 前世今生是啥不重要，关键这里把题做出来</li><li>懂不懂&nbsp;Reverse Polish Notation 没关系，看到一个数组，在哪 pop 又 加减乘除地，有没有想起一些似曾相识的题目？？？是的，就是我们亲爱的「stack」</li><li>于是本题转换到数据机构层面后，就是如何引入「stack」解决问题。</li><li>研究和安插「stack」需要研究已知数组的 pattern——<strong>研究 pattern 发现规律</strong>：当遇到「+」「-」「*」「/」后才做一次运算，要运算的对象是放在「stack」的最后两个。</li></ul><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def evalRPN(self, tokens: List[str]) -&gt; int:
+        stack = []
+        # 做遍历时，遇上加减乘除，从 stack pop 2 元素运算；如果不是加减乘除，说明遇上了数字，直接存入 stack
+        # 做完加减乘除还要要运算后的结果再重新放回 stack 用于下一次运算
+        for item in tokens:
+            if item == "+":
+                stack.append(stack.pop() + stack.pop())
+            elif item == "-":
+                a, b = stack.pop(), stack.pop()
+                stack.append(b - a)
+            elif item == "*":
+                stack.append(stack.pop() * stack.pop())
+            elif item == "/":
+                a, b = stack.pop(), stack.pop()
+                # python int() round towards 0
+                stack.append(int(b / a))
+            else:
+                stack.append(int(item))
+        
+        # 遍历结束后，stack 一定只剩一个元素，pop 返回即可        
+        return stack.pop()
+</pre><hr><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>1 &lt;= tokens.length &lt;= 104</code></li><li><code>tokens[i] is either an operator: "+", "-", "*", or "/", or an integer in the range [-200, 200].</code></li></ul><p>考试前可以向考官讨论，数组是有效的——不会出现遇上运算符号但 stack 内数字元素不足 2 的情况</p><p><br></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>加减乘除分别测试一次</li><li>出现多重运算时</li><li>运算符号变化位置时</li><li>……</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>不知道 stack 和刷题，是不可能做出这道题的——考试遇上注定歇菜</li><li>做了这么多 stack 题，发现简单 stack 就适合解决这些问题，什么配对验证之类的……</li></ul>
