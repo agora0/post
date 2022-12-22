@@ -1,0 +1,39 @@
+---
+layout: post
+title: "「脸书」刷题决定前途 93 ～ 修复 IP 地址"
+date: 2022-12-22 03:20:17.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E8%84%B8%E4%B9%A6-%E5%88%B7%E9%A2%98%E5%86%B3%E5%AE%9A%E5%89%8D%E9%80%94-93-%E4%BF%AE%E5%A4%8D-ip-%E5%9C%B0%E5%9D%80-bafybeicljfd5372o3jcvnv3t6o3ykha7ll5zyetj5qlp4yj7ymli2u5jxy
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：93</li><li>题厂：脸书</li><li>难度系数：中</li></ul><p><br></p><hr><p>已知一个一个字符串，返回这个字符串可能组成的 ip 地址……</p><pre class="ql-syntax" spellcheck="false">例如 s = "25525511135"
+返回 ["255.255.11.135","255.255.111.35"]，即可能的 ip 有 255.255.11.135 或 255.255.111.35
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li><strong>找有效组合的题 === backtracking</strong></li><li>明白需要用 backtracking 后，再联想 <strong>backtracking 模板——怎么弄一个 recursive 方法</strong></li><li>本题有效的 ip 地址为 4 段，每一段的取值范围 0 ～ 255。这里要特别注意 0：如果是 2 位数和 3 位数，0 不能开头，即 01 不可行，010 也不可行……同时，我们需要把字符串所有字符全部用于分配……</li></ul><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def restoreIpAddresses(self, s: str) -&gt; List[str]:
+        res = []
+
+        # IP 地址最大值 255.255.255.255，最多 12 位……
+        # 当字符串长度大于 12 时，是不可能分割成有效 4 段 IP 地址……
+        if len(s) &gt; 12:
+            return res
+            
+        def backtrack(i, dots, cur):
+            # 当完成 4 段分割且长度和 s 相等时，说明这是一个有效的 ip 地址，添加进返回结果……
+            if dots == 4 and i == len(s):
+                res.append(cur[:-1])
+                return
+            # 如果有超过 4 段，则无效……返回但不添加……
+            if dots &gt; 4:
+                return
+            
+            # 循环时，除了当前字段小于 256 之外，还要满足 0 不能开头。0 开头的情况只能是 0。。。。
+            for j in range(i, min(i + 3, len(s))):
+                if int(s[i: j + 1]) &lt; 256 and (i == j or s[i] != "0"):
+                    backtrack(j + 1, dots + 1, cur + s[i:j + 1] + ".")
+            
+        backtrack(0, 0, "")
+
+        return res
+</pre><hr><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>1 &lt;= s.length &lt;= 20</code></li><li><code>s consists of digits only.</code></li></ul><p><br></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>0， 255，256……边界测试</li><li>101，10， 01……可能 0 开头的的情况测试</li><li>……</li></ul><p><br></p><hr><p><br></p><p><strong>Big O</strong></p><ul><li><code>时间复杂度：O（3^n）最坏的情况是一直出现 255 这样的有效 3 位数，一直做 3 重循环……</code></li><li>空间复杂度：O（1）或 O（4），因为最多只有 4 段……</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>本题除了考察 backtracking，还顺带复习了 ipv4</li><li>考试时如果为了 ipv4 格式和考官讨论，就……又……歇菜了……</li></ul>
