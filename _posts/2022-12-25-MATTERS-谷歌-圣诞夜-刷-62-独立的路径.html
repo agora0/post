@@ -1,0 +1,38 @@
+---
+layout: post
+title: "「谷歌」圣诞夜 刷 62 ～ 独立的路径"
+date: 2022-12-25 19:24:56.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E8%B0%B7%E6%AD%8C-%E5%9C%A3%E8%AF%9E%E5%A4%9C-%E5%88%B7-62-%E7%8B%AC%E7%AB%8B%E7%9A%84%E8%B7%AF%E5%BE%84-bafybeib55sge5xz7fla3dnmwknaziluj46zdeeavidzfgzube3jidak3ru
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：62</li><li>题厂：谷歌</li><li>难度系数：中</li></ul><p><br></p><hr><figure class="image"><img src="https://assets.matters.news/embed/d8fe89f4-4653-4c23-9e0a-cdde42c03206.png" data-asset-id="d8fe89f4-4653-4c23-9e0a-cdde42c03206" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>已知一个矩阵，问从起点到终点，一共有几种走法？即图中，粉红机器人走到 finish 星星处，一共有几种不同走法？？？</p><pre class="ql-syntax" spellcheck="false">例如 m = 3, n = 7
+返回 28 —— 种
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>机器人只能横走或竖走，即每一次，机器人有两种走法——那我直接写个 recursive 把所有走法遍历出来就好……</li></ul><pre class="ql-syntax" spellcheck="false">class Solution:
+    def uniquePaths(self, m: int, n: int) -&gt; int:
+        # 当走到头时，即当前 index 均为 0 时，为一个完整路径走法，返回 path + 1
+        # 如果还没有，那就有两种走法，向下或向右，分别recursive 直到头
+        def dfs(down, right, path):
+            if down == 0 or right == 0:
+                return path + 1
+            
+            return dfs(down - 1, right, path) + dfs(down, right - 1, path)
+        
+        return dfs(m - 1, n - 1, 0)
+</pre><p><br></p><ul><li>以上代码虽然看起来简洁，但是计算了很多次，是明显会超时的。<strong>为了减少冗余的计算，程序届闻风丧胆的动态规划（dynamic programming）闪亮登场了……😭</strong></li><li>动态规划的思路核心是，一个复杂的结果根植于简单的结果从 1 或 0 开始逐步推导</li><li>本题中，我们需要倒推思考：</li></ul><ol><li>如果棋盘只有一个 1 X 1，我们只有一种走法</li><li>如果棋盘是 2 X 1 或 1 X 2，我们还是只有一种走法，从右往左走，或从下往上走</li><li>如果棋盘是 2 X 2，我们有了 2 种不同走法，这两种不同走法分别由 2 X 1 和 1 X 2 贡献累加……</li><li>于是我们推导出：<strong>每一个格子的走法 = 左边格子走法 + 右边格子走法</strong></li></ol><p><br></p><ul><li>让以上思路通过代码实现，我们创建一个与棋盘宽相等的数组 row，初始值为 1。<strong>当棋盘为 1 X n，无论 n 取何值，每个格子始终只有一种走法，即向右走……</strong></li><li>遍历时更新累加值，返回值即 row 的第一个元素</li></ul><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def uniquePaths(self, m: int, n: int) -&gt; int:
+        
+        row = [1] * n
+        
+        for i in range(m - 1):
+            new_row = [1] * n
+            
+            for j in range(n-2, -1, -1):
+                new_row[j] = row[j] + new_row[j+1]
+                
+            row = new_row
+            
+        return row[0]
+</pre><hr><h2><br></h2><p><strong>Constraints</strong></p><p><code>1 &lt;= m, n &lt;= 100</code></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>棋盘 1 X 1</li><li>1 X n 只有一行时</li><li>n X 1 只有一列时</li><li>100 X 100 取最大值，检验算法有效度</li><li>……</li></ul><p><br></p><hr><p><br></p><p><strong>Big O</strong></p><ul><li><code>时间复杂度：O（n X m）， 遍历了每一个格子</code></li><li>空间复杂度：O（n），创建了长度为 n 的 row 变量</li></ul><p><br></p><hr><p><br></p><p><strong>总结</strong></p><ul><li>考试时遇上，一时想不出动态编程代码，就把 recursive 方法拿去和考官讨论。有解法总比没有强。</li><li>动态编程困难点有 2:&nbsp;</li></ul><ol><li>如何找到规律 pattern</li><li>发现规律后，如何用代码实现此规律解决问题</li></ol><ul><li>考试时，一时紧张可能很难 40 分钟完成一道动态编程题，但是<strong>动态编程系列题模板规律还是挺强的，也就只能熟能生巧解决了</strong>……😭</li></ul><p><br></p>
