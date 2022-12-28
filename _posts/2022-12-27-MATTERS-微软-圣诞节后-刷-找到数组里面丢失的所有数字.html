@@ -1,0 +1,38 @@
+---
+layout: post
+title: "「微软」圣诞节后 刷 ～ 找到数组里面丢失的所有数字"
+date: 2022-12-27 21:10:38.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%BE%AE%E8%BD%AF-%E5%9C%A3%E8%AF%9E%E8%8A%82%E5%90%8E-%E5%88%B7-%E6%89%BE%E5%88%B0%E6%95%B0%E7%BB%84%E9%87%8C%E9%9D%A2%E4%B8%A2%E5%A4%B1%E7%9A%84%E6%89%80%E6%9C%89%E6%95%B0%E5%AD%97-bafybeienrdp54xrur4a6ikmfbupozygprskaevxyettjmgqy6lnwshrcrm
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：448</li><li>题厂：微软</li><li>难度系数：低</li></ul><p><br></p><hr><p><br></p><p>已知已知一个数组长度为 n，应该放入 1 ～ n 数字，找到 1 ～ n 中本来应该出现但没有出现的数字</p><pre class="ql-syntax" spellcheck="false">例如 nums = [4,3,2,7,8,2,3,1]
+返回 [5,6]。长度为 8， 该放入 1 ～ 8，所以 5、6 缺失
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>如果数组长度为 n，即在 index 位 n - 1上的值为 n。</li><li>可以创建一个长度为 n 的空数组，遍历 nums，如果数字 i 出现，在 i - 1 的 index 位标记</li></ul><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def findDisappearedNumbers(self, nums: List[int]) -&gt; List[int]:
+        container = [0] * len(nums)
+
+        for num in nums:
+           container[num - 1] = 1
+
+        res = []
+        for i in range(len(container)):
+            if container[i] == 0:
+                res.append(i + 1)
+
+        return res
+</pre><p>l<strong>Constraints</strong></p><ul><li><code>n == nums.length</code></li><li><code>1 &lt;= n &lt;= 105</code></li><li><code>1 &lt;= nums[i] &lt;= n</code></li></ul><p><br></p><hr><p><br></p><p><strong>Follow Up</strong></p><blockquote>Could you do it without extra space and in&nbsp;<code>O(n)</code>&nbsp;runtime? You may assume the returned list does not count as extra space.</blockquote><p>创建空数组的想法可以解决问题，但是因为创建了空数组，用到了额外空间。所以新问题是：如何在不创建新数组的基础上，完成任务？？</p><p><strong>解题思路</strong></p><ul><li>这个时候我们可以引用绝对值标记——因为 contraints 告诉我们数组数字全部为正…——此处我么用 n 在对应 index 为 n - 1 处将绝对值反转，即正数代表没有出现的，负数代表出现过……&nbsp;</li><li>完成正负标记后，再遍历一遍 nums，根据 index 位取值正负判断对应数字有没有出现</li></ul><pre class="ql-syntax" spellcheck="false">class Solution:
+    def findDisappearedNumbers(self, nums: List[int]) -&gt; List[int]:
+        for n in nums:
+            i = abs(n) - 1
+            nums[i] = -1 * abs(nums[i])
+
+        res = []
+        for i in range(len(nums)):
+            if nums[i] &gt; 0:
+                res.append(i + 1)
+
+        return res
+</pre><p>&nbsp;</p><hr><p><br></p><p><strong>测试</strong></p><ul><li>n = 1 时</li><li>1 ～ n 全部对应出现时</li><li>……</li></ul><p><br></p><hr><p><br></p><p><strong>Big O</strong></p><ul><li><code>时间复杂度：O（n）</code></li><li>空间复杂度：优化后 O（1）题目默许返回值 res 不占空间</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>无 😭</li></ul>
