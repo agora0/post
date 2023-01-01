@@ -1,0 +1,25 @@
+---
+layout: post
+title: "「微软」2022 最后一刷 26 ～ 从排序数组中移除重复元素"
+date: 2022-12-31 22:36:43.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%BE%AE%E8%BD%AF-2022-%E6%9C%80%E5%90%8E%E4%B8%80%E5%88%B7-26-%E4%BB%8E%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%A7%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0-bafybeif4sjrvdls5vmccsyrvwkrcqxol7mf5qwgb7cyv7uuz3dl7jrep5e
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：26</li><li>题厂：微软</li><li>难度系数：低</li></ul><figure class="image"><img src="https://assets.matters.news/embed/e92e50b3-8905-4f4f-873b-3e727214e0bb.png" data-asset-id="e92e50b3-8905-4f4f-873b-3e727214e0bb" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><hr><p><br></p><p>已知一个有序·数组，移除数组中的重复元素，返回不重复元素的新数组</p><ol><li>只能 in-place 替换，不能使用额外 memory</li><li>返回数组的元素和初始数组的顺序一致……</li></ol><pre class="ql-syntax" spellcheck="false">例如 nums = [1,1,2]
+返回 2, 我们只要截取数组前两个位即可：nums = [1,2,_]，下划线部分不用管到底是什么元素
+</pre><p><br></p><p><strong>解题思路</strong></p><ul><li>因为已知数组是排序好的，那就遇到不一样的替换。。。。。。</li><li>要求只能 in-place 替换，引用双指针可以减少代码复杂度。。。。。。</li></ul><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def removeDuplicates(self, nums: List[int]) -&gt; int:
+        # 左右指针都在从 1 开始遍历
+        # 如果右指针指向的当前元素和之前元素不一样，那就替换左指针元素为当前右指针指向的元素，同时左指针要前移 1 位
+        l = 1
+        for r in range(1, len(nums)):
+            if nums[r] != nums[r - 1]:
+                nums[l] = nums[r]
+                l += 1
+
+
+        return l
+</pre><p>l<strong>Constraints</strong></p><ul><li><code>1 &lt;= nums.length &lt;= 3 * 104</code></li><li><code>-100 &lt;= nums[i] &lt;= 100</code></li><li><code>nums is sorted in non-decreasing order.</code></li></ul><p>做题前可以向考官讨论数组有没有为空的情况。。。。。。</p><hr><p><br></p><p><strong>测试</strong></p><ul><li>n = 1 时</li><li>没有重复元素时</li><li>有重复元素时</li><li>……</li></ul><p><br></p><hr><p><br></p><p><strong>Big O</strong></p><ul><li><code>时间复杂度：O（n）</code></li><li>空间复杂度：题目限制为 O（1）</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>需要熟悉双指针替换型</li><li>熟悉 in-place 替换套路？？</li><li>……</li></ul><p><br></p><p><br></p><p><br></p><p><br></p><p>CC BY-NC-ND 2.0 版權聲明</p>
