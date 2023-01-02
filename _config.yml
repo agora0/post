@@ -11,18 +11,10 @@ timezone: Asia/Singapore
 future: true
 theme: minima
 exclude:
-  - _posts/2022-08*
-  - _posts/2022-07*
-  - _posts/2022-06*
-  - _posts/2022-05*
-  - _posts/2022-04*
-  - _posts/2022-03*
-  - _posts/2022-02*
-  - _posts/2022-01*
+  - _posts/2022-0*
   - _posts/2021*
   - _posts/2020*
   - _posts/201*
-  - _posts/*-INITIUM-*
 paginate: 50
 feed:
   posts_limit: 100
