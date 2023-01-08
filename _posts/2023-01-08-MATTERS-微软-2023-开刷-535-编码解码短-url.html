@@ -1,0 +1,43 @@
+---
+layout: post
+title: "「微软」2023 开刷 535 ～ 编码解码短 URL"
+date: 2023-01-08 03:16:04.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%BE%AE%E8%BD%AF-2023-%E5%BC%80%E5%88%B7-535-%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81%E7%9F%AD-url-bafybeiduw47foamxcfabpk5bwqizdf7wfgt4zr6ax6zmnvc72num76pxs4
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：535</li><li>题厂：微软</li><li>难度系数：中</li></ul><p><br></p><figure class="image"><img src="https://assets.matters.news/embed/f8d32422-cbce-42ce-a686-9d84aafceb93.png" data-asset-id="f8d32422-cbce-42ce-a686-9d84aafceb93" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><hr><p><br></p><p>已知一个 URL，自定义「编码」「解码」算法，生成短 URL。原 URL 和生成的短 URL 可以编码解码查询……</p><pre class="ql-syntax" spellcheck="false">例如 "https://leetcode.com/problems/design-tinyurl"
+编码后输出 "http://tinyurl.com/4e9iAk" 为题目要求的短 URL
+
+输入编码后的短 URL "http://tinyurl.com/4e9iAk"，可以解码回原 URL —— "https://leetcode.com/problems/design-tinyurl"
+</pre><p><br></p><p><strong>背景介绍 - TinyUrl 「系统设计」入门经典题</strong></p><p>在 TinyUrl 系统设计题中，我们需要设计一个数据库，存放 「Tiny Url - Origin Url」的对应表单；</p><p>同时还需要设计各种 component 让用户可以从万千数据行中迅速找到自己的 TinyUrl 再指向原装 Url；以及新用户如何创建「Tiny Url - Origin Url」的 entry；过期的 TinyUrl 如何从系统删除……问题 🤪；</p><p>在考试过程中，我们还需要和考官充分<strong>讨论系统需要 handle 的用户流量以及 Url 数量，来决定编码的长度</strong>。例如：XX 位 「0-9」「a-z」……粗略估算数据库可以提供 Url 存量……</p><p>但是，<strong><u>作为 TinyUrl 延伸出来的算法题</u></strong>，这里我们不需要考虑有多少用户，需要存放多少 Url……<strong><u>只需要保证编码解码的一致和唯一性即可</u></strong>……</p><p> </p><p><strong>解题思路</strong></p><ul><li>弄明白题目题目需求后，为了保证唯一性和一致型，很容易想到 <strong>HashMap 需要出场</strong>解题；</li><li>想到 HashMap 后，下一步需要思考如何保证 HashMap 里 key 的一致性。这里可以用常规的 random 方法随机生成，也可以直接 1 2 3 4 5……排下去</li></ul><hr><pre class="ql-syntax" spellcheck="false">class Codec:
+    # 初始两个 HashMap：encodeMap「longUrl，shortUrl」，decodeMap「shortUrl，longUrl」。
+    # 再创建一个 base url 备用……
+    def __init__(self):
+        self.encodeMap = {}
+        self.decodeMap = {}
+        self.base = "http://tinyurl.com/"
+
+    # 当检测到需要创建新的 TinyUrl 时，编码的 key 为当前 HashMap 长度➕ 1（最简单的一种编法🥴）
+    def encode(self, longUrl: str) -&gt; str:
+        """Encodes a URL to a shortened URL.
+        """
+        if longUrl not in self.encodeMap:
+            url = self.base + str(len(self.encodeMap) + 1)
+            self.encodeMap[longUrl] = url
+            self.decodeMap[url] = longUrl
+            return url
+        else:
+            return self.encodeMap[longUrl]
+        
+    # 解码非常简单……
+    def decode(self, shortUrl: str) -&gt; str:
+        """Decodes a shortened URL to its original URL.
+        """
+        if shortUrl in self.decodeMap:
+            return self.decodeMap[shortUrl]
+        else:
+            return "Url not found..."
+</pre><p><br></p><hr><p><br></p><p><strong>Constraints</strong></p><ul><li><code>1 &lt;= url.length &lt;= 104</code></li><li><code>url is guranteed to be a valid URL.</code></li></ul><p><br></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>随便放几个去编码解码……</li><li>……</li></ul><p><br></p><hr><p><br></p><p><strong>Big O</strong></p><ul><li><code>时间复杂度：O（1），HashMap 查找复杂度是 1 🥲</code></li><li>空间复杂度： O（n）算上创建了 HashMap 🥲</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>刨除 TinyUrl 系统设计题目背景，本题的算法解题思路部分应该算简单档才是……</li><li>然鹅欲解此题，和有没有&nbsp;TinyUrl 系统设计背景知识无关……</li></ul><p><br></p>
