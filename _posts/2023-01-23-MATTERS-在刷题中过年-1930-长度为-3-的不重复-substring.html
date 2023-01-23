@@ -1,0 +1,43 @@
+---
+layout: post
+title: 在刷题中过年 1930 ～ 长度为 3 的不重复 substring
+date: 2023-01-23 00:32:31.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E5%9C%A8%E5%88%B7%E9%A2%98%E4%B8%AD%E8%BF%87%E5%B9%B4-1930-%E9%95%BF%E5%BA%A6%E4%B8%BA-3-%E7%9A%84%E4%B8%8D%E9%87%8D%E5%A4%8D-substring-bafybeicp66ojubul735yj5xadrg6eid7ugpgidwscuh2lg3wk6gwohngwy
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：1930</li><li>题厂：亚麻，脸书，谷歌</li><li>难度系数：中</li></ul><p><br></p><hr><p>找出一个字符串中所有不重复、长度为 3 的 palindromic substring 字符串个数。。。</p><ul><li>palindromic：即对称的字符串，例如 aba，bab。。。</li><li>subsequence：比原数组短，但是保持顺序一致。。。如 abcc 是 aabbcccc 的 subsequence </li></ul><pre class="ql-syntax" spellcheck="false">s = "aabca"
+
+返回 3
+长度为 3 满足 subsequence palindromic 标准的有 aba，aaa，aca
+</pre><p><br></p><p><strong>解题思路</strong></p><ol><li>要找 palindromic，一个比较常规的方法思路是，以一个元素为中心，向左右两边扩散。。。。这样比较麻烦。。。。</li><li>关于这道题，要抓住题目只找长度为 3 的 palindromic。abba 虽然也是 palindromic，但是长度为 4 所以不需要。</li><li>既然是长度为 3，那必然满足一个 pattern，那就是左右字符相同，中间随意。</li><li>沿着以上思路，我们以一个字符为中心，如果它的左右分别有相同的字符出现，即可满足条件。。。。。想到这里可以明白，此处需要使用 set。。。。。。</li></ol><p><br></p><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    def countPalindromicSubsequence(self, s: str) -&gt; int:
+        # 初始化 res 用于返回，元素配对模式为 「中间元素：两边元素」
+        res = set() 
+        # 同时初始化左右 set，右边用 hashmap 记录，配对模式为 「元素：个数」
+        left = set()
+        right = collections.Counter(s) # generate hashmap
+        
+        # 遍历数组，如果当前元素在右边 hashmap 中，hashmap 对应元素所剩数量减 1；如果剩余数量为 0，就把该元素从 hashmap 中 pop 出去
+        for i in range(len(s)):
+            if s[i] in right:
+                right[s[i]] -= 1
+            
+            if right[s[i]] == 0:
+                right.pop(s[i])
+
+            # 左右两边如何检测？？采用处理字符串中常用 ascii 方面
+            # 如果我们在左右 set 中都找到了相同元素，则发现了一个「长度为 3 又是 palindromic 的 subsequence」，需要往 res 里添加
+            for j in range(26):
+                c = chr(ord("a") + j)
+                if c in left and c in right:
+                    res.add((s[i], c))
+
+            # 添加完 还要把当前元素加到左边 set，以便下一次遍历
+            left.add(s[i])
+
+        # 返回 res 的长度，即满足所有条件又不重复的数量。。。。
+        return len(res)
+</pre><hr><h2><br></h2><p><strong>Constraints</strong></p><ul><li><code>3 &lt;= s.length &lt;= 105</code></li><li><code><strong>s consists of only lowercase English letters.</strong></code></li></ul><p>做题前要向考官讨论字符串包括什么特色，字符串只有 26 个小写英文字母出现是可以使用 ascii 码解体的重点。。。。。。</p><hr><p><br></p><p><strong>测试</strong></p><ul><li>长度为 3 没有了 palindromic 时</li><li>长度为 3 有 pandlindromic 时</li><li>长度大于 3 有很多重复字符时</li><li>……</li></ul><p><br></p><hr><p><br></p><p><strong>Big O</strong></p><ul><li><code>时间复杂度：O（26n）</code></li><li>空间复杂度：O（n）</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>简化时间复杂度的关键在于要抓住题目特色：长度为 3， 元素只有 26 个小写英文字符……</li><li>palindromic 是字符串，数组问题常考高频话题，各种变形……</li></ul><p><br></p>
