@@ -1,0 +1,60 @@
+---
+layout: post
+title: "「脸书」在过年中刷题 305 ～ Isomorphic Strings"
+date: 2023-01-24 22:21:58.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E8%84%B8%E4%B9%A6-%E5%9C%A8%E8%BF%87%E5%B9%B4%E4%B8%AD%E5%88%B7%E9%A2%98-305-isomorphic-strings-bafybeidvug3vdchznf7lj2ltajmmwmfihzmnz7bg65tkbdgb6qyd74w5ay
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：305</li><li>题厂：脸书</li><li>难度系数：低</li></ul><p><br></p><hr><p>判断两个字符串到底是不是 isomorphic，「是」返回 True，「不是」返回 False</p><pre class="ql-syntax" spellcheck="false">s = "egg", t = "add"
+返回 True，都是 「122」模式
+
+s = "paper", t = "title"
+返回 true，都是 「12134」模式
+
+</pre><p><br></p><p><strong>解题思路</strong></p><ol><li>既然要检测，那就要生成一个 pattern 来检测他们一致与否。这里可以想到用 「123.。。。」这种形式来表示 pattern</li></ol><hr><pre class="ql-syntax" spellcheck="false">class Solution:
+    # 我们创建一个 helper 函数来帮忙检测。。。
+    def helper(self, r: str) -&gt; str:
+        pattern = []
+        # hashtable 格式为：「字符：出现个数」
+        table = {}
+        counter = 0
+
+        for i in range(len(r)):
+            if r[i] not in table:
+                pattern.append(str(counter))
+                table[r[i]] = counter
+                counter += 1
+            else:
+                pattern.append(str(table[r[i]]))
+
+        return ",".join(pattern)
+    
+    # 把字符串输入 helper 获取当前字符串的 pattern
+    # 如果 2 者相等，返回 true，否则返回 false
+    def isIsomorphic(self, s: str, t: str) -&gt; bool:
+        sPattern = self.helper(s)
+        tPattern = self.helper(t)
+
+        if sPattern == tPattern:
+            return True
+        
+        return False
+</pre><h2><br></h2><p>除了以上解法，我们也可以适当优化一下。</p><figure class="image"><img src="https://assets.matters.news/embed/de1f7f28-b8ee-42a4-a395-94a8f93d6eee.png" data-asset-id="de1f7f28-b8ee-42a4-a395-94a8f93d6eee" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>如果两个字符串格式相同，我们可以创建 2 个 hashmap。key - value 存放 「字符串A 字符 - 对应字符串 B 字符」和「字符串 B 字符 - 对应字符串 A 字符」，从而简化时间复杂度。。。</p><pre class="ql-syntax" spellcheck="false">class Solution:
+    def isIsomorphic(self, s: str, t: str) -&gt; bool:
+        sMap = {}
+        tMap = {}
+        
+        # for 循环遍历时，如果当前字符 a，b没有出现在 hashtable 里，就按照 「a ：b」，「b ：a」模式存入绑定；
+        # 当字符 a 或 b 再次出现时，看他们的对应值与之前的 hash 表是否对应。如果对应则继续，如果不对应，返回 false
+        for i in range(len(s)):
+            if s[i] not in sMap and t[i] not in tMap:
+                sMap[s[i]] = t[i]
+                tMap[t[i]] = s[i]
+            elif sMap.get(s[i]) != t[i] or tMap.get(t[i]) != s[i]:
+                    return False
+        
+        return True
+</pre><p><br></p><hr><p><br></p><p><strong>Constraints</strong></p><ul><li><code>1 &lt;= s.length &lt;= 5 * 104</code></li><li><code>t.length == s.length</code></li><li><code>s and t consist of any valid ascii character.</code></li></ul><p><code>考试时，可以向考官讨论两个字符串的长度问题。。。。</code></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>……</li></ul><p><br></p><hr><p><br></p><p><strong>Big O</strong></p><ul><li><code>时间复杂度：O（n）</code></li><li>空间复杂度：O（n）</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>为了更高的收入，需要研究最优解😭</li></ul><p><br></p><p><br></p><p><br></p><p><br></p>
