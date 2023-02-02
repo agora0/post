@@ -1,0 +1,31 @@
+---
+layout: post
+title: 數據說真話？揭穿統計的幻術──辛普森悖論
+date: 2020-09-13 08:37:17.000000000 +00:00
+link: https://vocus.cc/article/5f5dda3dfd89780001e155b1
+categories: vocus
+tags: blog
+author: 圖地
+---
+
+<div class="draft-block draft--p left">我們的生活充斥著各式各樣的統計數據，選舉的得票率、肺炎的治癒率等。但你知道數據也可能會說謊嗎？本文要介紹「辛普森悖論」，帶你揭穿統計的數學陷阱。</div>
+<div class="draft-block draft--p left">辛普森悖論是詮釋數學統計數據時可能會發生的現象：<span style="font-weight: bold; ">在分組比較中表現較好的群體，在整體比較中可能表現較差。</span>讓我們用臺北市和桃園市死亡率的例子來實際感受一下。死亡率最常使用的計算方法是「死亡人數/總人口數」。我們用內政部的資料計算出以下的結果。</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1598px" class="image-block-prerender" data-src="https://images.vocus.cc/5eb8036e-3748-40f2-874c-a594382eedc6.jpg" data-width="1598" data-height="232" data-position="center" src="https://images.vocus.cc/5eb8036e-3748-40f2-874c-a594382eedc6.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></figure>
+<div class="draft-block draft--p left">從上面的表格我們可以得到以下的結論：<span style="font-weight: bold; ">臺北市的死亡率比桃園市高</span>。這有什麼特別的嗎？有的，問題就藏在細節裡。如果我們把人口以65歲為界分成兩組，會得到下面的結果。</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1598px" class="image-block-prerender" data-src="https://images.vocus.cc/20bd8266-6333-4473-9005-6b28de715adf.jpg" data-width="1598" data-height="506" data-position="center" src="https://images.vocus.cc/20bd8266-6333-4473-9005-6b28de715adf.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></figure>
+<div class="draft-block draft--p left">你發現了嗎？把人口分為兩組拆開來看，無論是年輕組或年老組，<span style="font-weight: bold; ">桃園市的死亡率都比臺北市更高；但把數據加總起來，臺北市的死亡率比桃園市高</span>。這就是辛普森悖論。許多人初次聽聞這個弔詭的現象都會以為這是一個障眼法的心理測驗，懷疑作者故意用錯誤的數據誤導大家，因而自行重複驗算許多次。在此特別澄清，這是統計詮釋上確實會發生的事情。不過，到底為什麼會發生這種事？</div>
+<div class="draft-block draft--p left">在我們想像的數學直覺裡，要從兩個年齡組別的死亡率推知總人口的死亡率，應該把兩組的死亡率相加之後除以二，所以我們覺得總人口的死亡率會落在兩個組別的中間，而且高低排名要維持在一樣的位置。可是在這個案例裡這種感覺是錯的。</div>
+<div class="draft-block draft--p left">錯在哪？我們試想一下影響人類死亡最大的因子是什麼，應該是人體的健康程度。而人類的健康狀況主要又受到年齡影響。普遍來說，老年人的健康狀況比較差，死亡率也因此比較高。那麼老年人口佔總人口數的比例，就會影響到整體死亡率的差異。所以，問題就出在<span style="font-weight: bold; ">臺北市和桃園市的人口年齡結構不同</span>。</div>
+<div class="draft-block draft--p left">臺北市的老年人口佔總人口的比例為16.4%，桃園市只有10.8%，兩個縣市人口的年齡組成差距相當大。如果依照我們的數學直覺去衡量兩個縣市的死亡率（把兩組死亡率相加後除以二）等同是把兩個縣市的老年人口比例視作相同，這樣就犯了嚴重的錯誤。我們不能使用年齡組別的死亡率回推算總人口數的死亡率，必須要回到原始的死亡人數和總人口數的資料。</div>
+<div class="draft-block draft--p left">從以下這張圖可以清楚看到臺北市在各年齡層的死亡率幾乎全都低於桃園市（折線圖），但臺北市的老年人口比例明顯高於桃園市（區塊圖）。總而言之，儘管臺北市在各年齡層的死亡率比桃園市低，然而，老年人口的死亡率明顯高於年輕人口，而且臺北市的老年人口比例比較高，使得臺北市總死亡人數佔總人口數的比例比較多。這兩個原因導致臺北市總人口的死亡率高過於桃園市。</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1920px" class="image-block-prerender" data-src="https://images.vocus.cc/49da0025-d991-4acb-8a21-768ae6a8f601.jpg" data-width="1920" data-height="1080" data-position="center" src="https://images.vocus.cc/49da0025-d991-4acb-8a21-768ae6a8f601.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block">（圖片為作者自行繪製。ASDR指的是年齡別死亡率，也就是那個年齡層的死亡率。）</figcaption></div></figure>
+<div class="draft-block draft--p left">從這個例子我們可以看見詮釋統計數據時確實存在陷阱。不過，問題不是出在統計數據本身，而是出在「詮釋」。當我們在閱讀統計報告時，應該進一步仔細思考，作者有沒有錯用數據進而做出錯誤結論的可能性。期望這篇文章能讓讀者繼續抱著熱情，但帶著更嚴謹與細心的態度一起探索世界。</div>
+<div class="draft-block draft--p left">🥇 本文獲得 <a href="https://sciexplore.colife.org.tw/index.aspx" target="_blank" class="draft--a">2020 全國科學探究競賽</a> 社會組 第二名</div>
+<h3 class="draft-block draft--h3" name="header-8ee5i"><span style="font-weight: bold; ">📑 參考</span></h3>
+<ul>
+  <li class="draft-block draft--li">中華民國內政部。<a href="https://www.ris.gov.tw/app/portal/346" target="_blank" class="draft--a">網站</a>提供人口統計資料。</li>
+</ul>
+<h3 class="draft-block draft--h3" name="header-845ue">🛒<span style="font-weight: bold; "> 延伸閱讀</span></h3>
+<ul>
+  <li class="draft-block draft--li">另一篇統計悖論：<a href="https://vocus.cc/article/5ead5640fd897800019f7045" target="_blank" class="draft--a">國會席次越多，小黨席次卻越少？詭異的阿拉巴馬悖論</a></li>
+</ul>

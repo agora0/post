@@ -1,0 +1,46 @@
+---
+layout: post
+title: 國會席次越多，小黨席次卻越少？詭異的阿拉巴馬悖論
+date: 2020-05-02 11:15:12.000000000 +00:00
+link: https://vocus.cc/article/5ead5640fd897800019f7045
+categories: vocus
+tags: blog
+author: 圖地
+---
+
+<div class="draft-block draft--p left">我們的生活充斥著各式各樣的統計數據，選舉的得票率、肺炎的治癒率等。不過，數學統計有時候會違背我們的直覺。本文要介紹的是數學統計的一個詭異現象「阿拉巴馬」悖論。讓我們用立法院席次分配的案例來看看。</div>
+<h3 class="draft-block draft--h3" name="header-2d5hs">不分區立委的席次分配</h3>
+<div class="draft-block draft--p left">立法院總共有 113 個席次，其中不分區立委有 34 席。2020 年第十屆立法委員選舉結果，不分區的席次，民進黨和國民黨各得到 13 席、台灣民眾黨 5 席、時代力量 3 席。這些席次分配的方法是「最大餘數法」，計算的步驟是這樣：</div>
+<ol>
+  <li class="draft-block draft--li">列出每個政黨的得票數（得票超過 5% 門檻的政黨）。</li>
+  <li class="draft-block draft--li">除以這些政黨的總得票數，算出得票率。</li>
+  <li class="draft-block draft--li">再乘以不分區的席次數量（34 席），<span style="font-weight: bold; ">整數部分</span>就是第一階段的席次數。</li>
+  <li class="draft-block draft--li">如果席次還有剩，就依序分配給<span style="font-weight: bold; ">小數部分</span>比較大的政黨，這是第二階段。</li>
+  <li class="draft-block draft--li">把兩個階段的席次數加在一起，就是總席次。</li>
+</ol>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1920px" class="image-block-prerender" data-src="https://images.vocus.cc/e6a67b10-3adc-4f3d-9ab0-e762783d108d.jpg" data-width="1920" data-height="1080" data-position="center" src="https://images.vocus.cc/e6a67b10-3adc-4f3d-9ab0-e762783d108d.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block">2020 年 第十屆立委選舉不分區席次 實際分配結果</figcaption></div></figure>
+<h3 class="draft-block draft--h3" name="header-cb1eb">立法院不分區的阿拉巴馬悖論</h3>
+<div class="draft-block draft--p left">現在試想一個情境：如果我們把不分區總席次增加 1 席，提高到 35 席，那會發生什麼事？從這場選舉的結果來計算，民進黨的席次會變多，取得 14 席，其他政黨席次數量不變。因此，我們應該可以達成一個暫時性的結論：當總席次數量增加，各政黨的席次數量會增加或是持平。</div>
+<div class="draft-block draft--p left">目前看到這裡或許都非常合理。不過，在某些特殊的情境下，會違背上面的結論。也就是說，<span style="font-weight: bold; ">當總席次增加，有些政黨的席次反而減少</span>。聽起來很怪嗎？以下用實際數據來計算。</div>
+<div class="draft-block draft--p left">假設不分區席次總共只有 16 席，各政黨的得票數相同，依照最大餘數法來分配，結果會是「民 6、國 6、眾 2、時 2」。但是，不分區席次如果是 17 席，結果會變成「民 7、國 7、眾 2、時 1」。你發現了嗎？當總席次數量提高，民進黨和國民黨的席次都增加，但時代力量反而減少了。</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1920px" class="image-block-prerender" data-src="https://images.vocus.cc/8924a95f-12ea-4a23-8000-9bcc7b8e90c1.jpg" data-width="1920" data-height="1080" data-position="center" src="https://images.vocus.cc/8924a95f-12ea-4a23-8000-9bcc7b8e90c1.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block">2020 年 第十屆立委選舉不分區席次 假設分配結果</figcaption></div></figure>
+<h3 class="draft-block draft--h3" name="header-8d1ch">為什麼會發生悖論？</h3>
+<div class="draft-block draft--p left">這就是<span style="font-weight: bold; ">阿拉巴馬悖論 </span>Alabama Paradox，或稱<span style="font-weight: bold; ">分配悖論</span>Apportionment Paradox。1880 年，美國人口普查局的官員在計算各州眾議院議員席次時發現，如果眾議院總共 299 席，阿拉巴馬州可以分到 8 席；但如果總席次有 300 席，阿拉巴馬州只能分到 7 席。</div>
+<div class="draft-block draft--p left"><span style="font-weight: bold; ">當總席次數量增加，有些政黨或有些州的席次反而減少</span>。所以為什麼會發生這個悖論？這是因為有一部分的席次依照「餘數」來分配。</div>
+<div class="draft-block draft--p left">從上面的例子來看，當總席次是 16 席時，時代力量分配份額的餘數最大，所以能得到多出來的一個席次。可是，因為民進黨和國民黨的得票率高，他們的餘數也增加的比較快（時代力量一次只增加 0.09，但國民黨和民進黨分別增加 0.386、0.394）。所以，當總席次提高到 17 席時，他們的餘數就超越時代力量，各自搶下多出來的一席。</div>
+<div class="draft-block draft--p left"><span style="font-weight: bold; ">理論上，只要參與分配分配的政黨有三個或更多，而且是採用「餘數法」來分配，都無法避免發生阿拉巴馬悖論。</span></div>
+<div class="draft-block draft--p left">你覺得這種分配法不公平嗎？其實不見得。餘數法的精神是讓每個政黨的得票率和席次率能夠盡量貼合，讓席次更如實呈現民意。雖然看起來小黨可能有損失，但其實小黨也有機會多得席次。</div>
+<div class="draft-block draft--p left">另一方面來看，每次選舉的席次數量都在選舉前就決定，遊戲規則已經達成共識，從制度上來看不存在這種「假設」席次更多或更少的議題。這些假設也都應該當成各自獨立的事件，單獨來看都相當合理，只有串在一起看才會感覺奇怪。</div>
+<div class="draft-block draft--p left">補充一點，日本採用的分配方法是<span style="font-weight: bold; ">頓特法</span>，不會發生阿拉巴馬悖論，總席次增加，也不會有政黨的席次減少。不過，這是一個對小黨比較不有利的制度。可參考這篇日本眾議院選舉制度的介紹文。</div>
+<div><h3><a href="https://vocus.cc/article/5ea4430dfd897800019cfbba"></div>
+<div class="draft-block draft--p left">最後，我在計算時發現，如果這次台灣民眾黨少拿 7000 票，席次分配就會非常接近阿拉巴馬悖論。當總席次 34 席時，各政黨的席次和現在一樣，但如果總席次有 35 席，藍綠兩黨就會各加 1 席，民眾黨剩下 ４ 席。如果真的發生這種情況，或許社會會有一番論辯。</div>
+<div class="draft-block draft--p left">所以說，每張票都非常重要。選舉，請記得去投票。</div>
+<h3 class="draft-block draft--h3" name="header-agnk3">📑參考</h3>
+<ul>
+  <li class="draft-block draft--li"><a href="https://en.wikipedia.org/wiki/Apportionment_paradox" target="_blank" class="draft--a">分配悖論 (wiki)</a></li>
+  <li class="draft-block draft--li"><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0020010&amp;flno=67" target="_blank" class="draft--a">公職人員選舉罷免法 67 條</a></li>
+</ul>
+<h3 class="draft-block draft--h3" name="header-7nfsl">🛒<span style="font-weight: bold; "> 延伸閱讀</span></h3>
+<ul>
+  <li class="draft-block draft--li">另一篇統計悖論：<a href="https://vocus.cc/article/5f5dda3dfd89780001e155b1" target="_blank" class="draft--a">數據說真話？揭穿統計的幻術──辛普森悖論</a></li>
+</ul>

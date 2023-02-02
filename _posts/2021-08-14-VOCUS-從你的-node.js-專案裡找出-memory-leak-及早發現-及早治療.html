@@ -1,0 +1,113 @@
+---
+layout: post
+title: 從你的 Node.js 專案裡找出 Memory leak，及早發現、及早治療！
+date: 2021-08-14 07:09:11.000000000 +00:00
+link: https://vocus.cc/article/61176c17fd89780001942f1c
+categories: vocus
+tags: blog
+author: Kuan
+---
+
+<div class="draft-block draft--p left">前陣子，公司已經上線的產品持續出現效能問題，服務運作一段時間後會慢得讓人難以忍受，甚至超過 node 記憶體上限而直接中止，當時專案還沒實裝監測系統，只能邊調整邊測試，搞得團隊焦頭爛額。這時同事講出<span style="font-weight: bold; ">明燈</span>般的一句話：「該不會是傳說中的 <span style="font-weight: bold; ">Memory leak</span> 吧？」</div>
+<div class="draft-block draft--p left">經過工程師們同心協力，總算是解決了這個問題，看到記憶體使用圖不再步步高升的那一刻，真的很感動 ⋯⋯ 這篇文章希望能留下記錄，並說明：</div>
+<ul>
+  <li class="draft-block draft--li">memory leak 的起因</li>
+  <li class="draft-block draft--li">如何找出造成 memory leak 的程式碼</li>
+  <li class="draft-block draft--li">我們遇到的實例，與解決方式</li>
+</ul>
+<div class="draft-block draft--p left"></div>
+<div class="hr__AtomHrContainer-sc-1afmttx-0 dsBIOm draft-block"><pre class="hr__HrWrapper-sc-1afmttx-1 hUbgX draft--hr"><hr class="hr__Hr-sc-1afmttx-2 iegMSY"></pre></div>
+<h2 class="draft-block draft--h2" name="header-2ddaa">小心！Memory leak 離我們並不遙遠！</h2>
+<div class="draft-block draft--p left"><span style="font-weight: bold; ">Memory leak（記憶體流失）</span>，是指程式運行的過程中，不再使用的記憶體空間沒有正常被釋放，持續佔用空間而造成的記憶體浪費。如果這種狀況不斷發生，就會使可用的記憶體越來越少，而降低電腦的效能，最後可能導致<span style="font-weight: bold; ">程式崩潰</span>。</div>
+<div class="draft-block draft--p left">在 JavaScript 裡，記憶體回收的工作是交由自動化的 <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Memory_Management" target="_blank" class="draft--a"><span style="font-weight: bold; ">Garbage Collection</span></a> 來完成，它就像記憶體裡的清道夫，會判斷不再使用的記憶體並將其回收。</div>
+<div class="draft-block draft--p left">那很好啊！代表我不需要擔心記憶體流失的問題了，對吧？</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:600px" class="image-block-prerender" data-src="https://images.vocus.cc/328b0b5a-0a8f-4605-8dac-d4ccf0c2f8e7.jpg" data-width="600" data-height="600" data-position="center" src="https://images.vocus.cc/328b0b5a-0a8f-4605-8dac-d4ccf0c2f8e7.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></figure>
+<div class="draft-block draft--p left">並不是這樣的。Garbage collection 的簡單流程是：<span style="font-weight: bold; ">定期從根物件 </span>(root，在瀏覽器中是 window，node 則是 global)<span style="font-weight: bold; "> 開始往下探詢每一個子節點，並清除沒有被探詢到、或是沒有被探詢物件參考的物件</span>，也就是所謂<span style="font-weight: bold; ">「無法到達的物件 (unreachable objects)」</span>，而在程式中，要製造出一個「可被探詢到的垃圾資料」簡直輕而易舉。</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1006px" class="image-block-prerender" data-src="https://images.vocus.cc/98f2b777-f8f6-43b6-8d20-d93af9fd7f04.jpg" data-width="1006" data-height="892" data-position="center" src="https://images.vocus.cc/98f2b777-f8f6-43b6-8d20-d93af9fd7f04.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block">如果 root -&gt; F 的參考消失，導致 F 變成「無法到達的物件」<br>那麼 F 與其子節點們就會被自動回收。</figcaption></div></figure>
+<div class="draft-block draft--p left">舉例來說，我們寫一個簡單的 Server：</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1346px" class="image-block-prerender" data-src="https://images.vocus.cc/4754e76d-a098-4a7b-afa6-033387a67b78.jpg" data-width="1346" data-height="628" data-position="center" src="https://images.vocus.cc/4754e76d-a098-4a7b-afa6-033387a67b78.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></figure>
+<div class="draft-block draft--p left"><a href="https://gist.github.com/kusakawazeusu/f283b58dbfab12674807fa145783d605" target="_blank" class="draft--a">Code</a><br><br>每次收到請求，都會<span style="font-weight: bold; ">使 requests 的資料量成長</span>，而 request 又存在於 global scope，屬於可從根探詢到的程式碼，因此它<span style="font-weight: bold; ">不會被清除</span>，如果 requests 是沒有用的資料，就會造成記憶體空間的浪費，甚至隨著請求數增多而用盡記憶體空間。</div>
+<div class="draft-block draft--p left">其它像是 <span style="font-weight: bold; ">timer</span>、<span style="font-weight: bold; ">closure</span> 的誤用也會造成 memory leak，我們這邊先不詳述。畢竟，要直接從整個專案的程式碼中翻找出 memory leak 簡直是大海撈針 ⋯⋯ 我覺得更有效率的方式應該是<span style="text-decoration: underline; ">使用工具來找出不斷增長的資料，縮小範圍後再修正造成問題的程式碼</span>。</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1206px" class="image-block-prerender" data-src="https://images.vocus.cc/91a5512a-97b8-4bdd-a46f-8ec1126b7a42.jpg" data-width="1206" data-height="496" data-position="center" src="https://images.vocus.cc/91a5512a-97b8-4bdd-a46f-8ec1126b7a42.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block">若你的記憶體使用圖表是這個形狀，你可能就是 memory leak 的受害者！</figcaption></div></figure>
+<div class="draft-block draft--p left"></div>
+<div class="hr__AtomHrContainer-sc-1afmttx-0 dsBIOm draft-block"><pre class="hr__HrWrapper-sc-1afmttx-1 hUbgX draft--hr"><hr class="hr__Hr-sc-1afmttx-2 iegMSY"></pre></div>
+<h2 class="draft-block draft--h2" name="header-982bq">使用 DevTool 找出病灶！</h2>
+<div class="draft-block draft--p left">Chrome 提供的 <span style="font-weight: bold; ">DevTool </span>除了能監測運行在瀏覽器中的程式外，也能<span style="font-weight: bold; ">監測運行在本地端的 Node.js 程式</span>。如果你使用 Node.js 運行 API Server，或是你的前端使用像 <a href="https://nextjs.org/" target="_blank" class="draft--a">Next.js</a> 的 SSR 框架（它會常駐一個 Node Server），就能使用 Devtool 監測 Heap 的使用狀況。</div>
+<div class="draft-block draft--p left">我們先以上面的簡單 Server 為例，使用 <span style="font-weight: bold; ">--inspect</span> flag 來啟動它。</div>
+<blockquote class="draft-block draft--blockquote">node --inspect app.js</blockquote>
+<div class="draft-block draft--p left">在 console 裡，你會看到 Node.js 已經幫我們打開一個監聽 9229 port 的 debugger。</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1612px" class="image-block-prerender" data-src="https://images.vocus.cc/198410dc-c46e-4f08-a645-2ff8e7ff64da.jpg" data-width="1612" data-height="174" data-position="center" src="https://images.vocus.cc/198410dc-c46e-4f08-a645-2ff8e7ff64da.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></figure>
+<div class="draft-block draft--p left">接著，打開你的 Chrome 並輸入 chrome://inspect ，你應該能夠在 Remote Target 裡找到 app.js，按下 inspect 來打開 DevTool。</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1276px" class="image-block-prerender" data-src="https://images.vocus.cc/e0ecd389-5bde-40b7-b58d-93e1af973ae6.jpg" data-width="1276" data-height="738" data-position="center" src="https://images.vocus.cc/e0ecd389-5bde-40b7-b58d-93e1af973ae6.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></figure>
+<div class="draft-block draft--p left">切換到 <span style="font-weight: bold; ">Memory</span> 頁籤，我們會在下方看到目前運行中的 VM instance，按下 <span style="font-weight: bold; ">Take snapshot</span>，它就會幫我們分析此刻的 heap 使用狀況，並將結果儲存在左側邊欄。</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1920px" class="image-block-prerender" data-src="https://images.vocus.cc/5da1039a-0df3-4b2c-8493-1dce8383decc.jpg" data-width="1920" data-height="1085" data-position="center" src="https://images.vocus.cc/5da1039a-0df3-4b2c-8493-1dce8383decc.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></figure>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1920px" class="image-block-prerender" data-src="https://images.vocus.cc/284a2b13-af44-4617-900c-b6f3cf1de56b.jpg" data-width="1920" data-height="630" data-position="center" src="https://images.vocus.cc/284a2b13-af44-4617-900c-b6f3cf1de56b.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></figure>
+<h3 class="draft-block draft--h3" name="header-c732s">從這張圖中，我們可以看到：</h3>
+<ul>
+  <li class="draft-block draft--li">Constructor：此物件的建構子 (或 DevTool 幫我們進行的分類)。</li>
+  <li class="draft-block draft--li">Distance：從根 (root) 開始探訪的深度。</li>
+  <li class="draft-block draft--li">Shallow Size：<span style="font-weight: bold; ">物件本身佔用的記憶體量</span>（bytes），通常 shallow size 很大的都是 String 或是裝著 Primitive Type Data 的陣列，如果是物件裡存著 reference 則不會被算到 shallow size 裡面。</li>
+  <li class="draft-block draft--li">Retained Size：物件本身佔用的記憶體空間，加上依賴此物件的所有資料所佔用的記憶體量（bytes）。文件裡有一句淺顯易懂的解釋：<span style="font-weight: bold; ">你刪除這個物件後，他總共會釋放的記憶體量</span>，因此在查找 memory leak 問題時，我們會以這個欄位為判斷點。</li>
+</ul>
+<div class="draft-block draft--p left">點開左邊的箭頭，就能繼續往下探詢，相當方便。我們先將物件以 Retained Size 排序，沒意外的話佔用最多的應該是 <span style="font-weight: bold; ">(compiled code)</span>，因為我們引用了一些套件，這些物件也會被存在 Heap 中。</div>
+<div class="draft-block draft--p left">接下來，我們就要<span style="font-weight: bold; ">手動重現 memory leak</span>。</div>
+<div class="draft-block draft--p left"></div>
+<div class="hr__AtomHrContainer-sc-1afmttx-0 dsBIOm draft-block"><pre class="hr__HrWrapper-sc-1afmttx-1 hUbgX draft--hr"><hr class="hr__Hr-sc-1afmttx-2 iegMSY"></pre></div>
+<h2 class="draft-block draft--h2" name="header-3mub4">使用 K6 進行壓力測試</h2>
+<div class="draft-block draft--p left">如果你的專案是 API 或 SSR Server，就可以用<span style="font-weight: bold; ">發送大量請求</span>的方式來重現 memory leak，這邊我推薦使用 <a href="https://k6.io/" target="_blank" class="draft--a">K6</a>，也可以直接使用你熟悉的壓力測試服務。</div>
+<div class="draft-block draft--p left">我們先寫一個簡單的測試。一般來說，測試單一 Endpoint 可能無法重現問題，你可能需要將 API Server 所有提供的（或是你懷疑的） Endpoints 測試一遍，就能知道是哪一段程式碼造成問題。</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1030px" class="image-block-prerender" data-src="https://images.vocus.cc/0053ea60-8009-4757-bb18-524529d50407.jpg" data-width="1030" data-height="344" data-position="center" src="https://images.vocus.cc/0053ea60-8009-4757-bb18-524529d50407.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></figure>
+<div class="draft-block draft--p left"><a href="https://gist.github.com/kusakawazeusu/37ccd268d0578f8759be37cefa38729b" target="_blank" class="draft--a">Code</a></div>
+<div class="draft-block draft--p left"><br>接著從終端機啟動壓力測試，使用下面的參數：</div>
+<ul>
+  <li class="draft-block draft--li"><span style="font-weight: bold; ">duration</span>：執行測試的時間</li>
+  <li class="draft-block draft--li"><span style="font-weight: bold; ">vus</span>：同時測試的虛擬使用者數量 (virtual users)</li>
+</ul>
+<blockquote class="draft-block draft--blockquote">k6 run --duration 2m --vus 100 request.js</blockquote>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1854px" class="image-block-prerender" data-src="https://images.vocus.cc/05adba6a-27cc-4dc8-9df2-e5030939632f.jpg" data-width="1854" data-height="744" data-position="center" src="https://images.vocus.cc/05adba6a-27cc-4dc8-9df2-e5030939632f.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block">K6 壓測執行中的畫面</figcaption></div></figure>
+<div class="draft-block draft--p left">等它跑完。</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:600px" class="image-block-prerender" data-src="https://images.vocus.cc/c994f02f-22a3-495a-ba15-5837152555ab.jpeg" data-width="600" data-height="450" data-position="center" src="https://images.vocus.cc/c994f02f-22a3-495a-ba15-5837152555ab.jpeg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block">等。</figcaption></div></figure>
+<div class="hr__AtomHrContainer-sc-1afmttx-0 dsBIOm draft-block"><pre class="hr__HrWrapper-sc-1afmttx-1 hUbgX draft--hr"><hr class="hr__Hr-sc-1afmttx-2 iegMSY"></pre></div>
+<h2 class="draft-block draft--h2" name="header-3rs5r">回來觀察 DevTool 的變化</h2>
+<div class="draft-block draft--p left">每次跑完壓力測試，就回到 DevTool 快照一下，如果<span style="font-weight: bold; ">你發現 heap 不斷增長且沒有回到正常數字的話，那八成是抓到兇手了</span>！</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:658px" class="image-block-prerender" data-src="https://images.vocus.cc/f47e8d5f-6726-4144-a9ee-0b8b5fa6bdbe.jpg" data-width="658" data-height="510" data-position="center" src="https://images.vocus.cc/f47e8d5f-6726-4144-a9ee-0b8b5fa6bdbe.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></figure>
+<div class="draft-block draft--p left">觀察兩個 snapshot 之間的變化，在這個例子中不難發現是 global scope 底下的資料不斷成長。<span style="font-weight: bold; ">實際狀況下，leak 的記憶體量可能很少，你得發送更多請求數才能看出端倪</span>。點開之後發現 DevTool 連變數名稱都告訴你了，接下來，只需要把問題修正，就能順利解決 memory leak 問題了。</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1920px" class="image-block-prerender" data-src="https://images.vocus.cc/0e5bdabb-050f-4654-bd2e-dfca3e4a606f.jpg" data-width="1920" data-height="789" data-position="center" src="https://images.vocus.cc/0e5bdabb-050f-4654-bd2e-dfca3e4a606f.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block">壓測前，compiled code 佔用最多空間</figcaption></div></figure>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1920px" class="image-block-prerender" data-src="https://images.vocus.cc/97941aa2-9367-4a14-913a-864333ebd937.jpg" data-width="1920" data-height="788" data-position="center" src="https://images.vocus.cc/97941aa2-9367-4a14-913a-864333ebd937.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block">壓測後，global 佔用了大部分的空間</figcaption></div></figure>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1920px" class="image-block-prerender" data-src="https://images.vocus.cc/80e9a386-9904-496e-8393-366ad7d22e26.jpg" data-width="1920" data-height="422" data-position="center" src="https://images.vocus.cc/80e9a386-9904-496e-8393-366ad7d22e26.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block">點開 global 物件，可以看到 requests 這個 Array 正式佔用記憶體的元兇</figcaption></div></figure>
+<div class="draft-block draft--p left"></div>
+<div class="hr__AtomHrContainer-sc-1afmttx-0 dsBIOm draft-block"><pre class="hr__HrWrapper-sc-1afmttx-1 hUbgX draft--hr"><hr class="hr__Hr-sc-1afmttx-2 iegMSY"></pre></div>
+<h2 class="draft-block draft--h2" name="header-enmuu">我們實際遇到的狀況</h2>
+<div class="draft-block draft--p left"><br>看到這裡，你可能心想：</div>
+<div class="draft-block draft--quotesSpecial center"><div class="content"><span style="font-weight: bold; ">「我是一個有紀律的程式設計師，才不會隨便污染 global scope！」</span></div></div>
+<div class="draft-block draft--p left"> 或 </div>
+<div class="draft-block draft--quotesSpecial center"><div class="content"><span style="font-weight: bold; ">「我用的套件都是精挑細選，至少都 10,000 stars 欸，這些套件應該不會隨便就出現 memory leak 問題吧？」</span></div></div>
+<div class="draft-block draft--p left">沒想到呀沒想到，就真的被我們遇見了<span style="font-weight: bold; ">來自套件</span>的 memory leak。下圖是經過 V6 壓測兩分鐘前後的 snapshot，可以看到 <span style="font-weight: bold; ">instance</span> 這項資料成長了近一倍，且隨著請求數而增長，不會自動被回收。</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1920px" class="image-block-prerender" data-src="https://images.vocus.cc/6f8f9295-ad76-47d9-9477-6bc694df80c4.jpg" data-width="1920" data-height="396" data-position="center" src="https://images.vocus.cc/6f8f9295-ad76-47d9-9477-6bc694df80c4.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block">第一次壓測，instance 佔用 16%</figcaption></div></figure>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1920px" class="image-block-prerender" data-src="https://images.vocus.cc/d611170d-1899-4dba-85cf-ea35eca6a636.jpg" data-width="1920" data-height="406" data-position="center" src="https://images.vocus.cc/d611170d-1899-4dba-85cf-ea35eca6a636.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block">第二次壓測，instance 成長到 23%，佔用 19 MB 的 heap</figcaption></div></figure>
+<div class="draft-block draft--p left">從圖中我們看見資料型態 <span style="font-weight: bold; ">Map</span>，以及子元素的資料型態 <span style="font-weight: bold; ">HashArrayMapNode</span>，這些都來自 <span style="font-weight: bold; ">immutable.js </span>套件。而在我們專案中，相依 immutable 的套件只有 Facebook 開源的文本編輯器 <a href="https://github.com/facebook/draft-js" target="_blank" class="draft--a">draft.js</a>。</div>
+<div class="draft-block draft--p left">經過搜尋，發現我們不是第一個遇到此問題的人，早在 2020 就有人回報這個<a href="https://github.com/facebook/draft-js/issues/2391" target="_blank" class="draft--a">issue</a>，trace code 就會發現 draft.js 有兩項 global scope 資料是沒有主動回收的：</div>
+<h3 class="draft-block draft--h3" name="header-9tqhm">DraftEntity.js</h3>
+<div class="draft-block draft--p left">在這個<a href="https://github.com/facebook/draft-js/blob/master/src/model/entity/DraftEntity.js" target="_blank" class="draft--a">檔案</a>中，我們首先看到一個宣告在 global scope 的資料 instance。</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1202px" class="image-block-prerender" data-src="https://images.vocus.cc/7ecf9c7f-3952-489b-8805-3511f6de87bb.jpg" data-width="1202" data-height="248" data-position="center" src="https://images.vocus.cc/7ecf9c7f-3952-489b-8805-3511f6de87bb.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></figure>
+<div class="draft-block draft--p left"><br>接著，從這個模組的 <span style="font-weight: bold; ">__add</span> 方法，我們看見 <span style="font-weight: bold; ">instance</span> 資料量會不斷增長。</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1178px" class="image-block-prerender" data-src="https://images.vocus.cc/9730f7dd-a922-4eb3-9928-fe499ce32d67.jpg" data-width="1178" data-height="224" data-position="center" src="https://images.vocus.cc/9730f7dd-a922-4eb3-9928-fe499ce32d67.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></figure>
+<div class="draft-block draft--p left"><br>但它並沒有提供一個清除 instance 的方法，還好有一個 <span style="font-weight: bold; ">setter</span> 可以讓我們利用，只要將它初始化就能順利觸發 JavaScript 的回收機制，把所有子節點佔用的記憶體都釋放掉。</div>
+<blockquote class="draft-block draft--blockquote">Entity.__loadWithEntities(Map());</blockquote>
+<h3 class="draft-block draft--h3" name="header-4n2v5"><br>CharacterMetadata.js</h3>
+<div class="draft-block draft--p left">在 <a href="https://github.com/facebook/draft-js/blob/master/src/model/immutable/CharacterMetadata.js#L125" target="_blank" class="draft--a">這裡</a> 我們一樣看到不斷增長的 global scope 物件 <span style="font-weight: bold; ">pool</span>：</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1422px" class="image-block-prerender" data-src="https://images.vocus.cc/e036d12c-9b50-4991-89da-e621225fbfe7.jpg" data-width="1422" data-height="232" data-position="center" src="https://images.vocus.cc/e036d12c-9b50-4991-89da-e621225fbfe7.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></figure>
+<div class="draft-block draft--p left"><br>比較麻煩的是，這項資料連個 setter 都沒有，我們只能<span style="font-weight: bold; ">手動增加清除方法</span>將其初始化：</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1154px" class="image-block-prerender" data-src="https://images.vocus.cc/685db1ee-2d6c-48c7-bf31-cc5d61011748.jpg" data-width="1154" data-height="188" data-position="center" src="https://images.vocus.cc/685db1ee-2d6c-48c7-bf31-cc5d61011748.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block"></figcaption></div></figure>
+<div class="draft-block draft--p left"><br>老實說，如果 draft.js 是單純在瀏覽器上執行，應該是不會有問題的，因為使用上並不會一直開新的文本編輯器 instance。只是我們的 Next.js Server 在收到請求並編譯時，就意外地將初始化的資料留一份在 Server 端了（而且也完全用不到這項資料）。隨著使用者在網站上打開文本編輯器，記憶體空間也逐漸變少，最後導致程式崩潰。</div>
+<div class="draft-block draft--p left">修正完程式碼後，終於讓記憶體使用量回歸正常，看看下面這張圖，真的是讓人法喜充滿啊！如果你也因 memory leak 困擾的話，就用 DevTool 來找出病灶吧，希望這篇記錄有幫助到大家，謝謝一起苦惱的隊友們 XD。</div>
+<figure class="draft--imgNormal draft-block"><div><img style="height:1174px" class="image-block-prerender" data-src="https://images.vocus.cc/f17d31dc-6c4a-444c-a5d9-02bd2922d3af.jpg" data-width="1174" data-height="574" data-position="center" src="https://images.vocus.cc/f17d31dc-6c4a-444c-a5d9-02bd2922d3af.jpg" referrerpolicy="no-referrer"><figcaption class="imageCaption draft-block" style="cursor:text;display:block">終於 ⋯⋯ 看見平原了啊！<br>稍晚後端又加上了機器分流，讓 loading 變得更低了 🤩🤩！</figcaption></div></figure>
+<div class="draft-block draft--p left"></div>
+<div class="hr__AtomHrContainer-sc-1afmttx-0 dsBIOm draft-block"><pre class="hr__HrWrapper-sc-1afmttx-1 hUbgX draft--hr"><hr class="hr__Hr-sc-1afmttx-2 iegMSY"></pre></div>
+<h2 class="draft-block draft--h2" name="header-6sh8c">延伸閱讀</h2>
+<ul>
+  <li class="draft-block draft--li"><a href="https://v8.dev/blog/trash-talk" target="_blank" class="draft--a">詳細說明新的 V8 Garbage Collector 如何運作</a></li>
+  <li class="draft-block draft--li"><a href="https://developer.chrome.com/docs/DevTools/memory-problems/heap-snapshots/" target="_blank" class="draft--a">Chrome 的 heap-snapshot 文件</a></li>
+</ul>
+<div class="draft-block draft--p left"><br><br><br><br><br><br><br><br></div>
+<div class="draft-block draft--p left"></div>
