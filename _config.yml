@@ -1,7 +1,6 @@
 # Site settings
 title: 零博客
-description: >- # this means to ignore newlines until "baseurl:"
-  Read blog on demand.
+description: Read blog on demand.
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://agora0.gitlab.io" # the hostname & protocol, e.g. http://example.com
 github_username: agorahub
@@ -11,6 +10,7 @@ timezone: Asia/Singapore
 future: true
 theme: minima
 exclude:
+  - _posts/2022-11*
   - _posts/2022-10*
   - _posts/2022-0*
   - _posts/2021*
