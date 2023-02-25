@@ -1,0 +1,11 @@
+---
+layout: post
+title: ZorinOS 批量重命名 Rename multiple files on ZorinOS
+date: 2023-02-25 07:41:29.000000000 +00:00
+link: https://matters.news/@VXNlcjo5NTcyNg/zorin-os-%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D-rename-multiple-files-on-zorin-os-bafybeiamz7dhbm42q75vpilzpqxcswobtxn7t63h74y4abbqo6h45olcly
+categories: matters
+tags: blog
+author: suuchi
+---
+
+<figure class="image"><img src="https://assets.matters.news/embed/e63d9077-29aa-4439-9d35-095b4bc3bc43.png" data-asset-id="e63d9077-29aa-4439-9d35-095b4bc3bc43" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p>緣起，<br class="smart">下載了一套寫真集，但是每一張相片的名稱都帶有某個網站的網址<br class="smart">而且帶有的是類似“[cao]”這樣的國內粗口字眼，對於想要收藏的我來講，是不能忍受的<br class="smart">所以，我想要去掉幾百張相片名稱中的特定字符</p><p>網上搜尋一番，因ZorinOS 是基於 Ubuntu 的，所以立即就得到兩種簡單的方法（Linux 通用吧</p><p>方法一，GUI 式<br class="smart">全選（ctrl+a）<br class="smart">右擊重命名（f2）<br class="smart">查找和替換（Find and replace text）<br class="smart">end<br class="smart">例如，要去掉所有包含的[test]的字符，只需在 Existing Test 內輸入這個字符，Replace With 留空，再點擊 Rename按鈕即可完成</p><p>方法二，命令列式<br class="smart">使用命令 rename ，ZorinOS 沒有預置，需要 apt install rename<br class="smart">命令示例，<br class="smart">rename -n ‘s/test/new/’&nbsp;.jpg （預覽一下把 test.jpg 改成 new.jpg 的效果<br class="smart">rename -v ‘s/test/new/’&nbsp;.jpg （沒問題的話，直接修改</p><p>速度上，<br class="smart">命令列式，瞬間完成，全程沒有任何卡頓。只是學會了一個小命令，就突然好喜歡 Linux&nbsp;<br class="smart">GUI 式，全選打開重命名窗口的時候，稍微有一點卡，只是相對命令列來講。但是一鍵替換的時候也是瞬間搞定</p><p>複雜性上，<br class="smart">GUI 一目瞭然，無需學習任何命令<br class="smart">命令列的話，因爲通配符或特殊字符的關係，有時未能按預期的顯示。例如使用 rename 把 [ixxx] 替換爲 love ，簡單地按照上面的命令，也許會變成了 [lovexxx]<br class="smart">這時候就需要學習 rename 的用法，rename -h 或是 man rename</p><p>總之，ZorinOS（or Ubuntu/Linux) 很優秀，期待着 ZorinOS 17 的來到</p><p>Read more about “ how to rename multiple files on linux “&nbsp;:<br class="smart"><a href="https://linuxconfig.org/how-to-rename-multiple-files-on-linux" data-href="https://linuxconfig.org/how-to-rename-multiple-files-on-linux" rel="nofollow noopener" target="_blank">https://linuxconfig.org/how-to-rename-multiple-files-on-linux</a></p>
