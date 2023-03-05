@@ -1,0 +1,58 @@
+---
+layout: post
+title: 如何使用 ChatGPT API 閱讀日文小說
+date: 2023-03-05 12:47:16.000000000 +00:00
+link: https://vocus.cc/article/64048f54fd89780001ecafdc
+categories: vocus
+tags: blog
+author: 陳易宏
+---
+
+<div class="draft-block draft--p left">ChatGPT 可以幫你翻譯，我認為品質比 Google / DeepL / Microsoft 都更好。但每次能翻譯的字數有限，也沒有全頁翻譯的功能，對小說閱讀者基本上是無用的。但 ChatGPT API 發布之後，情況有巨大的改變。這篇文章將會介紹我現在閱讀日文小說的步驟以及範例。</div>
+<ol>
+  <li class="draft-block draft--li">Webpage &gt; Epub (dotepub)</li>
+  <li class="draft-block draft--li">(optional) Merge Epub </li>
+  <li class="draft-block draft--li">Epub &gt; Bilingual Epub</li>
+  <li class="draft-block draft--li">(optional) Epub to Word for editing and publishing</li>
+</ol>
+<div class="hr__AtomHrContainer-sc-1afmttx-0 dsBIOm draft-block"><pre class="hr__HrWrapper-sc-1afmttx-1 hUbgX draft--hr"><hr class="hr__Hr-sc-1afmttx-2 iegMSY"></pre></div>
+<h3 class="draft-block draft--h3" name="header-8qe2j">網頁轉換成 Epub</h3>
+<h3 class="draft-block draft--h3" name="header-fhvpu"></h3>
+<div class="draft-block draft--p left">我通常使用 dotepub 的解決方案。</div>
+<div class="draft-block draft--p left"><a href="https://dotepub.com/" target="_blank" class="draft--a">dotepub — download any webpage as an e-book</a></div>
+<div class="draft-block draft--p left">dotepub 有 chrome 插件可以使用</div>
+<div class="draft-block draft--p left"><a href="https://chrome.google.com/webstore/detail/dotepub/okpfiebkkmjcnodegbbbiellepfhoglm?hl=en" target="_blank" class="draft--a">dotEPUB - Chrome Web Store (google.com)</a></div>
+<div class="draft-block draft--p left">也可以直接貼入文字檔</div>
+<div class="draft-block draft--p left"><a href="https://dotepub.com/creator/?lang=en" target="_blank" class="draft--a">dotepub — Creator: Your text in e-book form</a></div>
+<div class="draft-block draft--p left"></div>
+<div class="draft-block draft--p left">範例：將下面的網頁轉換成 Epub <a href="https://ncode.syosetu.com/n5272ic/" target="_blank" class="draft--a">https://ncode.syosetu.com/n5272ic/</a></div>
+<div class="draft-block draft--p left">輸出： <a href="https://mx.ihctw.bid/files/mother.epub" target="_blank" class="draft--a">https://mx.ihctw.bid/files/mother.epub</a></div>
+<div class="hr__AtomHrContainer-sc-1afmttx-0 dsBIOm draft-block"><pre class="hr__HrWrapper-sc-1afmttx-1 hUbgX draft--hr"><hr class="hr__Hr-sc-1afmttx-2 iegMSY"></pre></div>
+<h3 class="draft-block draft--h3" name="header-ddbv1">日文轉雙語</h3>
+<div class="draft-block draft--p left"></div>
+<div class="draft-block draft--p left">請參照這個說明</div>
+<div><h3><a href="https://softnshare.com/bilingual_book_maker-streamlit/">使用 bilingual_book_maker 將原文的 epub 電子書翻譯成繁體中文雙語對照的電子書</a></h3><span>這幾天在 FB 看到一個大家在分享的開源專案 bilingula_book_m aker - 將原文的電子書轉換成原文與中文對照的電子書，並可以下載成 epub 格式 這個開源專案是使用 OpenAI 最新發佈的 ChatGPT API，所以翻譯一本原文電子書的成本並不會太高，這對於想要閱讀原文書，但是閱讀速度又很慢的人，確實是一大福音 雖然這個工具對於翻譯的工作者衝擊很大，但是換另一個角度想，翻譯工作者反而可以專注在提升機器翻譯品質上，校稿跟審稿還是需要專業的人來做。 使用這個開源專案必須在電腦上安裝 Python 的開發環境，對於非開發者背景的人使用上比較不是那麼方便 因為最近剛好在上一堂 OpenAI 的線上課程 ，前一陣子也看了不少資訊，如何快速打造一個 OpenAI 的原型，於是有了一些想法，利用這個開源專案來做一個總結練習 把這個開源專案打包成 Streamlit : 方便非開發者背景的人來使用 把 Bilingula_book_maker 改成可以支援繁體中文 - 我是參考保哥的修改，我發現他除了修改原作者的語言設定，還有修改 prompt ，請參考本文下方的參考資訊列表 練習上週學習的 python 套件管理工具 - poetry : 修改這個開源專案時，使用 poetry 來建立虛擬環境和做套件管理 Streamlit 我並不熟，於是我找到了一位中國開發者的開源專案( 請參考本文下方的參考資訊列表 ) ，他也是 fork</span><img src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fsoftnshare.com%2Fwp-content%2Fuploads%2F2023%2F03%2Fmaoyang_a_city_filled_with_lots_of_traffic_next_to_tall_buildin_efa02304-f642-46d3-9244-1dfa48798bdf.png&amp;width=550&amp;sign=OmnCXLJxvYOT6rs0bZF_aJfCmC8LloPR2MpnLGKL6oY"></div>
+<div class="draft-block draft--p left"></div>
+<div class="draft-block draft--p left">如果能夠在自己的電腦上架設 python 環境是最好的。不然也可以試試上文作者寫的 Streamlit app。</div>
+<div><h3><a href="https://maoyang-bilingual-book-maker-streamlit-app-in812v.streamlit.app/">A faster way to build and share data apps</a></h3><span>Make bilingual epub books Using AI translate</span><img src="https://d2a6d2ofes041u.cloudfront.net/resize?norotation=true&amp;url=https%3A%2F%2Fstorage.googleapis.com%2Fs4a-prod-share-preview%2Fdefault%2Fst_app_screenshot_image%2F56aa6135-d3d8-4015-9b2b-d84d01c7e4a6%2FHome_Page.png&amp;width=550&amp;sign=-9afpF547y6T1xxf2SoQdVecJVqNAB9WW8abXQyVqUk"></div>
+<div class="draft-block draft--p left"></div>
+<div class="draft-block draft--p left">範例：將上個範例的 Epub 轉成雙語</div>
+<div class="draft-block draft--p left">輸出： <a href="https://mx.ihctw.bid/files/mother_bilingual.epub" target="_blank" class="draft--a">https://mx.ihctw.bid/files/mother_bilingual.epub</a></div>
+<div class="hr__AtomHrContainer-sc-1afmttx-0 dsBIOm draft-block"><pre class="hr__HrWrapper-sc-1afmttx-1 hUbgX draft--hr"><hr class="hr__Hr-sc-1afmttx-2 iegMSY"></pre></div>
+<h3 class="draft-block draft--h3" name="header-db38o">其他工具</h3>
+<h3 class="draft-block draft--h3" name="header-fqu56"></h3>
+<div class="draft-block draft--p left">如果有很多章節，想要包再一起閱讀，可以考慮使用下面這個 epub merge service</div>
+<div class="draft-block draft--p left"><a href="https://www.ofoct.com/merge-epub-files" target="_blank" class="draft--a">https://www.ofoct.com/merge-epub-files</a></div>
+<div class="draft-block draft--p left"></div>
+<div class="draft-block draft--p left">如果想要修改或潤稿，可以將轉換出來的 epub 轉換成 docx</div>
+<div class="draft-block draft--p left"><a href="https://convertio.co/epub-docx/" target="_blank" class="draft--a">EPUB to DOCX (WORD) (Online &amp; Free) — Convertio</a></div>
+<div class="draft-block draft--p left"></div>
+<div class="draft-block draft--p left">範例：將剛才那個雙語 epub 轉成 docx</div>
+<div class="draft-block draft--p left">輸出： <a href="https://mx.ihctw.bid/files/mother_bilingual.docx" target="_blank" class="draft--a">https://mx.ihctw.bid/files/mother_bilingual.docx</a></div>
+<div class="hr__AtomHrContainer-sc-1afmttx-0 dsBIOm draft-block"><pre class="hr__HrWrapper-sc-1afmttx-1 hUbgX draft--hr"><hr class="hr__Hr-sc-1afmttx-2 iegMSY"></pre></div>
+<h3 class="draft-block draft--h3" name="header-3v72e">ChatGPT API 申請</h3>
+<div class="draft-block draft--p left"></div>
+<div><h3><a href="https://openai.com/api/login/">OpenAI API</a></h3><span>An API for accessing new AI models developed by OpenAI" data-providername="Openai"></div>
+<div class="draft-block draft--p left"></div>
+<div class="draft-block draft--p left">如果不知道怎麼申請試用，也可以來信給我，我會生一個暫時的 API key 給你。</div>
+<div class="draft-block draft--p left">isawamaho@gmail.com</div>
