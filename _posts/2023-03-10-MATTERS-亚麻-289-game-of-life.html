@@ -1,0 +1,96 @@
+---
+layout: post
+title: "「亚麻」289 ～ Game of Life"
+date: 2023-03-10 01:59:30.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E4%BA%9A%E9%BA%BB-289-game-of-life-bafybeie7gn4kqa5cdiqwtodkms5w3okw7ae2mgkorvjkwid4gdmivofixq
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li>题号：289</li><li>题厂：亚麻</li><li>难度系数：中</li></ul><hr><p><br></p><p>一个 m * n 的矩阵。</p><p>左上、上、右上、左、右、左下、下、右下 8 个方位代表邻居。</p><p>如果邻居为 1，说明是活邻居，如果邻居为 0，说明是死邻居。</p><p>如果 8 个邻居中，活邻居数量少于 2， 那么格子因为人口过少，死了……</p><p>如果 8 个邻居中，活邻居数量鉴于 2 ～ 3 之间，那么可以持续延续该格子人口……</p><p>如果 8 个邻居中，活邻居数量大于 3，格子因为人口过剩，死了……</p><p>如果 8 个邻居中，活邻居数量刚好为 3，格子可以获得重生……</p><p>根据以上游戏规则，计算一下棋盘下一代人口分布……</p><figure class="image"><img src="https://assets.matters.news/embed/f34829b9-a986-407c-a0ce-73a0df3de8f9.jpeg" data-asset-id="f34829b9-a986-407c-a0ce-73a0df3de8f9" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><pre class="ql-syntax" spellcheck="false">例如 board = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
+返回 [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
+
+</pre><p><strong>解题思路</strong></p><ul><li>很明显，首先我们需要遍历矩阵计算一下每个格子对应的活邻居数量。</li><li>有了活邻居有效数据后，在根据题目规则，决定每个格子的死活（0 或者 1）</li></ul><p>题目存在一个比较迷惑的陷阱，「如果 8 个邻居中，活邻居数量鉴于 2 ～ 3 之间，那么可以持续延续该格子人口」。这里的延续人口，就是延续当前格子的数据。</p><p>如果格子有 2 个邻居，格子自己为 0，那格子继续为 0；</p><p>如果格子有 3 个邻居，格子自己为 1，那格子继续为 1；</p><p>但是当格子有 3 个邻居时，无论格子目前是死是活，都自动获得重生……</p><p>为了简化以上条件，我们可以理解为：</p><ul><li>如果 8 个邻居中，活邻居数量少于 2， 无论格子是 0 还是 1，都变成 0</li><li>如果 8 个邻居中，活邻居数量等于 2 ，无论格子是 0 还是 1，维持现状</li><li>如果 8 个邻居中，活邻居数量大于 3，无论格子是 0 还是 1，都变成 0</li><li>如果 8 个邻居中，活邻居数量等于 3，无论格子是 0 还是 1，都变成 1</li></ul><h2>分析完成之后，这道题还是挺简单的……</h2><pre class="ql-syntax" spellcheck="false">class Solution:
+    def gameOfLife(self, board: List[List[int]]) -&gt; None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        # 创建一下棋盘行列数，方便后续
+        ROW = len(board)
+        COL = len(board[0])
+
+        # 解此题，我们只需要关注活邻居数量，创建一个棋盘用于计数
+        live_map = [[0] * COL for i in range(ROW)]
+
+        # 按照 8 个方向遍历棋盘，计算 活邻居数量
+        for r in range(ROW): 
+            for c in range(COL): 
+                directions = [(-1, -1), (-1, 0), (-1, 1),
+                              (0, -1), (0, 1),
+                              (1, -1), (1, 0), (1, 1)]
+                l = 0
+                for t in directions:
+                    r_neighbor = t[0] + r
+                    c_neighbor = t[1] + c
+                 
+                    if (r_neighbor &gt;= 0 and c_neighbor &gt;= 0 and r_neighbor &lt; ROW and c_neighbor &lt; COL):
+                        if board[r_neighbor][c_neighbor] == 1:
+                            l += 1
+    
+                live_map[r][c] = l
+
+        # 根据活邻居数量，判断下一代是死是活……
+        for r in range(ROW):
+            for c in range(COL):
+                if live_map[r][c] &lt; 2:
+                    board[r][c] = 0
+                elif live_map[r][c] == 3:
+                    board[r][c] = 1
+                elif live_map[r][c] &gt; 3:
+                    board[r][c] = 0
+</pre><p><strong>Constraints</strong></p><ul><li><code>m == board.length</code></li><li><code>n == board[i].length</code></li><li><code>1 &lt;= m, n &lt;= 25</code></li><li><code>board[i][j] is 0 or 1.</code></li></ul><p><br></p><hr><p><br></p><p><strong>测试</strong></p><ul><li>n = 1， m = 1 时</li><li>当整个棋盘全为 1 时</li><li>……</li></ul><p><br></p><hr><p><br></p><p><strong>Big O</strong></p><ul><li><code>时间复杂度：O（m * n）</code></li><li>空间复杂度： O（m * n）</li></ul><p><br></p><hr><p><strong>总结</strong></p><ul><li>把题目信息分析明白后，本题就是一道在大一编程课 for 循环的基础上加一些花样的题……</li><li><u>8 个方向计算邻居数量问题，可以参考各种矩阵问题的方向模板</u>……</li></ul><h2><br></h2><hr><p>到此为止，本题还没有结束，还有 follow up……</p><ul><li>Could you solve it in-place? Remember that the board needs to be updated simultaneously: You cannot update some cells first and then use their updated values to update other cells.</li></ul><h2>题目要求进阶一下，在不额外占用内存的情况下计算下一代人口死活</h2><hr><p><br></p><p><strong>解题思路</strong></p><ul><li>这种<strong>限制内存使用 in-place 的题目，我们很容易想到需要特殊 mark 标记</strong>（<u>类似曾经遇到过的 </u><a href="https://matters.news/@potato_pepper/365934-%E8%84%B8%E4%B9%A6-%E6%88%91%E6%8E%A5%E7%9D%80%E5%88%B7-41-%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BC%BA%E5%A4%B1%E7%9A%84%E6%AD%A3%E4%B9%A6-bafybeiag6k7bbp6abpb577xzei4isbe6vbf5yyknha2z4ppsknxqzaktga" rel="noopener noreferrer" target="_blank"><u>#41</u></a><u>， 只不过这一次的数据结构由单维数组升级为双重数组了，但原理还是一样的</u>）</li><li>题目明确告诉我们，格子就两种数据 0 代表死亡邻居，1 代表活跃邻居。当我们更新下一代人口数量时无非就两种情况：「0 变 1」，「1 变 0」。「0 维持 0」「1 维持 1」的情况不需要考虑。</li><li>借鉴过往经验，这里我们把&nbsp;<strong>「1 变 0」标记为 「-1」，「0 变 1」标记为 「2」</strong>。数邻居数量时，计算格子绝对值为 1 的情况，0 或 2 直接略过……</li></ul><p><br></p><pre class="ql-syntax" spellcheck="false">class Solution:
+    def gameOfLife(self, board: List[List[int]]) -&gt; None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        ROW, COL = len(board), len(board[0])
+
+        # 把算邻居提炼成一个 helper 方法
+        def count_neighbor(r, c):
+            l = 0
+            directions = [(-1, -1), (-1, 0), (-1, 1),
+                          (0, -1), (0, 1),
+                          (1, -1), (1, 0), (1, 1)]
+
+            for d in directions:
+                r_nei = r + d[0]
+                c_nei = c + d[1]
+
+                if (r_nei &gt;= 0 and c_nei &gt;= 0 and r_nei &lt; ROW and c_nei &lt; COL):
+                    if abs(board[r_nei][c_nei]) == 1:
+                        l += 1
+
+            return l
+
+        # 标记 「-1」 1 -&gt; 0
+        # 标记 「2」  0 -&gt; 1 
+        for r in range(ROW):
+            for c in range(COL):
+                l = count_neighbor(r, c)
+                
+                if l &lt; 2 and board[r][c] != 0:
+                    board[r][c] = -1
+                elif l == 3 and board[r][c] != 1:
+                    board[r][c] = 2
+                elif l &gt; 3 and board[r][c] != 0:
+                    board[r][c] = -1
+
+        # 计算完成后再标记回去
+        for r in range(ROW):
+            for c in range(COL):
+                if board[r][c] == -1:
+                    board[r][c] = 0
+                elif board[r][c] == 2:
+                    board[r][c] = 1
+</pre><hr><p><br></p><p><strong>总结</strong></p><ul><li>本题我们复习了矩阵当中涉及的方向<strong>坐标查找代码</strong></li><li>还复习了 <strong>in-place 处理中的常见小技巧</strong></li></ul><p><br></p>
