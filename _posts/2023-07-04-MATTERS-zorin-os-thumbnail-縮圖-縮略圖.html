@@ -1,0 +1,11 @@
+---
+layout: post
+title: Zorin OS thumbnail 縮圖/縮略圖
+date: 2023-07-04 05:37:10.000000000 +00:00
+link: https://matters.news/@VXNlcjo5NTcyNg/zorin-os-thumbnail-%E7%B8%AE%E5%9C%96-%E7%B8%AE%E7%95%A5%E5%9C%96-bafybeiawt3z54i53vtdnymlvdhytnlwvyzgk26nmcz4siuob4lygoozy6i
+categories: matters
+tags: blog
+author: suuchi
+---
+
+<figure class="image"><img src="https://imagedelivery.net/kDRCweMmqLnTPNlbum-pYA/prod/embed/c474cae3-d8b2-47b5-a753-d82e593ca526.png/public" referrerpolicy="no-referrer"><figcaption></figcaption></figure><p>在未解除安裝預置的 Videos 軟體情況下<br class="smart">sudo apt install ffmpegthumbnailer<br class="smart">sudo -H gedit /usr/share/thumbnailers/totem.thumbnailer<br class="smart">paste：<br class="smart">TryExec=/usr/bin/ffmpegthumbnailer<br class="smart">Exec=/usr/bin/ffmpegthumbnailer -s %s -i %i -o %o -c png -f<br class="smart">只要系統的檔案管理是 Nautilus ，都可以按照上述方案解決。</p><p>可是，當我把 Videos 解除安裝，用 MPV 替代之後<br class="smart">縮圖消失，查看 totem.thumbnailer 也一併清除。<br class="smart">測試，按照上述方案，縮圖仍未生效。</p><p>再次安裝 Videos ，注意，選擇軟體商店內的 Zorin OS 版本，只有214.0kB。不然的話，Flathub 安裝的規格是65.0MB。<br class="smart">之後，再次按上面的方案，縮圖重現。</p><p>再次測試，因爲解除安裝 Videos 的話，totem.thumbnailer 消失然後縮圖失效。<br class="smart">故，此次先複製修改過的 totem.thumbnailer ，然後再解除安裝 Videos 。<br class="smart">接着<br class="smart">sudo -H gedit /usr/share/thumbnailers/totem.thumbnailer<br class="smart">貼上 剛剛備份的修改過的 totem.thumbnailer 內容。<br class="smart">成功。</p><p>爲何如此折騰<br class="smart">對於系統，我有輕微的強迫症，精簡掉不需要的軟體。<br class="smart">折騰的樂趣，在【編程隨想】那裏找到了共鳴； <a target="_blank" rel="noopener noreferrer nofollow" href="https://program-think.blogspot.com/">https://program-think.blogspot.com/</a><br class="smart">而離開微軟的圍牆花園，大概也受到了「資訊人權貴」的影響吧。 <a target="_blank" rel="noopener noreferrer nofollow" href="https://ckhung0.blogspot.com/">https://ckhung0.blogspot.com/</a><br class="smart">當然，最主要的還是我，依然保持着好奇與好玩的心。</p>
