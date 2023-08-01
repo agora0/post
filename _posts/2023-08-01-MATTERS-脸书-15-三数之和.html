@@ -1,0 +1,45 @@
+---
+layout: post
+title: "「脸书」15 ～ 三数之和"
+date: 2023-08-01 00:13:49.000000000 +00:00
+link: https://matters.news/@potato_pepper/%E8%84%B8%E4%B9%A6-15-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C-bafybeigu7xt3oetozzqounso2nonhktmyfymyq4gfmzode6s4yqxbbd2by
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li><p>题号：15</p></li><li><p>题厂：脸书</p></li><li><p>难度系数：中</p></li></ul><hr><p></p><p>已知一个数组，数组元素可重复。随意从数组抽选 3 个元素，当三数之和为 0 时，此种组合需作为结果返回。返回结果无关顺序，但不能重复。如果没有三数之和满足 0，则返回空数组。</p><pre><code>例如 nums = [-1,0,1,2,-1,-4] 返回 [[-1,-1,2],[-1,0,1]]。
+nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.
+nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.
+nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.
+但 -1， 0 ， 1 组合元素重复一次，所以最后返回结果只有两组。</code></pre><p></p><p><strong>解题思路</strong></p><p>本题为 leetcode 开山题 #1 两数之和（two sum）的变形升级题。「two sum」作为刷题届人人皆知的人身入门题，解题思路就是大一编程课上学习过的 「brute force 双重循环」。</p><p><strong>#15 三数之和（three sum）升级后，解题思路还是沿袭「#1 two sum 二数之和」，将所有数进行三三组合一一比对，遇到满足和为 0 的情况时，将组合写入返回答案。</strong></p><p>做「two sum 二数之和」时，采用双重 for 循环对照，<strong>做三数之和时，多添加一个元素，需要引入「双指针」技巧解题——第一个数字通过 for 循环遍历选出，剩下的两个数组通过「双指针」原理遍历查找。</strong></p><p>基本解题思路确定后，还需要<strong>解决重复组合问题</strong>——<strong>此处引入「排序」方法进行解决</strong>。当数组排序后，进行 for 循环遍历时，<strong>只有当前数字和前一个数字不同时，我们才进行三数之和验证；否则直接跳过避免重复</strong>……</p><hr><pre><code>class Solution:
+    def threeSum(self, nums: List[int]) -&gt; List[List[int]]:
+        # 先将数组排序，解决重复问题。
+        nums.sort()
+        # 声明用于返回结果的空数组
+        res = []
+        
+        # 一重循环选出第一个数字 v，为了后续「双指针」需求，同时记录 v 所对应的位置 i
+        for i, v in enumerate(nums):
+        # 排序后的数组，如果当前 v 和前一个数字相同，直接跳过（避免重复）
+            if i &gt; 0 and nums[i - 1] == v:
+                continue
+        # 当 v 不再与前一个数字重复时，还需要验证剩余的数组长度大于 2，才可进入「双指针」验证，否则个数不够，直接跳过……
+            if i + 2 &lt; len(nums):
+                l, r = i + 1, len(nums) - 1
+       
+       # 一切条件满足后，按照「双指针」模板验证。⚠️ 注意，当找到满足三数之和的条件时，除了添加答案到返回值，还要波动左指针到下一个与当前 v 不同的位置，进行新一轮验证（否则会进入死循环） 
+                while l &lt; r:
+                    curSum = nums[l] + nums[r] + v
+                    if curSum == 0:
+                        res.append([v, nums[l], nums[r]])
+                        l += 1
+                        while l &lt; r and nums[l] == nums[l - 1]:
+                            l += 1
+
+                    elif curSum &lt; 0:
+                        l += 1
+                    else:
+                        r -= 1
+
+        return res</code></pre><hr><p></p><p><strong>Constraints</strong></p><ul><li><p><code>3 &lt;= nums.length &lt;= 3000</code></p></li><li><p><code>-105 &lt;= nums[i] &lt;= 105</code></p></li></ul><p>做题前要和考官讨论数组最长最短长度。</p><ul><li><p>数组最短为 3， 无需考虑数组小于 3 时的绝对无解特殊案例。</p></li><li><p>数组最长为 3000，暗示如果做 3 轮 brute force 循环，很可能因为效率太低无法通过。</p></li></ul><hr><p></p><p><strong>测试</strong></p><ul><li><p>n = 3 时，元素不同，相同，有满足和为 0 ，不为 0 的各种情况</p></li><li><p>n = 3000 时，测试算法是否效率可行</p></li><li><p>当数组出现多个重复不间断元素时，测试代码能否过滤掉可能出现的重复答案</p></li><li><p>……</p></li></ul><p></p><hr><p></p><h2><strong>Big O</strong></h2><h3><code>时间复杂度：O（n^2）</code></h3><ul><li><p>第一部分排序时，复杂度为 O（nlogn）。</p></li><li><p>第二部分，双指针循环为 O（n），乘以外部选第一个数字时的第一重循环 O（n），最终复杂度为 O（n^2）。</p></li><li><p>两次复杂度叠加后，取最高值，O（n^2）。</p></li></ul><h3>空间复杂度： O（n）</h3><ul><li><p>引入 res 数组记录答案</p></li></ul><p></p><hr><p></p><p><strong>总结</strong></p><ul><li><p>题号靠前，同时又是开山第一题「#1 two sum 二数之和」的升级衍生题，<strong>非常有认真研究 + 定期复习之必要</strong>。</p></li><li><p>升级后，在数组基础上，杂糅了「双指针」，「排序」等常见基础知识点，<strong>重点考察对基础数据结构和算法的深度认知和灵活运用</strong>。</p></li><li><p>因为涉及多重循环和多个元素，本题<strong>特别讲究对 「edge case」的处理</strong>。想明白「双指针 + 排序」的解题思路后，对 「edge case」处理还需要特别细致方可避免数组越界等问题。</p></li></ul>
