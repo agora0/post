@@ -1,0 +1,42 @@
+---
+layout: post
+title: 2273 ~ 移除 anagram 后，找到餐馆数组
+date: 2023-08-17 00:31:40.000000000 +00:00
+link: https://matters.news/@potato_pepper/2273-%E7%A7%BB%E9%99%A4-anagram-%E5%90%8E-%E6%89%BE%E5%88%B0%E9%A4%90%E9%A6%86%E6%95%B0%E7%BB%84-bafybeiddmyneuq4ytgdyxwm7gjjweqitdeeqsxejb6gfmxujqosjtn4shi
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li><p>题号：2273</p></li><li><p>题厂：不详（请知情题友告知）</p></li><li><p>难度系数：低</p></li></ul><hr><p></p><p>已知一个包含各种单词的数组 「words」，所有单词均由小写英文字母组成。</p><p>在数组「words」中，如果words[i - 1] 和 words[i]互为 anagram，则删除 words[i]。删除完成后返回数组……</p><blockquote><h3>什么是Anagram？</h3><p>就是几个单词有相同字母组成，但字母排列顺序不同……</p><p>例如「eat」和「tea」就是一组「同字母异序词」。</p></blockquote><p></p><pre><code>根据以上原理，输入 words = ["abba","baba","bbaa","cd","cd"] 返回 ["abba","cd"]
+
+当 i = 1 时，words[i - 1] 为 “abba”，words[i] 为 “baba”，互为 anagram，于是删除 i = 1 的 baba；
+当 i = 2 时，words[i - 1] 为 “baba”，words[i] 为 “bbaa”，互为 anagram，于是删除 i = 2 的 bbaa；
+当 i = 4 时，words[i - 1] 为 “cd”，words[i] 为 ”cd“，互为 anagram，于是删除 i = 4 的 cd。
+遍历完成后，能够返回的只有 ["abba","cd"] </code></pre><p></p><p><strong>解题思路</strong></p><p>对于只有 26 个小写英文字母的 anagram 检测，我们可以<strong>运用 anagram 解题系列的套路模板—— 长度 26 的数组 + ascii 码</strong>。</p><p>本题略有一个陷阱：只有当两个互为 anagram 的单词且 index 连续时，我们才需要删除 index 靠后的单词。也就是说，如果有两个单词，但出现 index 位子不连续，我们也不删除。</p><blockquote><p>例如：["a","b","c","d","a"]，i = 0 的 a 与 i = 4 的 a 互为 anagram，但由于 index 不相连，所以不满足删除条件。最后返回结果还是为：["a","b","c","d","a"]。</p></blockquote><p>分析完以上陷阱后，我们发现<strong>欲解此题，需要运用的数据结构为 hashmap，key 记录 pattern，value 记录 该 key 最后一次出现的 index</strong>。</p><hr><pre><code>class Solution:
+    def removeAnagrams(self, words: List[str]) -&gt; List[str]:
+        # 创建存储样式的 hashmap 「 pattern ： 该样式最后一次出现的 index」
+        patterns = {}
+
+        res = []
+
+        for i in range(len(words)):
+            # 根据 anagram 题型常用套路，获取该单词的 pattern。
+            pattern = [0] * 26
+            for w in words[i]:
+                code = ord(w) - ord('a')
+                pattern[code] += 1
+
+            # ⚠️ list 是不能作为 hashmap 的 key，需要把 list 转换为 tuple
+            key = tuple(pattern)
+     
+            # 略容易犯错的条件：
+            # 当 pattern 没有出现在「样式 hashmap」中，或者 pattern 已在「样式 hashmap」但 index 不连续时，当前单词需要被添加进返回数组，同时更新该 pattern 最后一次出现时的 index
+            # 只有当 pattern 出现在「样式 hashmap」且 index 连续时，才删除当前单词，更新 index。
+            if (key not in patterns) or (key in patterns and (i - 1) &gt; patterns[key]):
+                res.append(words[i])
+                patterns[key] = i
+            elif (i - 1) == patterns[key]:
+                patterns[key] = i
+            
+        return res</code></pre><hr><p></p><p><strong>Constraints</strong></p><ul><li><p><code>1 &lt;= words.length &lt;= 100</code></p></li><li><p><code>1 &lt;= words[i].length &lt;= 10</code></p></li><li><p><code>words[i]</code> consists of lowercase English letters.</p></li></ul><p>做题前要和考官讨论单词中可能出现的字符范围。本题提示只会出现小写英文字母，所以 「ascii + 数组」 解法可行。</p><hr><p><strong>测试</strong></p><ul><li><p>当 words 只有 1 个单词时</p></li><li><p>当 words 有 100 个单词时，测试程序是否有效</p></li><li><p>当单词只有一个字母时</p></li><li><p>当单词前后连续互为 anagram 时</p></li><li><p>当单词前后不为 anagram 时</p></li><li><p>但单词前后为 anagram 但 index 不连续时</p></li><li><p>……</p></li></ul><p></p><hr><p></p><h2><strong>Big O</strong></h2><h3><code>时间复杂度：O（n）</code></h3><p><code>循环一遍，复杂度为 n，遍历单词字母，最长为 100 个字母，最差复杂度为 O（100n），化简后还是 O（n）</code></p><h3>空间复杂度： O（n）</h3><ul><li><p>引入 hashmap 记录 样式</p></li></ul><p></p><hr><p></p><p><strong>总结</strong></p><ul><li><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://matters.town/@potato_pepper/423741-%E4%BA%9A%E9%BA%BB-49-%E5%90%8C%E5%AD%97%E6%AF%8D%E5%BC%82%E5%BA%8F%E8%AF%8D-%E5%88%86%E7%BB%84-bafybeicvfukua6dcckqzryqk45yki6odzykc6lu2jp2ir5tmy5e7tutj3e">anagram 系列题，可以发现解决 anagram 的相似套路</a>。</p></li><li><p>该题难度等级定位「低」，但赶脚代码并不那么简单……作为题号靠后的新题，难道刷题也越来越卷，难度系数呈上升趋势😭？？</p></li></ul>
