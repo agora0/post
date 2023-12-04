@@ -1,0 +1,39 @@
+---
+layout: post
+title: 395 ～ 每个字符在 k 以上的最长的 Substring
+date: 2023-12-04 03:15:50.000000000 +00:00
+link: https://matters.news/@potato_pepper/395-%E6%AF%8F%E4%B8%AA%E5%AD%97%E7%AC%A6%E5%9C%A8-k-%E4%BB%A5%E4%B8%8A%E7%9A%84%E6%9C%80%E9%95%BF%E7%9A%84-substring-bafybeibozjfx777bwluteik36iixwb556y7ncxekripj3yjnuv75sug6by
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li><p>题号：395</p></li><li><p>题厂：亚麻、脸书、谷歌</p></li><li><p>难度系数：中</p></li></ul><hr><p></p><p>提供一个字符串 s 和一个整数 k，求一个最长的 substring 的长度，要求这个 substring 里的每个字符出现的频率大于等于 k。</p><p>如果找不到这样的 substring，则返回 0.</p><p></p><pre><code>例如 s = "aaabb", k = 3，则输出 3. 因为 “aaa” 满足题目条件，长度为 3.
+再例如 s = "ababbc", k = 2，则输出 5， "ababb" 中 a 出现 2 次，b 出现 3 次，大于或等于 k。 </code></pre><p></p><p><strong>解题思路</strong></p><ol><li><p>要判断一个字符串里面字符出现次数和 k 的关系，想到需要用到「数据结构 hashmap」来帮忙解决问题。</p></li><li><p>接下来思考排除条件：当某个字符在字符串里出现次数少于 k 时，是不可能出现在输出结果 substring 中的。所以需要<strong>思考怎么写代码把出现频率小于 k 的字符排除</strong>。</p></li><li><p>substring 是连续的字符串，所以一旦 s 中出现可不满足条件的字符（出现频率小于 k）后，就只能往左或往右寻找，知道找到一个 substring 所有字符满足条件。<strong>这个找寻过程的思路很类似「merge sort」的分治思想</strong>。</p></li></ol><p>有了以上分析，本题的解题关键就是<strong>「分治思想」+「hashmap」</strong>辅助。</p><p></p><hr><pre><code> class Solution:
+    # 分治模板需要一个 helper 方法
+    def helper(self, sub_str, start, end, k):
+        # 如果起点和终点差小于 k，那该 substring 不满足条件，返回 0
+        if end - start &lt; k:
+            return 0
+        
+        # 创建 hashmap，key 出现字符，value 对应该字符出现频率
+        count = {}
+        for i in range(start, end):
+            cur = sub_str[i]
+            count[cur] = count.get(cur, 0) + 1
+        
+        # 遍历 hashmap，当出现频率小于 k 时，需要启用分治模板
+        for key, value in count.items():
+            if value &lt; k:
+                # 分治核心中：首先找到出现频率小于 k 的 j 位置，再从 j 位置分出 left 和 right 两段，返回 left 和 right 的较大值。
+                for j in range(start, end):
+                    if sub_str[j] == key:
+                        left = self.helper(sub_str, start, j, k)
+                        right = self.helper(sub_str, j + 1, end, k)
+                        return max(left, right)
+
+        # 如果程序没有启用分治代码，则说明该 substring 没有出现低于 k 以下字符串，即全员满足，返回字符串长度。 
+        return end - start
+
+    def longestSubstring(self, s: str, k: int) -&gt; int:
+        return self.helper(s, 0, len(s), k)</code></pre><hr><p></p><p><strong>Constraints</strong></p><ul><li><p><code>1 &lt;= s.length &lt;= 10^4</code></p></li><li><p><code>s</code> consists of only lowercase English letters.</p></li><li><p><code>1 &lt;= k &lt;= 10^5</code></p></li></ul><p>做题前要和考官讨论字符串中可能出现的字符范围。</p><hr><p><strong>测试</strong></p><ul><li><p>当 s 为 1 的边界值时</p></li><li><p>当 s 为最大值时，测试程序是否有效</p></li><li><p>当 s 被低于 k 频率的字符打断时</p></li><li><p>当 s 中有 1+ 以上字符满足出现频率大于 k 时</p></li><li><p>……</p></li></ul><p></p><hr><p></p><h2><strong>Big O</strong></h2><h3><code>时间复杂度：</code>nlogn</h3><ul><li><p><code>同 merge sort</code></p></li></ul><h3>空间复杂度： O（n）</h3><ul><li><p>使用 hashmap</p></li></ul><p></p><hr><p></p><p><strong>总结</strong></p><ul><li><p>本题是一道学习分治思想的经典题。由于<strong>题目难度远高于「中档难度」</strong>，需要花费更多时间学习😭</p></li><li><p>研究的核心还是<strong>先弄明白思路</strong>，有了思路后<strong>再熟记解题模板</strong>😭</p></li></ul>
