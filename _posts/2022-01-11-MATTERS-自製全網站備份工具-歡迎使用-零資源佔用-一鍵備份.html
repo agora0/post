@@ -1,0 +1,11 @@
+---
+layout: post
+title: 自製全網站備份工具，歡迎使用（零資源佔用，一鍵備份）
+date: 2022-01-11 07:51:07.000000000 +00:00
+link: https://matters.news/@phoenix000/%E8%87%AA%E8%A3%BD%E5%85%A8%E7%B6%B2%E7%AB%99%E5%82%99%E4%BB%BD%E5%B7%A5%E5%85%B7-%E6%AD%A1%E8%BF%8E%E4%BD%BF%E7%94%A8-%E9%9B%B6%E8%B3%87%E6%BA%90%E4%BD%94%E7%94%A8-%E4%B8%80%E9%8D%B5%E5%82%99%E4%BB%BD-bafyreide6wj2orcwslmro6k65f4nz4rc5jjmf2k6xhil3fnffh5akn3kuq
+categories: matters
+tags: blog
+author: 火鳥
+---
+
+<h2>【如何使用】</h2><p>進入：<a href="https://datalabour.com/saveWeb/" rel="noopener noreferrer" target="_blank">https://datalabour.com/saveWeb/</a></p><ol><li>找到中間的輸入框，輸入完整的包含http或https開頭的網站首頁鏈接，然後點按鈕「開始備份」即可。</li><li>同一時間最多10個備份任務，如果任務已滿，提交後會將網址存入候選列表，請過段時間再來備份。資源請有效利用，不要去備份維基百科、FB、Google、Twitter之類大型網站，因為沒有意義。</li><li>可以備份任何網站，適合未雨綢繆地保存一些舊的blog、社運網站、社區網站、獨立新聞媒體、NGO網站等等。</li></ol><h2>【它怎麼運作】</h2><p>這個服務與httrack或者wget等直接將網站下載到你的本地硬碟的方式不同，我們依靠Internet Archive的Wayback Machine進行運作。</p><p>Internet Archive是全球最大的互聯網檔案館/圖書館，儲存了數以百億計的網頁。雖然過去曾遭遇火災，但因為Internet Archive出色的多地備份，而沒有任何資料損失。Internet Archive的Wayback Machine類似於Google或百度或Bing的爬蟲，會自動搜尋網路上的網站內容進行抓取，並提供給所有人訪問或下載，基本不設限制。</p><p>不過，因為資源有限，也因為Internet Archive位處美國，主要運營者都是英語使用者，Internet Archive對於中文世界，尤其是小眾的網站的備份仍有缺乏。</p><p>所以，本網站的運作方式是：我們會循環抓取（使用文本瀏覽器lynx）你提供的網站的所有頁面連結，並詢問Wayback Machine是否抓取過該頁面。如果沒有抓取過，我們會提交申請進行抓取。直到所有網站頁面都被詢問完成。</p><figure class="image"><img src="https://assets.matters.news/embed/17452cb2-e31f-4857-9b80-04572db0135d.jpeg" data-asset-id="17452cb2-e31f-4857-9b80-04572db0135d" referrerpolicy="no-referrer"><figcaption><span>網站頁面比較簡單，沒有做前端的各種東東</span></figcaption></figure><p><br></p><p><br></p><p><br></p>

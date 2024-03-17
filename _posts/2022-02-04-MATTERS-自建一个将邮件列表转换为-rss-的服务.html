@@ -1,0 +1,44 @@
+---
+layout: post
+title: 自建一个将邮件列表转换为 RSS 的服务
+date: 2022-02-04 14:48:45.000000000 +00:00
+link: https://matters.news/@outloudvi/%E8%87%AA%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%B0%86%E9%82%AE%E4%BB%B6%E5%88%97%E8%A1%A8%E8%BD%AC%E6%8D%A2%E4%B8%BA-rss-%E7%9A%84%E6%9C%8D%E5%8A%A1-bafyreibry3tto54oofljgm6d7lk7acnlqcofsz3m7knfeglyvgvc5c2soe
+categories: matters
+tags: blog
+author: Out65
+---
+
+<blockquote>Matters 转载版本注：好久没有写文字了。最近刚好顺着不知道哪来的用 <a href="https://nextjs.org/" rel="noopener noreferrer" target="_blank">Next.js</a> 重写博客系统的浪潮把个人博客站点重制了一下，又写了一篇<a href="https://blog.outv.im/2022/following-2021/" rel="noopener noreferrer" target="_blank">给去年的总结文</a>（不过太不正经了就不转载到这里）。虽说 Likecoin 的发展和 Matters 的壮大让人倍感欣慰，但感觉马特市还是太少生活气息。倒不是说内容质量或者数量不行——Matters 有很多写得很好的区块链技术文章、思辨文章、虚构故事或科幻故事，或是专业性和技术类文章等等。不过，也请各位作者记得，总是严肃着、紧绷着，生活会显得压抑而无趣哦。</blockquote><blockquote>再注：Matters 的编辑器连二级列表都不支持让我惊到了。</blockquote><p>不图折腾的用户也可以直接去用 <a href="https://kill-the-newsletter.com/" rel="noopener noreferrer" target="_blank">Kill the Newsletter! 搭建的服务</a>。</p><p>最近用着 <a href="https://github.com/miniflux/v2" rel="noopener noreferrer" target="_blank">Miniflux</a> 做 RSS 拉取/阅读器很愉快，于是希望将一些邮件列表转换为 RSS。如果收件箱里总是一堆订阅邮件的话，来自个人的通信邮件很容易淹没在其中，因此萌生了让它们成为 RSS 的想法。</p><p>现成的项目的话有 <a href="https://github.com/leafac/kill-the-newsletter" rel="noopener noreferrer" target="_blank">leafac 的 Kill the Newsletter!</a>。这是一个用 JavaScript 写的单文件项目，也有搭建<a href="https://kill-the-newsletter.com/" rel="noopener noreferrer" target="_blank">公共服务</a>供不想 self-host 的用户使用。不过这个项目有几个不够我用的地方：</p><ul><li><a href="https://github.com/leafac/kill-the-newsletter/commits/main" rel="noopener noreferrer" target="_blank">大部分的提交似乎都没有 commit message</a>，对一个 repo 而言看起来不是很好的预兆。</li><li>不能自定义邮件别名。考虑到它的主要用例是公共（而非个人专用）服务，这个特点其实也容易理解：只要知道了邮件别名，就可以访问相应邮件地址收到的邮件。利用这个特性，知道邮件别名的其它用户可以控制相应邮件地址的订阅，甚至获取付费人的支付信息。</li></ul><p>刚好最近 Pop 也<a href="https://github.com/George-Miao/mail-list-rss" rel="noopener noreferrer" target="_blank">写了个类似的东西</a>。不同于 Kill the Newsletter!，这个项目的主要用例是给个人使用，所以对邮件别名没有特别的限制，只要收件人的域名对上，就会收录到 RSS 中，同时也提供网页端渲染的列表与显示。前段时间加上了 Basic Auth，所以也可以防止其它人随意访问。大多数 RSS 客户端应该也是支持 Basic Auth 的，所以对 RSS 客户端没有影响。</p><p>我则是基于这个项目<a href="https://github.com/outloudvi/mail-list-rss/tree/feat/per-email" rel="noopener noreferrer" target="_blank">进行了一些修改</a>，添加了针对单个收件地址收取的邮件生成 RSS 的功能。</p><p>不过这都不是正题。本篇文章的主题是，在拿到一个可以接收明文 SMTP 协议的端口之后，如何把它优雅（？）地暴露到公网上。</p><h2>配置 nginx 处理 SMTP</h2><p>nginx 有一些处理邮件的模块。如果编译命令中使用了 <code>--with-mail</code>，编译出来的 nginx 就会包含这些模块（可以通过 <code>nginx -V</code> 查看）。这些模块可以处理一些 IMAP/SMTP/POP3 协议上基本的认证流程，然后将请求交由相应的后端处理，也可以配置 SSL 和 STARTTLS。</p><p>Kill the Newsletter! 后端用的是 <code>nodemailer</code> 的 SMTP server，那个 server 可以配置 SSL/STARTTLS（虽说不知道相应的配置有没有暴露出来）；但是 Pop 这个 <code>mail-list-rss</code> 利用了<a href="https://github.com/George-Miao/mailin" rel="noopener noreferrer" target="_blank">自己写的基础 Rust SMTP server 实现</a>，其中不自带对 SSL/STARTTLS 的支持。因此我们需要使用像是 nginx 之类的服务来处理这个。</p><p>基本配置可以参考 nginx 文档中的例子：</p><pre class="ql-syntax" spellcheck="false">mail {
+    server_name mail.example.com;
+    auth_http 127.0.0.1:8825;
+    smtp_auth none;
+    proxy_pass_error_message on;
+    xclient off;
+
+    starttls on;
+    ssl_certificate     /path/to/cert.cer;
+    ssl_certificate_key /path/to/key.key;
+    ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers         HIGH:!aNULL:!MD5;
+    ssl_session_cache   shared:MozSSL:10m;
+    ssl_session_timeout 10m;
+
+    server {
+        listen     25;
+        protocol   smtp;
+    }
+}
+</pre><p><code>mail</code> 是 <code>nginx.conf</code> 配置的一级区块，所以不能放在 <code>sites-enabled</code>。这里另外提及几点：</p><ul><li><code>mail-list-rss</code> 用到的实现中不支持 <code>XCLIENT</code> 指令，记得把它关掉。</li><li><code>server_name</code> 和证书需要匹配。这个域名不一定要是邮箱接收邮件的域名，而应该是 <code>MX</code> 记录结果中指向的域名。</li></ul><blockquote>考虑一封发给 <code>hi@example.com</code> 的邮件，而 <code>example.com</code> 的 <code>MX</code> 记录指向 <code>smtp-01.example.com</code>，那么 <code>server_name</code> 应该是 <code>smtp-01.example.com</code>，而 SSL 证书也应该是这个域名（而非 <code>example.com</code>）的证书。</blockquote><ul><li>读者可能会发现这里完全没有关于后端服务器的配置，这个我们马上讲。</li></ul><h2>关于 <code>auth_http</code></h2><p>上面没有提及怎么配置后端服务器，因为 nginx 需要另外的方法来动态指定后端，那就是 <code>auth_http</code>。nginx 会给 <code>auth_http</code> 指定的服务发送关于此次请求的信息，包括用户名、密码、访问的协议、用户 IP 等，而服务返回的响应将会告诉 nginx 是将它引导到某个端点，还是拒绝此次访问。具体可以参见 <code><a href="https://nginx.org/en/docs/mail/ngx_mail_auth_http_module.html" rel="noopener noreferrer" target="_blank">ngx_mail_auth_http_module</a></code><a href="https://nginx.org/en/docs/mail/ngx_mail_auth_http_module.html" rel="noopener noreferrer" target="_blank"> 的文档</a>。这里由于我们的服务配置比较简单，并且 SMTP 服务也只用于接收而不是发送邮件，就不需要各种复杂的身份验证了，直接返回后端 SMTP 端点就好：</p><pre class="ql-syntax" spellcheck="false">HTTP/1.0 200 OK
+Auth-Status: OK
+Auth-Server: smtp.mail-list-rss.local
+Auth-Port: 10000
+</pre><p><s>于是写了个</s><a href="https://github.com/outloudvi/mail-list-rss/commit/7ca34476f635dc9e9e59d5305465721f8de7f768" rel="noopener noreferrer" target="_blank"><s>简单的 HTTP 服务器处理这个</s></a><s>。</s> 于是就让 nginx 来处理这个吧：</p><pre class="ql-syntax" spellcheck="false">server {
+        listen 127.0.0.1:8825;
+        location / {
+                add_header "Auth-Status" "OK";
+                add_header "Auth-Server" "smtp.mail-list-rss.local";
+                add_header "Auth-Port" "10000";
+                return 200;
+        }
+}
+</pre><h2>最后...</h2><p>记得 <code>nginx -t</code> 检查配置以及 <code>nginx -s reload</code> 重新加载配置。</p><hr><blockquote>本文为 Blog 上原文稍作修改后的版本。所有修改均以 Blog 原文为准。由于 IPFS 的不可变性，Matters 的副本无法更新。欲查看原文，请参见 <a href="https://blog.outv.im/2022/email-to-rss/" rel="noopener noreferrer" target="_blank">Re:Linked</a>。</blockquote><blockquote>本文以 CC BY-NC-ND 4.0 协议发布。</blockquote>

@@ -1,0 +1,11 @@
+---
+layout: post
+title: '議案 #69 LikeCoin 代幣通漲的修正'
+date: 2023-08-31 13:05:49.000000000 +00:00
+link: https://matters.news/@leafwind/%E8%AD%B0%E6%A1%88-69-like-coin-%E4%BB%A3%E5%B9%A3%E9%80%9A%E6%BC%B2%E7%9A%84%E4%BF%AE%E6%AD%A3-bafybeiej76maqu2xeept6fuekrh5aueshno3zledbmxt2leo674zaxogv4
+categories: matters
+tags: blog
+author: leafwind
+---
+
+<figure class="image"><img src="https://imagedelivery.net/kDRCweMmqLnTPNlbum-pYA/prod/embed/ea64528a-62fe-41a4-8e45-7370e818bd5c.png/public" referrerpolicy="no-referrer"><figcaption>（辣個男人並沒有這樣說）</figcaption></figure><h2>當年採用動態通漲的原意</h2><p>在 2021 年初，<a target="_blank" rel="noopener noreferrer nofollow" href="https://ping.pub/likecoin/gov/7">第七個提案</a>啟動了動態通漲的機制，當時的原意是希望用 7%~20% 的高通漲來提高質押的動機：<strong>如果整體質押比例一直小於 67%，那麼通漲就會一直上升到 20%；反之，如果整體質押比例一直大於或等於 67%，那麼通漲就會一直下降到 7%</strong>。</p><p>經過一番討論後，今天<a target="_blank" rel="noopener noreferrer nofollow" href="https://dao.like.co/proposals/69">提案 #69</a> 正式上線：</p><blockquote><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://dao.like.co/proposals/69">https://dao.like.co/proposals/69</a></p></blockquote><p>（p.s. 因為我的疏失導致送出了錯誤的 #67 與 #68，請將 #67 投 No、忽略 #68，如果後者不小心也進入投票階段，請兩個都投 No）</p><p>此議案希望把最高 20% 通漲降低為 10%，這並非要推翻或修改當時的決定，而是原本的機制有缺陷，無法達到上面講的目的。</p><p>原因是目前的動態調整機制的確保證了「最終」會達到這樣的效果，但無法保證「何時」達成。</p><p>以目前的狀況來說，我們已經到了接近 69% 質押率，通漲卻仍然接近 20% 之高。為什麼？因為根據動態調整公式：</p><blockquote><p>inflationRateChangePerYear = (1 - bondedRatio/params.GoalBonded) * params.InflationRateChange</p></blockquote><p>參數當中的 InflationRateChange 已經是最大值 100%，但目前的每年變化率計算出來卻是 -3%，非常地慢，<strong>我們要等 4.6 年才會降到 7% 通漲</strong>，到時候沒人知道世界已經變成怎樣。</p><p>因此需要<s>總加速師的角色</s>強制把通漲上限壓低，至於為什麼是 10% 不是 7%，則是因為想要再留一點緩衝，或許質押率又會有所變動也說不定。</p><h2>代幣經濟需要大家共同關注</h2><p>代幣經濟就像一個經濟體的央行，需要隨著市況調整。經歷一番熊市之後，許多鏈都保守地將通漲下調，避免市場負面情緒加上高通漲帶來更強的賣壓。</p><p>LikeCoin 對於通漲的反應算非常慢，接下來也該思考各種問題，譬如：</p><ol><li><p>如果質押率再次不足 67%，那麼我們是否該重新調高通漲，還是維持最高 10%？</p></li><li><p>如果市場情況好轉，我們是否該再調高通漲，如果要，用什麼標準決定？</p></li></ol><p>這些問題沒有絕對標準答案，只能尋求一個共識。</p><p>雖然這次因為召集討論不容易，以至於花了比較久的時間凝聚共識，但作為有在關注代幣經濟的驗證人，自己反應實在太慢，需要檢討。</p><p>接下來可能還有一系列跟代幣經濟相關的議案提出，未必是由我主導，但我會盡量參與討論、推進共識。</p><p>請大家到我們的 Discord server: <a target="_blank" rel="noopener noreferrer nofollow" href="https://discord.gg/likecoin">https://discord.gg/likecoin</a> 當中的 <strong>#proposal-discussion</strong> 頻道討論。</p>
