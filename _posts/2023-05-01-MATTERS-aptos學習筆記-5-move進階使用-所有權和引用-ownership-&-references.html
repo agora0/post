@@ -1,0 +1,190 @@
+---
+layout: post
+title: "[Aptos學習筆記#5]Move進階使用 - 所有權和引用 - Ownership & References"
+date: 2023-05-01 06:40:15.000000000 +00:00
+link: https://matters.news/@chwang12341/aptos%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-5-move%E9%80%B2%E9%9A%8E%E4%BD%BF%E7%94%A8-%E6%89%80%E6%9C%89%E6%AC%8A%E5%92%8C%E5%BC%95%E7%94%A8-ownership-and-references-bafybeift7uevxwrlxokm6u63gyxmmznfnaxp2xfdq5gocu55m4rnmoydky
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<figure class="image"><img src="https://assets.matters.news/embed/13ed3f92-d80b-45af-86bc-17a3a651f4d0.jpeg" data-asset-id="13ed3f92-d80b-45af-86bc-17a3a651f4d0" referrerpolicy="no-referrer"><figcaption><span>攝影師：Cliford Mervil: https://www.pexels.com/zh-tw/photo/2469122/</span></figcaption></figure><h2><br></h2><h2>目錄</h2><ul><li>作用域中的變數</li><li>move 和 copy</li><li>引用 References</li><li>Borrow 檢查 Borrow Checking</li><li>取值運算 Dereferencing</li><li>引用原生類型 Referencing Primitive Types</li></ul><h2><br></h2><h2><strong>一. 作用域中的變數</strong></h2><blockquote>每個變數只有一個所有者作用域。當所有者作用域結束後，變數就會被清除</blockquote><ul><li>所有者是擁有某變數的作用域</li><li>變數可以在作用域內被定義(像是在Script中使用let來定義變數)</li><li>也可以作為參數傳遞給作用域</li><li>每個變量只可以有一個所有者，所以當把變數作為參數傳遞給函數時，該函數就會是新的所有者，並且第一個函數已不再擁有該變數的所有權，也可以說第二個函數接管了變數的所有權</li><li>例子: 變數ａ先作為參數傳遞給了第一個函數，所以接下來當有第二個函數要使用變數a的時候就會報錯</li></ul><p>Script: 設定一個變數a，先以參數傳遞到第一個函數，所有權轉給了第一個函數，第一個函數執行完後，沒有返回變數a，所以第二個函數執行的時候，就報錯了</p><pre class="ql-syntax" spellcheck="false">script {
+    use {{sender}}::M;
+
+    fun main() {
+        // Module::T 是一個結構體 struct
+        let a : Module::T = Module::create(10);
+
+// 變數a離開了main函數
+        // 且被放到了新的作用域 M::value 函數中
+        M::value(a);
+
+        // 變數已經不存在 main 函數中
+      // 這段程式碼不會編譯 compile
+        M::value(a);
+    }
+}
+</pre><p>Module: 函數中返回的是u8類型的參數值，參t已經被drop了，所以上面Script中當執行完第一個函式後，變數a被drop了，第二個函數接著執行的時候才會報錯</p><pre class="ql-syntax" spellcheck="false">module M {
+
+    struct T { value: u8 }
+
+    public fun create(value: u8): T {
+        T { value }
+    }
+
+    // 參數t被傳進了函數 value 中
+    // value 函數拿走了它的所有權
+    public fun value(t: T): u8 {
+        t.value
+    }
+    // 函數value的作用域結束，t被刪除了，只有u8格式的值回傳
+    // t 已經不存在
+}
+</pre><p>從結果來看，當函數 value() 結束時，t已經不存在了，返回的只是一個u8類型的值。</p><p>如何讓t依然可以用呢? 有一個快速的解決方法就是返回一個元組，該元組包含原始變數和其他結果，但 Move 還有一個更好的解決方案。</p><h2><br></h2><h2>二. move 和 copy</h2><p>Ｍove VM中有兩個字節碼: MoveLoc 和 CopyLoc，</p><p>反映到 Move 語言層面，它們分別為 move 和 copy</p><h3><br></h3><h3>關鍵字 move</h3><p>當變數傳到另一個函數時，MoveLoc指令會被使用，它會被 move</p><ul><li>例子: 平常我們並不會顯示地使用關鍵字move，但程式碼依然可以正常運行，這邊我們顯示地使用來示範</li></ul><pre class="ql-syntax" spellcheck="false">script {
+    use {{sender}}::M;
+
+    fun main() {
+        let a : Module::T = Module::create(10);
+        
+        // 變數a被移動到函數作用域中
+        M::value(move a);
+
+        // main作用域中的變數a被刪除了
+    }
+}
+</pre><h3><br></h3><h3>關鍵字 copy</h3><p>使用時機: 想保留變數的值，同時僅將值的副本傳遞給某個函數</p><ul><li>例子: 當我們第一次調用函數 value 時，將變數a的副本傳給函數，並保留a在本地作用域(main function)中，以便第二次調用函數時再次使用變數a</li></ul><pre class="ql-syntax" spellcheck="false">script {
+    use {{sender}}::M;
+
+    fun main() {
+        let a : Module::T = Module::create(10);
+        
+        // 使用關鍵字 copy 來clone整個結構體
+        // 也可以這樣使用 let a_copy = copy a
+        M::value(copy a);
+        // 變數a還在main作用域中，所以可以被使用
+        M::value(a); // won't fail, a is still here
+    }
+}
+</pre><p><br></p><p><strong>重要筆記:</strong></p><ul><li>使用 copy ，其實我們實際上複製了變數值，從而增加了程序佔用的內存。</li><li>複製的數據量如果很大，內存的消耗可能會很高</li><li>在區塊鏈中，交易執行佔用的內存資源是會消耗交易費的，每個Byte都會影響交易的執行費用，因此如果過多的使用 copy 會浪費很多交易費用</li></ul><p>利用引用，可以幫助我們避免不必要的 copy 從而節省一些費用</p><h2><br></h2><h2>三. 引用 - References</h2><ul><li>指向變數的鏈接(通常是內存中的某個片段)</li><li>可以將其傳遞到程序的其他部分，而無需移動變數值</li></ul><blockquote>引用 (使用&符號來表示) 讓我們可以使用直而無需擁有所有權</blockquote><ul><li>例子: 在參數類型T前面加入了&引用符號，將參數類型T轉換成了T的引用&T</li></ul><p><strong>Move 支援兩種類型的引用</strong></p><ul><li>不可變引用 & (ex. &T): 不可變的引用讓我們可以在不更改值的情況下讀取值</li><li>可變引用 &mut (ex. &mut T): 可變引用給了我們讀取和更改值的能力</li><li>例子: 在Module中寫入兩個函數，一個使用不可變的引用，另一個使用可變的引用</li></ul><p>Module</p><pre class="ql-syntax" spellcheck="false">module M {
+    struct T { value: u8 }
+
+    // 回傳值為非引用的類型
+    public fun create(value: u8): T {
+        T { value }
+    }
+
+    // 不可變的引用，只允許讀取
+    public fun value(t: &T): u8 {
+        t.value
+    }
+
+    // 可變的引用允許讀取和改變其值
+    public fun change(t: &mut T, value: u8) {
+        t.value = value;
+    }
+}
+</pre><p>Script</p><pre class="ql-syntax" spellcheck="false">script {
+    use {{sender}}::M;
+
+    fun main() {
+        let t = M::create(10);
+
+        // 直接創建一個引用
+        M::change(&mut t, 20);
+
+        // 將一個引用賦予到一個變數
+        let mut_ref_t = &mut t;
+
+        // 使用可變的引用，並改變其值為100
+        M::change(mut_ref_t, 100);
+
+        // 不可變的引用
+        let value = M::value(&t);
+
+        // this method also takes only references
+        // printed value will be 100
+        0x1::Debug::print<u8>(&value);
+    }
+}
+</pre><blockquote>使用不可變的引用(&)從結構體中讀取數據，使用可變的引用(&mut)來修改它們</blockquote><blockquote>透過使用適當類型的引用，我們可以更加安全地讀取模塊，因為這樣的方式能告訴程式的閱讀者，該變數是否會被修改</blockquote><h2><br></h2><h2>四. Borrow 檢查 - Borrow Checking</h2><p>Move 控制了我們使用參考(Reference)的方式，這樣可以防止意外發生</p><ul><li>例子: 透過例子了解這個運作方法</li></ul><p>Module</p><pre class="ql-syntax" spellcheck="false">module Borrow {
+
+    struct B { value: u64 }
+    struct A { b: B }
+
+    // 用內部B來創建A
+    public fun create(value: u64): A {
+        A { b: B { value } }
+    }
+
+    // 給一個可變的引用到內部B
+    public fun ref_from_mut_a(a: &mut A): &mut B {
+        &mut a.b
+    }
+
+    // 改變B
+    public fun change_b(b: &mut B, value: u64) {
+        b.value = value;
+    }
+}
+</pre><p>Script</p><pre class="ql-syntax" spellcheck="false">script {
+    use {{sender}}::Borrow;
+
+    fun main() {
+        // 創建一個結構體(struct)A
+        let a = Borrow::create(0);
+
+        // 從mut A中獲取可變的引用B
+        let mut_a = &mut a;
+        let mut_b = Borrow::ref_from_mut_a(mut_a);
+
+        // 改變B
+        Borrow::change_b(mut_b, 100000);
+
+        // 從A中獲得另一個可變的引用
+        // get another mutable reference from A
+        let _ = Borrow::ref_from_mut_a(mut_a);
+    }
+}
+</pre><p>結果: 執行上是沒有問題的，我們使用對A的可變引用來獲得其內部結構B的可變引用(&mut a.b)，然後改變B</p><p>如果我們交換了最後兩段表達式，先創建一個新的A可變引用，而B的可變引用依然存在，會如何呢?</p><pre class="ql-syntax" spellcheck="false">let mut_a = &mut a;
+let mut_b = Borrow::ref_from_mut_a(mut_a);
+
+let _ = Borrow::ref_from_mut_a(mut_a);
+
+Borrow::change_b(mut_b, 100000);
+</pre><p>程式會報錯</p><pre class="ql-syntax" spellcheck="false">┌── /scripts/script.move:10:17 ───
+    │
+ 10 │         let _ = Borrow::ref_from_mut_a(mut_a);
+    │                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Invalid usage of reference as function argument. Cannot transfer a mutable reference that is being borrowed
+    ·
+  8 │         let mut_b = Borrow::ref_from_mut_a(mut_a);
+    │                     ----------------------------- It is still being mutably borrowed by this reference
+    │
+</pre><p>這段程式無法編譯，因為 &mut A 被 &mut B 借用了，如果我們在對它的內容具有可變引用的時候同時更改 A，就會陷入一個狀況，就是A可以更改但是對它內容的引用依然還在此處，如果沒有實際的B，mut_b會指向哪裡?</p><p><br></p><p><strong>我們得到一些結論</strong></p><ol><li>Move透過Borrow Checking阻止了一些狀況，造成編譯錯誤，編譯器建構一個 Borrow 圖並禁止移動借用(borrow)的值，這就是Move在區塊鏈中很安全的原因之一</li><li>我們可以從引用(reference)創建引用(reference)，這樣新的引用將會借用原始的引用，可變引用可以創建不可變與可變的引用，但不可變引用僅能創建不可變引用</li><li>當引用被借用時，它不能任意被移動，因為其它值依賴於它</li></ol><h2><br></h2><h2>五. 取值運算 - Dereferencing</h2><p>透過取值運算來獲得引用所指向的值 - 符號使用星號*表示</p><blockquote>取值運算實際上產生了一個副本，但要確定這個值具有 Copy 這個 ability 能力</blockquote><pre class="ql-syntax" spellcheck="false">module M {
+    struct T has copy {}
+    
+    // 這邊的t值是一個引用類型
+    public fun deref(t: &T): T {
+        *t
+    }
+}
+</pre><blockquote>取值運算不會將原始值移動move到目前的作用域中，而是實際上生成了一個副本</blockquote><pre class="ql-syntax" spellcheck="false">module M {
+    struct H has copy {}
+    struct T { inner: H }
+
+    // ...
+
+    // 我們透過不可變的引用一樣可以做到
+    public fun copy_inner(t: &T): H {
+        *&t.inner
+    }
+}
+</pre><p>有一個方法可以用來複製一個結構體的內部字段(fields)，使用*&來引用並取值</p><p>透過使用*&，我們複製了結構體的內部值</p><h2><br></h2><h2>六. 引用原生類型 - Referencing primitive types</h2><ul><li>原生類型，由於他們的簡單性，所以不需要作為引用傳遞，而是會以複製的方式操作</li><li>即使我們按值將它們傳遞給函數，它們也將保留在當前的範圍之中</li><li>可以刻意的使用move關鍵字來移動，但由於原生類型的大小非常小，所以複製它們甚至比透過引用傳遞或是移動move它們更便宜</li></ul><pre class="ql-syntax" spellcheck="false">script {
+    use {{sender}}::M;
+
+    fun main() {
+        let x = 10;
+        M::do_smth(a);
+        let _ = x;
+    }
+}
+</pre><p>即使我們沒有使用引用來傳遞x，這個script也會編譯，添加copy是不必要的，因為VM已經將它放入</p><h2><br></h2><h2>Reference</h2><p><a href="https://move-book.com/index.html" rel="noopener noreferrer" target="_blank">The Move Language - The Move Book</a></p>

@@ -1,0 +1,127 @@
+---
+layout: post
+title: 給自己的Python小筆記 - NumPy中的 searchsorted用法 - 實作數據装箱(分組)
+date: 2022-11-01 12:23:47.000000000 +00:00
+link: https://matters.news/@chwang12341/%E7%B5%A6%E8%87%AA%E5%B7%B1%E7%9A%84python%E5%B0%8F%E7%AD%86%E8%A8%98-num-py%E4%B8%AD%E7%9A%84-searchsorted%E7%94%A8%E6%B3%95-%E5%AF%A6%E4%BD%9C%E6%95%B8%E6%93%9A%E8%A3%85%E7%AE%B1-%E5%88%86%E7%B5%84-bafyreibo57jgpwu24rdqb3lvdqcj26j4uhfobcowvc2pegid5ngvfl6tey
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<h1><a href="https://github.com/chwang12341/Learn-Python-/blob/master/searchsorted/NumPy-Searchsorted-Method.md" target="_blank">Github連結</a></h1><figure class="image"><img src="https://assets.matters.news/embed/156338ed-a368-4e71-9e37-b1c14ce5c89c.jpeg" data-asset-id="156338ed-a368-4e71-9e37-b1c14ce5c89c" referrerpolicy="no-referrer"><figcaption><span>攝影師：Gianluca Grisenti，連結：Pexels</span></figcaption></figure><p><br></p><p><br></p><h2><strong>1.  Searchsorted 函數</strong></h2><pre class="ql-syntax">np.searchsorted(a, v, side='left', sorter = None)
+</pre><p>說明: 於數組a中插入數組v，但不實際插人，而是返回一個索引列表，表示V中的元素應該插在a中哪個位置</p><p><strong>重要提醒: </strong> 預設的狀況下sorter=None，也就是a數組要為升序數組，也就是要排好從小到大的數組</p><p><br></p><p><br></p><h2><strong>2. 參數</strong></h2><figure class="image"><img src="https://assets.matters.news/embed/8fda1fc4-613b-4b6d-8f83-617c5e9cfc50.png" data-asset-id="8fda1fc4-613b-4b6d-8f83-617c5e9cfc50" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><h2><br></h2><h2><br></h2><h2><strong>3. 實作</strong></h2><p><br></p><h3><strong>構建輸入數組</strong></h3><pre class="ql-syntax">## 導人NumPy套件
+import numpy as np
+​
+## 構建一個NumPy 數組
+x = np.array([0,2,8,10,14,17,19,25,29,32,36,58])
+x
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">array([ 0, 2, 8, 10, 14, 17, 19, 25, 29, 32, 36, 58])
+</pre><h3><br></h3><h3><strong>1. 插人單個元素</strong></h3><p><br></p><h4><strong>A. 插入輸入數組中沒有的元素(介於最大與最小值之間的數)</strong></h4><pre class="ql-syntax">## 插入單個元素
+ind1 = np.searchsorted(x, 28)
+print ('Insert 28: ', ind1)
+​
+## 設定side=left
+ind2 = np.searchsorted(x, 28, side = 'left')
+print ('Insert 28 and set side = left: ', ind2)
+​
+## 設定side = right
+ind3 = np.searchsorted(x, 28, side = 'right')
+print('Insert 28 and set side = right: ', ind3)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Insert 28: 8
+Insert 28 and set side = left: 8
+Insert 28 and set side = right: 8
+</pre><h4><br></h4><h4><strong>B. 插入比輸入數組最小值更小的元素</strong></h4><pre class="ql-syntax">## 插入比輸人數組的最小值更小的元素
+​
+## 設定side = left
+ind1 = np.searchsorted(x, -2, side = 'left')
+print('Insert 28 and set side = left: ', ind1)
+​
+## 設定side = right
+ind2 = np.searchsorted (x, -2, side = 'right')
+print('Insert 28 and set side = right: ', ind2)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Insert 28 and set side = left: 0
+Insert 28 and set side = right: 0
+</pre><h4><br></h4><h4><strong>C.  插入比輸入數組最大值更大的元素</strong></h4><pre class="ql-syntax">## 插入比輸入數组最大值更大的元素
+## 設定side = left
+ind1 = np.searchsorted (x, 99, side = 'left')
+print ('Insert 28 and set side = left: ', ind1)
+​
+## 設定side = right
+ind2 = np.searchsorted(x, 99, side = 'right')
+print('Insert 28 and set side = right: ', ind2)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Insert 28 and set side = left: 12
+Insert 28 and set side = right: 12
+</pre><h4><br></h4><h4><strong>D. 插入值跟輸入數組裡面的元素相等</strong></h4><pre class="ql-syntax">## 播入信跟輸人數组裡面的元素相等
+## 設定side=left
+ind1 = np.searchsorted(x, 2, side = 'left')
+print ('Insert 28 and set side = left: ', ind1)
+​
+## 設定side = right
+ind2 = np.searchsorted(x, 2, side = 'right')
+print('Insert 28 and set side = right: ', ind2)
+​
+​
+​
+## 當插人值跟輸入數組裡面的元素相等, side -'left'和s ide = 'right'結果是不一樣的
+## 1.side = left: 會返回與相同元素一樣的位置
+## 2.side=right:會返回相同元素的下一個位置
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Insert 28 and set side = left: 1
+Insert 28 and set side = right: 2
+</pre><p><br></p><p><strong>結果:當插入值跟输入數組裡面的元素相等，side = 'left'和side = 'right'結果是不一樣的</strong></p><ol><li>side="left": 會返回與相同元素一樣的位置</li><li>side="right": 會返回相同元素的下個位置</li></ol><h3><br></h3><h3><br></h3><h2><strong>2. 插入數組</strong></h2><pre class="ql-syntax">## 插入值為一個數組
+## 設定side = left
+ind1 = np.searchsorted(x, [-2,3,8,9,26,28,58,66], side = 'left')
+print ('Insert 28 and set side = left: ', ind1)
+​
+## 設定side = right
+ind2 = np.searchsorted(x, [-2,3,8,9, 26, 28, 58,66], side = 'right')
+print('Insert 28 and set side = right:', ind2)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">Insert 28 and set side = left: [ 0 2 2 3 8 8 11 12]
+Insert 28 and set side = right: [ 0 2 3 3 8 8 12 12]
+</pre><p>結果: 返回一個數組</p><h3><br></h3><h3><br></h3><h2><strong>3. 當輸人數據沒有排好序(升序)的狀況</strong></h2><p><br></p><p><strong>解決方法:</strong> 這時候就要設定sorter，透過np.argsort()找到沒有排好序的翰人數據的正確(升序)索引數組，再带進sorter就可以解決了</p><pre class="ql-syntax">## 當輸入數組不是升序的狀況
+## 隐機排列x數組
+np.random.shuffle(x)
+print ('x = ', x)
+​
+​
+## 要先存放x的正確排序索引值
+x_sort_index = np.argsort(x)
+print('x_sort_index: ', x_sort_index)
+​
+## 接下來才能執行插人
+​
+## 設定side = left
+ind1 = np.searchsorted (x, [-2,3,8,9,26,28, 58,66], side ='left', sorter = x_sort_index)
+print('Insert 28 and set side = left: ', ind1)
+​
+## 設定side=right
+ind2 = np.searchsorted (x, [-2,3,8,9, 26,28, 58, 66], side = 'right', sorter = x_sort_index)
+print('Insert 28 and set side right: ', ind2)
+</pre><p><strong>執行結果</strong></p><pre class="ql-syntax">x = [29 19 10 58 2 17 14 36 25 32 0 8]
+x_sort_index: [10 4 11 2 6 5 1 8 0 9 7 3]
+Insert 28 and set side = left: [ 0 2 2 3 8 8 11 12]
+Insert 28 and set side right: [ 0 2 3 3 8 8 12 12]
+</pre><h2><br></h2><h2><br></h2><h2><strong>應用範例:數據裝箱(分組)</strong></h2><ul><li>舉例: 我們有1000 個值，想將它們分別放人各個不同的數組分組中，並快速地找到它們在分組數組中的位置， 此時就可以使用searchsorted()函數找到這些值應該被放人哪個箱子</li></ul><pre class="ql-syntax">import numpy as np
+import matplotlib.pyplot as plt
+​
+## 隨機產生一個一維並擁有100個標準正態分布的值
+np.random.seed(66)
+x = np.random.randn(100)
+​
+## 自定義一個數據分組, 區間-5到5平均取20個數據點,每個區間為一個數據分組
+bins = np.linspace (-5, 5, 20)
+​
+​
+## counts為x數值落入區間的計數
+counts = np.zeros_like(bins)
+​
+## 使用searchsorted, 來獲得x每個數據點在bins中落人的區間序號
+i = np.searchsorted(bins, x)
+print('Searchsorted Index: ',i)
+​
+​
+## 使用at和add, 對x元素在每個區間的元素個數進行計算
+np.add.at(counts, i, 1)
+​
+## 視覺化
+plt.plot(bins, counts, ds = 'steps')
+</pre><p><strong>執行結果</strong></p><figure class="image"><img src="https://assets.matters.news/embed/3d61b375-b45e-4b55-9989-8a54afcb4f95.png" data-asset-id="3d61b375-b45e-4b55-9989-8a54afcb4f95" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p>

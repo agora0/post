@@ -1,0 +1,114 @@
+---
+layout: post
+title: "[Aptos學習筆記#2]Move基本使用 - 函數規則"
+date: 2023-02-21 12:36:36.000000000 +00:00
+link: https://matters.news/@chwang12341/aptos%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-2-move%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-%E5%87%BD%E6%95%B8%E8%A6%8F%E5%89%87-bafybeidknm23cydyyk2yigvxmfaklfamel55y33fvupyv4gf3iqe7gitvi
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<h2><br></h2><figure class="image"><img src="https://assets.matters.news/embed/c25d60f9-8257-4862-933e-17f52c11ef58.jpeg" data-asset-id="c25d60f9-8257-4862-933e-17f52c11ef58" referrerpolicy="no-referrer"><figcaption><span>攝影師：Nicolas Postiglioni: https://www.pexels.com/zh-tw/photo/421129/</span></figcaption></figure><p><br></p><h2>目錄</h2><ul><li>腳本中的函數(Function in Script)</li><li>模塊中的函數(Function in Module)</li><li>函數中的參數</li><li>Return返回值</li><li>函數的可見性</li><li>Native函數</li></ul><h2><br></h2><h2>Move中的函數</h2><p>函數</p><ul><li>函數以fun當關鍵字來開頭 ex. fun my_function_name(arg1: u8, arg2: u64, arg3: bool): u64 {}</li></ul><h2>腳本中的函數(Function in Script)</h2><ul><li>腳本(Script)中只能有一個被視為main的函數</li><li>main作為交易被執行，是受到很多限制的，可以有參數，但是沒有返回值</li><li>main應該被用來操作發布模塊中的其他功能</li><li>例子: 用以檢查地址是否存在的腳本</li></ul><pre class="ql-syntax" spellcheck="false">script {
+    use 0x1::Account;
+
+    fun main(addr: address) {
+        assert(Account::exists(addr), 1);
+    }
+}
+</pre><h2>模塊中的函數(Function in Module)</h2><ul><li>模塊是一組發佈的函數與結構體，可以處理一項或多項任務</li><li>函數的所有潛能只有在模塊中能夠展現，相較之下在腳本中使用函數功能是非常限制的</li><li>例子: 在模塊中寫一個會回傳1的函數</li></ul><pre class="ql-syntax" spellcheck="false">module Math {
+    fun one(): u8 {
+        1
+    }
+}
+</pre><ul><li>說明: 定義一個Math模塊，裡面有一個函數one，函數會回傳u8類型的1，由於1是返回值，所以後面沒有加分號(;)</li></ul><h2>函數的參數</h2><p>參數的規則</p><ul><li>參數需要指定類型，且使用逗號隔開每個參數</li><li>函數的返回值類型在括號與冒號後面 ex. fun one(): <返回值類型> {}</li><li>例子: 將兩數相乘的函數寫進模塊中，並在腳本中使用該函數</li></ul><p>模塊(Module): 撰寫兩數相乘函數</p><pre class="ql-syntax" spellcheck="false">module Math {
+    
+    public fun multiply(a: u64, b: u64): u64 {
+        a * b
+    }
+
+    fun one(): u8 {
+        1
+    }
+}
+</pre><p>腳本(Script): 導入兩數相乘函數到main函數中使用</p><pre class="ql-syntax" spellcheck="false">script {
+    use 0x1::Math; //這邊使用 0x1，但可以是你指定的地址
+    use 0x1::Debug;
+
+    fun main(x: u64, y: u64): u64 {
+    
+    let result = Math::multiply(x, y);
+
+    Debug::print<u64>(&result);
+    }
+
+}
+</pre><h2>Return 返回值</h2><ul><li>return使函數結束並傳回結果</li><li>例子: 根據不同條件狀況，返回不同結果</li></ul><pre class="ql-syntax" spellcheck="false">module Condition {
+    
+    public fun condition_return(x: u8): bool {
+        if (x > 5) {
+            return true
+        };
+
+        if (x == 5) {
+            true
+        } else {
+            false
+        }
+    }
+}
+</pre><h2>多個返回值</h2><ul><li>使用()來返回多個值</li><li>例子: 撰寫一個比較兩數誰大的函數，並返回哪個數大與是否相等的布林值</li></ul><p>Module: 撰寫兩數比較的函數</p><pre class="ql-syntax" spellcheck="false">module Math {
+
+    public fun compare(x: u8, y: u8): (u8, bool) {
+        if (x > y) {
+            (x, false)
+        } else if (x < y) {
+            (b, false)
+        } else {
+            (a, true)
+        }
+    }
+}
+</pre><p>Script: 使用兩數比較的函數</p><pre class="ql-syntax" spellcheck="false">script {
+    use 0x1::Debug;
+    use 0x1::Math;
+
+    fun main(x: u8, y: u8) {
+        let (max, is_equal) = Math::compare(35, 100);
+        
+        assert(is_equal, 1) // assert(condition, code)
+
+        Debug::print<u8>(&max)
+    }
+}
+</pre><p>補充 assert用法: assert(condition, code)，就是if前面那個condition條件成立，拋出後面那個code ex. assert(condition ≤ 10, 0) 參考連結: <a href="https://www.theblockbeats.info/news/31991" rel="noopener noreferrer" target="_blank">https://www.theblockbeats.info/news/31991</a></p><h2>函數可見性</h2><ul><li>我們在撰寫模塊(Module)時，希望有些函數是可以被其他人使用的，有些則希望是隱藏起來的，這時候函數可見性的修飾符號就發揮作用了</li><li>預設的情況下，模塊(Module)中的函數都是被定義為私有(private)的，無法在腳本(Script)中使用</li><li>使用public關鍵字來定義可以被腳本使用的公開函數</li><li>例子: 在Module中定義一個public函數，並從Script中使用它</li></ul><p>Module</p><pre class="ql-syntax" spellcheck="false">module Math {
+    
+    public fun multiply(a: u64, b: u64): u64 {
+        a * b
+    }
+
+    fun one(): u8 {
+        1
+    }
+}
+</pre><p>Script</p><pre class="ql-syntax" spellcheck="false">script {
+    use 0x1::Math;
+
+    fun main() {
+        Math::multiply(10, 50);
+    }
+}
+</pre><p>備註: multiply有被定義成public函數，所以可以被使用，而one函數沒有，所以不能被使用</p><h2>如何訪問私有函數</h2><ul><li>私有函數如果都沒辦法被使用的話，那就沒有任何意義了</li><li>可以在public函數中去調用private函數來執行一些任務</li></ul><p>Module</p><pre class="ql-syntax" spellcheck="false">module Math {
+    
+    public fun is_one(x: u8): bool{
+        x == one()
+    }
+
+    fun one(): u8 {
+        1
+    }
+}
+</pre><p>這樣就可以達到使用私有函數，但又不需要開放私有函數出去給其他人使用了</p><h2>Native 函數</h2><ul><li>為一種稱為Native的特殊函數，提供Move原本提供額外的功能</li><li>Native函數由VM本身定義的，且在不同的實作中可能有所不同</li><li>Native函數並沒有用Move語法實現，沒有函數體，直接用分好來結尾</li><li>用native關鍵字來標記Native函數，並且與函數可見性的修飾符不衝突，可以同時使用</li><li>例子: 定義一個Native函數，並同時為public函數(以下是Diem標準庫的例子)</li></ul><pre class="ql-syntax" spellcheck="false">module Signer {
+    native public fun borrow_address(s: &signer): &address;
+}
+</pre><h2><br></h2><h2>Reference</h2><pre class="ql-syntax" spellcheck="false"><a href="https://move-book.com/index.html" rel="noopener noreferrer" target="_blank">The Move Language - The Move Book</a>
+</pre>

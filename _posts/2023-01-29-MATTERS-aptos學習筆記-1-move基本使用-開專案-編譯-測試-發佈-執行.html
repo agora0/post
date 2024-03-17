@@ -1,0 +1,176 @@
+---
+layout: post
+title: "[Aptos學習筆記#1] Move基本使用 - 開專案、編譯、測試、發佈、執行"
+date: 2023-01-29 06:15:10.000000000 +00:00
+link: https://matters.news/@chwang12341/aptos%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-1-move%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-%E9%96%8B%E5%B0%88%E6%A1%88-%E7%B7%A8%E8%AD%AF-%E6%B8%AC%E8%A9%A6-%E7%99%BC%E4%BD%88-%E5%9F%B7%E8%A1%8C-bafybeib7256fptl6axid6owvez3vqqqrdbiorj5qlqvqdfsw3jho6nlcxe
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<p>新的一年新的機會!! 今年小弟決定開始學習區塊鏈相關技術，所以一樣嘢會將所學分享給大家</p><figure class="image"><img src="https://assets.matters.news/embed/99ebb6f6-6f36-4d83-b0dc-4d209756cf10.jpeg" data-asset-id="99ebb6f6-6f36-4d83-b0dc-4d209756cf10" referrerpolicy="no-referrer"><figcaption><span>攝影師：Pixabay: https://www.pexels.com/zh-tw/photo/433155/</span></figcaption></figure><p><br></p><h2>一. 開一個Move專案</h2><blockquote>aptos move init —name <專案名稱></blockquote><p>ex.</p><pre class="ql-syntax" spellcheck="false">(base) chihhusan@wangzhixuandeMacBook-Pro first_move % aptos move init --name first_move
+{
+  "Result": "Success"
+}
+</pre><p>結果: 產生一個source資料夾和Move.toml</p><ul><li>source: 用來放我們的Move檔案</li><li>Move.toml: 紀錄我們的Move專案資訊</li></ul><h2>二. 產生一個錢包地址</h2><blockquote>aptos init</blockquote><pre class="ql-syntax" spellcheck="false">(base) chihhusan@wangzhixuandeMacBook-Pro first_move % aptos init
+Configuring for profile default
+Choose network from [devnet, testnet, mainnet, local, custom | defaults to devnet]
+devnet
+Enter your private key as a hex literal (0x...) [Current: None | No input: Generate new key (or keep one if present)]
+
+No key given, generating key...
+Account 64b10e14645e5c264d9fcdd0a7dd2b66191b99a8716f6fe13cd000f31b27acdf doesn't exist, creating it and funding it with 100000000 Octas
+Account 64b10e14645e5c264d9fcdd0a7dd2b66191b99a8716f6fe13cd000f31b27acdf funded successfully
+
+---
+Aptos CLI is now set up for account 64b10e14645e5c264d9fcdd0a7dd2b66191b99a8716f6fe13cd000f31b27acdf as profile default!  Run `aptos --help` for more information about commands
+{
+  "Result": "Success"
+}
+</pre><p>備註: 會詢問network要用哪種，我這邊選devnet來當開發用</p><p>將地址複製到Move.toml中，並寫入<錢包名稱> = “0x<錢包地址>”</p><figure class="image"><img src="https://assets.matters.news/embed/957821ea-f807-427b-a0a0-de722a765b4a.png" data-asset-id="957821ea-f807-427b-a0a0-de722a765b4a" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><h2>三. 執行第一支Move檔案 - Hello Blockchain</h2><p>拿官網的範例 - hello_blockchain來試試看編譯、測試跟發佈</p><p><a href="https://github.com/aptos-labs/aptos-core/blob/main/aptos-move/move-examples/hello_blockchain/sources/hello_blockchain.move" rel="noopener noreferrer" target="_blank">aptos-core/hello_blockchain.move at main · aptos-labs/aptos-core</a></p><h3>3-1. 撰寫第一支Move程式</h3><p>創建一個Move檔在source資料夾內，取名hello_blockchain.move，把官網的程式碼貼上</p><p>需要修改hello_blockchain，因為我們剛剛設定的地址別名是Sender</p><pre class="ql-syntax" spellcheck="false">module Sender::message {
+    use std::error;
+    use std::signer;
+    use std::string;
+    use aptos_framework::account;
+    use aptos_framework::event;
+
+//:!:>resource
+    struct MessageHolder has key {
+        message: string::String,
+        message_change_events: event::EventHandle<MessageChangeEvent>,
+    }
+//<:!:resource
+
+    struct MessageChangeEvent has drop, store {
+        from_message: string::String,
+        to_message: string::String,
+    }
+
+    /// There is no message present
+    const ENO_MESSAGE: u64 = 0;
+
+    public fun get_message(addr: address): string::String acquires MessageHolder {
+        assert!(exists<MessageHolder>(addr), error::not_found(ENO_MESSAGE));
+        *&borrow_global<MessageHolder>(addr).message
+    }
+
+    public entry fun set_message(account: signer, message: string::String)
+    acquires MessageHolder {
+        let account_addr = signer::address_of(&account);
+        if (!exists<MessageHolder>(account_addr)) {
+            move_to(&account, MessageHolder {
+                message,
+                message_change_events: account::new_event_handle<MessageChangeEvent>(&account),
+            })
+        } else {
+            let old_message_holder = borrow_global_mut<MessageHolder>(account_addr);
+            let from_message = *&old_message_holder.message;
+            event::emit_event(&mut old_message_holder.message_change_events, MessageChangeEvent {
+                from_message,
+                to_message: copy message,
+            });
+            old_message_holder.message = message;
+        }
+    }
+
+    #[test(account = @0x1)]
+    public entry fun sender_can_set_message(account: signer) acquires MessageHolder {
+        let addr = signer::address_of(&account);
+        aptos_framework::account::create_account_for_test(addr);
+        set_message(account,  string::utf8(b"Hello, Blockchain"));
+
+        assert!(
+          get_message(addr) == string::utf8(b"Hello, Blockchain"),
+          ENO_MESSAGE
+        );
+    }
+}
+</pre><h3>3-2. 編譯</h3><blockquote>aptos move compile</blockquote><p>ex.</p><pre class="ql-syntax" spellcheck="false">(base) chihhusan@wangzhixuandeMacBook-Pro first_move % aptos move compile
+Compiling, may take a little while to download git dependencies...
+INCLUDING DEPENDENCY AptosFramework
+INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY MoveStdlib
+BUILDING first_move
+{
+  "Result": [
+    "64b10e14645e5c264d9fcdd0a7dd2b66191b99a8716f6fe13cd000f31b27acdf::message"
+  ]
+}
+</pre><p>執行完會產生一個build資料夾</p><figure class="image"><img src="https://assets.matters.news/embed/88a02a97-c46c-4d6a-9f18-11c9f21a08ca.png" data-asset-id="88a02a97-c46c-4d6a-9f18-11c9f21a08ca" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><h3>3-3. 單元測試</h3><p>需要將官網中另一支用來測試hello_blockchain的程式也一併複製下來，在source資料夾中一樣創建一個Move檔叫hello_blockchain_test.move，一樣要把hello_blockchain改成Sender喔</p><pre class="ql-syntax" spellcheck="false">#[test_only]
+module Sender::message_tests {
+    use std::signer;
+    use std::unit_test;
+    use std::vector;
+    use std::string;
+
+    use hello_blockchain::message;
+
+    fun get_account(): signer {
+        vector::pop_back(&mut unit_test::create_signers_for_testing(1))
+    }
+
+    #[test]
+    public entry fun sender_can_set_message() {
+        let account = get_account();
+        let addr = signer::address_of(&account);
+        aptos_framework::account::create_account_for_test(addr);
+        message::set_message(account,  string::utf8(b"Hello, Blockchain"));
+
+        assert!(
+          message::get_message(addr) == string::utf8(b"Hello, Blockchain"),
+          0
+        );
+    }
+}
+</pre><p>執行測試</p><blockquote>aptos move test</blockquote><p>ex.</p><pre class="ql-syntax" spellcheck="false">(base) chihhusan@wangzhixuandeMacBook-Pro first_move % aptos move test
+INCLUDING DEPENDENCY AptosFramework
+INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY MoveStdlib
+BUILDING first_move
+Running Move unit tests
+[ PASS    ] 0x64b10e14645e5c264d9fcdd0a7dd2b66191b99a8716f6fe13cd000f31b27acdf::message::sender_can_set_message
+[ PASS    ] 0x64b10e14645e5c264d9fcdd0a7dd2b66191b99a8716f6fe13cd000f31b27acdf::message_tests::sender_can_set_message
+Test result: OK. Total tests: 2; passed: 2; failed: 0
+{
+  "Result": "Success"
+}
+</pre><h3>3-4. 發佈Move</h3><p>接下來就是發佈上去了!!</p><blockquote>aptos move publish</blockquote><p>ex.</p><pre class="ql-syntax" spellcheck="false">(base) chihhusan@wangzhixuandeMacBook-Pro first_move % aptos move publish
+Compiling, may take a little while to download git dependencies...
+UPDATING GIT DEPENDENCY <https://github.com/aptos-labs/aptos-core.git>
+INCLUDING DEPENDENCY AptosFramework
+INCLUDING DEPENDENCY AptosStdlib
+INCLUDING DEPENDENCY MoveStdlib
+BUILDING first_move
+package size 1816 bytes
+Do you want to submit a transaction for a range of [728800 - 1093200] Octas at a gas unit price of 100 Octas? [yes/no] >
+yes
+{
+  "Result": {
+    "transaction_hash": "0xf818d9984367b761a4340a97b24e6f6b49e29eeef55722ba4859f2e0e596b769",
+    "gas_used": 7288,
+    "gas_unit_price": 100,
+    "sender": "64b10e14645e5c264d9fcdd0a7dd2b66191b99a8716f6fe13cd000f31b27acdf",
+    "sequence_number": 0,
+    "success": true,
+    "timestamp_us": 1673149572302249,
+    "version": 14613208,
+    "vm_status": "Executed successfully"
+  }
+}
+</pre><h3>3-5. 查看發佈上去了嗎</h3><p>大家可以連到區塊鏈瀏覽器地址: <a href="https://explorer.aptoslabs.com/" rel="noopener noreferrer" target="_blank">https://explorer.aptoslabs.com/</a>，搜尋字的的錢包地址看看，就看到了我剛剛發佈的Move了!!</p><figure class="image"><img src="https://assets.matters.news/embed/9835a4cc-8d52-4160-b1a2-23b946d2fdce.png" data-asset-id="9835a4cc-8d52-4160-b1a2-23b946d2fdce" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p><br></p><h3>3-6. 執行函數</h3><blockquote>aptos move run --function-id 'default::message::set_message' --args 'string::Hello Move!’</blockquote><p>後面Hello Move! 大家可以自行塞入想要的字串</p><p>ex.</p><pre class="ql-syntax" spellcheck="false">(base) chihhusan@wangzhixuandeMacBook-Pro first_move % aptos move run --function-id 'default::message::set_message' --args 'string::Hello Move!'
+Do you want to submit a transaction for a range of [40800 - 61200] Octas at a gas unit price of 100 Octas? [yes/no] >
+yes
+{
+  "Result": {
+    "transaction_hash": "0xd77984f3efbde9796d0577bb06a3cab4bb7b69749afe59fd60909dd3741739ad",
+    "gas_used": 408,
+    "gas_unit_price": 100,
+    "sender": "64b10e14645e5c264d9fcdd0a7dd2b66191b99a8716f6fe13cd000f31b27acdf",
+    "sequence_number": 2,
+    "success": true,
+    "timestamp_us": 1673151366638469,
+    "version": 14626044,
+    "vm_status": "Executed successfully"
+  }
+}
+</pre><p>接下來來查看我們執行的函數，連結到下面的網址</p><blockquote><a href="https://fullnode.devnet.aptoslabs.com/v1/accounts/" rel="noopener noreferrer" target="_blank">https://fullnode.devnet.aptoslabs.com/v1/accounts/</a><錢包地址>/resource/0x<錢包地址>::message::MessageHolder</blockquote><p>ex.</p><p><a href="https://fullnode.devnet.aptoslabs.com/v1/accounts/64b10e14645e5c264d9fcdd0a7dd2b66191b99a8716f6fe13cd000f31b27acdf/resource/0x64b10e14645e5c264d9fcdd0a7dd2b66191b99a8716f6fe13cd000f31b27acdf::message::MessageHolder" rel="noopener noreferrer" target="_blank">https://fullnode.devnet.aptoslabs.com/v1/accounts/64b10e14645e5c264d9fcdd0a7dd2b66191b99a8716f6fe13cd000f31b27acdf/resource/0x64b10e14645e5c264d9fcdd0a7dd2b66191b99a8716f6fe13cd000f31b27acdf::message::MessageHolder</a></p><figure class="image"><img src="https://assets.matters.news/embed/b682663d-0807-40cf-968b-3711c1876cca.png" data-asset-id="b682663d-0807-40cf-968b-3711c1876cca" referrerpolicy="no-referrer"><figcaption><span></span></figcaption></figure><p><br></p><p>太興了!! 大功告成，我們開始踏入了Aptos Move的領域了</p>

@@ -1,0 +1,16 @@
+---
+layout: post
+title: "[Aptos學習筆記#8]Move進階使用 - Resource介紹一"
+date: 2023-06-07 10:08:57.000000000 +00:00
+link: https://matters.news/@chwang12341/aptos%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-8-move%E9%80%B2%E9%9A%8E%E4%BD%BF%E7%94%A8-resource%E4%BB%8B%E7%B4%B9%E4%B8%80-bafybeibbhblppgcvesxxoaqnztgvb5nmyfaj4jw2uzghrgexaiuih2zewa
+categories: matters
+tags: blog
+author: 為自己Coding
+---
+
+<figure class="image"><img src="https://assets.matters.news/embed/ed11e09e-52ba-473b-884b-19411ab89b6a.jpeg" data-asset-id="ed11e09e-52ba-473b-884b-19411ab89b6a" referrerpolicy="no-referrer"><figcaption><span>[Aptos學習筆記#8]Move進階使用 - Resource介紹一</span></figcaption></figure><p><br></p><p><br></p><h2>目標</h2><ol><li>可編程的 Resources - Programmable Resources</li><li>Resource 是什麼?</li><li>Key 和 Store Abilities - Key and Stor Abilities</li><li>Resource 概念 - Resource concept</li></ol><h2><br></h2><h2>一. 可編程的 Resources - Programmable Resources</h2><ul><li>Resource是Move中非常關鍵的功能，它讓Move變得獨特、安全和強大</li><li>這邊引述Diem網站上對Resource的觀點描述</li></ul><ol><li>Diem: Move的關鍵特性是能夠自訂義Resource類型，它能夠編碼具有豐富編程性的安全數字資產</li><li>Diem: Resource在Move中就是一個普通的值，可以作為數據結構被儲存，或作為參數被傳遞給函數，也可以從函數中被傳回</li></ol><ul><li>Resource是一種特粗類型的結構體，它可以在Move程式中定義和創建新的資源，或使用現有的資源創建，因此，我們可以像使用任何其它數據 一樣管理數字資產 ( ex. Vector or Struct )</li></ul><ol><li>Diem: Move 類型系統為Resource提供特殊的安全保障</li><li>Diem: Move中的Resource永遠不能被複製、重用或刪除丟棄，Resource類型僅能由定義該類型的Module創建或是銷毀</li><li>Diem: 上述第4點的檢查是由Move的VM透過字節碼校驗機制 ( bytecode verification ) 強制執行，虛擬機將會拒絕運行任何未通過字節校驗機制的程式碼</li></ol><p>前面討論引用(Reference)和所有權(ownership)的筆記中，我們了解到了Move是如何保護範圍並控制變數的所有者範圍</p><p>前面討論泛型的筆記中，我們已經瞭解到一種特殊的種類匹配方式(kind-matching)可以用來區分可複製和不可複製的類型，所有這些討論到的特性都為Resource類型提供了安全性</p><ol><li>所有Diem的貨幣都是透過Diem::T類型實現的，像是LBR貨幣用Diem::TLBR::T來表示，和假設的美元貨幣用Diem::TUSD::T表示</li><li>Diem::T在Move語言中並沒有特殊地位，每個Move Resource都享有相同的保護</li></ol><p>參考資料: Move 白皮書(<a href="https://developers.diem.com/docs/technical-papers/move-paper/" rel="noopener noreferrer" target="_blank">https://developers.diem.com/docs/technical-papers/move-paper/</a>)</p><h2><br></h2><h2>二. Resource 是什麼?</h2><ul><li>Resource是一個在Move 白皮書中描述的概念</li><li>原本Resource是作為一種稱為resource的結構體實現的</li><li>但自從加入了Ability之後，Resource被實現成擁有Key和Store兩種Ability的結構體</li><li>Resource本身就是一個非常適合用來儲存數字資產的類型，要實現Resource必須是不可複製且不可被丟棄的，且同時間，Resource必須可在帳戶之間儲存和轉移</li></ul><p><br></p><p><strong>定義 - Definition</strong></p><p>Resource是一個只擁有 Key 和 Store 兩項Abilities的結構體0</p><pre class="ql-syntax" spellcheck="false">module R {
+    struct T has store, key {
+        field: u8
+    }
+}
+</pre><h2><br></h2><h2>三. Key 和 Store Abilities - Key and Stor Abilities</h2><ul><li>Key Ability允許結構體 (Struct) 用來當成是存儲標識符</li><li>Key 是一種儲存於頂層的能力 (Ability) 和 成為一個儲存 (storage)</li><li>Store是儲存在密鑰 (key) 下的能力，Store能力允許儲存值</li></ul><blockquote><strong>提醒: 雖然原生類型具備存儲(Store)能力，但他們沒有Key的能力，所以不能使用成頂層容器(top-level containers)</strong></blockquote><h2><br></h2><h2>四. Resource 概念 - Resource concept</h2><p>原本Resource在Move中擁有自己的類型，但隨著能力(Abilities)的增加，它的概念變得更加抽象了，它可以被Key 和/或 Store 能力 (Abilities)實現出來，下面列出幾項限制</p><ol><li>Resource儲存於帳戶之下，因此它只有在分配給帳戶時存在，並且只能透過此帳號訪問</li><li>帳戶只能同時持有某一種類型的一個Resource，且該Resource必須具備Key的能力</li><li>Resource不能被複製或丟棄，但可以被儲存</li><li>Resource的值被須被使用，當Resource被創建或被其他帳戶取走時，它不能被丟棄，必須被儲存或解構</li></ol>
