@@ -10,6 +10,7 @@ timezone: Asia/Singapore
 future: true
 theme: minima
 exclude:
+  - _posts/2024-05*
   - _posts/2024-04*
   - _posts/2024-03*
   - _posts/2024-02*
