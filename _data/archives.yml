@@ -1,3 +1,18 @@
+- name: 24.Q3
+  repo: https://gitlab.com/agora0/pen/24q3
+  site: https://agora0.gitlab.io/pen/24q3
+- name: 24.Q2
+  repo: https://gitlab.com/agora0/pen/24q2
+  site: https://agora0.gitlab.io/pen/24q2
+- name: 24.Q1
+  repo: https://gitlab.com/agora0/pen/24q1
+  site: https://agora0.gitlab.io/pen/24q1
+- name: 23.Q4
+  repo: https://gitlab.com/agora0/pen/23q4
+  site: https://agora0.gitlab.io/pen/23q4
+- name: 23.Q3
+  repo: https://gitlab.com/agora0/pen/23q3
+  site: https://agora0.gitlab.io/pen/23q3
 - name: 23.Q2
   repo: https://gitlab.com/agora0/pen/23q2
   site: https://agora0.gitlab.io/pen/23q2
