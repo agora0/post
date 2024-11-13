@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>BLOG⓪ | 零博客</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="BLOG⓪" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Read blog on demand." />
+<meta property="og:description" content="Read blog on demand." />
+<link rel="canonical" href="https://agora0.github.io/post/readme/" />
+<meta property="og:url" content="https://agora0.github.io/post/readme/" />
+<meta property="og:site_name" content="零博客" />
+<script type="application/ld+json">
+{"description":"Read blog on demand.","headline":"BLOG⓪","@type":"WebPage","url":"https://agora0.github.io/post/readme/","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/post/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://agora0.github.io/post/feed.xml" title="零博客" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/post/">零博客</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/post/readme/">BLOG⓪</a><a class="page-link" href="/post/covid/">C⓪V①D</a><a class="page-link" href="/post/initium/">muitinⒾ</a><a class="page-link" href="/post/inmedia/">aidemnⒾ</a><a class="page-link" href="/post/matters/">srettaⓂ</a><a class="page-link" href="/post/pq/">qⓅ</a><a class="page-link" href="/post/vocus/">sucoⓋ</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">BLOG⓪</h1>
+  </header>
+
+  <div class="post-content">
+    <p>Read blog on demand.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><a href="https://agora0.gitlab.io/blog/initium">muitinⒾ</a></th>
+      <th><a href="https://agora0.gitlab.io/blog/inmedia">aidemnⒾ</a></th>
+      <th><a href="https://agora0.gitlab.io/blog/matters">srettaⓂ</a></th>
+      <th><a href="https://agora0.gitlab.io/blog/pq">qⓅ</a></th>
+      <th><a href="https://agora0.gitlab.io/blog/vocus">sucoⓋ</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://theinitium.com/"><img src="https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/initium.jpg" alt="Initium" /></a></td>
+      <td><a href="https://inmediahk.net/"><img src="https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/inmedia.jpg" alt="Inmedia" /></a></td>
+      <td><a href="https://matters.news/"><img src="https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/matters.jpg" alt="Matters" /></a></td>
+      <td><a href="https://pourquoi.tw/"><img src="https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/pq.jpg" alt="Pq" /></a></td>
+      <td><a href="https://vocus.cc/"><img src="https://raw.githubusercontent.com/agorahub/blog0/main/img/portfolio/vocus.jpg" alt="Vocus" /></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+
+<script>
+const GH_API_URL = 'https://api.github.com/repos/agorahub/blog0/issues/1/comments?per_page=100';
+
+let request = new XMLHttpRequest();
+request.open( 'GET', GH_API_URL, true );
+request.onload = function() {
+  if ( this.status >= 200 && this.status < 400 ) {
+    let response = JSON.parse( this.response );
+    for ( var i = response.length-1; i > -1; i-- ) {
+      document.getElementById( 'gh-comments-list' ).appendChild( createCommentEl( response[ i ] ) );
+    }
+    if ( 0 === response.length ) {
+      document.getElementById( 'no-comments-found' ).style.display = 'block';
+    }
+  } else {
+    console.error( this );
+  }
+};
+
+function createCommentEl( response ) {
+  let user = document.createElement( 'a' );
+  user.setAttribute( 'href', response.user.url.replace( 'api.github.com/users', 'github.com' ) );
+  user.classList.add( 'user' );
+  let userAvatar = document.createElement( 'img' );
+  userAvatar.classList.add( 'avatar' );
+  userAvatar.setAttribute( 'src', response.user.avatar_url );
+  userAvatar.setAttribute( 'style', 'width:30px;border-radius:50%' );
+  user.appendChild( userAvatar );
+  let commentLink = document.createElement( 'a' );
+  commentLink.setAttribute( 'href', response.html_url );
+  commentLink.classList.add( 'comment-url' );
+  commentLink.innerHTML = ' 💬 #' + response.id + ' • ' + response.created_at.slice(0, 10) + '<p>';
+  let commentContents = document.createElement( 'div' );
+  commentContents.classList.add( 'comment-content' );
+  commentContents.innerHTML = response.body + '<p>';
+  if ( window.showdown ) {
+    let converter = new showdown.Converter();
+    commentContents.innerHTML = converter.makeHtml( response.body );
+  }
+  let comment = document.createElement( 'li' );
+  comment.setAttribute( 'data-created', response.created_at );
+  comment.setAttribute( 'data-author-avatar', response.user.avatar_url );
+  comment.setAttribute( 'data-user-url', response.user.url );
+  comment.appendChild( user );
+  comment.appendChild( commentLink );
+  comment.appendChild( commentContents );
+  return comment;
+}
+request.send();
+</script>
+
+<h4 id="refHints"></h4>
+<blockquote id="refQuote"></blockquote>
+<script type="text/javascript">
+  if (window.location.href.indexOf("/?")>-1) {
+    refQuote.innerHTML = decodeURIComponent(window.location.href.slice(window.location.href.indexOf('/?')+2));
+    refHints.innerHTML = "Please copy the quoted below, so that you can paste it to your new comment.";
+  }
+</script>
+
+<div class="github-comments">
+  <div id="add-new-comment" style="text-align:right"><a href="https://github.com/login?return_to=https://github.com/agorahub/blog0/issues/1%23issuecomment-new"><b>Add new comment</b></a></div>
+  <h2>Comments</h2>
+  <ul id="gh-comments-list"></ul>
+  <!--  <p id="no-comments-found">No comments found for this article.</p> -->
+  <p id="leave-a-comment"><a href="https://github.com/login?return_to=https://github.com/agorahub/blog0/issues/1%23issuecomment-new"><b>Leave a comment</b></a></p>
+</div>
+
+<div>
+  <h2>Archives</h2>
+  <p>
+  
+    【<a href="https://agora0.gitlab.io/pen/24q3"> 24.Q3 </a>】
+  
+    【<a href="https://agora0.gitlab.io/pen/24q2"> 24.Q2 </a>】
+  
+    【<a href="https://agora0.gitlab.io/pen/24q1"> 24.Q1 </a>】
+  
+    【<a href="https://agora0.gitlab.io/pen/23q4"> 23.Q4 </a>】
+  
+    【<a href="https://agora0.gitlab.io/pen/23q3"> 23.Q3 </a>】
+  
+    【<a href="https://agora0.gitlab.io/pen/23q2"> 23.Q2 </a>】
+  
+    【<a href="https://agora0.gitlab.io/pen/23q1"> 23.Q1 </a>】
+  
+    【<a href="https://agora0.gitlab.io/pen/22q4"> 22.Q4 </a>】
+  
+    【<a href="https://agora0.gitlab.io/pen/22q3"> 22.Q3 </a>】
+  
+    【<a href="https://agora0.gitlab.io/pen/22q2"> 22.Q2 </a>】
+  
+    【<a href="https://agora0.gitlab.io/pen/22q1"> 22.Q1 </a>】
+  
+    【<a href="https://agora0.gitlab.io/pen/21q4"> 21.Q4 </a>】
+  
+    【<a href="https://agora0.gitlab.io/pen/21q3"> 21.Q3 </a>】
+  
+    【<a href="https://agora0.gitlab.io/pen/21q2"> 21.Q2 </a>】
+  
+    【<a href="https://agora0.gitlab.io/pen/21q1"> 21.Q1 </a>】
+  
+    【<a href="https://agora0.gitlab.io/pen/20q4"> 20.Q4 </a>】
+  
+    【<a href="https://agora0.gitlab.io/pen/20q3"> 20.Q3 </a>】
+  
+  </p>
+</div>
+
+<h2 id="test-and-deploy">Test and Deploy</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install bundler jekyll
+$ vim _config.yml # Configure to test or deploy.
+
+$ bundle exec jekyll serve
+# =&gt; Now browse to http://localhost:4000
+
+$ JEKYLL_ENV=production bundle exec jekyll build
+# Copy the compiled codes from _site/ to html server.
+</code></pre></div></div>
+
+<h2 id="list-of-features">List of Features</h2>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Batch and Automate - Check out the <a href="https://github.com/agorahub/news0/issues/1#issuecomment-597540617">issue comment</a></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Comment and Review - Check out the <a href="https://github.com/agorahub/blog0/issues/3#issuecomment-790417947">issue comment</a></li>
+</ul>
+
+<h2 id="disclaimer">Disclaimer</h2>
+
+<p>The information and opinions within this website are for information purposes only. They are not intended to constitute legal or other professional advice, and should not be relied on or treated as a substitute for specific advice relevant to particular circumstances. We accept no responsibility for any errors, omissions or misleading statements on this website, or for any loss which may arise from reliance on materials contained on this website. Certain parts of this site may link to external Internet sites, and other external Internet sites may link to this website. We are not responsible for the content of any external Internet sites.</p>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/post/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">零博客</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">零博客</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/agorahub"><svg class="svg-icon"><use xlink:href="/post/assets/minima-social-icons.svg#github"></use></svg> <span class="username">agorahub</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Read blog on demand.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
