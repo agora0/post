@@ -1,8 +1,8 @@
 # Site settings
 title: 零博客
 description: Read blog on demand.
-baseurl: "/blog" # the subpath of your site, e.g. /blog
-url: "https://agora0.gitlab.io" # the hostname & protocol, e.g. http://example.com
+baseurl: "/post" # the subpath of your site, e.g. /blog
+url: "https://agora0.github.io" # the hostname & protocol, e.g. http://example.com
 github_username: agorahub
 
 # Build settings
