@@ -1,4 +1,167 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://agora0.github.io/post/feed.xml" rel="self" type="application/atom+xml" /><link href="https://agora0.github.io/post/" rel="alternate" type="text/html" /><updated>2025-06-29T18:00:27+08:00</updated><id>https://agora0.github.io/post/feed.xml</id><title type="html">零博客</title><subtitle>Read blog on demand.</subtitle><entry><title type="html">《一分鐘經驗CHATGPT》：運用系統思維借助AI寫出爆款文案</title><link href="https://agora0.github.io/post/matters/2025/06/29/MATTERS-%E4%B8%80%E5%88%86%E9%90%98%E7%B6%93%E9%A9%97chatgpt-%E9%81%8B%E7%94%A8%E7%B3%BB%E7%B5%B1%E6%80%9D%E7%B6%AD%E5%80%9F%E5%8A%A9ai%E5%AF%AB%E5%87%BA%E7%88%86%E6%AC%BE%E6%96%87%E6%A1%88.html" rel="alternate" type="text/html" title="《一分鐘經驗CHATGPT》：運用系統思維借助AI寫出爆款文案" /><published>2025-06-29T15:21:20+08:00</published><updated>2025-06-29T15:21:20+08:00</updated><id>https://agora0.github.io/post/matters/2025/06/29/MATTERS-%E4%B8%80%E5%88%86%E9%90%98%E7%B6%93%E9%A9%97chatgpt-%E9%81%8B%E7%94%A8%E7%B3%BB%E7%B5%B1%E6%80%9D%E7%B6%AD%E5%80%9F%E5%8A%A9ai%E5%AF%AB%E5%87%BA%E7%88%86%E6%AC%BE%E6%96%87%E6%A1%88</id><content type="html" xml:base="https://agora0.github.io/post/matters/2025/06/29/MATTERS-%E4%B8%80%E5%88%86%E9%90%98%E7%B6%93%E9%A9%97chatgpt-%E9%81%8B%E7%94%A8%E7%B3%BB%E7%B5%B1%E6%80%9D%E7%B6%AD%E5%80%9F%E5%8A%A9ai%E5%AF%AB%E5%87%BA%E7%88%86%E6%AC%BE%E6%96%87%E6%A1%88.html">&lt;h2&gt;前言&lt;/h2&gt;&lt;p&gt;CHATGPT在2022年底開始火紅，距今已經超過兩年。除了把它當作玩具，玩問答遊戲以外，人們已經找出更多有意義，有助改善生產力的用法。令我意想不到的，就是竟然有人特地寫一本書來談及如何用它大幅度提昇寫作效率與質量。今天要介紹的這本書，作者演示了如何運用自己創建的VISTA系統，用來寫各類文章，包括行銷文案、履歷、工作電郵等。本文會簡單介紹作者的背景；這本書的概要；我找到的三個亮點；以及我親自運用VISTA系統，為我自己虛構的一款粉底面霜二合一美粧產品，指令CHATGPT寫的一篇銷售文案。&lt;/p&gt;&lt;h2&gt;作者是誰？&lt;/h2&gt;&lt;p&gt;這本書的作者叫鄭偉荃，英文名字Vista，畢業於國立台灣大學工業工程學研究所。他悠遊於網路、媒體與科技產業。現任企業顧問、職業講師以及專欄作家。他同時兼任台灣最大筆記社群「我愛寫筆記」、「內容進行式」等社群的創辦人。他特別關注文化創意、內容行銷、社群媒體、電子商務，以及個人品牌發展。除了這本書以外，他還著有《文案力就是你的抄能力》、《快速圈粉的文案密碼》等十餘本書。2019年起，他推出「Vista寫作陪伴計劃」。這個全方位的寫作諮詢服務，至今已經幫助和陪伴數百位學員踏上寫作之路。&lt;/p&gt;&lt;h2&gt;這本書想說什麼？&lt;/h2&gt;&lt;p&gt;作者透過各類案例，教導讀者如何把VISTA公式應用於CHATGPT，使它為我們寫出優質文案。同時，這本書也檢閱了除CHATGPT以外的其他AI寫作工具，包括Notion AI、Shopia、Wordhero和Writecream，簡單介紹了這些工具的特色，適合何種類型的寫作，以及它們各自的長處與侷限。最後，作者還教導讀者如何運用CHATGPT充當我們的私人寫作教練。讀完這本書之後，新手作者能掌握基本寫作技巧；職業寫手的寫作技巧則能進一步提高。&lt;/p&gt;&lt;h2&gt;我找到的三個亮點：&lt;/h2&gt;&lt;p&gt;我在這本書中找到三個亮點，認為非常值得與大家分享。&lt;/p&gt;&lt;p&gt;一，VISTA文案生產系統，教我們按部就班地完成內容規劃，文案撰寫，作品測試，直至發表作品，並且獲得滿意的成果。這五個字母各自代表一個英文字，也是我們需要聚焦的範疇：&lt;/p&gt;&lt;p&gt;V: visualize：想像願景，勾勒出想達成的目標，以便建立明確的提問方向。&lt;/p&gt;&lt;p&gt;I: identify：確定問題。確定問題與挑戰的具體描述以及解決方案的更多資訊。&lt;/p&gt;&lt;p&gt;S: strategize：制定策略。制定一個具體的策略以應對確認的問題。&lt;/p&gt;&lt;p&gt;T: test：測試策略。測試制定的策略，確保它能有效應對挑戰。&lt;/p&gt;&lt;p&gt;A: act：執行計劃。執行自己制定的計劃以及監察計劃的有效性和可行性。&lt;/p&gt;&lt;p&gt;這個系統可套用於各類寫作，包括商品文案、工作電郵、履歷、銷售網頁。以下演示這個系統如何產出商品文案：&lt;/p&gt;&lt;p&gt;V: 簡短描述產品或服務，引起讀者注意、興趣和好奇心。&lt;/p&gt;&lt;p&gt;I：列出產品特點和優勢。為什麼比競爭對手的好？能滿足那些需求？&lt;/p&gt;&lt;p&gt;S：定義目標客戶；定位產品；規劃推銷策略。包括使用那些媒體；預算用多少錢做宣傳；推行銷售活動的時間表。&lt;/p&gt;&lt;p&gt;T：測試策略。收集顧客反饋；案需要調整策略。&lt;/p&gt;&lt;p&gt;A：按照訂立的策略實行推銷活動。&lt;/p&gt;&lt;p&gt;以上步驟不單涵蓋文案撰寫，而是整套銷售專案的規劃與執行。它幫助讀者認清整個銷售過程不同階段的目標。當我們需要要求CHATGPT為我們產出內容時，也能擁有清晰的方向。給出的提示也會更加精準。&lt;/p&gt;&lt;p&gt;二，除了幫助產出內容以外，CHATGPT還能充當我們的私人寫作教練，幫助和陪伴我們一步步完成寫作任務，提昇寫作技能。在書中，作者展示了如何請CHATGPT就特定寫作任務，如寫書、寫專題部落格，提供包括主題、寫作策略、文章結構、文章標題各方面的建議。此外，我們還可以把寫好的文章貼給CHATGPT，請它分析我們的寫作風格，替我們潤飾文句，以及就改善寫作技巧提供意見。CHATGPT可以是一個看不見的寫作老師。&lt;/p&gt;&lt;p&gt;三，詳細闡述CHATGPT的特性。包括它的優點和侷限。幫助讀者更懂得與CHATGPT傷處，能提出簡明易懂又精準的提問，使它更能產出我們想要的成果。作者詳細列出了使用CHATGPT的注意事項，以及整理了一個問題大全供讀者參考。閱讀這本書，不但使讀者更能聰明地運用CHATGPT幫助寫作，也能學會精準發問，用CHATGPT學習新知識。&lt;/p&gt;&lt;h2&gt;我的成果演示&lt;/h2&gt;&lt;p&gt;閱讀這本書之後，我自己也嘗試運用VISTA框架，請CHATGPT為我產出了一篇商品文案。為了測試，我虛構了一款美粧產品Bright水嫩粉底霜。以下是我用VISTA框架中的VIS創造的提示詞，以及CHATGPT根據我的要求產出的文案。&lt;/p&gt;&lt;p&gt;V:Bright水嫩粉底霜，一次過護膚保濕，化好底粧，適合匆忙的上班族。十分鐘完成自然淡雅粧容，且貼膚持久，呵護肌膚，保持肌膚水嫩幼滑。&lt;/p&gt;&lt;p&gt;I：上班族早上匆忙，但又想化個淡雅粧容，使自己整天保持自信。&lt;/p&gt;&lt;p&gt;S：粉底面霜二合一，一次過完成護膚和底粧，節省時間。不必在時間與美麗之間二選一了。&lt;/p&gt;&lt;p&gt;輸入以上的描述之後，我要求CHATGPT扮演一名熟悉美粧產品的美容師，替我寫一篇一百字左右的商品文案，要引起上班族女性的購買欲望。它不花一分鐘，就產出以下文案：&lt;/p&gt;&lt;p&gt;標題：多睡十分鐘，快速擁有水嫩美肌&lt;/p&gt;&lt;p&gt;正文：早晨匆忙，護膚還是化妝？Bright水嫩粉底霜一次搞定！結合粉底和護膚霜，十分鐘打造自然淡雅粧容，讓你多睡也能娓娓出門。持久貼膚，持久保水，讓肌膚水嫩透亮，容光煥發。不僅省時，還呵護肌膚，輕鬆應對忙碌生活。Bright水嫩粉底霜，上班族的秘密武器，讓你的每一天都自信滿滿！&lt;/p&gt;&lt;p&gt;以上文案能不能引起你購買Bright水嫩粉底霜的意欲呢？當然啦！我自己並沒有銷售方面的工作經驗。但CHATGPT有一樣好，就是你能根據自己的需求，要求它修改文章，直至你感到滿意為止。有了它作為輔助，總比從零開始寫一篇文案有效率多了。&lt;/p&gt;&lt;h2&gt;結語：透過與科技共舞提昇自己的能力&lt;/h2&gt;&lt;p&gt;人工智能發展令很多人深感不安。究竟自己現時的工作會不會被科技取代？若答案是肯定的話，又會在多少時間之後被取代呢？&lt;/p&gt;&lt;p&gt;我認為與其憂慮不如採取積極。只要我們認清自己作為人類有那些強項是科技無法擁有的；而另方面，科技又有那些我們及不上的地方，我們與科技其實能夠通力合作，各自發揮所長，大幅度提昇生產力。就如書中所說，透過運用CHATGPT，文案寫作的效率、內容質量都能大幅度提昇。我們還能用CHATGPT來學習寫作。透過它的引導、回饋，以及陪伴我們不斷練習，我們的寫作技巧也會越來越精湛。一言以蔽之，與其害怕科技，不如好好運用科技來提昇自己的競爭力。能與人競爭的永遠都是人而不是科技。作者身為一名寫作教練，經營着付費寫作社群，但仍然在書中教導我們如何用CHATGPT充當自己的私人寫作教練。一方面我很敬佩他的無私。但想深一層，作者為何不怕讀者們懂得用CHATGPT充當寫作教練之後會影響自己的生意呢？我想，他一定知道自己擁有一些東西，是CHATGPT怎樣都無法取代的吧。&lt;/p&gt;</content><author><name>陶樂思</name></author><category term="matters" /><category term="blog" /><summary type="html">前言CHATGPT在2022年底開始火紅，距今已經超過兩年。除了把它當作玩具，玩問答遊戲以外，人們已經找出更多有意義，有助改善生產力的用法。令我意想不到的，就是竟然有人特地寫一本書來談及如何用它大幅度提昇寫作效率與質量。今天要介紹的這本書，作者演示了如何運用自己創建的VISTA系統，用來寫各類文章，包括行銷文案、履歷、工作電郵等。本文會簡單介紹作者的背景；這本書的概要；我找到的三個亮點；以及我親自運用VISTA系統，為我自己虛構的一款粉底面霜二合一美粧產品，指令CHATGPT寫的一篇銷售文案。作者是誰？這本書的作者叫鄭偉荃，英文名字Vista，畢業於國立台灣大學工業工程學研究所。他悠遊於網路、媒體與科技產業。現任企業顧問、職業講師以及專欄作家。他同時兼任台灣最大筆記社群「我愛寫筆記」、「內容進行式」等社群的創辦人。他特別關注文化創意、內容行銷、社群媒體、電子商務，以及個人品牌發展。除了這本書以外，他還著有《文案力就是你的抄能力》、《快速圈粉的文案密碼》等十餘本書。2019年起，他推出「Vista寫作陪伴計劃」。這個全方位的寫作諮詢服務，至今已經幫助和陪伴數百位學員踏上寫作之路。這本書想說什麼？作者透過各類案例，教導讀者如何把VISTA公式應用於CHATGPT，使它為我們寫出優質文案。同時，這本書也檢閱了除CHATGPT以外的其他AI寫作工具，包括Notion AI、Shopia、Wordhero和Writecream，簡單介紹了這些工具的特色，適合何種類型的寫作，以及它們各自的長處與侷限。最後，作者還教導讀者如何運用CHATGPT充當我們的私人寫作教練。讀完這本書之後，新手作者能掌握基本寫作技巧；職業寫手的寫作技巧則能進一步提高。我找到的三個亮點：我在這本書中找到三個亮點，認為非常值得與大家分享。一，VISTA文案生產系統，教我們按部就班地完成內容規劃，文案撰寫，作品測試，直至發表作品，並且獲得滿意的成果。這五個字母各自代表一個英文字，也是我們需要聚焦的範疇：V: visualize：想像願景，勾勒出想達成的目標，以便建立明確的提問方向。I: identify：確定問題。確定問題與挑戰的具體描述以及解決方案的更多資訊。S: strategize：制定策略。制定一個具體的策略以應對確認的問題。T: test：測試策略。測試制定的策略，確保它能有效應對挑戰。A: act：執行計劃。執行自己制定的計劃以及監察計劃的有效性和可行性。這個系統可套用於各類寫作，包括商品文案、工作電郵、履歷、銷售網頁。以下演示這個系統如何產出商品文案：V: 簡短描述產品或服務，引起讀者注意、興趣和好奇心。I：列出產品特點和優勢。為什麼比競爭對手的好？能滿足那些需求？S：定義目標客戶；定位產品；規劃推銷策略。包括使用那些媒體；預算用多少錢做宣傳；推行銷售活動的時間表。T：測試策略。收集顧客反饋；案需要調整策略。A：按照訂立的策略實行推銷活動。以上步驟不單涵蓋文案撰寫，而是整套銷售專案的規劃與執行。它幫助讀者認清整個銷售過程不同階段的目標。當我們需要要求CHATGPT為我們產出內容時，也能擁有清晰的方向。給出的提示也會更加精準。二，除了幫助產出內容以外，CHATGPT還能充當我們的私人寫作教練，幫助和陪伴我們一步步完成寫作任務，提昇寫作技能。在書中，作者展示了如何請CHATGPT就特定寫作任務，如寫書、寫專題部落格，提供包括主題、寫作策略、文章結構、文章標題各方面的建議。此外，我們還可以把寫好的文章貼給CHATGPT，請它分析我們的寫作風格，替我們潤飾文句，以及就改善寫作技巧提供意見。CHATGPT可以是一個看不見的寫作老師。三，詳細闡述CHATGPT的特性。包括它的優點和侷限。幫助讀者更懂得與CHATGPT傷處，能提出簡明易懂又精準的提問，使它更能產出我們想要的成果。作者詳細列出了使用CHATGPT的注意事項，以及整理了一個問題大全供讀者參考。閱讀這本書，不但使讀者更能聰明地運用CHATGPT幫助寫作，也能學會精準發問，用CHATGPT學習新知識。我的成果演示閱讀這本書之後，我自己也嘗試運用VISTA框架，請CHATGPT為我產出了一篇商品文案。為了測試，我虛構了一款美粧產品Bright水嫩粉底霜。以下是我用VISTA框架中的VIS創造的提示詞，以及CHATGPT根據我的要求產出的文案。V:Bright水嫩粉底霜，一次過護膚保濕，化好底粧，適合匆忙的上班族。十分鐘完成自然淡雅粧容，且貼膚持久，呵護肌膚，保持肌膚水嫩幼滑。I：上班族早上匆忙，但又想化個淡雅粧容，使自己整天保持自信。S：粉底面霜二合一，一次過完成護膚和底粧，節省時間。不必在時間與美麗之間二選一了。輸入以上的描述之後，我要求CHATGPT扮演一名熟悉美粧產品的美容師，替我寫一篇一百字左右的商品文案，要引起上班族女性的購買欲望。它不花一分鐘，就產出以下文案：標題：多睡十分鐘，快速擁有水嫩美肌正文：早晨匆忙，護膚還是化妝？Bright水嫩粉底霜一次搞定！結合粉底和護膚霜，十分鐘打造自然淡雅粧容，讓你多睡也能娓娓出門。持久貼膚，持久保水，讓肌膚水嫩透亮，容光煥發。不僅省時，還呵護肌膚，輕鬆應對忙碌生活。Bright水嫩粉底霜，上班族的秘密武器，讓你的每一天都自信滿滿！以上文案能不能引起你購買Bright水嫩粉底霜的意欲呢？當然啦！我自己並沒有銷售方面的工作經驗。但CHATGPT有一樣好，就是你能根據自己的需求，要求它修改文章，直至你感到滿意為止。有了它作為輔助，總比從零開始寫一篇文案有效率多了。結語：透過與科技共舞提昇自己的能力人工智能發展令很多人深感不安。究竟自己現時的工作會不會被科技取代？若答案是肯定的話，又會在多少時間之後被取代呢？我認為與其憂慮不如採取積極。只要我們認清自己作為人類有那些強項是科技無法擁有的；而另方面，科技又有那些我們及不上的地方，我們與科技其實能夠通力合作，各自發揮所長，大幅度提昇生產力。就如書中所說，透過運用CHATGPT，文案寫作的效率、內容質量都能大幅度提昇。我們還能用CHATGPT來學習寫作。透過它的引導、回饋，以及陪伴我們不斷練習，我們的寫作技巧也會越來越精湛。一言以蔽之，與其害怕科技，不如好好運用科技來提昇自己的競爭力。能與人競爭的永遠都是人而不是科技。作者身為一名寫作教練，經營着付費寫作社群，但仍然在書中教導我們如何用CHATGPT充當自己的私人寫作教練。一方面我很敬佩他的無私。但想深一層，作者為何不怕讀者們懂得用CHATGPT充當寫作教練之後會影響自己的生意呢？我想，他一定知道自己擁有一些東西，是CHATGPT怎樣都無法取代的吧。</summary></entry><entry><title type="html">微故事: 十二月二十九日 (繁體字+插畫+廣東話) 試聽版</title><link href="https://agora0.github.io/post/matters/2025/06/29/MATTERS-%E5%BE%AE%E6%95%85%E4%BA%8B-%E5%8D%81%E4%BA%8C%E6%9C%88%E4%BA%8C%E5%8D%81%E4%B9%9D%E6%97%A5-(%E7%B9%81%E9%AB%94%E5%AD%97+%E6%8F%92%E7%95%AB+%E5%BB%A3%E6%9D%B1%E8%A9%B1)-%E8%A9%A6%E8%81%BD%E7%89%88.html" rel="alternate" type="text/html" title="微故事: 十二月二十九日 (繁體字+插畫+廣東話) 試聽版" /><published>2025-06-29T14:05:34+08:00</published><updated>2025-06-29T14:05:34+08:00</updated><id>https://agora0.github.io/post/matters/2025/06/29/MATTERS-%E5%BE%AE%E6%95%85%E4%BA%8B-%E5%8D%81%E4%BA%8C%E6%9C%88%E4%BA%8C%E5%8D%81%E4%B9%9D%E6%97%A5-(%E7%B9%81%E9%AB%94%E5%AD%97+%E6%8F%92%E7%95%AB+%E5%BB%A3%E6%9D%B1%E8%A9%B1)-%E8%A9%A6%E8%81%BD%E7%89%88</id><content type="html" xml:base="https://agora0.github.io/post/matters/2025/06/29/MATTERS-%E5%BE%AE%E6%95%85%E4%BA%8B-%E5%8D%81%E4%BA%8C%E6%9C%88%E4%BA%8C%E5%8D%81%E4%B9%9D%E6%97%A5-(%E7%B9%81%E9%AB%94%E5%AD%97+%E6%8F%92%E7%95%AB+%E5%BB%A3%E6%9D%B1%E8%A9%B1)-%E8%A9%A6%E8%81%BD%E7%89%88.html">&lt;p&gt;&lt;strong&gt;微故事: 十二月二十九日 (繁體字+插畫+廣東話) 試聽版&lt;/strong&gt;&lt;/p&gt;&lt;figure class=&quot;embed embed-video&quot; data-provider=&quot;youtube&quot;&gt;&lt;div class=&quot;iframe-container&quot;&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/ec9fA5F99Ag?rel=0&quot; loading=&quot;lazy&quot; allowfullscreen frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;微故事: 十二月二十九日 (繁體字+插畫+廣東話)&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;簡介：&lt;/p&gt;&lt;p&gt;阿凡在每年的十二月二十九日經歷相同的生活事件，包括遇到紅衣女郎、營業員的讚美和公司的人事警告。他開始懷疑時間的奇妙重複，並試圖改變一些細節，但遭遇挫折。隨著年復一年的重複，阿凡對這些事件的反應從新奇轉變為麻木...&lt;/p&gt;&lt;p&gt;音頻時間: 11分鐘35秒&lt;/p&gt;&lt;p&gt;圖片: 12張&lt;/p&gt;&lt;p&gt;背景音樂: Audionautix-Rags 2 Riches Rag / E's Jammy Jams-By The Light of the Silvery Moon&lt;/p&gt;&lt;p&gt;文. 東加豆, Tonkabean&lt;/p&gt;&lt;p&gt;圖.聲. 人工智豆&lt;/p&gt;&lt;p&gt;故事購買點:&lt;/p&gt;&lt;p&gt;&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://play.google.com/store/books/details/_____?id=ozVoEQAAQBAJ&quot;&gt;&lt;strong&gt;https://play.google.com/store/books/details/東加豆_微故事_十二月二十九日_繁體字_插&lt;/strong&gt;&lt;/a&gt;&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://play.google.com/store/books/details/%E6%9D%B1%E5%8A%A0%E8%B1%86_%E5%BE%AE%E6%95%85%E4%BA%8B_%E5%8D%81%E4%BA%8C%E6%9C%88%E4%BA%8C%E5%8D%81%E4%B9%9D%E6%97%A5_%E7%B9%81%E9%AB%94%E5%AD%97_%E6%8F%92%E7%95%AB_%E5%BB%A3%E6%9D%B1%E8%A9%B1?id=ozVoEQAAQBAJ&quot;&gt;&lt;strong&gt;畫_廣東話?id=ozVoEQAAQBAJ&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://www.pubu.com.tw/ebook/581171&quot;&gt;&lt;strong&gt;https://www.pubu.com.tw/ebook/581171&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;阿豆的有聲故事頻道:&lt;/p&gt;&lt;p&gt;&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://www.youtube.com/watch?v=5SSYboodWn4&amp;list=PLWeR7IEFtxloYZDYDC2gWeUATonTL-XNg&quot;&gt;&lt;strong&gt;https://www.youtube.com/watch?v=5SSYboodWn4&amp;list=PLWeR7IEFtxloYZDYDC2gWeUATonTL-XNg&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;br class=&quot;smart&quot;&gt;謝謝大家!&lt;/p&gt;&lt;p&gt;阿豆&lt;/p&gt;&lt;p&gt;&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://www.tonkabean.me/&quot;&gt;www.tonkabean.me/&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;br class=&quot;smart&quot;&gt;&lt;/p&gt;</content><author><name>東加豆</name></author><category term="matters" /><category term="blog" /><summary type="html">微故事: 十二月二十九日 (繁體字+插畫+廣東話) 試聽版微故事: 十二月二十九日 (繁體字+插畫+廣東話)簡介：阿凡在每年的十二月二十九日經歷相同的生活事件，包括遇到紅衣女郎、營業員的讚美和公司的人事警告。他開始懷疑時間的奇妙重複，並試圖改變一些細節，但遭遇挫折。隨著年復一年的重複，阿凡對這些事件的反應從新奇轉變為麻木...音頻時間: 11分鐘35秒圖片: 12張背景音樂: Audionautix-Rags 2 Riches Rag / E's Jammy Jams-By The Light of the Silvery Moon文. 東加豆, Tonkabean圖.聲. 人工智豆故事購買點:https://play.google.com/store/books/details/東加豆_微故事_十二月二十九日_繁體字_插畫_廣東話?id=ozVoEQAAQBAJhttps://www.pubu.com.tw/ebook/581171阿豆的有聲故事頻道:https://www.youtube.com/watch?v=5SSYboodWn4&amp;list=PLWeR7IEFtxloYZDYDC2gWeUATonTL-XNg謝謝大家!阿豆www.tonkabean.me/</summary></entry><entry><title type="html">烏龜流浪在公園無人理 社區實踐計劃關注福祉：佢哋都會肚餓</title><link href="https://agora0.github.io/post/inmedia/2025/06/29/INMEDIA-%E7%83%8F%E9%BE%9C%E6%B5%81%E6%B5%AA%E5%9C%A8%E5%85%AC%E5%9C%92%E7%84%A1%E4%BA%BA%E7%90%86-%E7%A4%BE%E5%8D%80%E5%AF%A6%E8%B8%90%E8%A8%88%E5%8A%83%E9%97%9C%E6%B3%A8%E7%A6%8F%E7%A5%89-%E4%BD%A2%E5%93%8B%E9%83%BD%E6%9C%83%E8%82%9A%E9%A4%93.html" rel="alternate" type="text/html" title="烏龜流浪在公園無人理 社區實踐計劃關注福祉：佢哋都會肚餓" /><published>2025-06-29T12:18:45+08:00</published><updated>2025-06-29T12:18:45+08:00</updated><id>https://agora0.github.io/post/inmedia/2025/06/29/INMEDIA-%E7%83%8F%E9%BE%9C%E6%B5%81%E6%B5%AA%E5%9C%A8%E5%85%AC%E5%9C%92%E7%84%A1%E4%BA%BA%E7%90%86-%E7%A4%BE%E5%8D%80%E5%AF%A6%E8%B8%90%E8%A8%88%E5%8A%83%E9%97%9C%E6%B3%A8%E7%A6%8F%E7%A5%89-%E4%BD%A2%E5%93%8B%E9%83%BD%E6%9C%83%E8%82%9A%E9%A4%93</id><content type="html" xml:base="https://agora0.github.io/post/inmedia/2025/06/29/INMEDIA-%E7%83%8F%E9%BE%9C%E6%B5%81%E6%B5%AA%E5%9C%A8%E5%85%AC%E5%9C%92%E7%84%A1%E4%BA%BA%E7%90%86-%E7%A4%BE%E5%8D%80%E5%AF%A6%E8%B8%90%E8%A8%88%E5%8A%83%E9%97%9C%E6%B3%A8%E7%A6%8F%E7%A5%89-%E4%BD%A2%E5%93%8B%E9%83%BD%E6%9C%83%E8%82%9A%E9%A4%93.html">&lt;img src=&quot;https://www.inmediahk.net/files/column_images/202506292.png&quot; /&gt;&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;p&gt;&lt;font color=&quot;red&quot;&gt;【獨媒報導】&lt;/font&gt;柴灣公園的水池，隨處可見「請勿把魚／龜放進水池」及「請勿餵飼魚／龜」的告示牌，不過池內料生活有逾500隻不同品種的烏龜。牠們有的在水中自在暢泳，有的伏在石頭上享受日光浴，牠們不少是被棄養。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://agora0.github.io/post/feed.xml" rel="self" type="application/atom+xml" /><link href="https://agora0.github.io/post/" rel="alternate" type="text/html" /><updated>2025-06-30T08:00:30+08:00</updated><id>https://agora0.github.io/post/feed.xml</id><title type="html">零博客</title><subtitle>Read blog on demand.</subtitle><entry><title type="html">香港社民连指因巨大政治压力解散：有愧于心但没其他选择｜Whatsnew</title><link href="https://agora0.github.io/post/initium/2025/06/29/INITIUM-%E9%A6%99%E6%B8%AF%E7%A4%BE%E6%B0%91%E8%BF%9E%E6%8C%87%E5%9B%A0%E5%B7%A8%E5%A4%A7%E6%94%BF%E6%B2%BB%E5%8E%8B%E5%8A%9B%E8%A7%A3%E6%95%A3-%E6%9C%89%E6%84%A7%E4%BA%8E%E5%BF%83%E4%BD%86%E6%B2%A1%E5%85%B6%E4%BB%96%E9%80%89%E6%8B%A9-whatsnew.html" rel="alternate" type="text/html" title="香港社民连指因巨大政治压力解散：有愧于心但没其他选择｜Whatsnew" /><published>2025-06-29T19:27:50+08:00</published><updated>2025-06-29T19:27:50+08:00</updated><id>https://agora0.github.io/post/initium/2025/06/29/INITIUM-%E9%A6%99%E6%B8%AF%E7%A4%BE%E6%B0%91%E8%BF%9E%E6%8C%87%E5%9B%A0%E5%B7%A8%E5%A4%A7%E6%94%BF%E6%B2%BB%E5%8E%8B%E5%8A%9B%E8%A7%A3%E6%95%A3-%E6%9C%89%E6%84%A7%E4%BA%8E%E5%BF%83%E4%BD%86%E6%B2%A1%E5%85%B6%E4%BB%96%E9%80%89%E6%8B%A9-whatsnew</id><content type="html" xml:base="https://agora0.github.io/post/initium/2025/06/29/INITIUM-%E9%A6%99%E6%B8%AF%E7%A4%BE%E6%B0%91%E8%BF%9E%E6%8C%87%E5%9B%A0%E5%B7%A8%E5%A4%A7%E6%94%BF%E6%B2%BB%E5%8E%8B%E5%8A%9B%E8%A7%A3%E6%95%A3-%E6%9C%89%E6%84%A7%E4%BA%8E%E5%BF%83%E4%BD%86%E6%B2%A1%E5%85%B6%E4%BB%96%E9%80%89%E6%8B%A9-whatsnew.html">&lt;blockquote&gt;&lt;p&gt;&lt;em&gt;被问及香港未来民主路，陈宝莹回答：“我不想将任何虚假的希望给任何人，包括我自己。”&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;   &lt;figure&gt;&lt;img src=&quot;https://theinitium.com/wp-content/uploads/2025/06/CT_2596-1.jpg?w=1080&quot; referrerpolicy=&quot;no-referrer&quot;&gt;  &lt;figcaption&gt;2025年6月29日，社会民主连线（社民连）召开记者会公布解散，出席的包括党主席陈宝莹、副主席周嘉发、副主席余炜彬、成员黄浩铭、曾健成和陈皓桓。另外，刚出狱的岑子杰亦有到场。摄：林振东/端传媒
+&lt;/figcaption&gt;  &lt;/figure&gt;   
+
+&lt;p&gt;成立19年、香港仅余的反对派政党社会民主连线今日（6月29日）宣布解散。主席陈宝莹在记者会表示，明年5月1日劳动节将会是社民连成立20周年纪念日，但可惜社民连无法生存到这个日子。“面对强大政治压力，在考虑各方面因素，特别是对会员和同行者的影响，我们只能够沉痛地宣布解散。”&lt;/p&gt;
+
+
+
+&lt;p&gt;陈宝莹指，社民连已经根据程序，一致通过解散，没有党产须处理，即使有剩余现金，亦要面对税务和债务，日后会再跟进社团注册的后续。她没有透露何时开始思考解散和表决解散的具体日子。&lt;/p&gt;
+
+
+
+&lt;p&gt;记者多次追问压力的来源与细节，陈宝莹表示能够发表的内容已在声明之中，“我没有办法可以更进一步去 elaborate 这个理由。”但她指在现今很大的政治压力之下，社民连面对沉重压力，尤其在民主党于年初解散后，该党成为唯一仍活跃的政治团体，当时她已向记者表示“覆巢之下，岂有完卵”。&lt;/p&gt;
+
+
+
+&lt;p&gt;早前有消息指，社民连在今年曾三度获“传话人”提醒，要求必须于七一前解散。选择在7月1日和国安法颁布5周年前夕解散，陈宝莹形容“是一个无可奈何的决定 。”另有传媒提问，社民连回避谈及解散的细节，是否与国安法附例中“不可向外披露消息”的规定有关，她回答说：“大家领会啦，现在香港很多事情都不能够‘画公仔画到出肠’。”&lt;/p&gt;
+
+
+
+&lt;p&gt;陈宝莹表示，他们已向因47人案罪成而身处狱中的梁国雄告知解散决定，梁国雄与在座的成员一样觉得解散决定属“无办法”，最重要的是“在座的人平安”。&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img decoding=&quot;async&quot; width=&quot;3500&quot; &quot;2333&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/06/CT_2767-1.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-282251&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;2025年6月29日，社民连召开记者会公布解散。摄：林振东/端传媒&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-1&quot;&gt;问及民主前路，陈宝莹：不想给假希望&lt;/h2&gt;
+
+
+
+&lt;p&gt;是次记者会以“宁化飞灰 不作浮尘”为题。在解散声明中，社民连表示对走到尽头“有愧于心”，“因为明白在骨牌效应下，社民连不会是最后一个宣布‘自愿’解散的政党。”陈宝莹指社民连解散不只影响支持者和会员，而是整个香港社会，“但是我只能说：很抱歉。希望未来的日子，我们可以继续过去做的事，对于政府的批评、对于不公义事件提出意见。”&lt;/p&gt;
+
+
+
+&lt;p&gt;她又说，社民连在近年写文章、摆街站，相比以往的抗争是“不合格”，但他们不愿意自愿解散，仍坚持微弱行动，“我们可以说一点也不惭愧，可以骄傲地说：这几年对于香港的民主运动，我们有一定的贡献和位置。”她认为社民连不负初心和狱中人的委托，“现在我们被迫要解散，我说了是有愧于心，但是我们现在没有第二个选择。”&lt;/p&gt;
+
+
+
+&lt;p&gt;她指，“社民连的存在如做街站、去请愿，其实是小到无可再小的行动，对社会和政府无任何影响，但这是市民的公民权利，社民连坚持的是这一件事：我们的公民权利，不应自动放弃。”&lt;/p&gt;
+
+
+
+&lt;p&gt;“我强调我们无罪可畏，无罪可惧，但我们更加要尊重人的尊严，人的权利，人的自由，所以我们只能作这样的决定。”她指港府以法律为武器针对异议者，如过去5年，社民连有6人入狱，即使狱外的成员亦被“阴干”——遭受票控、取消银行户口等等。&lt;/p&gt;
+
+
+
+&lt;p&gt;被问及社民连解散在一国两制下的意味，陈宝莹指中央政府近年推行港区国安法，她认为一国两制在“很多年以前已经结束”、“变成一国一制”。对于香港未来民主路，她回答：“我不认为香港会在不久的将来走向民主制度，我不想将任何虚假的希望给任何人，包括我自己。所以我经常强调未来是很艰难的，如果你想行使一个市民的权利。”&lt;/p&gt;
+
+
+
+&lt;p&gt;“甚至我们现在正面对所谓‘软对抗’（的指控），似乎所有人……不只是政客、社运人士，还有所有普通香港人，他们要三思，当他们聘请员工、做生意，或者去做文化工作，他们都要三思。”她补充。“现在在香港，所有事都被政治化。”&lt;/p&gt;
+
+
+
+&lt;p&gt;但她强调，人作为个体仍然拥有信念和选择：“我想我们会一边继续生存，另一边尝试去行使公民权利。”&lt;/p&gt;
+
+
+
+&lt;p&gt;她未回答众人于解散后会否以独立身份参与政治，她强调成员对政治权利和弱势社群的关注和争取，未会因组织解散而消失，但现在不会回答具体方法。&lt;/p&gt;
+
+
+
+&lt;p&gt;社民连成员最后手持红玫瑰合照。陈宝莹指红玫瑰既是党花，亦在全国际左翼运动中代表人的尊严，是社民连的初衷。她重申，“飞灰和浮尘都是很细微，和站在这里的人或全香港市民一样，都是卑微到极点的。但飞灰还有光、有热，我期盼这是一个自勉，对其他人也是，希望在黑暗的时代，作为飞灰，在黑暗中有少少的亮光。”&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;3500&quot; &quot;2333&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/06/CT_2385-1.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-282247&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;2025年6月29日，社民连召开记者会公布解散，黄浩铭发言时，陈宝莹落泪。摄：林振东/端传媒&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-2&quot;&gt;社民连：解散标志“香港社会改造工程的里程碑”&lt;/h2&gt;
+
+
+
+&lt;p&gt;宣读解散声明后，一众出席的骨干成员发表感受。&lt;/p&gt;
+
+
+
+&lt;p&gt;外务副主席周嘉发在2011年加入社民连，2021年有多位核心成员入狱之际，他与其他成员接棒，希望在香港坚持仅余左翼声音，亦是让狱中的人知道他们在发声。他形容这4年的日子困难重重，以往社民连举办公投和游行发表意见，但现在只可以派传单和演讲，如“踩钢线般困难”，而政党没有户口和方法去招新会员，是不寻常的状况。&lt;/p&gt;
+
+
+
+&lt;p&gt;他希望后人记得在街上派传单曾经是平凡之事，以及各界继续坚持岗位。周嘉发又指，“希望政府明白，这样继续无止境去树立新的敌人，对于整个社会的和谐发展并没有好处。”&lt;/p&gt;
+
+
+
+&lt;p&gt;社民连内务副主席余炜彬认为，社民连的困难反映社会言论空间、表达自由和组织权利受限，而社民连的解散标志著“香港社会改造工程的里程碑”，“持不同意见的人都不存在，政权的施政丧失最后一只黑羊。”&lt;/p&gt;
+
+
+
+&lt;p&gt;社民连前主席黄浩铭加入该党17年，他逐一向前成员和成员表示谢意。黄浩铭指梁国雄在多个晚上捧酒杯、吸烟跟他聊天，教他人生处世等等，而曾健成在2011年与他一起抗议和被捕，留下他人生首个案底，以及陈皓桓在他竞选立法会和及后入狱期间打点一切，又邀请他参与反修例游行。他又感谢前成员岑子杰参选沥源区议员，以及陈宝莹、周嘉发和余炜彬临危受托，领导政党。&lt;/p&gt;
+
+
+
+&lt;p&gt;黄浩铭相信，2019年区议会选举显示的民情未变，留下来和离港的人争取民主的心仍然炽热。他发言期间，陈宝莹一度以纸巾拭泪。&lt;/p&gt;
+
+
+
+&lt;p&gt;同为社民连成员的陈皓桓则感谢过去支持者、成员和义工的付出和同行，他提到社民连关注难民、外佣、同志和劳工等弱势社群，“就算社民连解散，我希望香港的市民能够继续关注弱势，能够为不公义的事继续发声。”曾健成则指现时“由治及兴、鸦雀无声”，又祝福香港人“平安是福”、“大家留返条命”。&lt;/p&gt;
+
+
+
+&lt;p&gt;早前47人案刑满出狱的岑子杰已退出社民连，他出席记者会时表示心怀恐惧和紧张，不知道有什么可说不可说。他谈及社民连创党时连结不同群体，包括同志群体，是首个将性小众议题放进政纲的政党。他哽咽道，“社民连曾经在同志最艰难的日子，站在同志的身边。在社民连最艰难的日子，我都想仍然站在你们的身边。”&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;3500&quot; &quot;2334&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/06/CT_2476-1.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-282248&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;2025年6月29日，社民连召开记者会公布解散，岑子杰发言。摄：林振东/端传媒&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-3&quot;&gt;骨干入狱、遭受票控，近年仍保持活跃&lt;/h2&gt;
+
+
+
+&lt;p&gt;疫情期间，限聚令使政治活动受阻，及后国安法落地，政治空间猛然缩窄，泛民政党和公民团体接连解散。不过社民连保持活跃，继续在政治和民生议题上表态，这包括劳工权益、23条立法和防疫规定等。其成员多次发起请愿、游行和示威，又定期摆街站，被执法人员以各类原因检控。&lt;/p&gt;
+
+
+
+&lt;p&gt;其中，2023年2月民主派初选案开审，陈宝莹、周嘉发和曾健成在西九龙裁判法院外拉横额示威，周被指曾拉下口罩约5秒，涉嫌违反口罩令，罚款1万元。上年5月，社民连5名成员在47人案认罪被告判决当日在法院外示威，被警方以涉嫌“在公众地方行为不检”拘捕。&lt;/p&gt;
+
+
+
+&lt;p&gt;2021年至2023年期间，社民连至少收到35张与街站有关的警方告票，被控非法筹款和未经准许而展示海报等。2023年初，社民连的街站以黑布代替大字标语，但仍然遭票控，街站的规模因而缩小，至剩下一张桌子。今年六四前夕，周嘉发表示警方询问多位社民连成员和义工在当日的行程及约见。&lt;/p&gt;
+
+
+
+&lt;p&gt;社民连成员梁国雄和岑子杰为初选案47名被告之一，因“串谋颠覆国家政权”罪罪成，分别被判囚6年9个月和4年3个月。岑子杰早前刑满出狱。&lt;/p&gt;
+
+
+
+&lt;p&gt;去年11月判决日后，社民连在专页发布梁国雄致陈宝莹的家书，他表示“现在的厄运是由于政治逼害的牢狱”，又对自己未能跟陈无拘无束相爱而感到遗憾。不过他对以往的言行及因此而入狱不悔疚，“从我在70年代开始参与政治运动及社会抗争，是一种出于改变社会不公义不合理的愿望，争取民主，实现社会主义，并没有错。”&lt;/p&gt;
+
+
+
+&lt;p&gt;社民连解散消息传出后，《文汇报》在6月28日刊登题为“祸港二十年 社民连终收档”的文章。新民党李梓敬受访时表示，社民连是“香港暴力政治的始作俑者”，更涉嫌勾结外部势力和诋毁国安法。他形容社民连为“毒瘤”，“其解散是香港重塑法治与稳定的必然一步。”而全国政协委员、自由党李镇强则指社民连是“反中乱港的始作俑者”，挑战“一国两制”底线，宣布解散是“咎由自取”和“意料之中”。&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;3500&quot; &quot;2333&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/06/CT_2703-1.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-282250&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;2025年6月29日，社民连召开记者会公布解散。摄：林振东/端传媒&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;entry-footer border-t border-grey-400 pt-6&quot;&gt;
+
+&lt;div class=&quot;entry-copyright&quot;&gt;&lt;figure&gt;&lt;small&gt;
+&lt;p class=&quot;caption2&quot;&gt;
+本刊载内容版权为端传媒或相关单位所有，未经&lt;a href=&quot;mailto:editor@theinitium.com&quot;&gt;端传媒编辑部&lt;/a&gt;授权，请勿转载或拷贝，否则即为侵权。&lt;/p&gt;
+&lt;/small&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;/div&gt;</content><author><name>端传媒编辑部</name></author><category term="initium" /><category term="blog" /><summary type="html">被问及香港未来民主路，陈宝莹回答：“我不想将任何虚假的希望给任何人，包括我自己。” 2025年6月29日，社会民主连线（社民连）召开记者会公布解散，出席的包括党主席陈宝莹、副主席周嘉发、副主席余炜彬、成员黄浩铭、曾健成和陈皓桓。另外，刚出狱的岑子杰亦有到场。摄：林振东/端传媒</summary></entry><entry><title type="html">《一分鐘經驗CHATGPT》：運用系統思維借助AI寫出爆款文案</title><link href="https://agora0.github.io/post/matters/2025/06/29/MATTERS-%E4%B8%80%E5%88%86%E9%90%98%E7%B6%93%E9%A9%97chatgpt-%E9%81%8B%E7%94%A8%E7%B3%BB%E7%B5%B1%E6%80%9D%E7%B6%AD%E5%80%9F%E5%8A%A9ai%E5%AF%AB%E5%87%BA%E7%88%86%E6%AC%BE%E6%96%87%E6%A1%88.html" rel="alternate" type="text/html" title="《一分鐘經驗CHATGPT》：運用系統思維借助AI寫出爆款文案" /><published>2025-06-29T15:21:20+08:00</published><updated>2025-06-29T15:21:20+08:00</updated><id>https://agora0.github.io/post/matters/2025/06/29/MATTERS-%E4%B8%80%E5%88%86%E9%90%98%E7%B6%93%E9%A9%97chatgpt-%E9%81%8B%E7%94%A8%E7%B3%BB%E7%B5%B1%E6%80%9D%E7%B6%AD%E5%80%9F%E5%8A%A9ai%E5%AF%AB%E5%87%BA%E7%88%86%E6%AC%BE%E6%96%87%E6%A1%88</id><content type="html" xml:base="https://agora0.github.io/post/matters/2025/06/29/MATTERS-%E4%B8%80%E5%88%86%E9%90%98%E7%B6%93%E9%A9%97chatgpt-%E9%81%8B%E7%94%A8%E7%B3%BB%E7%B5%B1%E6%80%9D%E7%B6%AD%E5%80%9F%E5%8A%A9ai%E5%AF%AB%E5%87%BA%E7%88%86%E6%AC%BE%E6%96%87%E6%A1%88.html">&lt;h2&gt;前言&lt;/h2&gt;&lt;p&gt;CHATGPT在2022年底開始火紅，距今已經超過兩年。除了把它當作玩具，玩問答遊戲以外，人們已經找出更多有意義，有助改善生產力的用法。令我意想不到的，就是竟然有人特地寫一本書來談及如何用它大幅度提昇寫作效率與質量。今天要介紹的這本書，作者演示了如何運用自己創建的VISTA系統，用來寫各類文章，包括行銷文案、履歷、工作電郵等。本文會簡單介紹作者的背景；這本書的概要；我找到的三個亮點；以及我親自運用VISTA系統，為我自己虛構的一款粉底面霜二合一美粧產品，指令CHATGPT寫的一篇銷售文案。&lt;/p&gt;&lt;h2&gt;作者是誰？&lt;/h2&gt;&lt;p&gt;這本書的作者叫鄭偉荃，英文名字Vista，畢業於國立台灣大學工業工程學研究所。他悠遊於網路、媒體與科技產業。現任企業顧問、職業講師以及專欄作家。他同時兼任台灣最大筆記社群「我愛寫筆記」、「內容進行式」等社群的創辦人。他特別關注文化創意、內容行銷、社群媒體、電子商務，以及個人品牌發展。除了這本書以外，他還著有《文案力就是你的抄能力》、《快速圈粉的文案密碼》等十餘本書。2019年起，他推出「Vista寫作陪伴計劃」。這個全方位的寫作諮詢服務，至今已經幫助和陪伴數百位學員踏上寫作之路。&lt;/p&gt;&lt;h2&gt;這本書想說什麼？&lt;/h2&gt;&lt;p&gt;作者透過各類案例，教導讀者如何把VISTA公式應用於CHATGPT，使它為我們寫出優質文案。同時，這本書也檢閱了除CHATGPT以外的其他AI寫作工具，包括Notion AI、Shopia、Wordhero和Writecream，簡單介紹了這些工具的特色，適合何種類型的寫作，以及它們各自的長處與侷限。最後，作者還教導讀者如何運用CHATGPT充當我們的私人寫作教練。讀完這本書之後，新手作者能掌握基本寫作技巧；職業寫手的寫作技巧則能進一步提高。&lt;/p&gt;&lt;h2&gt;我找到的三個亮點：&lt;/h2&gt;&lt;p&gt;我在這本書中找到三個亮點，認為非常值得與大家分享。&lt;/p&gt;&lt;p&gt;一，VISTA文案生產系統，教我們按部就班地完成內容規劃，文案撰寫，作品測試，直至發表作品，並且獲得滿意的成果。這五個字母各自代表一個英文字，也是我們需要聚焦的範疇：&lt;/p&gt;&lt;p&gt;V: visualize：想像願景，勾勒出想達成的目標，以便建立明確的提問方向。&lt;/p&gt;&lt;p&gt;I: identify：確定問題。確定問題與挑戰的具體描述以及解決方案的更多資訊。&lt;/p&gt;&lt;p&gt;S: strategize：制定策略。制定一個具體的策略以應對確認的問題。&lt;/p&gt;&lt;p&gt;T: test：測試策略。測試制定的策略，確保它能有效應對挑戰。&lt;/p&gt;&lt;p&gt;A: act：執行計劃。執行自己制定的計劃以及監察計劃的有效性和可行性。&lt;/p&gt;&lt;p&gt;這個系統可套用於各類寫作，包括商品文案、工作電郵、履歷、銷售網頁。以下演示這個系統如何產出商品文案：&lt;/p&gt;&lt;p&gt;V: 簡短描述產品或服務，引起讀者注意、興趣和好奇心。&lt;/p&gt;&lt;p&gt;I：列出產品特點和優勢。為什麼比競爭對手的好？能滿足那些需求？&lt;/p&gt;&lt;p&gt;S：定義目標客戶；定位產品；規劃推銷策略。包括使用那些媒體；預算用多少錢做宣傳；推行銷售活動的時間表。&lt;/p&gt;&lt;p&gt;T：測試策略。收集顧客反饋；案需要調整策略。&lt;/p&gt;&lt;p&gt;A：按照訂立的策略實行推銷活動。&lt;/p&gt;&lt;p&gt;以上步驟不單涵蓋文案撰寫，而是整套銷售專案的規劃與執行。它幫助讀者認清整個銷售過程不同階段的目標。當我們需要要求CHATGPT為我們產出內容時，也能擁有清晰的方向。給出的提示也會更加精準。&lt;/p&gt;&lt;p&gt;二，除了幫助產出內容以外，CHATGPT還能充當我們的私人寫作教練，幫助和陪伴我們一步步完成寫作任務，提昇寫作技能。在書中，作者展示了如何請CHATGPT就特定寫作任務，如寫書、寫專題部落格，提供包括主題、寫作策略、文章結構、文章標題各方面的建議。此外，我們還可以把寫好的文章貼給CHATGPT，請它分析我們的寫作風格，替我們潤飾文句，以及就改善寫作技巧提供意見。CHATGPT可以是一個看不見的寫作老師。&lt;/p&gt;&lt;p&gt;三，詳細闡述CHATGPT的特性。包括它的優點和侷限。幫助讀者更懂得與CHATGPT傷處，能提出簡明易懂又精準的提問，使它更能產出我們想要的成果。作者詳細列出了使用CHATGPT的注意事項，以及整理了一個問題大全供讀者參考。閱讀這本書，不但使讀者更能聰明地運用CHATGPT幫助寫作，也能學會精準發問，用CHATGPT學習新知識。&lt;/p&gt;&lt;h2&gt;我的成果演示&lt;/h2&gt;&lt;p&gt;閱讀這本書之後，我自己也嘗試運用VISTA框架，請CHATGPT為我產出了一篇商品文案。為了測試，我虛構了一款美粧產品Bright水嫩粉底霜。以下是我用VISTA框架中的VIS創造的提示詞，以及CHATGPT根據我的要求產出的文案。&lt;/p&gt;&lt;p&gt;V:Bright水嫩粉底霜，一次過護膚保濕，化好底粧，適合匆忙的上班族。十分鐘完成自然淡雅粧容，且貼膚持久，呵護肌膚，保持肌膚水嫩幼滑。&lt;/p&gt;&lt;p&gt;I：上班族早上匆忙，但又想化個淡雅粧容，使自己整天保持自信。&lt;/p&gt;&lt;p&gt;S：粉底面霜二合一，一次過完成護膚和底粧，節省時間。不必在時間與美麗之間二選一了。&lt;/p&gt;&lt;p&gt;輸入以上的描述之後，我要求CHATGPT扮演一名熟悉美粧產品的美容師，替我寫一篇一百字左右的商品文案，要引起上班族女性的購買欲望。它不花一分鐘，就產出以下文案：&lt;/p&gt;&lt;p&gt;標題：多睡十分鐘，快速擁有水嫩美肌&lt;/p&gt;&lt;p&gt;正文：早晨匆忙，護膚還是化妝？Bright水嫩粉底霜一次搞定！結合粉底和護膚霜，十分鐘打造自然淡雅粧容，讓你多睡也能娓娓出門。持久貼膚，持久保水，讓肌膚水嫩透亮，容光煥發。不僅省時，還呵護肌膚，輕鬆應對忙碌生活。Bright水嫩粉底霜，上班族的秘密武器，讓你的每一天都自信滿滿！&lt;/p&gt;&lt;p&gt;以上文案能不能引起你購買Bright水嫩粉底霜的意欲呢？當然啦！我自己並沒有銷售方面的工作經驗。但CHATGPT有一樣好，就是你能根據自己的需求，要求它修改文章，直至你感到滿意為止。有了它作為輔助，總比從零開始寫一篇文案有效率多了。&lt;/p&gt;&lt;h2&gt;結語：透過與科技共舞提昇自己的能力&lt;/h2&gt;&lt;p&gt;人工智能發展令很多人深感不安。究竟自己現時的工作會不會被科技取代？若答案是肯定的話，又會在多少時間之後被取代呢？&lt;/p&gt;&lt;p&gt;我認為與其憂慮不如採取積極。只要我們認清自己作為人類有那些強項是科技無法擁有的；而另方面，科技又有那些我們及不上的地方，我們與科技其實能夠通力合作，各自發揮所長，大幅度提昇生產力。就如書中所說，透過運用CHATGPT，文案寫作的效率、內容質量都能大幅度提昇。我們還能用CHATGPT來學習寫作。透過它的引導、回饋，以及陪伴我們不斷練習，我們的寫作技巧也會越來越精湛。一言以蔽之，與其害怕科技，不如好好運用科技來提昇自己的競爭力。能與人競爭的永遠都是人而不是科技。作者身為一名寫作教練，經營着付費寫作社群，但仍然在書中教導我們如何用CHATGPT充當自己的私人寫作教練。一方面我很敬佩他的無私。但想深一層，作者為何不怕讀者們懂得用CHATGPT充當寫作教練之後會影響自己的生意呢？我想，他一定知道自己擁有一些東西，是CHATGPT怎樣都無法取代的吧。&lt;/p&gt;</content><author><name>陶樂思</name></author><category term="matters" /><category term="blog" /><summary type="html">前言CHATGPT在2022年底開始火紅，距今已經超過兩年。除了把它當作玩具，玩問答遊戲以外，人們已經找出更多有意義，有助改善生產力的用法。令我意想不到的，就是竟然有人特地寫一本書來談及如何用它大幅度提昇寫作效率與質量。今天要介紹的這本書，作者演示了如何運用自己創建的VISTA系統，用來寫各類文章，包括行銷文案、履歷、工作電郵等。本文會簡單介紹作者的背景；這本書的概要；我找到的三個亮點；以及我親自運用VISTA系統，為我自己虛構的一款粉底面霜二合一美粧產品，指令CHATGPT寫的一篇銷售文案。作者是誰？這本書的作者叫鄭偉荃，英文名字Vista，畢業於國立台灣大學工業工程學研究所。他悠遊於網路、媒體與科技產業。現任企業顧問、職業講師以及專欄作家。他同時兼任台灣最大筆記社群「我愛寫筆記」、「內容進行式」等社群的創辦人。他特別關注文化創意、內容行銷、社群媒體、電子商務，以及個人品牌發展。除了這本書以外，他還著有《文案力就是你的抄能力》、《快速圈粉的文案密碼》等十餘本書。2019年起，他推出「Vista寫作陪伴計劃」。這個全方位的寫作諮詢服務，至今已經幫助和陪伴數百位學員踏上寫作之路。這本書想說什麼？作者透過各類案例，教導讀者如何把VISTA公式應用於CHATGPT，使它為我們寫出優質文案。同時，這本書也檢閱了除CHATGPT以外的其他AI寫作工具，包括Notion AI、Shopia、Wordhero和Writecream，簡單介紹了這些工具的特色，適合何種類型的寫作，以及它們各自的長處與侷限。最後，作者還教導讀者如何運用CHATGPT充當我們的私人寫作教練。讀完這本書之後，新手作者能掌握基本寫作技巧；職業寫手的寫作技巧則能進一步提高。我找到的三個亮點：我在這本書中找到三個亮點，認為非常值得與大家分享。一，VISTA文案生產系統，教我們按部就班地完成內容規劃，文案撰寫，作品測試，直至發表作品，並且獲得滿意的成果。這五個字母各自代表一個英文字，也是我們需要聚焦的範疇：V: visualize：想像願景，勾勒出想達成的目標，以便建立明確的提問方向。I: identify：確定問題。確定問題與挑戰的具體描述以及解決方案的更多資訊。S: strategize：制定策略。制定一個具體的策略以應對確認的問題。T: test：測試策略。測試制定的策略，確保它能有效應對挑戰。A: act：執行計劃。執行自己制定的計劃以及監察計劃的有效性和可行性。這個系統可套用於各類寫作，包括商品文案、工作電郵、履歷、銷售網頁。以下演示這個系統如何產出商品文案：V: 簡短描述產品或服務，引起讀者注意、興趣和好奇心。I：列出產品特點和優勢。為什麼比競爭對手的好？能滿足那些需求？S：定義目標客戶；定位產品；規劃推銷策略。包括使用那些媒體；預算用多少錢做宣傳；推行銷售活動的時間表。T：測試策略。收集顧客反饋；案需要調整策略。A：按照訂立的策略實行推銷活動。以上步驟不單涵蓋文案撰寫，而是整套銷售專案的規劃與執行。它幫助讀者認清整個銷售過程不同階段的目標。當我們需要要求CHATGPT為我們產出內容時，也能擁有清晰的方向。給出的提示也會更加精準。二，除了幫助產出內容以外，CHATGPT還能充當我們的私人寫作教練，幫助和陪伴我們一步步完成寫作任務，提昇寫作技能。在書中，作者展示了如何請CHATGPT就特定寫作任務，如寫書、寫專題部落格，提供包括主題、寫作策略、文章結構、文章標題各方面的建議。此外，我們還可以把寫好的文章貼給CHATGPT，請它分析我們的寫作風格，替我們潤飾文句，以及就改善寫作技巧提供意見。CHATGPT可以是一個看不見的寫作老師。三，詳細闡述CHATGPT的特性。包括它的優點和侷限。幫助讀者更懂得與CHATGPT傷處，能提出簡明易懂又精準的提問，使它更能產出我們想要的成果。作者詳細列出了使用CHATGPT的注意事項，以及整理了一個問題大全供讀者參考。閱讀這本書，不但使讀者更能聰明地運用CHATGPT幫助寫作，也能學會精準發問，用CHATGPT學習新知識。我的成果演示閱讀這本書之後，我自己也嘗試運用VISTA框架，請CHATGPT為我產出了一篇商品文案。為了測試，我虛構了一款美粧產品Bright水嫩粉底霜。以下是我用VISTA框架中的VIS創造的提示詞，以及CHATGPT根據我的要求產出的文案。V:Bright水嫩粉底霜，一次過護膚保濕，化好底粧，適合匆忙的上班族。十分鐘完成自然淡雅粧容，且貼膚持久，呵護肌膚，保持肌膚水嫩幼滑。I：上班族早上匆忙，但又想化個淡雅粧容，使自己整天保持自信。S：粉底面霜二合一，一次過完成護膚和底粧，節省時間。不必在時間與美麗之間二選一了。輸入以上的描述之後，我要求CHATGPT扮演一名熟悉美粧產品的美容師，替我寫一篇一百字左右的商品文案，要引起上班族女性的購買欲望。它不花一分鐘，就產出以下文案：標題：多睡十分鐘，快速擁有水嫩美肌正文：早晨匆忙，護膚還是化妝？Bright水嫩粉底霜一次搞定！結合粉底和護膚霜，十分鐘打造自然淡雅粧容，讓你多睡也能娓娓出門。持久貼膚，持久保水，讓肌膚水嫩透亮，容光煥發。不僅省時，還呵護肌膚，輕鬆應對忙碌生活。Bright水嫩粉底霜，上班族的秘密武器，讓你的每一天都自信滿滿！以上文案能不能引起你購買Bright水嫩粉底霜的意欲呢？當然啦！我自己並沒有銷售方面的工作經驗。但CHATGPT有一樣好，就是你能根據自己的需求，要求它修改文章，直至你感到滿意為止。有了它作為輔助，總比從零開始寫一篇文案有效率多了。結語：透過與科技共舞提昇自己的能力人工智能發展令很多人深感不安。究竟自己現時的工作會不會被科技取代？若答案是肯定的話，又會在多少時間之後被取代呢？我認為與其憂慮不如採取積極。只要我們認清自己作為人類有那些強項是科技無法擁有的；而另方面，科技又有那些我們及不上的地方，我們與科技其實能夠通力合作，各自發揮所長，大幅度提昇生產力。就如書中所說，透過運用CHATGPT，文案寫作的效率、內容質量都能大幅度提昇。我們還能用CHATGPT來學習寫作。透過它的引導、回饋，以及陪伴我們不斷練習，我們的寫作技巧也會越來越精湛。一言以蔽之，與其害怕科技，不如好好運用科技來提昇自己的競爭力。能與人競爭的永遠都是人而不是科技。作者身為一名寫作教練，經營着付費寫作社群，但仍然在書中教導我們如何用CHATGPT充當自己的私人寫作教練。一方面我很敬佩他的無私。但想深一層，作者為何不怕讀者們懂得用CHATGPT充當寫作教練之後會影響自己的生意呢？我想，他一定知道自己擁有一些東西，是CHATGPT怎樣都無法取代的吧。</summary></entry><entry><title type="html">微故事: 十二月二十九日 (繁體字+插畫+廣東話) 試聽版</title><link href="https://agora0.github.io/post/matters/2025/06/29/MATTERS-%E5%BE%AE%E6%95%85%E4%BA%8B-%E5%8D%81%E4%BA%8C%E6%9C%88%E4%BA%8C%E5%8D%81%E4%B9%9D%E6%97%A5-(%E7%B9%81%E9%AB%94%E5%AD%97+%E6%8F%92%E7%95%AB+%E5%BB%A3%E6%9D%B1%E8%A9%B1)-%E8%A9%A6%E8%81%BD%E7%89%88.html" rel="alternate" type="text/html" title="微故事: 十二月二十九日 (繁體字+插畫+廣東話) 試聽版" /><published>2025-06-29T14:05:34+08:00</published><updated>2025-06-29T14:05:34+08:00</updated><id>https://agora0.github.io/post/matters/2025/06/29/MATTERS-%E5%BE%AE%E6%95%85%E4%BA%8B-%E5%8D%81%E4%BA%8C%E6%9C%88%E4%BA%8C%E5%8D%81%E4%B9%9D%E6%97%A5-(%E7%B9%81%E9%AB%94%E5%AD%97+%E6%8F%92%E7%95%AB+%E5%BB%A3%E6%9D%B1%E8%A9%B1)-%E8%A9%A6%E8%81%BD%E7%89%88</id><content type="html" xml:base="https://agora0.github.io/post/matters/2025/06/29/MATTERS-%E5%BE%AE%E6%95%85%E4%BA%8B-%E5%8D%81%E4%BA%8C%E6%9C%88%E4%BA%8C%E5%8D%81%E4%B9%9D%E6%97%A5-(%E7%B9%81%E9%AB%94%E5%AD%97+%E6%8F%92%E7%95%AB+%E5%BB%A3%E6%9D%B1%E8%A9%B1)-%E8%A9%A6%E8%81%BD%E7%89%88.html">&lt;p&gt;&lt;strong&gt;微故事: 十二月二十九日 (繁體字+插畫+廣東話) 試聽版&lt;/strong&gt;&lt;/p&gt;&lt;figure class=&quot;embed embed-video&quot; data-provider=&quot;youtube&quot;&gt;&lt;div class=&quot;iframe-container&quot;&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/ec9fA5F99Ag?rel=0&quot; loading=&quot;lazy&quot; allowfullscreen frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;微故事: 十二月二十九日 (繁體字+插畫+廣東話)&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;簡介：&lt;/p&gt;&lt;p&gt;阿凡在每年的十二月二十九日經歷相同的生活事件，包括遇到紅衣女郎、營業員的讚美和公司的人事警告。他開始懷疑時間的奇妙重複，並試圖改變一些細節，但遭遇挫折。隨著年復一年的重複，阿凡對這些事件的反應從新奇轉變為麻木...&lt;/p&gt;&lt;p&gt;音頻時間: 11分鐘35秒&lt;/p&gt;&lt;p&gt;圖片: 12張&lt;/p&gt;&lt;p&gt;背景音樂: Audionautix-Rags 2 Riches Rag / E's Jammy Jams-By The Light of the Silvery Moon&lt;/p&gt;&lt;p&gt;文. 東加豆, Tonkabean&lt;/p&gt;&lt;p&gt;圖.聲. 人工智豆&lt;/p&gt;&lt;p&gt;故事購買點:&lt;/p&gt;&lt;p&gt;&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://play.google.com/store/books/details/_____?id=ozVoEQAAQBAJ&quot;&gt;&lt;strong&gt;https://play.google.com/store/books/details/東加豆_微故事_十二月二十九日_繁體字_插&lt;/strong&gt;&lt;/a&gt;&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://play.google.com/store/books/details/%E6%9D%B1%E5%8A%A0%E8%B1%86_%E5%BE%AE%E6%95%85%E4%BA%8B_%E5%8D%81%E4%BA%8C%E6%9C%88%E4%BA%8C%E5%8D%81%E4%B9%9D%E6%97%A5_%E7%B9%81%E9%AB%94%E5%AD%97_%E6%8F%92%E7%95%AB_%E5%BB%A3%E6%9D%B1%E8%A9%B1?id=ozVoEQAAQBAJ&quot;&gt;&lt;strong&gt;畫_廣東話?id=ozVoEQAAQBAJ&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://www.pubu.com.tw/ebook/581171&quot;&gt;&lt;strong&gt;https://www.pubu.com.tw/ebook/581171&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;阿豆的有聲故事頻道:&lt;/p&gt;&lt;p&gt;&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://www.youtube.com/watch?v=5SSYboodWn4&amp;list=PLWeR7IEFtxloYZDYDC2gWeUATonTL-XNg&quot;&gt;&lt;strong&gt;https://www.youtube.com/watch?v=5SSYboodWn4&amp;list=PLWeR7IEFtxloYZDYDC2gWeUATonTL-XNg&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;br class=&quot;smart&quot;&gt;謝謝大家!&lt;/p&gt;&lt;p&gt;阿豆&lt;/p&gt;&lt;p&gt;&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://www.tonkabean.me/&quot;&gt;www.tonkabean.me/&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;br class=&quot;smart&quot;&gt;&lt;/p&gt;</content><author><name>東加豆</name></author><category term="matters" /><category term="blog" /><summary type="html">微故事: 十二月二十九日 (繁體字+插畫+廣東話) 試聽版微故事: 十二月二十九日 (繁體字+插畫+廣東話)簡介：阿凡在每年的十二月二十九日經歷相同的生活事件，包括遇到紅衣女郎、營業員的讚美和公司的人事警告。他開始懷疑時間的奇妙重複，並試圖改變一些細節，但遭遇挫折。隨著年復一年的重複，阿凡對這些事件的反應從新奇轉變為麻木...音頻時間: 11分鐘35秒圖片: 12張背景音樂: Audionautix-Rags 2 Riches Rag / E's Jammy Jams-By The Light of the Silvery Moon文. 東加豆, Tonkabean圖.聲. 人工智豆故事購買點:https://play.google.com/store/books/details/東加豆_微故事_十二月二十九日_繁體字_插畫_廣東話?id=ozVoEQAAQBAJhttps://www.pubu.com.tw/ebook/581171阿豆的有聲故事頻道:https://www.youtube.com/watch?v=5SSYboodWn4&amp;list=PLWeR7IEFtxloYZDYDC2gWeUATonTL-XNg謝謝大家!阿豆www.tonkabean.me/</summary></entry><entry><title type="html">烏龜流浪在公園無人理 社區實踐計劃關注福祉：佢哋都會肚餓</title><link href="https://agora0.github.io/post/inmedia/2025/06/29/INMEDIA-%E7%83%8F%E9%BE%9C%E6%B5%81%E6%B5%AA%E5%9C%A8%E5%85%AC%E5%9C%92%E7%84%A1%E4%BA%BA%E7%90%86-%E7%A4%BE%E5%8D%80%E5%AF%A6%E8%B8%90%E8%A8%88%E5%8A%83%E9%97%9C%E6%B3%A8%E7%A6%8F%E7%A5%89-%E4%BD%A2%E5%93%8B%E9%83%BD%E6%9C%83%E8%82%9A%E9%A4%93.html" rel="alternate" type="text/html" title="烏龜流浪在公園無人理 社區實踐計劃關注福祉：佢哋都會肚餓" /><published>2025-06-29T12:18:45+08:00</published><updated>2025-06-29T12:18:45+08:00</updated><id>https://agora0.github.io/post/inmedia/2025/06/29/INMEDIA-%E7%83%8F%E9%BE%9C%E6%B5%81%E6%B5%AA%E5%9C%A8%E5%85%AC%E5%9C%92%E7%84%A1%E4%BA%BA%E7%90%86-%E7%A4%BE%E5%8D%80%E5%AF%A6%E8%B8%90%E8%A8%88%E5%8A%83%E9%97%9C%E6%B3%A8%E7%A6%8F%E7%A5%89-%E4%BD%A2%E5%93%8B%E9%83%BD%E6%9C%83%E8%82%9A%E9%A4%93</id><content type="html" xml:base="https://agora0.github.io/post/inmedia/2025/06/29/INMEDIA-%E7%83%8F%E9%BE%9C%E6%B5%81%E6%B5%AA%E5%9C%A8%E5%85%AC%E5%9C%92%E7%84%A1%E4%BA%BA%E7%90%86-%E7%A4%BE%E5%8D%80%E5%AF%A6%E8%B8%90%E8%A8%88%E5%8A%83%E9%97%9C%E6%B3%A8%E7%A6%8F%E7%A5%89-%E4%BD%A2%E5%93%8B%E9%83%BD%E6%9C%83%E8%82%9A%E9%A4%93.html">&lt;img src=&quot;https://www.inmediahk.net/files/column_images/202506292.png&quot; /&gt;&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;p&gt;&lt;font color=&quot;red&quot;&gt;【獨媒報導】&lt;/font&gt;柴灣公園的水池，隨處可見「請勿把魚／龜放進水池」及「請勿餵飼魚／龜」的告示牌，不過池內料生活有逾500隻不同品種的烏龜。牠們有的在水中自在暢泳，有的伏在石頭上享受日光浴，牠們不少是被棄養。&lt;/p&gt;
 &lt;p&gt;「城市日記」於去年8月至今年6月舉辦「Let Us Go! You and I」計劃，培育一群響應永續生活理成念的熱心市民，實現與自然的和諧共生。參加者於今年1月至5月在社區實踐小型項目，其中「社區烏龜」，正是關注社區中的烏龜。&lt;/p&gt;
 &lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot; href=&quot;https://www.flickr.com/gp/inmediahk/8P416m5285&quot; title=&quot;無標題&quot;&gt;&lt;img src=&quot;https://live.staticflickr.com/65535/54620739214_80f19548e2_c.jpg&quot; width=&quot;800&quot; alt=&quot;無標題&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;「社區烏龜」隊長劉澤浚本身在2022年領養第一隻烏龜，至今已領養十多隻烏龜，他不時到公園探望其他烏龜，繼而留意到更多有關烏龜的新聞，「原來香港嘅烏龜其實無乜人關注佢哋嘅福祉」。「佢都係啲流浪嘅動物嚟嘅，但只不過佢唔識講嘢啦，或者喺大眾眼中佢哋無咁adorable，或者冇咁cute，或者係一樣好common嘅嘢啦，咁所以就冇乜人留意佢哋。」&lt;/p&gt;
@@ -6398,191 +6561,4 @@
 &lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot; href=&quot;https://www.flickr.com/photos/inmediahk/54598529301/in/album-72177720326967683/&quot; title=&quot;Untitled&quot;&gt;&lt;img src=&quot;https://live.staticflickr.com/65535/54598529301_b5308f8fc2_c.jpg&quot; width=&quot;800&quot; alt=&quot;Untitled&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot; href=&quot;https://www.flickr.com/photos/inmediahk/54597655427/in/album-72177720326967683/&quot; title=&quot;Untitled&quot;&gt;&lt;img src=&quot;https://live.staticflickr.com/65535/54597655427_9abe0bb90e_c.jpg&quot; width=&quot;800&quot; alt=&quot;Untitled&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a data-flickr-embed=&quot;true&quot; href=&quot;https://www.flickr.com/photos/inmediahk/54598845265/in/album-72177720326967683/&quot; title=&quot;Untitled&quot;&gt;&lt;img src=&quot;https://live.staticflickr.com/65535/54598845265_718103a83a_c.jpg&quot; width=&quot;800&quot; alt=&quot;Untitled&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>獨媒報導</name></author><category term="inmedia" /><category term="blog" /><summary type="html">【獨媒報導】位於北角的青年書局，近日因創辦人陳明濱離世，加上租約於本月底期滿，即將清場。書店目前由廣州書店老闆黃子輝接手。青年書局最為人所知的為獨家代理國學大師南懷瑾的書籍，黃子輝明言是看中南懷瑾的著作，目前正整理書店書藏，並計劃將約3,000本南懷瑾著作運往需求旺盛的內地市場。黃子輝稱會於約滿前清場，文史哲相關著作會入倉，其他書籍則會銷毀。 黃子輝向《獨媒》講述接手經過，他在廣州經營「尚南書館」，與陳明濱原是商業合作關係，向對方採購南懷瑾著作。今年陳明濱離世，其年近八十的遺孀又突患中風。黃子輝因突然聯繫不上他們，特意從廣州赴港登門拜訪。在書局遇見協助遺孀看守書店的施先生，才了解事情始末。 黃子輝 他稱見遺孀行動不便，身邊又無家人願意接手書店，向遺孀詢問後，對方決定無條件將書局轉讓予黃子輝。他以「興滅國，繼絕世」形容接手青年書局的過程：「正如周代雖滅殷商卻保留其文化傳承，我們接手書局不是要顛覆傳統。 」 雖然青年書局代理南懷瑾書籍，不過黃子輝坦言他並不執著代理權，「網絡時代，買（南懷瑾的）書係好容易，最重要的有人肯買。」他最主要是望推廣南懷瑾的思想，並保持書店健康營運。 目前書店約有3,000本南懷瑾的書籍，黃子輝打算帶回內地出售，「內地（對南懷瑾的書）需求都幾大。」青年書局現址因租金低廉，月租不足一萬元，故多年來得以維持。惟租約將於本月底完結，黃子輝將於限期前「交吉」，會將文史哲類的書籍入倉，其餘價值較低的補習教材與參考書將會銷毀，目前已清理約數箱受潮發霉的書籍。 黃子輝在廣州「尚南書館」，不時舉辦活動，不過他稱如重設青年書局，不會完全跟從「尚南書館」的做法。他目前正覓書局新址，如重設將著重打造舒適的閱讀環境與文化體驗 ，增設冷氣及坐椅，並以國學與中國文化為主題，以及通過社交平台如Facebook、Instagram及小紅書推廣，吸引愛好中國文化的讀者，「靠賣東西是不行的，一定要靠服務」。 除黃子輝外，另有兩名從事設計及電商貿易的接手人，他稱計劃邀請兩位分別法律及財務的伙伴加入團隊。 不少顧客聞風到場選書，已退休的張小姐指「賣不完就要丟進海裡，好像很浪費」，特意到場尋找張愛玲著作，指能勾起其回憶，「張愛玲，其實以前看過，現在想重看。」張小姐常到訪深水埗的獨立書店，坦言青年書局環境不如其他書店舒適，藏書也較老舊。 另一位特地從深圳來港的書商張先生則表示，青年書局有很多有歷史價值的小說。他選購了由梁實秋、葉公超主編，雕龍出版社發行的「新月散文選」及「新月小說選」，認為有紀念價值。</summary></entry><entry><title type="html">以伊开战后四天，我逃离了永远的战场以色列</title><link href="https://agora0.github.io/post/initium/2025/06/20/INITIUM-%E4%BB%A5%E4%BC%8A%E5%BC%80%E6%88%98%E5%90%8E%E5%9B%9B%E5%A4%A9-%E6%88%91%E9%80%83%E7%A6%BB%E4%BA%86%E6%B0%B8%E8%BF%9C%E7%9A%84%E6%88%98%E5%9C%BA%E4%BB%A5%E8%89%B2%E5%88%97.html" rel="alternate" type="text/html" title="以伊开战后四天，我逃离了永远的战场以色列" /><published>2025-06-20T07:00:00+08:00</published><updated>2025-06-20T07:00:00+08:00</updated><id>https://agora0.github.io/post/initium/2025/06/20/INITIUM-%E4%BB%A5%E4%BC%8A%E5%BC%80%E6%88%98%E5%90%8E%E5%9B%9B%E5%A4%A9-%E6%88%91%E9%80%83%E7%A6%BB%E4%BA%86%E6%B0%B8%E8%BF%9C%E7%9A%84%E6%88%98%E5%9C%BA%E4%BB%A5%E8%89%B2%E5%88%97</id><content type="html" xml:base="https://agora0.github.io/post/initium/2025/06/20/INITIUM-%E4%BB%A5%E4%BC%8A%E5%BC%80%E6%88%98%E5%90%8E%E5%9B%9B%E5%A4%A9-%E6%88%91%E9%80%83%E7%A6%BB%E4%BA%86%E6%B0%B8%E8%BF%9C%E7%9A%84%E6%88%98%E5%9C%BA%E4%BB%A5%E8%89%B2%E5%88%97.html">&lt;blockquote&gt;&lt;p&gt;&lt;em&gt;10月7日是内塔尼亚胡政治生涯的奇迹，而通过攻打伊朗，他又经历了一场浴火重生。&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;   &lt;figure&gt;&lt;img src=&quot;https://theinitium.com/wp-content/uploads/2025/06/AP25168681199470_685f30.jpg?w=1080&quot; referrerpolicy=&quot;no-referrer&quot;&gt;  &lt;figcaption&gt;2025年6月18日，以色列特拉维夫附近的拉马特甘，空袭警报响起，人们躲在地下地铁站里，警告伊朗即将发动攻击。摄：Oded Balilty/AP/达志影像&lt;/figcaption&gt;  &lt;/figure&gt;   
-&lt;div class=&quot;wkwp-post-content&quot;&gt;
-
-
-&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-1&quot;&gt;1. Shit hits the fan.&lt;/h2&gt;
-
-
-
-&lt;p&gt;6月13日凌晨，没有人能够预料到几个小时后以色列会突然对伊朗发起袭击。&lt;/p&gt;
-
-
-
-&lt;p&gt;零点刚过，我正躺在东耶路撒冷的床上刷睡前的最后一轮手机，浏览以色列左翼媒体《国土报》在深夜发到我邮箱里的每日速报。作为以色列极少数良知未泯的媒体之一，《国土报》自从2023年10月7日哈马斯突袭以色列开始，每天向订阅者发送战时速报，并且在速报末尾附上截至今日加沙的死亡人数。大多数以色列人都将这一数字斥责为哈马斯掌控的加沙健康部捏造出来的虚假数字，因而能在这个国家里听到小小的一声丧钟已来之不易。&lt;/p&gt;
-
-
-
-&lt;p&gt;我依稀记得那一天的死亡数字停留在55 000人左右。那一天的日报里还提到两则消息：一是在国际原子能组织的报告首次宣称伊朗的核技术发展未能遵循国际约定之后，以色列首相内塔尼亚胡对伊朗的核设施发出了进攻威胁，并且多方消息指这一进攻计划迫在眉睫；二是在周日（6月15日）美国和伊朗将关于下一步核协议进行面对面的会谈。我躺在床上迷迷糊糊地对这两则信息进行了符合逻辑的推论：以色列用军事威胁对伊朗施压，试图为美国两天后的谈判争取空间。说得更通俗一点：过两天搞不好会倒霉，但眼下应该没事。我已经预订了6月19日离开以色列的航班，只要情况能稍微再拖一下，我就远在千里之外了。&lt;/p&gt;
-
-
-
-&lt;p&gt;在我和我的逻辑一起进入梦乡的三个小时之后，以色列对伊朗发动了多处空袭，损伤了伊朗的核设施、杀死了几位高级军事指挥官和首席核物理科学家、造成了包括妇女儿童在内的平民伤亡。对这个占领了世界上最神圣不可侵犯的城市（耶路撒冷）的世界上最神圣不可侵犯的国家（以色列）而言，多开辟一条战线就像在方便面里多加一个蛋那么简单。&lt;/p&gt;
-
-
-
-&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2000&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/06/AP25169617322662_e5eb66.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-281084&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;2025年6月18日，以色列特拉维夫附近的拉马特甘，空袭警报响起，人们躲在地下地铁站里，警告伊朗即将发动攻击。摄：Oded Balilty/AP/达志影像&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;在以色列生活了许久之后，我和许多人一样都对“战争”具体的指涉开始感到麻木。这是一个在过去近两年时间里无时不刻处于战争状态中的国家，在轰炸了加沙、黎巴嫩、也门、叙利亚之后，耶路撒冷和特拉维夫的日常生活仍然在继续，只有偶尔响起的防空警报还提醒著人们，在这一日常的表象下，堆积著多少肉眼不可及之处的暴力。&lt;/p&gt;
-
-
-
-&lt;p&gt;尽管谈不上有什么确定的预感，但我能感觉到这次的状况同往常不太一样。首先是袭击的规模不同寻常：在2024年的4月和10月，以色列两度和伊朗产生摩擦，但双方仪式性的互相轰炸都没有造成规模性的伤亡、或是对国家利益造成实质性损害。与之相比，这次对核设施和伊朗军方整个指挥层的袭击伤筋动骨，没有给伊朗任何“台阶”可下。&lt;/p&gt;
-
-
-
-&lt;p&gt;其次，以色列‑巴勒斯坦的日常生活在这次突袭之后马上就被彻底悬置了。从6月13日凌晨开始，以色列对我居住的西岸地区进行了全面封锁，检查站关闭，交通要道上设立了路障——整个西岸彻底成为了一个巨大的囚笼，我的房东太太们被困在了巴勒斯坦的边境城市杰里科（Jericho；耶利哥）。在以色列边界，国土指挥部将全国公共设施限制在了“必要活动”等级，这意味著取消公共活动、关闭公共场所、大幅减少公共交通，并且建议全部公民停留在避难所附近。&lt;/p&gt;
-
-
-
-&lt;p&gt;13日，我一起床就在电脑浏览器上打开了半岛电视台的实时新闻动态视窗，每过五分钟刷新一次。午后，新闻动态里播报了一大批无人机正从伊朗起飞的消息。世界各地的朋友们通过各种社交媒体向我发来慰问，我统一回复：没事，我19号的飞机还没取消，说不定过两天能停火我就可以趁机走人了；没事，我住在东耶路撒冷，导弹不敢打耶路撒冷，否则一炮打偏炸了那几个宗教圣地全世界都得完蛋。&lt;/p&gt;
-
-
-
-&lt;p&gt;嘴上说著没事，我逐一拨通了中国驻以色列大使馆公开的四个领事保护号码，其中三个是空号，最后一个无人接听。我随后听从一位朋友的劝告，马上申请了约旦和埃及的电子签证。约旦的签证在几分钟里就通过邮件发给了我，而埃及签证两天后也到了。&lt;/p&gt;
-
-
-
-&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2000&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/06/2025-06-18T114144Z_1409442018_RC2F3FAV9V5Q_RTRMADP_3_IRAN-NUCLEAR-ISRAEL_f7c22d.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-281082&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;2025年6月16日，以色列特拉维夫，伊朗飞弹袭击现场居民住宅受损。摄：Moshe Mizrahi/Reuters/达志影像
-&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;13日晚上七点多，天光将歇，以色列的铁穹防空系统开始对逼近的伊朗无人机进行拦截，黄昏的天空像一张巨大的鼓面，发出沉闷的咚咚爆炸声，我房间的门也随之微微震动。三个小时后，防空警报再次响起，伊朗的导弹像流星一样划过天空。&lt;/p&gt;
-
-
-
-&lt;p&gt;在巴以隔离墙的另一边，以色列人正涌向防空洞和庇护所。而我所在的巴勒斯坦西岸地区则基本没有修建防空洞。比起恐惧和惊惶，更强烈的是一种宿命感：我没有任何能做的事情，如果导弹非要落到我头上，那么也就 khalas（一句巴勒斯坦人常用的阿拉伯语口头语，直译为“enough”，我一般翻译为“拉倒”）。镇上的巴勒斯坦人纷纷涌上街道和房屋阳台，兴高采烈地打量著天上闪烁的导弹。远处传来以色列军车驶过的粗暴引擎声和士兵用以开路的零星枪声。&lt;/p&gt;
-
-
-
-&lt;p&gt;深夜，住在西耶路撒冷的朋友从地下防空洞里发来消息，问我是否安好。我回复道：“我正在运用人类最古老的智慧：躺在床上，向神祈祷。”&lt;/p&gt;
-
-
-
-&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2001&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/06/GettyImages-2219605630_6af128.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-281087&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;2025年6月15日，伊朗新一轮火箭攻击中，以色列防空系统启动，拦截伊朗在以色列城市特拉维夫上空发射的飞弹。摄：Jalaa Marey/AFP via Getty Images&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-2&quot;&gt;2. 永恒的战时政府&lt;/h2&gt;
-
-
-
-&lt;p&gt;在13日晚伊朗对以色列的报复性回击中，有一名以色列人不治身亡。这一数字随着每日冲突升级而稳定上升，截至我写作时的18日，已有24名以色列人在这轮冲突中死亡。&lt;/p&gt;
-
-
-
-&lt;p&gt;在13日看到关于以色列空袭伊朗的新闻时，和许多生活在这片土地上的人一样，我立刻意识到自己又被卷进了以色列首相内塔尼亚胡的新一回合的权力游戏里。为了自己的政治生命，他开启了下一场豪赌，而整个中东所有人的命运不过是他政治博弈的筹码。&lt;/p&gt;
-
-
-
-&lt;p&gt;14日早上，一位以色列朋友对我解释道：“内塔尼亚胡需要一个外部敌人来搁置以色列社会内部的问题。最近他大概每天都盼着搞出一个比23年10月7号更大的事情来。从他的政治生涯一开始就天天渲染伊朗是多大的威胁，伊朗就是他的菜。对他来说，伊朗的砲弹能杀掉几个以色列人就再好不过了，这样他就可以趁机把所有问题都接着怪到伊朗头上。”&lt;/p&gt;
-
-
-
-&lt;p&gt;或许是某种样本偏差，但我认识的所有以色列人——不管是政治立场意义上的左派还是右派——都明白内塔尼亚胡是个不择手段的小人。从2000年代开始，内塔尼亚胡通过扶持哈马斯来从内部分裂巴勒斯坦的反抗力量几乎是个所有人都知道的秘密，2023年10月哈马斯的袭击从这一意义上说来，是内塔尼亚胡自己多年前埋下的伏笔。&lt;/p&gt;
-
-
-
-&lt;p&gt;具体的“左”和“右”之间的区别往往在于人们用怎样的准绳来评价内塔尼亚胡的功绩。左翼们认为内塔尼亚胡的腐败和谎言早已从骨子里污染了以色列的政治生态，而右翼们则相信，许多真正的大事只有这些不择手段的小人才能做得出来。自1967年以来，以色列通过各种黑白两道手段（寻找犹太古遗迹设立考古保护区、圈地建立军事缓冲带、通过定居者恐怖主义恐吓驱赶巴勒斯坦人等等），已经一点点蚕食巴勒斯坦的西岸土地近六十年，至今仍旧离彻底占领西岸遥遥无期；而在23年10月7日以来的六百多天里，以色列已经将加沙人的生活几乎全部摧毁、距离将加沙人全部踢出他们自己已沦为废墟的家园只有一步之遥。&lt;/p&gt;
-
-
-
-&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2000&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/06/GettyImages-2219931037_76fb55.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-281089&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;2025年6月17日，以色列和哈马斯持续不断的战争中，人道主义援助卡车通过以色列控制的齐基姆边境口岸进入加沙地带北部后，人们扛著面粉袋走过贾巴利亚西部拉希德街的一处水坑。摄：Bashar Taleb/AFP via Getty Images&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;所有人都知道，只要战争一天不结束，内塔尼亚胡就能以外敌为由搁置以色列社会巨大的内部政治分裂以及来自社会各界对他的不满，从而稳坐钓鱼台。战争像一剂又一剂肾上腺素，无限延长着内塔尼亚胡临近终点的政治生命。在 2023 年的 10 月 7 日的哈马斯袭击之前，内塔尼亚胡政权已经在来自司法系统的贪腐指控和来自公民社会对其试图削弱最高法院权力的抗议中摇摇欲坠。若是在 10 月 6 日，以色列人大都不会相信他的政府竟能再苟延残喘六百多天。我们或可以说，10 月 7 日对内塔尼亚胡而言是一场奇迹。&lt;/p&gt;
-
-
-
-&lt;p&gt;然而，就像所有奇迹一样，10 月 7 日的光芒正在逐渐褪去其色彩，全世界正在目睹这场二十一世纪的种族清洗在他们的屏幕前缓缓展开，而各类涉及以色列战争罪行的证据正变得越发难以掩盖。在 6 月 13 日前，由以色列发起、美国背书的加沙人道主义基金会（Gaza Humanitarian Foundation）已经连续两周成为以分发人道主义救援物资之名的死亡陷阱，在其物资分发点周围几乎每天都发生着针对求援民众的大规模射击，连续多日有着数十、甚至上百名加沙民众被以色列士兵和美国佣兵枪杀。当该基金会堂而皇之地拒绝所有相关指控，主流英文媒体纷纷将镜头对准加沙灾民们惊慌的脸——他们冒着死亡的风险也要为家人们拿到那一筐内容稀薄的救援物资。&lt;/p&gt;
-
-
-
-&lt;p&gt;以色列社会内部也开始传出更多质疑的声音以及陆续的政治震荡。6 月 6 日与 11 日，前以色列总理 Ehud Olmert 分别在《纽约客》杂志与《纽约时报》两度发声，谴责内塔尼亚胡政府领导以色列发动的战争罪行；6 月 12 日，一名属于正统犹太教党派的内塔尼亚胡内阁成员因为无法推行豁免正统犹太教徒兵役的法案而辞职，将政府再次推到倒台的边缘；对内塔尼亚胡的贪腐审讯仍在继续，新一轮的交叉问讯原定于 6 月 13 日。加沙战争似乎已经无法将以色列社会继续绑在内塔尼亚胡这艘沉船上。&lt;/p&gt;
-
-
-
-&lt;p&gt;6 月 13 日，以色列对伊朗的袭击使得英文媒体们疲于奔命，加沙再次从各大新闻网站的头版逐渐消失。卡塔尔的半岛电视台、以色列的国土报以及美联社等大型媒体设立了关于以伊冲突的几分钟一更新的新闻流，新的战争迅速将世界对“旧”战争的关注边缘化。除了少数的政治异议分子和左翼媒体社评对战争的动机提出了质疑之外，以色列社会内部再次对“我们英勇的战士们”致以整齐的鞠躬：大部分以色列媒体开始充满热情地报导对于伊朗的精确军事行动如何战绩斐然、伊朗对以色列居民区与民用设施的轰炸多么无耻（事实上，在死于以色列袭击的伊朗人中普通民众占据了极高比例，而以色列的军事指挥所、防空导弹发射架则常常设立于繁华的城市中心）；几周前还在谴责内塔尼亚胡政府引发宪政危机的以色列诸精英高校们给全体师生发送邮件，表达他们对以色列士兵无私奉献的深刻感激；针对公共活动的安全禁令成为政府打击政治异议者的有效手段，在特拉维夫市中心的小规模反战抗议尚未开始就已经被警察驱散，几名示威者被拘留。&lt;/p&gt;
-
-
-
-&lt;p&gt;6 月 13 日，命悬一线的内塔尼亚胡政权浴火重生。怪物秀的下半场开演了。&lt;/p&gt;
-
-
-
-&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2000&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/06/GettyImages-2218442189_528920.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-281085&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;2025年6月7日，以色列特拉维夫国防部门前举行的反政府抗议中，一名手持以色列国旗的示威者走过以色列总理内塔尼亚胡的肖像。摄：Jack Guez/AFP via Getty Images&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-3&quot;&gt;3. 逃离圣地&lt;/h2&gt;
-
-
-
-&lt;p&gt;我们或许从一开始就从心里清楚，战争永远不会结束。尽管如此，我们对于和平仍然有种不健康的迷恋，似乎我们必须将希望寄托在即将到来的和平之上，否则生活就无法进行下去。2023 年 10 月，我给以色列友人的邮件落款里写着 “may peace come soon”（愿和平早日降临），而如今过去近两年，我们从未离和平如此遥远。&lt;/p&gt;
-
-
-
-&lt;p&gt;在以伊冲突爆发后的三天里，我每过十分钟刷新一次半岛电视台的新闻流，抱有着类似不切实际的期望，盼着或许某项停火协议会被出其不意地达成，我们可以像之前一样假装以色列对巴勒斯坦人日复一日的暴行仿佛事不关己、再次回到我们渺小的日常生活里，而日常生活已然在这种强迫症式的反复确认中逐渐丧失。&lt;/p&gt;
-
-
-
-&lt;p&gt;每一天晚上，伊朗的导弹像牛奶快递员一样在凌晨时分准时来临，我起床看一眼夜空中的导弹轨迹，随后关上窗、拉上窗帘，转回身去戴上耳塞接着睡觉。&lt;/p&gt;
-
-
-
-&lt;p&gt;6 月 16 日，以色列对西岸地区的围城部分放松，我的房东太太三姊妹开着她们07年的灰色本田雅阁从杰里科跑了回来，邀请我下到她们所住的二楼去一起吃饭。大姐 Fadwa 于 1947 年在耶路撒冷的老城区出生，正好比以色列国大一岁。48 年的巴勒斯坦大灾难（Nakba）发生时，老城一片混乱，她的父母带着襁褓中的她逃到了东耶路撒冷。以色列建国后拒绝承认她的耶路撒冷市民身份，因此她只有一张西岸的身份证明卡，未经以色列许可无法回到她所出生的老城。&lt;/p&gt;
-
-
-
-&lt;p&gt;我们有一搭没一搭地聊着，直到我的手机萤幕亮起，显示我19日的航班已被取消。&lt;/p&gt;
-
-
-
-&lt;p&gt;Fadwa 在我上楼前说：“不要担心，不需要的东西扔在那里就好，我们会处理的。”我于是回到在三楼的房间开始迅速打包行李。橱柜里有零散的巧克力和泡面，冰箱里有半桶牛奶和一锅中午刚煮好的白米饭，地上放着几桶没开封的矿泉水。我几乎一夜未眠，直到凌晨三点防空警报响过后才得以小睡片刻。&lt;/p&gt;
-
-
-
-&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2000&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/06/2025-06-17T094922Z_522324993_RC294FAP99SO_RTRMADP_3_IRAN-NUCLEAR-ISRAEL-FOREIGNERS_2ace42.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-281081&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;2025年6月17日，以色列特拉维夫，外国公民聚集在一起，搭乘巴士经埃及离开以色列，人们互相拥抱。摄：Ronen Zvulun/Reuters/达志影像&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;17 日早上六点，我吃完早餐、搭上了前往耶路撒冷市中心的巴士。在进入耶路撒冷的检查站处，整部公交车上的所有人下车排队接受以色列士兵的身份检查。士兵先是挥手一齐放过了那些有以色列公民身份的巴勒斯坦人，随后开始逐一检查其他人的身份证件。&lt;/p&gt;
-
-
-
-&lt;p&gt;八点，我抵达了几位记者朋友在西耶路撒冷的房子。房子空无一人，她们大都还在加班，但为我留了门。我把从大学图书馆借的书放在了桌子上，拜托她们在学校开门后替我归还。桌子上放着一本读到一半的书，是革命者、精神病医生、反殖民主义理论家 Frantz Fanon 的传记。作为一名出生于法国、不会讲阿拉伯语的非穆斯林黑人，在参与了第二次世界大战后，Fanon 为阿尔及利亚的独立运动奋斗终身。我翻了两页，书的序言里引用了德国犹太社会学家 Georg Simmel 的一段话：“陌生人不是一名流浪者。流浪者可能今天来到、明天就走，而陌生人在今天来到之后永远留驻。”Fanon 是一名陌生人。&lt;/p&gt;
-
-
-
-&lt;p&gt;活跃于耶路撒冷的朋友们大都直接或间接地参与着一些当地的社会运动。在我们之间，最为困难的两个问题永远是：“你觉得你什么时候会离开耶路撒冷”和“你有一天还会回来吗”。没有人能够给出一个答案。永远驻扎在这里、为一场在异乡的斗争而倾尽所有似乎太过于奢侈，但我们又如何能假装所见到的一切──那些失去父母的巴勒斯坦小孩，被拆迁了无数次的西岸社群，耶路撒冷街道上随处可见的“Death to the Arabs”涂鸦──从来没有发生过？&lt;/p&gt;
-
-
-
-&lt;p&gt;早上十点，我在耶路撒冷中央车站和临时认识的同行者，一名美国国籍的政治学讲师，坐上了前往以色列南部城市埃拉特的巴士。七个小时后，我们成功跨越了以色列和埃及之间的 Taba 陆地关口，进入了埃及领土。晚上八点，我们抵达了位于西奈半岛最南角的埃及沙姆沙伊赫机场，开始等待航班登机。一路上，我们遇到了逃离以色列的乌克兰游客，回来参加婚礼但被卷入战争的海外以色列人，紧急请假回国的中国劳工。所有人都在离开以色列国界的时候长长地舒了一口气。&lt;/p&gt;
-
-
-
-&lt;p&gt;在前往沙姆沙伊赫机场的小巴上，我扫了一眼半岛电视台的网站，告诉同行者以色列现在正在对伊朗首都德黑兰发起另一轮轰炸。那位政治学讲师正聚精会神地看著车窗外清澈蔚蓝的红海。&lt;/p&gt;
-
-
-
-&lt;p&gt;“你知道吧，我们现在其实可以不用再看那些新闻了。”他头也不回地说。&lt;/p&gt;
-
-
-
-&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2001&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/06/GettyImages-2219731108_77b37c.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-281088&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;2025年6月16日，一名男子站在德黑兰一栋建筑的屋顶上眺望地平线。伊朗国家广播电台因以色列的袭击而短暂中断，爆炸声响彻德黑兰。摄：Atta Kenare/AFP via Getty Images&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-&lt;/div&gt;
-&lt;div class=&quot;entry-footer border-t border-grey-400 pt-6&quot;&gt;
-
-&lt;div class=&quot;entry-copyright&quot;&gt;&lt;figure&gt;&lt;small&gt;
-&lt;p class=&quot;caption2&quot;&gt;
-本刊载内容版权为端传媒或相关单位所有，未经&lt;a href=&quot;mailto:editor@theinitium.com&quot;&gt;端传媒编辑部&lt;/a&gt;授权，请勿转载或拷贝，否则即为侵权。&lt;/p&gt;
-&lt;/small&gt;&lt;/figure&gt;&lt;/div&gt;
-&lt;/div&gt;</content><author><name>特约撰稿人 吴海伦</name></author><category term="initium" /><category term="blog" /><summary type="html">10月7日是内塔尼亚胡政治生涯的奇迹，而通过攻打伊朗，他又经历了一场浴火重生。 2025年6月18日，以色列特拉维夫附近的拉马特甘，空袭警报响起，人们躲在地下地铁站里，警告伊朗即将发动攻击。摄：Oded Balilty/AP/达志影像</summary></entry></feed>
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>獨媒報導</name></author><category term="inmedia" /><category term="blog" /><summary type="html">【獨媒報導】位於北角的青年書局，近日因創辦人陳明濱離世，加上租約於本月底期滿，即將清場。書店目前由廣州書店老闆黃子輝接手。青年書局最為人所知的為獨家代理國學大師南懷瑾的書籍，黃子輝明言是看中南懷瑾的著作，目前正整理書店書藏，並計劃將約3,000本南懷瑾著作運往需求旺盛的內地市場。黃子輝稱會於約滿前清場，文史哲相關著作會入倉，其他書籍則會銷毀。 黃子輝向《獨媒》講述接手經過，他在廣州經營「尚南書館」，與陳明濱原是商業合作關係，向對方採購南懷瑾著作。今年陳明濱離世，其年近八十的遺孀又突患中風。黃子輝因突然聯繫不上他們，特意從廣州赴港登門拜訪。在書局遇見協助遺孀看守書店的施先生，才了解事情始末。 黃子輝 他稱見遺孀行動不便，身邊又無家人願意接手書店，向遺孀詢問後，對方決定無條件將書局轉讓予黃子輝。他以「興滅國，繼絕世」形容接手青年書局的過程：「正如周代雖滅殷商卻保留其文化傳承，我們接手書局不是要顛覆傳統。 」 雖然青年書局代理南懷瑾書籍，不過黃子輝坦言他並不執著代理權，「網絡時代，買（南懷瑾的）書係好容易，最重要的有人肯買。」他最主要是望推廣南懷瑾的思想，並保持書店健康營運。 目前書店約有3,000本南懷瑾的書籍，黃子輝打算帶回內地出售，「內地（對南懷瑾的書）需求都幾大。」青年書局現址因租金低廉，月租不足一萬元，故多年來得以維持。惟租約將於本月底完結，黃子輝將於限期前「交吉」，會將文史哲類的書籍入倉，其餘價值較低的補習教材與參考書將會銷毀，目前已清理約數箱受潮發霉的書籍。 黃子輝在廣州「尚南書館」，不時舉辦活動，不過他稱如重設青年書局，不會完全跟從「尚南書館」的做法。他目前正覓書局新址，如重設將著重打造舒適的閱讀環境與文化體驗 ，增設冷氣及坐椅，並以國學與中國文化為主題，以及通過社交平台如Facebook、Instagram及小紅書推廣，吸引愛好中國文化的讀者，「靠賣東西是不行的，一定要靠服務」。 除黃子輝外，另有兩名從事設計及電商貿易的接手人，他稱計劃邀請兩位分別法律及財務的伙伴加入團隊。 不少顧客聞風到場選書，已退休的張小姐指「賣不完就要丟進海裡，好像很浪費」，特意到場尋找張愛玲著作，指能勾起其回憶，「張愛玲，其實以前看過，現在想重看。」張小姐常到訪深水埗的獨立書店，坦言青年書局環境不如其他書店舒適，藏書也較老舊。 另一位特地從深圳來港的書商張先生則表示，青年書局有很多有歷史價值的小說。他選購了由梁實秋、葉公超主編，雕龍出版社發行的「新月散文選」及「新月小說選」，認為有紀念價值。</summary></entry></feed>
