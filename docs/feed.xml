@@ -1,4 +1,664 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://agora0.github.io/post/feed.xml" rel="self" type="application/atom+xml" /><link href="https://agora0.github.io/post/" rel="alternate" type="text/html" /><updated>2025-07-31T10:00:28+08:00</updated><id>https://agora0.github.io/post/feed.xml</id><title type="html">零博客</title><subtitle>Read blog on demand.</subtitle><entry><title type="html">以太坊創世十週年・下：百年以人</title><link href="https://agora0.github.io/post/matters/2025/07/31/MATTERS-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%89%B5%E4%B8%96%E5%8D%81%E9%80%B1%E5%B9%B4-%E4%B8%8B-%E7%99%BE%E5%B9%B4%E4%BB%A5%E4%BA%BA.html" rel="alternate" type="text/html" title="以太坊創世十週年・下：百年以人" /><published>2025-07-31T03:13:04+08:00</published><updated>2025-07-31T03:13:04+08:00</updated><id>https://agora0.github.io/post/matters/2025/07/31/MATTERS-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%89%B5%E4%B8%96%E5%8D%81%E9%80%B1%E5%B9%B4-%E4%B8%8B-%E7%99%BE%E5%B9%B4%E4%BB%A5%E4%BA%BA</id><content type="html" xml:base="https://agora0.github.io/post/matters/2025/07/31/MATTERS-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%89%B5%E4%B8%96%E5%8D%81%E9%80%B1%E5%B9%B4-%E4%B8%8B-%E7%99%BE%E5%B9%B4%E4%BB%A5%E4%BA%BA.html">&lt;p&gt;上期&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://ckxpress.com/ethereum-10th/&quot;&gt;〈十年以太〉&lt;/a&gt;的民意調查，問到以太坊十多年歷史中最令人難忘的事件，56 位參與者中，近一半對 2021、22 年的 NFT 炒風印象最深，令事件以 46% 高票勝出，原因或許是 NFT 最為出圈，又或許是近期偏誤（recency bias）影響判斷，但最能反映以太坊社群核心價值的，卻非民意調查中得票最低的 The DAO Hack 莫屬。&lt;/p&gt;&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;https://imagedelivery.net/kDRCweMmqLnTPNlbum-pYA/prod/embed/bcf2e24b-8caa-4302-bc9f-f2b649c9dc5c.png/public&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;&lt;h2&gt;The DAO Hack&lt;/h2&gt;&lt;p&gt;有玩過大型網絡遊戲（MMORPG）的讀者，很可能遇過遊戲的程式碼出現漏洞，被部分玩家用以獲取稀有武器和大量遊戲幣，破壞遊戲世界的經濟及生態平衡。但凡遇上這類事件，遊戲廠商堵塞漏洞的同時有兩個選擇，要麼接受漏洞所帶來的後果，要麼回滾或更改數據庫，讓每位玩家回復到事前的狀態，前者表面上對不公平和經濟失衡視而不見，但同時也是最大程度尊重制度；後者雖然盡力彌補，但無可避免惹來參與者對官方濫用權力、肆意修改數據的擔憂。&lt;/p&gt;&lt;p&gt;2016 年，上線不足一年的以太坊面對 The DAO Hack，正好像個出現嚴重漏洞的 MMORPG，修補臭蟲毫無懸念，但對於應接受被盜 360 萬 ETH 的後果，還是該修改程式碼回收款項，社群展開激烈爭辯。有趣的是，以太坊最主要的創辦人 Vitalik 當初體會到中心化的弊病，正是始於玩《魔獸世界》（World of Warcraft）時，被遊戲廠商暴雪（Blizzard）在 2009 年的一次更新移除術士角色生命虹吸（Siphon Life）的傷害組件，一下子被廢武功。對於一個 MMORPG，遊戲廠商就是神，有絕對能力修改角色以至各種數據，七年過去，華語世界後來尊稱（也是戲稱）為「V 神」的 Vitalik 從玩家的身份換到區塊鏈「廠商」的位置，主張如何處理這起事件？&lt;/p&gt;&lt;p&gt;先來弄清 The DAO Hack 的規模。360 萬 ETH，當時市值「只有」約五千萬鎂，在區塊鏈史上連大型盜竊事件都稱不上；然而，那是以當時市值、美元本位而言，放在當下 ETH 兌 3,878 鎂算，這筆款項高達 139.6 億鎂。相對而言，發生於本年二月、史上最大規模的密碼貨幣盜竊案，Bybit 被盜的資產價格當時市值也「只不過」14.6 億鎂而已，即使以現時幣價算，也跟 The DAO Hack 規模相差六、七倍；再比對現時持有最多 ETH 的機構 BitMine，持倉 56 萬 ETH 左右，只及被盜 ETH 不到六分一。比較這些數字，不是說規模夠大就可以把原則拋諸腦後，但要作出這個艱難的決定，不可能不去考慮涉款額，尤其是當盜竊規模大得足以令生態一沉不起。&lt;/p&gt;&lt;p&gt;最終結果很多人早有聽聞，事件令社群分成兩派，一方以「code is law」為最高原則，寧可讓駭客領款離開（有人甚至會認為不該用上「駭客」這個帶有道德判斷的詞），包括 Vitalik 在內的另一方則主張加入程式碼阻止駭客領款，讓用戶取回款項；雖然從論壇和一幣一票的民意調查可看出後者意見較為主流，但由於主張不變的一方亦得到足夠多的礦工支持，最終硬分叉出兩個平行世界，前者成為 Ethereum Classic（ETC），後者才是今天公眾認識的以太坊和 ETH。&lt;/p&gt;&lt;p&gt;余生也晚，未能親身參與 The DAO Hack，回看資料，我認同加入程式碼阻止駭客的處理，表面上這跟我過往強調 code is law 的立場相左，實際上這反映的是對「law」的理解，也是我認為以太坊作風以人為本的開端。&lt;/p&gt;&lt;h2&gt;Code is Law 的背後需要人本主義&lt;/h2&gt;&lt;p&gt;無論民主國家還是威權社會，都沒有人會否定法律和「法治」的重要性，但演繹起來卻差之毫釐，前者 rule of law 以法律制衡政府避免權力過大；後者 rule by law 以法律整治人民藉以鞏固管治。前者的法律反映民意，立法過程獲人民授權；後者的法律反映政權意志，以法律服務行政，甚至有所謂「先立法後審議」的聖旨式立法（有別於太陽花運動提出的「先立法，再審查」，這裏指的是新法律條文即時頒布並生效，他日再作「審議」）。&lt;/p&gt;&lt;p&gt;回到 The DAO Hack，單憑透過加入程式碼回收被盜 ETH 的做法，不足以判斷對與錯，而要考慮社群在危機處理中有否盡量依循民主通則，鼓勵表達、溝通、討論，而不是借緊急為名，以專制或「多數人的暴政」行事。同理，單以「code is law」為由，不足以否定所有修改程式碼的需要，不能避免判斷某種行為是攻擊還是正常使用，更不可能因此就把 bug 視作 feature，否則，假如無論如何不應牽涉人的判斷，豈不是第一版本的程式碼公開使用後就成永恆不變的定律，從此不能更新。&lt;/p&gt;&lt;p&gt;眾所周知，台灣是個講求情、理、法的人情社會，情大於理、理先於法，跟上述情況類似，實踐得當是彰顯人情味，一旦被濫用就會變成敷衍塞責，有法不依。2014 年的太陽花運動，闖入立法院屬違法是客觀事實，但執法、司法考慮整體的脈絡、法律以外的情理，尊重民意予以酌情，反映的就是以民為先、以人為本。反觀有些社會，面向權貴就行使不起訴酌情權，面向公民就只管強調「&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://www.isd.gov.hk/chi/tvapi/20_ms292.html&quot;&gt;犯法就是犯法&lt;/a&gt;」，不犯法都極速度身訂造新法，這就是情、理、法的濫用，也是為甚麼 code is law 的背後，必須有人本主義的支持。&lt;/p&gt;&lt;p&gt;在物理世界，每個人都生而為Ｘ國人，想做別國國民，少數人可以選擇移民，多數人卻只能嘆句「來生不做Ｘ國人」；數位世界卻不一樣，區塊鏈是自由進出的生態（permissionless），有甚麼重大不滿隨時可以「用腳投票」，如反對聲音到達臨界點，更會產生「fork the government」的效果。&lt;/p&gt;&lt;p&gt;當初以太坊要修改程式碼處理 The DAO Hack，要不是礦工認同並配合升級節點，是絕不能單靠基金會或 Vitalik 的意願而行的，而往後分叉成 Ethereum 及 Ethereum Classic，最終哪個生態更蓬勃更持久，亦是整個社群持續以行動投票的結果。The DAO Hack 後，Ethereum 在困難中蓬勃發展至今，另邊廂的 Ethereum Classic 則多次遭遇 51% 攻擊，現市值不到前者 1%，多少反映出社群的選擇。&lt;/p&gt;&lt;h2&gt;科技以人為本&lt;/h2&gt;&lt;p&gt;打從「低能電話」諾基亞於九十年代以「科技以人為本」作廣告語，該說法就深入民心，仿佛無可爭議的共識，然而廣告畢竟只求意象，以人為本流於一句口號，對於當中意涵，往往莫衷一是。&lt;/p&gt;&lt;p&gt;以人為本最普遍也最能產生共鳴的理解，是簡單易用；這個理解沒有錯，科技產品理應讓阿嬤與小孩都懂，誰能反對？從這個角度看，不得不承認區塊鏈絕不及格，而架構龐大、包含 L2 等設計的以太坊，甚至比其他區塊鏈還要難用，即便是天天使用的我，上週也因為智能帳戶與多簽錢包介面不兼容的問題看上一整天，何況是新手。用戶體驗差的弱項不容否認，可幸的是以太坊社群積極面對，在成功擴容之後，開始透過智能帳戶等更新，逐步改善用戶體驗。&lt;/p&gt;&lt;p&gt;然而，簡單易用不是一切，更不應凌駕層次更高的價值，比如說微信很好用，但沒有點對點加密，支付完全中心化，就絕不是以人為本該有的樣子。真正的以人為本，照顧的並不只是廠商、風投，更不是強國、政府的利益，還會照顧魯蛇、邊緣人、弱勢者以至整體人類的長遠福祉；追求的不是短期幣價上揚，而是可持續、可負擔的合理價格；考慮的不單是效率和成本效益，更要兼顧私隱和韌性；關心的不只是人類，還包括環境和其他物種。&lt;/p&gt;&lt;p&gt;十分慶幸，以太坊十多年以來展現的核心價值，打從一開始不向風投傾斜，合理分配原始 ETH，到開發多年以轉用 PoS 令能源消耗大降 99%，繼而犧牲短期利益將大部分交易移師 L2，再到近年投入大量科研資源於零知識證明等技術提升私隱，都在體現我所嚮往的人本精神。&lt;/p&gt;&lt;p&gt;雖然事後看似理所當然，實際上在 Tron 靠攏強國而立於不敗之地、Solana 略為犧牲去中心化換取到強大性能、ETH 因著 L2 架構而需求大減幣價大跌等種種壓力下，在競爭激烈的商業環境下抵禦短期利益的誘惑，頂住質疑的聲音，還要兼顧人文關懷，難能可貴。&lt;/p&gt;&lt;p&gt;期望下一個、兩個、十個十年，以太坊仍能堅守長期主義，持續以韌性、私隱和公共利益為先，百年以人，超越民族國家的視野，為整體人類謀福祉。&lt;/p&gt;&lt;h2&gt;POLL&lt;/h2&gt;&lt;h3&gt;你怎樣看以太坊的未來？&lt;/h3&gt;&lt;ol&gt;&lt;li&gt;&lt;p&gt;比特幣才是王道，以太坊永遠無法超越，只能當老二。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;面對所有公鏈的競爭，以太坊即使守得住第二，市佔率也必然走下坡。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;以太坊終將超越比特幣，成為無可爭議的第一。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;市值第幾是其次，重點是以太坊始終最為去中心、具韌性、照顧私隱。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;以上皆非，讓我留言告訴大家。&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;hr&gt;&lt;p&gt;p.s. 六年來第二次，因需要更改收費帳戶，得主動把辛苦積累的所有付費用戶退訂兼退費，一鋪清零，上次用了整整幾年才回到原點，昨天只消一晚，就得到兩成原道友 Pro 體諒，重新訂閱，不少還付上窩心留言，即使最終失去一半訂戶，亦覺無憾。&lt;/p&gt;</content><author><name>ckxpress</name></author><category term="matters" /><category term="blog" /><summary type="html">上期〈十年以太〉的民意調查，問到以太坊十多年歷史中最令人難忘的事件，56 位參與者中，近一半對 2021、22 年的 NFT 炒風印象最深，令事件以 46% 高票勝出，原因或許是 NFT 最為出圈，又或許是近期偏誤（recency bias）影響判斷，但最能反映以太坊社群核心價值的，卻非民意調查中得票最低的 The DAO Hack 莫屬。The DAO Hack有玩過大型網絡遊戲（MMORPG）的讀者，很可能遇過遊戲的程式碼出現漏洞，被部分玩家用以獲取稀有武器和大量遊戲幣，破壞遊戲世界的經濟及生態平衡。但凡遇上這類事件，遊戲廠商堵塞漏洞的同時有兩個選擇，要麼接受漏洞所帶來的後果，要麼回滾或更改數據庫，讓每位玩家回復到事前的狀態，前者表面上對不公平和經濟失衡視而不見，但同時也是最大程度尊重制度；後者雖然盡力彌補，但無可避免惹來參與者對官方濫用權力、肆意修改數據的擔憂。2016 年，上線不足一年的以太坊面對 The DAO Hack，正好像個出現嚴重漏洞的 MMORPG，修補臭蟲毫無懸念，但對於應接受被盜 360 萬 ETH 的後果，還是該修改程式碼回收款項，社群展開激烈爭辯。有趣的是，以太坊最主要的創辦人 Vitalik 當初體會到中心化的弊病，正是始於玩《魔獸世界》（World of Warcraft）時，被遊戲廠商暴雪（Blizzard）在 2009 年的一次更新移除術士角色生命虹吸（Siphon Life）的傷害組件，一下子被廢武功。對於一個 MMORPG，遊戲廠商就是神，有絕對能力修改角色以至各種數據，七年過去，華語世界後來尊稱（也是戲稱）為「V 神」的 Vitalik 從玩家的身份換到區塊鏈「廠商」的位置，主張如何處理這起事件？先來弄清 The DAO Hack 的規模。360 萬 ETH，當時市值「只有」約五千萬鎂，在區塊鏈史上連大型盜竊事件都稱不上；然而，那是以當時市值、美元本位而言，放在當下 ETH 兌 3,878 鎂算，這筆款項高達 139.6 億鎂。相對而言，發生於本年二月、史上最大規模的密碼貨幣盜竊案，Bybit 被盜的資產價格當時市值也「只不過」14.6 億鎂而已，即使以現時幣價算，也跟 The DAO Hack 規模相差六、七倍；再比對現時持有最多 ETH 的機構 BitMine，持倉 56 萬 ETH 左右，只及被盜 ETH 不到六分一。比較這些數字，不是說規模夠大就可以把原則拋諸腦後，但要作出這個艱難的決定，不可能不去考慮涉款額，尤其是當盜竊規模大得足以令生態一沉不起。最終結果很多人早有聽聞，事件令社群分成兩派，一方以「code is law」為最高原則，寧可讓駭客領款離開（有人甚至會認為不該用上「駭客」這個帶有道德判斷的詞），包括 Vitalik 在內的另一方則主張加入程式碼阻止駭客領款，讓用戶取回款項；雖然從論壇和一幣一票的民意調查可看出後者意見較為主流，但由於主張不變的一方亦得到足夠多的礦工支持，最終硬分叉出兩個平行世界，前者成為 Ethereum Classic（ETC），後者才是今天公眾認識的以太坊和 ETH。余生也晚，未能親身參與 The DAO Hack，回看資料，我認同加入程式碼阻止駭客的處理，表面上這跟我過往強調 code is law 的立場相左，實際上這反映的是對「law」的理解，也是我認為以太坊作風以人為本的開端。Code is Law 的背後需要人本主義無論民主國家還是威權社會，都沒有人會否定法律和「法治」的重要性，但演繹起來卻差之毫釐，前者 rule of law 以法律制衡政府避免權力過大；後者 rule by law 以法律整治人民藉以鞏固管治。前者的法律反映民意，立法過程獲人民授權；後者的法律反映政權意志，以法律服務行政，甚至有所謂「先立法後審議」的聖旨式立法（有別於太陽花運動提出的「先立法，再審查」，這裏指的是新法律條文即時頒布並生效，他日再作「審議」）。回到 The DAO Hack，單憑透過加入程式碼回收被盜 ETH 的做法，不足以判斷對與錯，而要考慮社群在危機處理中有否盡量依循民主通則，鼓勵表達、溝通、討論，而不是借緊急為名，以專制或「多數人的暴政」行事。同理，單以「code is law」為由，不足以否定所有修改程式碼的需要，不能避免判斷某種行為是攻擊還是正常使用，更不可能因此就把 bug 視作 feature，否則，假如無論如何不應牽涉人的判斷，豈不是第一版本的程式碼公開使用後就成永恆不變的定律，從此不能更新。眾所周知，台灣是個講求情、理、法的人情社會，情大於理、理先於法，跟上述情況類似，實踐得當是彰顯人情味，一旦被濫用就會變成敷衍塞責，有法不依。2014 年的太陽花運動，闖入立法院屬違法是客觀事實，但執法、司法考慮整體的脈絡、法律以外的情理，尊重民意予以酌情，反映的就是以民為先、以人為本。反觀有些社會，面向權貴就行使不起訴酌情權，面向公民就只管強調「犯法就是犯法」，不犯法都極速度身訂造新法，這就是情、理、法的濫用，也是為甚麼 code is law 的背後，必須有人本主義的支持。在物理世界，每個人都生而為Ｘ國人，想做別國國民，少數人可以選擇移民，多數人卻只能嘆句「來生不做Ｘ國人」；數位世界卻不一樣，區塊鏈是自由進出的生態（permissionless），有甚麼重大不滿隨時可以「用腳投票」，如反對聲音到達臨界點，更會產生「fork the government」的效果。當初以太坊要修改程式碼處理 The DAO Hack，要不是礦工認同並配合升級節點，是絕不能單靠基金會或 Vitalik 的意願而行的，而往後分叉成 Ethereum 及 Ethereum Classic，最終哪個生態更蓬勃更持久，亦是整個社群持續以行動投票的結果。The DAO Hack 後，Ethereum 在困難中蓬勃發展至今，另邊廂的 Ethereum Classic 則多次遭遇 51% 攻擊，現市值不到前者 1%，多少反映出社群的選擇。科技以人為本打從「低能電話」諾基亞於九十年代以「科技以人為本」作廣告語，該說法就深入民心，仿佛無可爭議的共識，然而廣告畢竟只求意象，以人為本流於一句口號，對於當中意涵，往往莫衷一是。以人為本最普遍也最能產生共鳴的理解，是簡單易用；這個理解沒有錯，科技產品理應讓阿嬤與小孩都懂，誰能反對？從這個角度看，不得不承認區塊鏈絕不及格，而架構龐大、包含 L2 等設計的以太坊，甚至比其他區塊鏈還要難用，即便是天天使用的我，上週也因為智能帳戶與多簽錢包介面不兼容的問題看上一整天，何況是新手。用戶體驗差的弱項不容否認，可幸的是以太坊社群積極面對，在成功擴容之後，開始透過智能帳戶等更新，逐步改善用戶體驗。然而，簡單易用不是一切，更不應凌駕層次更高的價值，比如說微信很好用，但沒有點對點加密，支付完全中心化，就絕不是以人為本該有的樣子。真正的以人為本，照顧的並不只是廠商、風投，更不是強國、政府的利益，還會照顧魯蛇、邊緣人、弱勢者以至整體人類的長遠福祉；追求的不是短期幣價上揚，而是可持續、可負擔的合理價格；考慮的不單是效率和成本效益，更要兼顧私隱和韌性；關心的不只是人類，還包括環境和其他物種。十分慶幸，以太坊十多年以來展現的核心價值，打從一開始不向風投傾斜，合理分配原始 ETH，到開發多年以轉用 PoS 令能源消耗大降 99%，繼而犧牲短期利益將大部分交易移師 L2，再到近年投入大量科研資源於零知識證明等技術提升私隱，都在體現我所嚮往的人本精神。雖然事後看似理所當然，實際上在 Tron 靠攏強國而立於不敗之地、Solana 略為犧牲去中心化換取到強大性能、ETH 因著 L2 架構而需求大減幣價大跌等種種壓力下，在競爭激烈的商業環境下抵禦短期利益的誘惑，頂住質疑的聲音，還要兼顧人文關懷，難能可貴。期望下一個、兩個、十個十年，以太坊仍能堅守長期主義，持續以韌性、私隱和公共利益為先，百年以人，超越民族國家的視野，為整體人類謀福祉。POLL你怎樣看以太坊的未來？比特幣才是王道，以太坊永遠無法超越，只能當老二。面對所有公鏈的競爭，以太坊即使守得住第二，市佔率也必然走下坡。以太坊終將超越比特幣，成為無可爭議的第一。市值第幾是其次，重點是以太坊始終最為去中心、具韌性、照顧私隱。以上皆非，讓我留言告訴大家。p.s. 六年來第二次，因需要更改收費帳戶，得主動把辛苦積累的所有付費用戶退訂兼退費，一鋪清零，上次用了整整幾年才回到原點，昨天只消一晚，就得到兩成原道友 Pro 體諒，重新訂閱，不少還付上窩心留言，即使最終失去一半訂戶，亦覺無憾。</summary></entry><entry><title type="html">十年以太 百年以人：以太坊創世十週年</title><link href="https://agora0.github.io/post/matters/2025/07/31/MATTERS-%E5%8D%81%E5%B9%B4%E4%BB%A5%E5%A4%AA-%E7%99%BE%E5%B9%B4%E4%BB%A5%E4%BA%BA-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%89%B5%E4%B8%96%E5%8D%81%E9%80%B1%E5%B9%B4.html" rel="alternate" type="text/html" title="十年以太 百年以人：以太坊創世十週年" /><published>2025-07-31T02:56:38+08:00</published><updated>2025-07-31T02:56:38+08:00</updated><id>https://agora0.github.io/post/matters/2025/07/31/MATTERS-%E5%8D%81%E5%B9%B4%E4%BB%A5%E5%A4%AA-%E7%99%BE%E5%B9%B4%E4%BB%A5%E4%BA%BA-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%89%B5%E4%B8%96%E5%8D%81%E9%80%B1%E5%B9%B4</id><content type="html" xml:base="https://agora0.github.io/post/matters/2025/07/31/MATTERS-%E5%8D%81%E5%B9%B4%E4%BB%A5%E5%A4%AA-%E7%99%BE%E5%B9%B4%E4%BB%A5%E4%BA%BA-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%89%B5%E4%B8%96%E5%8D%81%E9%80%B1%E5%B9%B4.html">&lt;p&gt;2015 年，香港電影&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://www.imdb.com/title/tt5269560/&quot;&gt;《十年》&lt;/a&gt;上映，五位年輕新晉導演分別以五個短篇故事，透過影像描繪想像中十年後，也就是 2025 年的香港。《十年》的預算只有少得誇張的五十萬港元，從小規模上映到引發共鳴，喚醒港人埋藏心底的焦慮與恐懼，再奪得金像獎最佳電影，產生廣泛迴響。當時所有人都以為電影運用了誇張的表達手法，十年過去，才知道原來電影中的許多橋段，遠遠比不上現實荒謬。&lt;/p&gt;&lt;h2&gt;短期影響 vs 長期效應&lt;/h2&gt;&lt;p&gt;同樣發生在 2015 年，十年後的發展令人意想不到的，還有迴響更廣泛、更深遠的以太坊。2015 年 7 月 30 日，以太坊鑄造出創世區塊，以似慢實快的節奏，在金融、內容、協作等各個層面，逐步帶來不可逆轉的改變。&lt;/p&gt;&lt;p&gt;著名的阿瑪拉定律（&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://en.wikipedia.org/wiki/Roy_Amara&quot;&gt;Amara’s Law&lt;/a&gt;）指出，我們傾向於高估一項科技的短期影響，同時又低估它的長期效應。在很多人眼中，以太坊的發展很慢，明明十多年前就有 the world computer 的願景、七八年前就以為 web3 要來了，結果單是一個 Cryptokitties 小遊戲，就把這台「世界電腦」卡得死死，加上幣市轉熊，許多人都對以太坊甚或所有區塊鏈相關技術失望，繼而離場。&lt;/p&gt;&lt;p&gt;當公眾的心思和精力都轉投 AI、VR 等其他領域，有群人卻從未放棄，深耕細作，厚積薄發，到大家把 web3 忘記得七七八八，日積月累的微小改善逐漸令區塊鏈變得實用，如 USDT 等應用悄悄然在主流媒體的視野外深深紮根，近月美國政府的加持，不過是在已經燃起的火上加油而已，一下子，世界突然發現過往遠遠低估了比特幣、以太坊和穩定幣（大部份在以太坊發行）帶來的影響。&lt;/p&gt;&lt;p&gt;在最為困難、多方質疑的時刻，從未放緩開發步伐、不為短期幣價調整發展藍圖、不走捷徑跟強國靠攏而妥協去中心化，始終堅守長期主義的佼佼者，首推以太坊。&lt;/p&gt;&lt;h2&gt;以太簡史，一步一腳印&lt;/h2&gt;&lt;p&gt;要深入了解以太坊的發展史，恐怕要看上百網頁。以下我把以太坊自構想以來的歷史分成起、承、轉、合四個階段，再在每年列出最重要的一至數項重大事件，幫助讀者快速回顧以太坊如何一步一腳印，發展到獲得今天的成就。&lt;/p&gt;&lt;h3&gt;起：白皮書、募資、創世&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;2013 📜&lt;br class=&quot;smart&quot;&gt;Vitalik Buterin 以 &lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://ethereum.org/content/whitepaper/whitepaper-pdf/Ethereum_Whitepaper_-_Buterin_2014.pdf&quot;&gt;Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform&lt;/a&gt; 為題，撰寫以太坊白皮書。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2014 💰&lt;br class=&quot;smart&quot;&gt;以太坊群眾募資，成功籌得 31,529 BTC，當時市值約 1,800 萬鎂，賣出 60,102,216 ETH。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2015 🚀&lt;br class=&quot;smart&quot;&gt;7 月 30 日，以太坊主網上線，鑄造出創世區塊。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2016 💔&lt;br class=&quot;smart&quot;&gt;基於以太坊的專案 The DAO 出現漏洞，被盜取 360 萬 ETH，市值約 5 千萬鎂，最終社群以硬分叉處理，現時的 Ethereum 為加入程式碼取回被盜資產的分叉，而堅持「code is law」、接受被盜事實的原始鏈，則成為現今的 Ethereum Classic（ETC）。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;承：ICO、寒冬、DeFi&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;2017 📈&lt;br class=&quot;smart&quot;&gt;NFT 標準（ERC-721）出現，Cryptokitties 上線；ICO 熱潮催生出眾多建基於以太坊的專案；Byzantium 升級，挖礦獎勵由 5 ETH 調整至 3 ETH。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2018 ❄️&lt;br class=&quot;smart&quot;&gt;ICO 泡沫爆破加上比特幣四年週期效應，使 ETH 幣價從年初最高位 1,448 鎂，跌至年底低見 84 鎂，幅度超過九成，再加上 Constantinople 升級因技術問題延誤，以太坊步入低谷。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2019 🌱&lt;br class=&quot;smart&quot;&gt;年初 Constantinople、St. Petersburg 升級，挖礦奬勵進一步下調至 2 ETH，年底 Istanbul 升級，為日後 L2 及零知識證明奠定基礎；Uniswap、Compound、MakerDAO 等 DeFi 應用初見苗頭；ETH 幣價谷底回升。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2020 ☀️&lt;br class=&quot;smart&quot;&gt;Compound、Uniswap、Aave、Curve 等紛紛推出流動性挖礦，觸發 DeFi Summer，世界初次見識分散式金融的威力，同時凸顯以太坊吞吐量低、手續費高的毛病，L2 擴容迫在眉睫；年底信標鏈（Beacon Chain）上線，質押開始，踏出 PoS 的第一步。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;轉：NFT、PoS、L2&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;2021 🔥&lt;br class=&quot;smart&quot;&gt;Berlin、London、Altair 升級，其中的 London 的 EIP-1559，成功協調礦工的反對與抗議，銷毀交易費中的基礎部分，降低 ETH 的供應，產生通縮的可能；Arbitrum 及 Optimism L2 主網上線；BAYC 等頭像 NFT 專案引發熾熱炒風，將 ETH 幣價推上 4,878 鎂的歷史高位。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2022 🤝&lt;br class=&quot;smart&quot;&gt;The Merge 升級，正式終止工作證明（PoW）挖掘，踏入權益證明（PoS）的全新階段，減少能源消耗 99% 以上；伴隨技術突破而來的卻是幣價寒冬，Terra 崩盤、FTX 倒閉，再加上比特幣的再一個四年週期，讓 ETH 一度跌破 1,000 鎂。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2023 🔓&lt;br class=&quot;smart&quot;&gt;Shapella 升級，開放 ETH 質押的提領，正式完成 PoS 升級的最後一步；Arbitrum、Optimism 等 L2 逐漸成熟，同時以 ZK-Rollups 為基礎的 zkSync Era 和 StarkNet 也上線主網，由理論踏入實踐。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2024 🍃&lt;br class=&quot;smart&quot;&gt;Dencun 升級，其中 EIP-4844 引入臨時數據儲存空間，令 L2 交易費下降九成；美國證交會繼比特幣 ETF 後，批出以太幣現貨 ETF，象徵以太坊開始受國家政府及傳統金融業接納。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;合：匯合傳統金融、智能帳戶、走入民間&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;2025 🏗️&lt;br class=&quot;smart&quot;&gt;Pectra 升級，允許普通帳戶轉換成智能帳戶（smart account），另把驗證者質押數從固定的 32 ETH 改為 32-2048 ETH，降低驗證者數量，減輕網絡通訊負擔；市場方面，開始有機構以 ETH 作為儲備，同時成為驗證者以獲取報酬。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;相對於前面的起、承、轉，合的階段只過了半年，我沒有水晶球，但從多年的參與及觀察，我可以很有信心地判斷，未來數年的幾次技術更新，將令以太坊吞吐量更大、手續費更低、分散程度更高，更重要的是，隨著智能帳戶在錢包軟體與 dApps 的落實，開立與管理錢包將越來越簡單，用戶體驗變得平易近人，加上各國政府、傳統金融及大型機構的認可，以太坊將會大規模走入民間，成為不可或缺的基礎建設。&lt;/p&gt;&lt;h2&gt;待續&lt;/h2&gt;&lt;p&gt;以太坊的歷史我本來就知道，但在整理簡史的過程中重讀大量材料，我還是被這段不可思議的史詩式旅程震撼到，參與其中，即使只是小腳色，也深感榮幸。&lt;/p&gt;&lt;p&gt;談以太坊十週年，沒可能避開技術詞彙，希望讀者不會再次表示「每個字都明，但加起來不懂」。7 月 30 日，以太坊十週年當天，我將刊出〈十年以太 百年以人〉下集，探討以太坊的人文面向，請勿錯過。&lt;/p&gt;&lt;h2&gt;POLL&lt;/h2&gt;&lt;h3&gt;在以太坊十多年的歷程，哪件事令你最難忘？&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;以太坊的白皮書及群眾募資。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The DAO Hack。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;ICO 風潮及其後的爆破。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;DeFi Summer。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;NFT 炒風，生成式藝術的潮起潮落。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;p&gt;p.s. 2021 年 3 月，《小朋友齊打交》的開發者小熊推出 LF2 NFT，我二話不說買下經典角色 &lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://opensea.io/item/ethereum/0x55a7a2f764a86b4622510af16006c8017cdd76db/1&quot;&gt;#01 Davis&lt;/a&gt;，支持友人，推動創作。此後四年多，小熊善用出售 NFT 所得款項，夜以繼日持續開發，終於在上週推出&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://store.steampowered.com/app/3249650/Little_Fighter_2_Remastered/&quot;&gt;《Little Fighter 2 remastered》&lt;/a&gt;，於 Steam 公開發售。誰說 NFT 只能用來炒賣？&lt;/p&gt;</content><author><name>ckxpress</name></author><category term="matters" /><category term="blog" /><summary type="html">2015 年，香港電影《十年》上映，五位年輕新晉導演分別以五個短篇故事，透過影像描繪想像中十年後，也就是 2025 年的香港。《十年》的預算只有少得誇張的五十萬港元，從小規模上映到引發共鳴，喚醒港人埋藏心底的焦慮與恐懼，再奪得金像獎最佳電影，產生廣泛迴響。當時所有人都以為電影運用了誇張的表達手法，十年過去，才知道原來電影中的許多橋段，遠遠比不上現實荒謬。短期影響 vs 長期效應同樣發生在 2015 年，十年後的發展令人意想不到的，還有迴響更廣泛、更深遠的以太坊。2015 年 7 月 30 日，以太坊鑄造出創世區塊，以似慢實快的節奏，在金融、內容、協作等各個層面，逐步帶來不可逆轉的改變。著名的阿瑪拉定律（Amara’s Law）指出，我們傾向於高估一項科技的短期影響，同時又低估它的長期效應。在很多人眼中，以太坊的發展很慢，明明十多年前就有 the world computer 的願景、七八年前就以為 web3 要來了，結果單是一個 Cryptokitties 小遊戲，就把這台「世界電腦」卡得死死，加上幣市轉熊，許多人都對以太坊甚或所有區塊鏈相關技術失望，繼而離場。當公眾的心思和精力都轉投 AI、VR 等其他領域，有群人卻從未放棄，深耕細作，厚積薄發，到大家把 web3 忘記得七七八八，日積月累的微小改善逐漸令區塊鏈變得實用，如 USDT 等應用悄悄然在主流媒體的視野外深深紮根，近月美國政府的加持，不過是在已經燃起的火上加油而已，一下子，世界突然發現過往遠遠低估了比特幣、以太坊和穩定幣（大部份在以太坊發行）帶來的影響。在最為困難、多方質疑的時刻，從未放緩開發步伐、不為短期幣價調整發展藍圖、不走捷徑跟強國靠攏而妥協去中心化，始終堅守長期主義的佼佼者，首推以太坊。以太簡史，一步一腳印要深入了解以太坊的發展史，恐怕要看上百網頁。以下我把以太坊自構想以來的歷史分成起、承、轉、合四個階段，再在每年列出最重要的一至數項重大事件，幫助讀者快速回顧以太坊如何一步一腳印，發展到獲得今天的成就。起：白皮書、募資、創世2013 📜Vitalik Buterin 以 Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform 為題，撰寫以太坊白皮書。2014 💰以太坊群眾募資，成功籌得 31,529 BTC，當時市值約 1,800 萬鎂，賣出 60,102,216 ETH。2015 🚀7 月 30 日，以太坊主網上線，鑄造出創世區塊。2016 💔基於以太坊的專案 The DAO 出現漏洞，被盜取 360 萬 ETH，市值約 5 千萬鎂，最終社群以硬分叉處理，現時的 Ethereum 為加入程式碼取回被盜資產的分叉，而堅持「code is law」、接受被盜事實的原始鏈，則成為現今的 Ethereum Classic（ETC）。承：ICO、寒冬、DeFi2017 📈NFT 標準（ERC-721）出現，Cryptokitties 上線；ICO 熱潮催生出眾多建基於以太坊的專案；Byzantium 升級，挖礦獎勵由 5 ETH 調整至 3 ETH。2018 ❄️ICO 泡沫爆破加上比特幣四年週期效應，使 ETH 幣價從年初最高位 1,448 鎂，跌至年底低見 84 鎂，幅度超過九成，再加上 Constantinople 升級因技術問題延誤，以太坊步入低谷。2019 🌱年初 Constantinople、St. Petersburg 升級，挖礦奬勵進一步下調至 2 ETH，年底 Istanbul 升級，為日後 L2 及零知識證明奠定基礎；Uniswap、Compound、MakerDAO 等 DeFi 應用初見苗頭；ETH 幣價谷底回升。2020 ☀️Compound、Uniswap、Aave、Curve 等紛紛推出流動性挖礦，觸發 DeFi Summer，世界初次見識分散式金融的威力，同時凸顯以太坊吞吐量低、手續費高的毛病，L2 擴容迫在眉睫；年底信標鏈（Beacon Chain）上線，質押開始，踏出 PoS 的第一步。轉：NFT、PoS、L22021 🔥Berlin、London、Altair 升級，其中的 London 的 EIP-1559，成功協調礦工的反對與抗議，銷毀交易費中的基礎部分，降低 ETH 的供應，產生通縮的可能；Arbitrum 及 Optimism L2 主網上線；BAYC 等頭像 NFT 專案引發熾熱炒風，將 ETH 幣價推上 4,878 鎂的歷史高位。2022 🤝The Merge 升級，正式終止工作證明（PoW）挖掘，踏入權益證明（PoS）的全新階段，減少能源消耗 99% 以上；伴隨技術突破而來的卻是幣價寒冬，Terra 崩盤、FTX 倒閉，再加上比特幣的再一個四年週期，讓 ETH 一度跌破 1,000 鎂。2023 🔓Shapella 升級，開放 ETH 質押的提領，正式完成 PoS 升級的最後一步；Arbitrum、Optimism 等 L2 逐漸成熟，同時以 ZK-Rollups 為基礎的 zkSync Era 和 StarkNet 也上線主網，由理論踏入實踐。2024 🍃Dencun 升級，其中 EIP-4844 引入臨時數據儲存空間，令 L2 交易費下降九成；美國證交會繼比特幣 ETF 後，批出以太幣現貨 ETF，象徵以太坊開始受國家政府及傳統金融業接納。合：匯合傳統金融、智能帳戶、走入民間2025 🏗️Pectra 升級，允許普通帳戶轉換成智能帳戶（smart account），另把驗證者質押數從固定的 32 ETH 改為 32-2048 ETH，降低驗證者數量，減輕網絡通訊負擔；市場方面，開始有機構以 ETH 作為儲備，同時成為驗證者以獲取報酬。相對於前面的起、承、轉，合的階段只過了半年，我沒有水晶球，但從多年的參與及觀察，我可以很有信心地判斷，未來數年的幾次技術更新，將令以太坊吞吐量更大、手續費更低、分散程度更高，更重要的是，隨著智能帳戶在錢包軟體與 dApps 的落實，開立與管理錢包將越來越簡單，用戶體驗變得平易近人，加上各國政府、傳統金融及大型機構的認可，以太坊將會大規模走入民間，成為不可或缺的基礎建設。待續以太坊的歷史我本來就知道，但在整理簡史的過程中重讀大量材料，我還是被這段不可思議的史詩式旅程震撼到，參與其中，即使只是小腳色，也深感榮幸。談以太坊十週年，沒可能避開技術詞彙，希望讀者不會再次表示「每個字都明，但加起來不懂」。7 月 30 日，以太坊十週年當天，我將刊出〈十年以太 百年以人〉下集，探討以太坊的人文面向，請勿錯過。POLL在以太坊十多年的歷程，哪件事令你最難忘？以太坊的白皮書及群眾募資。The DAO Hack。ICO 風潮及其後的爆破。DeFi Summer。NFT 炒風，生成式藝術的潮起潮落。p.s. 2021 年 3 月，《小朋友齊打交》的開發者小熊推出 LF2 NFT，我二話不說買下經典角色 #01 Davis，支持友人，推動創作。此後四年多，小熊善用出售 NFT 所得款項，夜以繼日持續開發，終於在上週推出《Little Fighter 2 remastered》，於 Steam 公開發售。誰說 NFT 只能用來炒賣？</summary></entry><entry><title type="html">李慧琼稱4年成立26個政策事宜小組委員會 盼施政報告吸納意見</title><link href="https://agora0.github.io/post/inmedia/2025/07/30/INMEDIA-%E6%9D%8E%E6%85%A7%E7%90%BC%E7%A8%B14%E5%B9%B4%E6%88%90%E7%AB%8B26%E5%80%8B%E6%94%BF%E7%AD%96%E4%BA%8B%E5%AE%9C%E5%B0%8F%E7%B5%84%E5%A7%94%E5%93%A1%E6%9C%83-%E7%9B%BC%E6%96%BD%E6%94%BF%E5%A0%B1%E5%91%8A%E5%90%B8%E7%B4%8D%E6%84%8F%E8%A6%8B.html" rel="alternate" type="text/html" title="李慧琼稱4年成立26個政策事宜小組委員會 盼施政報告吸納意見" /><published>2025-07-30T21:04:35+08:00</published><updated>2025-07-30T21:04:35+08:00</updated><id>https://agora0.github.io/post/inmedia/2025/07/30/INMEDIA-%E6%9D%8E%E6%85%A7%E7%90%BC%E7%A8%B14%E5%B9%B4%E6%88%90%E7%AB%8B26%E5%80%8B%E6%94%BF%E7%AD%96%E4%BA%8B%E5%AE%9C%E5%B0%8F%E7%B5%84%E5%A7%94%E5%93%A1%E6%9C%83-%E7%9B%BC%E6%96%BD%E6%94%BF%E5%A0%B1%E5%91%8A%E5%90%B8%E7%B4%8D%E6%84%8F%E8%A6%8B</id><content type="html" xml:base="https://agora0.github.io/post/inmedia/2025/07/30/INMEDIA-%E6%9D%8E%E6%85%A7%E7%90%BC%E7%A8%B14%E5%B9%B4%E6%88%90%E7%AB%8B26%E5%80%8B%E6%94%BF%E7%AD%96%E4%BA%8B%E5%AE%9C%E5%B0%8F%E7%B5%84%E5%A7%94%E5%93%A1%E6%9C%83-%E7%9B%BC%E6%96%BD%E6%94%BF%E5%A0%B1%E5%91%8A%E5%90%B8%E7%B4%8D%E6%84%8F%E8%A6%8B.html">&lt;img src=&quot;https://www.inmediahk.net/files/column_images/20250730nkjbhmb.png&quot; /&gt;&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;p&gt;&lt;font color=&quot;#e4692b&quot;&gt;【獨媒報導】&lt;/font&gt;立法會今年底換屆，研究政策事宜小組委員會下午召開簡報會。內務委員會主席李慧琼指今屆立法會先後成立了26個政策事宜小組委員會，研究多項課題，包括促進粵港澳大灣區發展、推動國安及國民教育及北部都會區發展等，認為是「充分體現行政、立法之間良性互動，齊心為香港由治及興新階段發展出力」，期望9月份發表的施政報告會吸納當中意見。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://agora0.github.io/post/feed.xml" rel="self" type="application/atom+xml" /><link href="https://agora0.github.io/post/" rel="alternate" type="text/html" /><updated>2025-07-31T15:00:31+08:00</updated><id>https://agora0.github.io/post/feed.xml</id><title type="html">零博客</title><subtitle>Read blog on demand.</subtitle><entry><title type="html">缅甸台资厂的一场罢工：后政变时代，“缅甸制造”的工人困境</title><link href="https://agora0.github.io/post/initium/2025/07/31/INITIUM-%E7%BC%85%E7%94%B8%E5%8F%B0%E8%B5%84%E5%8E%82%E7%9A%84%E4%B8%80%E5%9C%BA%E7%BD%A2%E5%B7%A5-%E5%90%8E%E6%94%BF%E5%8F%98%E6%97%B6%E4%BB%A3-%E7%BC%85%E7%94%B8%E5%88%B6%E9%80%A0-%E7%9A%84%E5%B7%A5%E4%BA%BA%E5%9B%B0%E5%A2%83.html" rel="alternate" type="text/html" title="缅甸台资厂的一场罢工：后政变时代，“缅甸制造”的工人困境" /><published>2025-07-31T07:00:00+08:00</published><updated>2025-07-31T07:00:00+08:00</updated><id>https://agora0.github.io/post/initium/2025/07/31/INITIUM-%E7%BC%85%E7%94%B8%E5%8F%B0%E8%B5%84%E5%8E%82%E7%9A%84%E4%B8%80%E5%9C%BA%E7%BD%A2%E5%B7%A5-%E5%90%8E%E6%94%BF%E5%8F%98%E6%97%B6%E4%BB%A3-%E7%BC%85%E7%94%B8%E5%88%B6%E9%80%A0-%E7%9A%84%E5%B7%A5%E4%BA%BA%E5%9B%B0%E5%A2%83</id><content type="html" xml:base="https://agora0.github.io/post/initium/2025/07/31/INITIUM-%E7%BC%85%E7%94%B8%E5%8F%B0%E8%B5%84%E5%8E%82%E7%9A%84%E4%B8%80%E5%9C%BA%E7%BD%A2%E5%B7%A5-%E5%90%8E%E6%94%BF%E5%8F%98%E6%97%B6%E4%BB%A3-%E7%BC%85%E7%94%B8%E5%88%B6%E9%80%A0-%E7%9A%84%E5%B7%A5%E4%BA%BA%E5%9B%B0%E5%A2%83.html">&lt;blockquote&gt;&lt;p&gt;&lt;em&gt;仰光产业园区近九成的外资工厂为中资背景，因此，“快点”成了大部分工人唯一记得的汉语词汇。&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;   &lt;figure&gt;&lt;img src=&quot;https://theinitium.com/wp-content/uploads/2025/07/IMG_7814-copy.jpg?w=1080&quot; referrerpolicy=&quot;no-referrer&quot;&gt;  &lt;figcaption&gt;一家位於緬甸的中资制鞋厂。图：作者提供&lt;/figcaption&gt;  &lt;/figure&gt;   
+&lt;div class=&quot;wkwp-post-content&quot;&gt;
+
+
+&lt;div class=&quot;wp-block-tcc-author-note&quot;&gt;&lt;em&gt;
+&lt;p&gt;编者按：2025年5月，位于缅甸仰光的一家台资鞋厂爆发罢工，约4千名工人在厂内抗争，要求提升工资。在2021年的军事政变后，缅甸经历政局动荡、通膨飙升、电力短缺、强制征兵、洪水地震等人祸天灾，使劳工长期处于饥饿与恐惧之中。仰光作为军方控制下“唯一安全的城市”，其产业园区为外资聚集地，近九成外资工厂为中资背景。这些企业多半仰赖退役军警管理员工，并与地方军警建立密切联系，以便在突发事件时迅速介入“维稳”。在极度恶劣的工作环境、资方与军警的联手打压下，爆发了多年未见的大型罢工。&lt;/p&gt;
+
+
+
+&lt;p&gt;本文为“后政变时代的缅甸工人”系列报导的上篇，走进罢工运动现场，探讨缅甸工人近年所面对的多重困境，纪录他们如何在种种不利条件下团结抗争。预计于下周刊出的下篇，将梳理缅甸工人运动的历史脉络，聚焦工会如何在军政府统治下普及法律知识、挑战性别秩序，延续后政变时代缅甸工人运动的火种。&lt;/p&gt;
+&lt;/em&gt;&lt;/div&gt;&lt;hr&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-1&quot;&gt;政变后的罢工&lt;/h2&gt;
+
+
+
+&lt;p&gt;“涨薪！涨薪！……”5月14日中午，在仰光莱达亚产业园区，一家台资工厂传出了这样的喊声。最初有十几人，然后几百人，不断有工人放下手里的活走出车间，加入罢工运动。&lt;/p&gt;
+
+
+
+&lt;p&gt;这家工厂于2014年在在缅甸正式投产，全名为“昌亿有限公司”，是阿迪达斯等国际品牌的主要代工厂之一，也是目前缅甸规模最大的运动鞋制造厂，有超过6200名员工。而莱达亚是仰光最早建立也是最大的产业园区，遍布外资背景的制衣厂、制鞋厂；也是仰光的西南门户——连接目前正频繁交战的伊洛瓦底省和若开邦，自2008年纳吉斯风灾以来容纳了大量来自这两个地区的农业移民和气候难民。&lt;/p&gt;
+
+
+
+&lt;p&gt;2021年缅甸军方发动政变后，仰光的日常被拉回到民主改革前。在长达五年的政局混乱、电力短缺、通货膨胀、强制征兵、和自然灾害等困境的多重夹击下，人们比任何时候都疲于生存。而2025年缅甸地震之后，仰光成为“缅甸目前唯一安全的城市”，且房租大涨。军方为了保住这个“安全”的名声，严格地把守着通往仰光的镇区，这些镇区也是遍布外资工厂的产业园区。在五年的饥饿和恐惧面前，“罢工”变得难以想象。&lt;/p&gt;
+
+
+
+&lt;p&gt;因此，当昌亿罢工的视频在 Tiktok 传播时，迅速引起了广泛关注。“这是曾经熟悉但如今罕见的声音”，流亡泰国的缅甸媒体《Frontier》如此写道。这场罢工最高峰时有超过6000名工人参与，成为缅甸自2021年军方暴力镇压抗议活动之后规模最大的罢工运动。&lt;/p&gt;
+
+
+
+&lt;p&gt;“罢工前我们的月收入只有35万缅币左右（约67美元），而所有东⻄都越来越贵。我们每天5点起来，晚上9点才能回到家，赚的钱还不够糊口。所以，经过讨论，我们决定罢工要求涨薪。”一位参与昌益罢工的工人说。&lt;/p&gt;
+
+
+
+&lt;p&gt;他们提出的条件是，雇主将基础日薪从5200缅币（时值1美元）提高到12000缅币（时值2.3美元）﹑将加班费从每小时1600缅币（时值0.31美元）提高到2000缅币（时值0.38美元）﹑将全勤奖金从20000缅币（时值3.85美元）提高至40000缅币（时值7.69美元）。&lt;/p&gt;
+
+
+
+&lt;p&gt;昌亿罢工并非孤例。根据《缅甸劳工新闻》六月的研究报告，从五月初到六月底，在仰光多个产业园区都出现了罢工运动，六月至少有25家工厂发生了罢工。参与者和领导者以女工为主。&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2000&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/4_6dbf1f.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-292170&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;每天都有无数量摆渡车在工厂和村庄之间接送工人，这些车通常是几经易手的小货车改装而成，一辆车可以挤下40人左右。由于货车年久失修，外加乡道路基破损和严重超载，时常有摆渡车发生事故的新闻。图：作者提供&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;35岁的玛钦是其中一位领导者。她所在的制衣厂为一家中资企业，位于瑞必达产业园区，与莱达亚产业园区隔著一条莱河。她回忆道：“我们是周四开始罢工的，没有好好组织，只是静坐示威。喊五分钟口号，休息十分钟，这样循环。” 他们的罢工主要诉求是将基础日薪从6800缅币提高到13000缅币，以及将加班时薪提高到3000缅币。&lt;/p&gt;
+
+
+
+&lt;p&gt;并非所有工人都愿意罢工，要么出于对管理层的恐惧，要么是担心罢工期间没有收入。玛钦说:“一 开始有100多人加入我们。大家都没什么经验，都很恐惧。”&lt;/p&gt;
+
+
+
+&lt;p&gt;罢工第二天，工人们收到厂方的回应，称愿意将加班时薪提高到4000缅币，以及将全勤奖从25000缅币提高到30000缅币，但基础时薪维持原样。&lt;/p&gt;
+
+
+
+&lt;p&gt;“我们对此不感兴趣。大家关心的正是基础日薪。因为加班费不是确定的，全勤奖也很难得到。”玛钦说。她认为全勤奖是一种制约工人的手段，用以威胁不愿加班的工人，或无法完成指标的人。因此，在加薪之外，她还想要求厂方按工作能力来分配工作指标和奖金，“因为有的人——比如孕妇，不应该被分配她们无法完成的指标，然后强制她们加班。”&lt;/p&gt;
+
+
+
+&lt;p&gt;“到了第三天上午，HR 想驱散我们， 说提供摆渡车，让我们回家。但只有我们自己才能决定我们是否回家。”这一天，玛钦和同伴们聚集在车间门口喊口号，僵持到中午12点。&lt;/p&gt;
+
+
+
+&lt;p&gt;“这样其它车间的人出来吃饭时会看见我们，我们希望他们也来加入。”她说。“那些小孩每天坐在地上吃饭，我也去喊他们加入罢工。HR 一直跟在我身后，以确保没人搭理我。但我尽我所能呼吁，我对小孩们大声喊，‘这个罢工也是为了你们，为了我们自己。’然后 HR 的人开始拉我， 想把我带走，这个时候，小孩们才都过来我这边，把我围起来。”&lt;/p&gt;
+
+
+
+&lt;p&gt;她提到的“小孩们”，是12岁到18岁左右的未成年工人。尽管缅甸劳工法已经禁止雇佣童工， 但厂方以文件造假的方式雇佣未成年人却是产业园区公开的秘密。至于产业园区之外的非出口行业，因为童工太普遍而不必劳烦造假。&lt;/p&gt;
+
+
+
+&lt;p&gt;截止截稿，这一波罢工浪潮仍在继续。7月17日上午——根据《缅甸劳工新闻》报道——在位于仰光瑞比达产业园区的中资企业法拉法拉（音译）服装厂内，约300名缝纫组女工发起了罢工，以提出加薪诉求。在罢工的第三天，工厂封堵了入口，以防止她们在厂区内进行抗议。7月26日，中资背景的缅甸法拉法拉成衣厂内，要求加薪的罢工已经持续到第十天。据“缅甸劳工新闻”，一位参与抗议的女工说：雇主说下周一还会在省劳动局进一步协商。我们希望能够顺利，但现在真的很难预测接下来会发生什么。”&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;在厂区内进行抗议是后政变时代缅甸工人运动的主要特征。而这一波抗议潮背后，是后政变年代缅甸工人的经济困境。&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2000&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/4a.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-292167&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;在莱达亚即将兴建的别墅区，雨水填满了一个为造地基而挖的坑，吸引了附近棚户区的年轻人来游泳。图：作者提供&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-2&quot;&gt;物价与贿赂&lt;/h2&gt;
+
+
+
+&lt;p&gt;玛钦7年前从若开邦迁到仰光。若开邦是缅甸移工的主要来源地之一。男性青年多前往马来西亚、泰国、中国等地，女人们则去仰光附近的产业园区，担负工厂和家务两份工作。&lt;/p&gt;
+
+
+
+&lt;p&gt;“当时，去产业园区外资厂上班是一个体面工作。除了养活自己，我也可以给家里寄点儿钱。”玛钦说。由于只念过小学，她很难在市区找到工作，也承担不了市区的房租，产业园区的工厂和出租屋是最优选项。这些工厂都以裁剪包装（CMP）模式运行，是典型的劳动密集产业。&lt;/p&gt;
+
+
+
+&lt;p&gt;2021年政变之后，缅甸政局持续动荡，连续三年通胀率近20% 。那时候，玛钦刚刚成为一位母亲，丈夫在3个月之后离开，留下她和孩子。如今，理想情况下——不休假且厂里订单稳定的话，玛钦一个月可以获得35万至40万缅币（约70美元）工资，包括基本工资、加班费和全勤奖金。这数字看起来比政变前的工资多，但实际价值每年都在下降。如今，她的收入已经不再“体面”，也无法满足她和孩子的基本生活。&lt;/p&gt;
+
+
+
+&lt;p&gt;“我一个月的房租10万缅币。然后，因为我是单亲妈妈，上班无法照顾孩子，每个月给托儿所交10万缅币。现在所有东西都在涨价，自己做饭的话，一个人一天吃饭至少也要花5000缅币，还是不带肉的那种。我自己只有周末才会吃一顿肉，平时的菜是豆子、鸡蛋或者⻘菜。” 即便这样生活，她每个月还得借钱，“借了又还，还完又借新的，一直循环。”&lt;/p&gt;
+
+
+
+&lt;p&gt;国际⻝物政策研究 （International Food Policy Research Institute, IFPRI）一项报告指出，2023年缅甸常见饮⻝成本比2020年上涨了160%。根据缅甸团结工会（Solidarity Trade Union of Myanmar，在后文中以 STUM 缩写出现）于今年5月6日发布的“维生工资”研究报告，目前仰光产业园区工人日薪大多在6800缅币左右，而95%受访工人认为这无法支撑生活。由于持续通胀，缅甸⻝品、医疗、居住、交通、通讯和休闲支出均呈上涨趋势，只有最低日薪达到12000至17000缅币，才能满足工人的基本生活开销。&lt;/p&gt;
+
+
+
+&lt;p&gt;在后政变时代，作为外来流动人口的移工还得面临一些额外开销。&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2000&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/10_62c9b1.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-292174&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;2019年，尚未被拆除的莱达亚棚户区。居民以来自伊洛瓦底省的气候移民和若开邦的战争移民为主。图：作者提供&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;为加强对人口流动的管控，缅甸军方成立的军事管理委员会（State Administration Council， 在后文中以SAC 出现）恢复了⺠盟执政期间已取消的以户口为单位、警察为主导的居住地控制系统。一方面，非当地户籍者必须每隔15-30天到居委会报道，交至少1000-3000缅币登记费。如果工人要前往报道，需向工厂请假而错失全勤奖，如果未及时报道，则需要准备一笔钱贿赂；另一方面，针对外地人口，居委会和警察会对出租屋随机进行随机检查。这些检查通常发生在凌晨宵禁期间，如果被发现留宿未登记人口，也需要准备一笔钱贿赂。&lt;/p&gt;
+
+
+
+&lt;p&gt;其次，自2024年2月，SAC实施强制征兵，要求全国18至35岁男性公⺠和18至27岁女性公⺠有服兵役义务。大部分工人都在这个年龄范围内。为避免自己或家人服兵役，工人们得继续贿赂——每月1万至5万缅币不等，由村里长老统一塞给征兵办公室。如一位缅甸活动人士所言:“现在任何部门都能以‘当兵’为借口，收取贿赂。某种程度上，征兵法已经成了这些政府部门的主要财政收入。”&lt;/p&gt;
+
+
+
+&lt;p&gt;在这种情况下，从今年5月开始，仰光及勃固一带多个产业园区出现了以涨薪为主要诉求的罢工浪潮。&lt;/p&gt;
+
+
+
+&lt;p&gt;但不是所有罢工都得到回应。工人们可能只得到口头承诺，或者被强制驱散，或者是罢工领导者遭遇报复。&lt;/p&gt;
+
+
+
+&lt;p&gt;“尽管最近的这些罢工都是以涨薪为主要诉求，但这只是因为涨薪是最容易动员所有工人参与的因素。实际上，在这些工厂里，有数不清的用工暴力，遍布每个⻆落。低薪只是其中一种而已。” 《缅甸劳工新闻》联合创始人玛瑞说。该新闻平台长期致力于收集缅甸工人在海内外工作场所的证词，并定期推出缅甸劳动权益研究报告。&lt;/p&gt;
+
+
+
+&lt;p&gt;2024年，Business &amp;amp; Human Rights Resource Centre根据《缅甸劳工新闻》的证词进行了统计和分析，列出了十一种缅甸成衣行业工人在军政府统治下最常遭遇的侵权行为。包括但不限于：非人道的工作强度与强制加班；不安全的工作环境；骚扰、恐吓与虐待；基于性别的暴力与骚扰；拒绝批准请假；不公平解雇；对结社自由的打压；拒绝签订正式合同；使用童工；企业与军方勾结；任意逮捕与拘留。值得注意的是，这些侵权行为不是单独发生的，而是彼此重叠，然后同时压在个体的工人身上。&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2000&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/7_be33f5.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-292171&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;一家中资工厂。图：作者提供&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-3&quot;&gt;重重叠加的侵权行为&lt;/h2&gt;
+
+
+
+&lt;p&gt;苏苏今年16岁，工龄4年。“因为 COVID-19，学校关闭了。家里很需要钱，我就开始来这个厂工作，然后觉得不想再回学校了。”她目前在一家中资数据线厂工作，厂里有许多未成年人，大多是在2020年或2021年辍学进厂的。&lt;/p&gt;
+
+
+
+&lt;p&gt;“HR 会随便更改我们上班的时长，不事先和我们商量。”苏苏说。在她4年的工作经验中，唯一能接触的上级是线长和缅籍管理层。中国雇主统称之为“缅籍干部”，缅甸工人统称他们为“HR”。“他们还会代替我们签加班同意书，说这是给我们赚钱机会，我们应该感恩。但他们从不为我们考虑。有一次我生病了，他们也不让我请假，要我必须待到其他人加完班为止。”工厂规定，请病假需要持有福利医院的证明，但工厂离福利医院有十公里路程，苏苏只有一辆自行车，不可能在大热天往返。当被问及是什么病，她才说是来月经。痛经无法开具证明，而如果她提前离开，将被算作旷工一 天，不仅会被扣除一天的工资，也会被扣除全部全勤奖。全勤奖通常相当于五天工资，没有工人会想失去它。&lt;/p&gt;
+
+
+
+&lt;p&gt;根据苏苏的描述，整个劳动过程伴随着经期之外的长期疼痛：“我们生产线要缠很细的线，HR 要我们一直坐着干活，不能站起来休息。所以很多人不仅腰背痛，眼睛也花了。”&lt;/p&gt;
+
+
+
+&lt;p&gt;她坦言不喜欢现在的工作，因为“在这里，我感觉我们被买卖的东⻄，就好像我们不是人，也不值钱。HR 只会一个劲儿地催我们‘快点快点’。他们要我们快，但给的工资却很低。很多人都吃不饱饭，营养不良， 生病了也要干活，怎么可能快得起来?”&lt;/p&gt;
+
+
+
+&lt;p&gt;仰光产业园区近90%的外资工厂为中资背景，因此，“快点”成了大部分工人唯一记得的汉语词汇。&lt;/p&gt;
+
+
+
+&lt;p&gt;由于是未成年，苏苏不敢参与罢工，也不敢辞职。“因为我的年龄还不够，重新找工作并不容易。而且我们目前的政府是军人，如果 HR 能付钱给警察，他们什么都做得出来。”她说。感到压抑的时候，她会刷 Tiktok，或者听音乐。她分享了自己在 Tiktok 上看到的句子: “水晶在成为钻石之前，要承受很多压力。”必须把自己比作那样的水晶，必须相信眼前的痛苦是幸福生活的通行证。&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2000&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/3_628dd7.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-292166&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;缅甸产业园区常见的出租屋。图：作者提供&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;玛钦在制衣厂七年，最快乐的时间是中午和工友们坐在一起，一边吃饭一边聊天。她的斗争是从怀孕的时候开始的。她说，“我以前也不知道工人有哪些权利，但是怀孕期间我很需要钱，然后我发现本应属于我的孕期补贴被 HR 挪用了。是工会的姐姐介绍了劳工维权组织的老师来帮我，那个组织后来被取缔了。但我是从那时开始学习劳动法知识。”从那以后她主动做起工厂里的侵权监督者，不过，从厂方的角度看，她更像是“麻烦制造者”。&lt;/p&gt;
+
+
+
+&lt;p&gt;在这个制衣厂里，女性工人占工人总数的90%，大多从若开邦、伊洛瓦底省迁徙而来。很少有人上完高中，最小的未成年，最年长的40岁。如果年龄超过40岁，会被工厂拒绝，或借故辞退。“因为年纪大的人身体差，做不了高强度的工作，还可能加不了班。” 她说。&lt;/p&gt;
+
+
+
+&lt;p&gt;玛钦皮肤黝黑，精瘦，沉默时看上去有些慌乱，一旦说起工厂里的事则语速飞快，能说上半个小时不停顿：“首先，我们厂里工作环境很恶劣。车间通风不好，加上人很多，还有机器在运转，气温就非常高，厕所也经常堵住，臭气就在厂房里弥漫。大家每天都要吸着那种空气工作。而且规定必须要有的车间常备医疗箱，里面永远是空的。”&lt;/p&gt;
+
+
+
+&lt;p&gt;实际上，近年仰光周边产业园区的工厂普遍存在工作环境恶劣的问题。一位中资厂投资人解释道:“因为缅甸政局不稳，谁也不知道明天会发生什么，所以没人愿意投钱建好的厂房。”&lt;/p&gt;
+
+
+
+&lt;p&gt;此外，这些工厂普遍存在羞辱性管理文化。比如，管理人员频繁地以吼叫、辱骂的方式来驱动 工人。玛钦说: “从早骂到晚，谁还能开心地工作？有的工人一边哭一边干活，我们每天拼命工作，但从来得不到表扬。”&lt;/p&gt;
+
+
+
+&lt;p&gt;这些辱骂通常来自“缅籍干部”，他们的职责包括管理工人、为雇主翻译。一位中国籍技术员说：“缅甸人干活太慢了，要是在国内早就挨骂了，但是在这里我们不能骂，必须交给‘缅籍干部’处理。”&lt;/p&gt;
+
+
+
+&lt;p&gt;“缅籍干部”也可能面临外籍主管的辱骂。一位缅籍翻译刚从一家中资背景的手袋厂辞职，她说: “那个老板太凶了，他骂所有人，会用很脏的话，我都不好意思翻译。因为厂里有很多 Tomboy，他会嘲笑她们‘不男不女’。他也骂我们——‘到底会不会翻译？不会就滚蛋’。”&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2000&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/DSC04194-copy-1.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-292195&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;2019年被拆除之前的莱达亚棚户区。图：作者提供&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;在工厂的⻆落里，还藏着许多基于性别的暴力，这些暴力难以被当前的裁决机制所识别和处理，却给工人们留下沉重的烙印。 比如性骚扰。玛钦提到：“有一个中国组长，女工正在干活的时候，他经常摸她们的肩膀、手，甚至胸部。边摸边开玩笑。”大多数女工在这种情况下会选择保持沉默，尤其当骚扰者是上级时，她们害怕自己因表达意见而被调到任务艰难的部门。 另一种情况是怀孕补助被管理层非法挪用。“社保局有规定，针对怀孕的女工，要在产假期间支付平均工资的70%，以及补贴生产费用。但我们厂里怀孕的女工只一次性领到28万缅币（约66 美元）补助，就再没有了。有的人甚至因为工龄不够，拿不到产假补贴。”&lt;/p&gt;
+
+
+
+&lt;p&gt;玛钦曾向工厂经理提过这些问题，都没得到过回应，迎来的只是对自己的打压和恐吓。“如果让老板不开心，比如像我这样不顺从的人，就会被安排去做难的、重的工作，也经常被找各种理由开除。 对我来说，这样对待我也没关系，因为我懂法律，也知道如何维权，我知道会有工会的老师支持我。但如果这种事发生在不懂法律的新工人身上，他们会产生很大心理压力，也很容易失去工作热情。”&lt;/p&gt;
+
+
+
+&lt;p&gt;尽管在工厂里受到打压，她并不打算离职。“因为我很爱这个岗位。而且，即使我换个工厂，也会遇到同样的问题，到时还得重新开始抗争。所以我不如留在这个厂坚持斗争。”&lt;/p&gt;
+
+
+
+&lt;p&gt;由于缅甸劳动法中没有规范工作场所临时工比例，以至于临时工占比过高成为缅甸产业园区另一个普遍问题。&lt;/p&gt;
+
+
+
+&lt;p&gt;“甚至一些工厂会只招临时工。” 普法志愿者罗西说。她从12岁起在制衣厂工作，至今已十几年年工龄。2018年，罗西一边在工厂工作，一边完成了大学远程教育，并获得机会从一名普工升职为一名组长。期间她因为目睹工厂剥削临时工而参与了当地独立工会的普法工作坊，从而正式成为工会成员。&lt;/p&gt;
+
+
+
+&lt;p&gt;罗西认为临时工缺乏任何保障，面对比长期合同工更严峻的剥削。因为“临时工工资比合同工低，而且容易被开除，容易被迫加班，容易被威胁，容易被砍工资，没有奖金和社保，在完成三个月试用期 后也可能被调到另一个部门重新开始试用期。” 2021年政变之后，大量工厂关闭或撤离缅甸，剩下的工厂也只招聘临时工，导致大量工人失去基本生计。根据 STUM 主席苗苗艾的说法，当时有大量工厂女工不得不成为街头性工作者。&lt;/p&gt;
+
+
+
+&lt;p&gt;为能更好地帮助工人，罗西今年考到了律师执照， 但因为内比都的发证机构在地震中严重受损，执照还未发到她手中。&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2000&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/8_0f73c2.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-292172&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;工厂内的警示牌。图：作者提供&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-4&quot;&gt;秋后算账&lt;/h2&gt;
+
+
+
+&lt;p&gt;在仰光产业园区，外资厂方对罢工的回应大抵是以下几种：&lt;/p&gt;
+
+
+
+&lt;p&gt;首先，是实现“各退一步”的协商。在谈及如何面对罢工时，一位雇了300多名缅甸工人的福建商人说：“中国文化讲究中庸，不像⻄方人以非黑即白的方式看世界。我相信，这些工人和我们的目标是一样的，无非是为了安身立命。所以只要是好好商量，双方各让一点，我都可以谈。”这时他刚参加完员工的婚礼，已经有一些醉意，充满自信地补充道，“缅甸人很简单的， 稍微对他们好一点，都会以为是自己早上拜佛奏效了。当然还是有闹事的人，不懂见好就收， 那就滚蛋！”&lt;/p&gt;
+
+
+
+&lt;p&gt;5月20日，昌益罢工运动结束于这种“中庸”。在反复谈判无果后，工人们最终接受了厂方提出的涨薪方案：基本日薪在5200缅币的基础上提高600缅币（约0.1美元），政府要求的补贴2000缅币，⻝物补贴3800缅币，杂费400缅币。以此，工人每天能固定获得12000缅币。“其中4200缅币补贴不是基本工资范畴，工厂有权力随时削减。”玛瑞向端传媒解释。&lt;/p&gt;
+
+
+
+&lt;p&gt;一位参与罢工的工人说：“虽然比我们要求的少，但这个结果也不错了。大家第二天都早早去上班了。”玛瑞指出：“罢工7天，就有7天没收入，很多工人承受不起。所以只能接受这个结果。”因此，这种“各让一点”，可能只是工人们恐惧失业的结果，而非懂得“见好就收”的结果。&lt;/p&gt;
+
+
+
+&lt;p&gt;外国厂商通常会和工厂所在地的权力机构建立良好关系，在出现罢工时以“维护厂区治安”之名在第一时间呼叫军警。比如在5月16日进行罢工的“天津（音译）时尚里程碑”制衣厂，在工人与雇主之间尚未开展协商的情况下，已有武装部队进入厂区。&lt;/p&gt;
+
+
+
+&lt;p&gt;因为相信“非我族类，其心必异”，或者网传的“中国人在缅甸是行走的人⺠币”，也因为2021年3月曾有外资工厂被不明人员纵火，大部分驻缅中国员工对厂外的“缅甸”感到陌生和恐惧，不敢单独踏出厂区。他们用“闹事”称呼罢工，警察的在场让他们多一些安心，也让工人维权运动多了一些被动和风险。&lt;/p&gt;
+
+
+
+&lt;p&gt;外资厂商对“缅甸”的恐惧和不信任也反映在厂内日常秩序构建之中，比如，雇佣退役警察或军人担任工厂管理人员或人事部经理。或者，在交货期加强对工人的监视，“以免他们偷货。”&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2000&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/6_540485.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-292169&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;除了摆渡车，自行车是仰光产业园区工人的主要通勤工具 。图：作者提供&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;无论罢工结果如何，领导罢工的工人都难逃秋后算账。《缅甸劳工新闻》于5月18日发布的，题为《如何成功发起罢工》的文章，引用了缅甸全国工人联合会（Federation of General Workers Myanmar，在后文以 FGWM 出现）阐述的雇主瓦解罢工的常见策略，即，“解雇被选为代表的工人、威胁恐吓、发钱收买、或强制职务调动。”比如在勃固省产业园区5月31日的一场罢工中，厂方只愿提高全勤奖，拒绝了其它条件，并威胁“如果继续闹事就送去当兵”。在连年内战的背景下，“当兵”一词总能让人迅速噤声。&lt;/p&gt;
+
+
+
+&lt;p&gt;秋后算账和军警协作也可以同时发生。比如，STUM 一位成员表示，位于雪比达镇区的一家制衣厂曾于2023年非法解雇了7名提出加薪诉求的工人，随后该厂部分罢工领导者在回家途中被军政府逮捕。而这些被解雇或被关押过的工人，从此被列入黑名单，无法在任何一家工厂找到新工作。“为防止这种情况”，FGWM 指出，“最好的办法就是拥有一个团结统一、组织健全的工会”。这意味着劳工运动不是追求一劳永逸，而是监督的永续。&lt;/p&gt;
+
+
+
+&lt;p&gt;然而，FGWM 自身，作为在仰光各产业园区具有广泛工人基础的独立工会，已于2021年2月被军方取消合法资质。同时，其主要成员被军方以《缅甸刑法》第 505a 条款起诉和拘押。该条款定义的“煽动罪”范围宽泛，因被军政府用于打压异议者而闻名。&lt;/p&gt;
+
+
+
+&lt;p&gt;玛钦所在的工厂，在持续四天的罢工之后，日薪从8800缅币涨到11000缅币，其中包含加班费和⻝品补贴。但她依然处于借贷还贷的循环中，每周只能吃一顿肉。&lt;/p&gt;
+
+
+
+&lt;p&gt;昌益罢工结束之后，媒体对劳工运动的关注转移到了其它事件，比如在交战地带愈来愈多的空袭导致平⺠死伤。依然有罢工发生，争取涨薪，或反对以克扣全勤奖为威胁的强制加班。大部分工厂兑现了涨薪承诺，至少，部分兑现。&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2000&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/11_8223f1.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-292203&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;莱达亚的黑色河流。图：作者提供&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;雨季的仰光，只需一日暴雨，半个莱达亚都会泡在积水里。这些水漆黑如镜面，漂浮着五颜六色的垃圾，围绕着自建房宿舍和棚屋。这里被认为是仰光市最大的产业区，租户们大多是外来务工人员。《缅甸劳工新闻》7月1日的一篇报道称，整个2025年上半年，产业园区房租都在持续上涨。其中，6月的租房成本几乎翻了一倍。&lt;/p&gt;
+
+
+
+&lt;p&gt;而工厂是“水面上的世界”，踏进工厂大门，那里有良好的地面硬化和排水系统。 2021年的“血色星期天”（编按：当天在仰光最大的产业园区莱达亚街头，军警以荷枪实弹镇压反对政变的抗议者。冲突从中午持续到黄昏，至少65名抗议者当场身亡，其中大多是工人）之后，军方花了一周时间强制清除位于仰光—勃生高速路附近的非正式聚落——莱达亚最大的“棚户区”——导致约8000个家庭流离失所。2025年，棚户区被铲平后留下的荒地被水泥墙围了起来，里面正在建设整齐划一的别墅区。这里如今是仰光地价最昂贵的地段之一，一块巨大的全英文广告牌上，写着“给未来领导者的绿色家园”。&lt;/p&gt;
+
+
+
+&lt;p&gt;6月5日，国际劳工组织（ILO）援引其宪法第33条，呼吁对侵犯劳工权利的缅甸军方实施制裁，随后被 SAC 指责为“缺乏公正”和“出于政治动机”。7月8日，特朗普宣布将自8月1日开始，对缅甸征收40%关税，让一些中资工厂愈发对将缅甸作为“廉价替代工厂”失去兴趣，而将目光转向越南。&lt;/p&gt;
+
+
+
+&lt;p&gt;但在仰光的产业园区，仍然每天都有新的失学和贫困的年轻女性，离开农村老家，继续来到这里签下临时工合同，然后成为一名女工。&lt;/p&gt;
+
+
+
+&lt;p&gt;（文中所有受访者名字均为化名）&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;div class=&quot;entry-footer border-t border-grey-400 pt-6&quot;&gt;
+
+&lt;div class=&quot;entry-copyright&quot;&gt;&lt;figure&gt;&lt;small&gt;
+&lt;p class=&quot;caption2&quot;&gt;
+本刊载内容版权为端传媒或相关单位所有，未经&lt;a href=&quot;mailto:editor@theinitium.com&quot;&gt;端传媒编辑部&lt;/a&gt;授权，请勿转载或拷贝，否则即为侵权。&lt;/p&gt;
+&lt;/small&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;/div&gt;</content><author><name>特约撰稿人 小民</name></author><category term="initium" /><category term="blog" /><summary type="html">仰光产业园区近九成的外资工厂为中资背景，因此，“快点”成了大部分工人唯一记得的汉语词汇。 一家位於緬甸的中资制鞋厂。图：作者提供</summary></entry><entry><title type="html">那艺娜“巡如演”：一个再次被酷儿群体拥抱的抽象文化</title><link href="https://agora0.github.io/post/initium/2025/07/31/INITIUM-%E9%82%A3%E8%89%BA%E5%A8%9C-%E5%B7%A1%E5%A6%82%E6%BC%94-%E4%B8%80%E4%B8%AA%E5%86%8D%E6%AC%A1%E8%A2%AB%E9%85%B7%E5%84%BF%E7%BE%A4%E4%BD%93%E6%8B%A5%E6%8A%B1%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%96%87%E5%8C%96.html" rel="alternate" type="text/html" title="那艺娜“巡如演”：一个再次被酷儿群体拥抱的抽象文化" /><published>2025-07-31T06:59:00+08:00</published><updated>2025-07-31T06:59:00+08:00</updated><id>https://agora0.github.io/post/initium/2025/07/31/INITIUM-%E9%82%A3%E8%89%BA%E5%A8%9C-%E5%B7%A1%E5%A6%82%E6%BC%94-%E4%B8%80%E4%B8%AA%E5%86%8D%E6%AC%A1%E8%A2%AB%E9%85%B7%E5%84%BF%E7%BE%A4%E4%BD%93%E6%8B%A5%E6%8A%B1%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%96%87%E5%8C%96</id><content type="html" xml:base="https://agora0.github.io/post/initium/2025/07/31/INITIUM-%E9%82%A3%E8%89%BA%E5%A8%9C-%E5%B7%A1%E5%A6%82%E6%BC%94-%E4%B8%80%E4%B8%AA%E5%86%8D%E6%AC%A1%E8%A2%AB%E9%85%B7%E5%84%BF%E7%BE%A4%E4%BD%93%E6%8B%A5%E6%8A%B1%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%96%87%E5%8C%96.html">&lt;blockquote&gt;&lt;p&gt;&lt;em&gt;抽象作为一种时代情绪，也如火燃烧在心间。&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;   &lt;figure&gt;&lt;img src=&quot;https://theinitium.com/wp-content/uploads/2025/07/8_caf396.jpg?w=1080&quot; referrerpolicy=&quot;no-referrer&quot;&gt;  &lt;figcaption&gt;那艺娜身穿红裙昂首挺胸。网上图片&lt;/figcaption&gt;  &lt;/figure&gt;   
+&lt;div class=&quot;wkwp-post-content&quot;&gt;
+
+
+&lt;div class=&quot;wp-block-tcc-author-note&quot;&gt;&lt;em&gt;
+&lt;p&gt;編按：從2023年起，我们开始更多关注起中国互联网上的抽象文化及网络群组，它們一方面反映了审查状态下的网络文化和生态，一方面反映著年輕人的某些精神狀態和面向。而这些线上文化与线下发生互动时，有时是荒诞快乐，比如&lt;a href=&quot;https://theinitium.com/zh-hans/opinion/20231207-opinion-china-cyber-fun-life&quot;&gt;“完颜慧德”的抽象文化&lt;/a&gt;、&lt;a href=&quot;https://theinitium.com/zh-hans/article/20250131-whatsnew-mainland-social-shake-dance-employment&quot;&gt;社会摇&lt;/a&gt;；有时是伤痕，比如&lt;a href=&quot;https://theinitium.com/zh-hans/opinion/20230414-opinion-cemei&quot;&gt;厕妹文化&lt;/a&gt;与&lt;a href=&quot;https://theinitium.com/zh-hans/article/20240710-virtual-reporting-suicide-click-love&quot;&gt;坠楼女孩&lt;/a&gt;；有时是结盟与攻击，比如&lt;a href=&quot;https://theinitium.com/zh-hans/opinion/20230607-opinion-aggressive-males&quot;&gt;激进男权群组&lt;/a&gt;；有时是被规训的罪罚，比如&lt;a href=&quot;https://theinitium.com/zh-hans/opinion/20250610-opinion-haitang-arrest&quot;&gt;海棠文化&lt;/a&gt;。&lt;/p&gt;
+
+
+
+&lt;p&gt;本文继续在抽象文化的脉络上进行探究，这种文化的鼻祖是孙笑川吧，他的粉丝通过“整活”羞辱取乐，镂空偶像，令符号的趣味远大于现实。后来我们看到，越来越多酷儿粉丝也开始拥抱这种文化，并结合了酷儿网络 icon 文化自身的发展，减少了羞辱意味，反而将边缘人群进行 queer-reading。抽象文化既有幽默趣味，也是中国某些消极现实的反映。曾经有“完颜慧德”，现在有那艺娜，本文即一窥那艺娜现象，谁在喜欢，为什么？&lt;/p&gt;
+&lt;/em&gt;&lt;/div&gt;&lt;hr&gt;
+
+
+
+&lt;p&gt;如果你还不知道“前苏联留给世界的遗物”那艺娜是何许人，那你一定要去听一下2023年红遍大街小巷的神曲《爱如火》，两年间播放量已经超过100亿。&lt;/p&gt;
+
+
+
+&lt;p&gt;起初，那艺娜只是一名在抖音上顶着滤镜伪装俄罗斯人的54岁湖北农妇，帐号名叫@俄罗斯娜娜，没想到一下就火了，她顺势讲段子、卖货，并开始演唱歌曲。她曾被平台以“仿冒虚假人设”为由关闭帐号，两个月后以@大中国娜娜 回归，虽然继续使用特效，但不再模仿俄语，并且更多展示自己的真实身分和生活。渐渐地，她成为中国互联网上的抽象乐子人，拥有许多的Z世代、零零后的酷儿粉丝。&lt;/p&gt;
+
+
+
+&lt;p&gt;今年5月底，已经以抽象网红的身份被大众所知的那艺娜，开启了全国巡演之旅，目前已经在多个城市举办了十多场，每场都迅速售罄，结束后的签售队伍也都大排长龙。她的演唱会票价很便宜，最低99元，演出片段在各大短视频平台走红后，票价也被炒到翻倍。时尚杂志《V》中文版还为她拍摄了一组时尚大片，同刊都是蔡依林、林俊杰等大牌明星。目前，那艺娜团队还声称将开启八场海外巡演，计划中包括纽约等城市。&lt;/p&gt;
+
+
+
+&lt;p&gt;原本在《爱如火》的热度逐渐消退后，那艺娜也和大多数抖音抽象网红一样看似销声匿迹，直到今年五月，“巡如演粉丝见面会”官方宣传海报横空出世，宣告著那艺娜并未退场。这张海报有饱和度过高的配色、巨大的艺术字体“坚强笨女人”、海报上身穿红裙昂首挺胸的那艺娜本人，以及故意把“巡演”写成“巡如演”，可谓是将土味抽象发挥到了极致。就这样，那艺娜华丽重返大众视野，并且，在网络上被戏称为中国版Lady Gaga。&lt;/p&gt;
+
+
+
+&lt;p&gt;到底，谁在喜欢那艺娜，为什么？&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img decoding=&quot;async&quot; width=&quot;1826&quot; &quot;1217&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/1_6508e6.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-292149&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;时尚杂志《V》中文版为那艺娜拍摄了一组时尚大片，同刊都是蔡依林、林俊杰等大牌明星。网上图片&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-1&quot;&gt;引发现象级热度的抽象巡演&lt;/h2&gt;
+
+
+
+&lt;p&gt;一开始，除了抽象爱好者，并没有多少人关心那艺娜开巡回演唱会这件事。直到5月23日的杭州场出现了假唱事故，那艺娜在台上演唱《苹果香》，音响里传出的却是童声，现场观众立刻愤怒大喊“退票”、“圈钱”。但令人没有想到的是，在下一场演出中，那艺娜主动带着观众喊“退票”，喊满一个八拍后直接进入压轴热门金曲《爱如火》。这即刻炒热了现场气氛，“退票梗”很快变成了那艺娜的专属应援词，并成为巡演出圈的契机。&lt;/p&gt;
+
+
+
+&lt;p&gt;很快，那艺娜的演出视频切片出现在各大短视频平台上，网友们纷纷调侃，“买票进去就为了喊一声退票”，“观众不喊退票娜娜都不知道从哪进拍”。&lt;/p&gt;
+
+
+
+&lt;p&gt;也许是退票梗的出圈为那艺娜吸引了更多观众，也逐渐出现更多似乎是真情实感被演出气氛圈粉的网友，但那艺娜本质上还是一个抽象网红，不管真粉还是黑粉，网友们的二创都抽象十足——例如将已经年近六十的娜娜p成美艳的白人女性，为她编造“前苏联留给世界的遗物、帝国最娇艳的玫瑰、苏维埃最后的绝唱”的史诗级人物背景故事。几乎在所有与那艺娜演出相关的短视频评论区，都能看到网友们宛如自发应援般刷屏娜娜的苏维埃故事。&lt;/p&gt;
+
+
+
+&lt;p&gt;六月上旬，那艺娜在华西都市报的采访中提及假唱被喊退票事件时坦言，“其实当时心里咯噔了一下，后来发现孩子们并不是对我有什么恶意”。这也一定程度上解释了她的演出为什么会如此受欢迎——正如她开的其实不是演唱会，而是“巡如演粉丝见面会”，那些花钱买票的观众也都不是为听歌而来，而是为了近距离观赏娜娜重现“变如脸”等抽象名场面和现场的玩梗互动。那艺娜自己想必也清楚这一点，总是乐于配合观众一起玩梗，就像她在直播间里说的，“想把演唱会玩成party你就来，娜姐不会让你们失望！”&lt;/p&gt;
+
+
+
+&lt;p&gt;而在“抽象狂欢party”的演出效果背后，巡演团队其实相当专业。根据音乐媒体《新声Pro》的采访，巡演主办方是由几个从事演出策划的年轻人攒起来的，初衷只是“觉得这个想法很好玩”。联系上那艺娜的团队后，对方也十分重视，还专门定制了一系列“女王范儿、Lady Gaga、碧昂斯那种”的演出服——结果是，人高马大的娜娜穿着一套套借鉴了各大国际Diva著名造型的夸张演出服，在网友们的神级p图里成了帝国最娇艳的玫瑰。&lt;/p&gt;
+
+
+
+&lt;p&gt;都是谁在为那艺娜捧场？这是许多人都想问的问题。至于这个问题的答案，也许我们可以从这次巡演的宣发中一窥究竟——在投放app开屏宣传时，那艺娜团队选择了Blued，国内最著名的男同交友软件，可以说是精准针对目标受众。事实上，最初《爱如火》的火爆就离不开那艺娜以男同为主的粉丝自发推广、二创，在她的视频下面也频频可见“其实我真的素（是）直男”之类的自嘲。而在网上流传的那艺娜演出视频切片里也可以看到，台下观众不仅男性占多数，还有许多穿着打扮具有亚文化特色的观众。&lt;/p&gt;
+
+
+
+&lt;p&gt;甚至可以说，那艺娜很大程度是一个被性少数群体捧进大众视野的网红。到现在，《爱如火》已经以1.4亿元的版税收入排到了华语歌曲版税收入第八名，排在其后的则是《七里香》和《明天会更好》。&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img decoding=&quot;async&quot; width=&quot;547&quot; &quot;821&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/4_85a1d7.jpg?w=547&quot; alt=&quot;&quot; class=&quot;wp-image-292151&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;那艺娜开始时是一名在抖音上顶着滤镜伪装俄罗斯人的54岁湖北农妇，帐号名叫@俄罗斯娜娜。网上图片&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-2&quot;&gt;娜娜的成名之路与背后的“抖音通讯录后宫”&lt;/h2&gt;
+
+
+
+&lt;p&gt;关于那艺娜和前苏联遗物的关系，还得从她的第一个互联网身份说起。2022年年初，一个名为“俄罗斯娜娜”的抖音账号横空出世，挤进了“爱上中国的外国人”这一长盛不衰的流量赛道。&lt;/p&gt;
+
+
+
+&lt;p&gt;最初娜娜的人设是嫁到中国的俄罗斯儿媳，视频和直播的内容除了表达对中国文化的热爱、歌颂中俄友谊、放原声带假唱红歌外，也会切中时事地谈论一些“我们俄罗斯媳妇不收彩礼”之类的热门话题，很明显想要吸引是下沉的中老年受众。巅峰时期，俄罗斯娜娜在抖音拥有将近两百万粉丝，还开通带货功能，卖出了不少号称是俄罗斯进口的东北肉肠。但好景不长，夸张的美颜滤镜和自带大舌音的方言也没能藏住俄罗斯娜娜皮下湖北钟祥人的真实身份，她被央视通报批评，并以“在抖音以滥用平台道具、仿冒虚假人设”为由无限期封禁。&lt;/p&gt;
+
+
+
+&lt;p&gt;但娜娜没有就这样沉寂下去，没过多久，她又用丈夫的身份注册了新账号“大中国娜娜”。这次，她在镜头里展示出了自己真实的样子——一个湖北小镇的普通中年农妇，视频内容也都是普通地分享乡村生活日常。这样的账号在抖音多如牛毛，“大中国娜娜”也自然没能从中脱颖而出。&lt;/p&gt;
+
+
+
+&lt;p&gt;即便如此，娜娜还是没有放弃自己的网红之路，甚至进一步拾起了自己的音乐梦，去参加了一个名为“星耀好声音”的歌唱比赛，不仅花钱买到了晋级名额，还如愿签约公司获得了新身份，“歌手”那艺娜，以及那首命运转折点之歌《爱如火》。&lt;/p&gt;
+
+
+
+&lt;p&gt;《爱如火》在2022年11月最初发布时，其实并没有激起多大水花，直到两个月后才突然爆红，因为那艺娜在一次直播中演唱了这首歌。而在直播间还发生了什么，则要从娜娜的核心受众，也就是互联网男同群体，以及他们的“抽象届纯元”郭老师讲起。&lt;/p&gt;
+
+
+
+&lt;p&gt;作为上古抽象网红，同样原本只是一个普通农妇的“郭老师”开始直播后，很快以滑稽口音的“郭语”、在镜头前真实大胆的言语行为以及和粉丝对骂的女王气场走红，在吸引了大批喜欢“看乐子”的性少数网友的同时也引发巨大争议，最终以“低俗”为由被全网封杀。失去了乐子来源的网友们于是开始寻觅新宠，在这段时间里，崛起了三梦奇缘、万邦万人迷以及完颜慧德等同赛道博主，那艺娜也是其中一员。&lt;/p&gt;
+
+
+
+&lt;p&gt;这些博主基本上都是生活在乡镇的中年妇女，有着夸张的口音或长相，以及与都市年轻人完全不同的思维方式，因此，她们只是普通地坐在直播镜头前和网友互动，就能产生许多让网友直呼抽象的“乐子”。就连那艺娜曾经假扮俄罗斯人欺骗中老年粉丝的黑历史，也成了她的梗的一部分。&lt;/p&gt;
+
+
+
+&lt;p&gt;那艺娜和《爱如火》的崛起，就是因为2022年底她与三梦奇缘和万邦万人迷在直播间发生的一场骂战，史称“通讯录圈第三次世界大战”（註：通訊錄為同性戀諧音），或“谷爱凌大战杨幂袁娅维”——值得一提的是，这场骂战发生的原因，只是一个男同网友为了“看乐子”在几个人中挑拨离间。在这场充满了人身攻击的骂战中，那艺娜输出力度不敌另外两位，引起了观众的怜爱，顺势为她赢得了更多拥趸（依旧以男同性恋为主），正是这批网友开始自发地传播《爱如火》，制作各种二创视频，令其逐渐出圈。&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;720&quot; &quot;720&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/2_af6f42.jpg?w=720&quot; alt=&quot;&quot; class=&quot;wp-image-292150&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;那艺娜的红遍大街小巷神曲《爱如火》，两年间播放量已经超过100亿。网上图片&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;《爱如火》之后，那艺娜也继续发行歌曲，如《恨如冰》、《美丽笨女人》等，但都没能复刻《爱如火》的成功，反倒是让粉丝们创造了“x如x”的新梗，比如说她唱歌“牛如叫”，这次的“巡如演粉丝见面会”的名称也来源于此。直到今年年初，她又发布新单曲《谁能给我爱》，这首歌的旋律、编曲和MV都堪称制作精良，配上那艺娜独特的粗旷音色以及她抽象网红的身份，产生了极大的反差感，也成功让娜娜再度翻红，并开启了巡如演之路。&lt;/p&gt;
+
+
+
+&lt;p&gt;当然，那艺娜和以上提及的所有抽象网红一样，如果说最初的性少数群体粉丝与她们的互动更多还是没有恶意的玩梗和看乐子，那么在获得更多流量与大众关注后，便会不可避免地面临嘲讽、羞辱和猎奇性的凝视。那艺娜、三梦奇缘和郭老师最初也只是普通的底层妇女，她们原本所熟悉的世界与由城市年轻人所主导的互联网世界有着天壤之别。当她们被动地进入性少数抽象文化圈乃至更主流的视野中，她们的不适应、不协调当然会逐渐显露，也会影响舆论场对她们的评价。&lt;/p&gt;
+
+
+
+&lt;p&gt;早在“俄罗斯娜娜”时期，就有网友质疑她是男性还是女性，到“大中国娜娜”时期，由于她用丈夫的身份注册后认证显示是男性，加上那艺娜本人身材高大、声音浑厚，也有很多网友对她的性别感到迷惑。一开始娜娜会耐心回答，问的人多了之后逐渐变得不耐烦。不过到后来，可能是逐渐摸索到了流量规则，也可能是习惯了这些嘲讽，那艺娜也越发松弛，还会和网友一起玩梗，比如自称“男女混血”，类似的回应不仅为她博得了更多性少数人群的好感，也让她的梗得到更多二创和传播的机会。&lt;/p&gt;
+
+
+
+&lt;p&gt;可以看到，互联网男同或者说性少数群体遴选“乐子对象”的标准始终有着微妙的一致性，或许可以将其概括为“不被主流认可的底层中年妇女”，而这一人群与性少数群体有同一个特点，就是都属于具有异质性的社会边缘人群。事实上，抖音里无数没有被流量选中的中年农村女性，她们在视频里使用夸张的美颜特效、拙劣地学习短视频流量规则，试图在疲惫琐碎的日常生活之外表达自我、寻求认同，却只能招致主流社会的嘲笑。那艺娜只是其中相对有特色和被选中的一个。&lt;/p&gt;
+
+
+
+&lt;p&gt;也许正是这种反差与边缘会令她们被男同群体选中——将一个完全不符合主流审美乃至主流价值观的普通农妇推到网红的位置，这本身不就是最抽象的事情吗？&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;2009&quot; &quot;1130&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/6_060112.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-292153&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;那艺娜在爱如火深圳巡演现场。网上图片&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-3&quot;&gt;从淋淋到娜娜：解构主流，也解构边缘&lt;/h2&gt;
+
+
+
+&lt;p&gt;当然，抽象文化并不是性少数群体的专属，早在郭老师出现之前，就已经存在一大批快手土味网红和活跃于孙笑川吧的“狗粉丝”。这类抽象博主及其拥趸往往热衷于“整活儿”，有着夸张的肢体动作和丰富的面部表情，将羞辱他人作为“抽象”的一部分。这类抽象文化比起“男同之选”的抽象博主们具有更强的表演性，与梗主本人几乎是完全脱节，并且会依靠辱骂等手段来制造荒诞感，从而达成抽象的目的。&lt;/p&gt;
+
+
+
+&lt;p&gt;反观郭老师、那艺娜等博主，在被推上网红的位置前，她们似乎都无意于“抽象”，只是展现自己真实的状态，反而是作为观看者的性少数群体发现了她们身上与主流社会格格不入的部分，并以幽默的方式将其解构为一种“抽象”。&lt;/p&gt;
+
+
+
+&lt;p&gt;换句话说，是酷儿粉丝们“发明”了那艺娜：每出现一张新的帝国玫瑰高p图，那艺娜的形象就又完整了一分。类似“发明抽象”的方式可以追溯到互联网男同社群早期的“淋文化”。最初的“淋文化”主要是对蔡依林及其粉丝的恶搞和嘲讽，含有大量性羞辱的成分，而在蔡依林直接回应多年以来受负面评价影响、并多次公开为性少数发声后，许多嘲讽她的网友转变看法，再度讲起“淋语”时也从恶搞变成了调侃，并逐渐认可了蔡依林酷儿icon的身份。&lt;/p&gt;
+
+
+
+&lt;p&gt;而新一代“草根酷儿icon”郭老师、那艺娜等人同样也都经历了这样一个从被嘲弄到被喜爱的过程。当我询问身边对娜娜有好感的朋友时，ta们都提到了“生命力”和“真实”这两个关键词，觉得娜娜好有活力，和粉丝的互动也很直爽大方。无独有偶，另一个将郭老师视为白月光的男同朋友告诉我，喜欢郭子是“因为她有一种千疮百孔但仍向天长鸣的破碎美”。在年轻人都疲惫不堪、不想内卷只想躺平的当下，“生命力”似乎已经变得稀缺，这时，一场可以玩梗喊退票随便发疯的演出如何能具有极大吸引力，就也不足为奇了。&lt;/p&gt;
+
+
+
+&lt;p&gt;不得不承认的是，即使这些农村妇女是被动地来到了网红的位置，仅仅是她们的存在被看见，已经是一种对社会成见的挑战。只是这种挑战被包裹在“抽象”的外壳下，很难产生多大的力量。说到底“发明网红”的网友们初衷应该也并不是想挑战什么，毕竟抽象文化的要义就在于消解一切，包括挑战权威和权威本身。对于在社会结构中处于弱势地位的酷儿群体来说，“解构主流”显然是比“反抗主流”更加轻易的。而从另一个层面来讲，中国社会已经从文化、制度等多个层面上为酷儿群体设置了一套牢不可破的枷锁，当个体难以打破结构施加给自己的枷锁时，那将这个枷锁解构为笑话便是为数不多的选择之一。&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1518&quot; &quot;1012&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/5_3129ff.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-292152&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;已经以抽象网红的身份被大众所知的那艺娜，开启了全国巡演之旅，每场都迅速售罄。网上图片&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;从“淋语”到“郭语”，酷儿网友们面对此类“偶像”的态度完全不同于传统的“粉丝”，或者说在这里，作为“粉丝”的网友才是核心，他们会主动去发现被排挤在主流之外的“偶像”（被黑十年的蔡依林、农村妇女郭老师、扮演俄罗斯人的那艺娜），用讽刺的方式去解构ta们身上的异质性，并将其放大为“抽象”。在这个过程中，很难说是否有人在乎过“偶像”本人的感受，或者说，“偶像”是谁并不重要，爱看乐子的酷儿网友们需要的只是一个空白的边缘人符号——因为空白才能随意涂抹创造，因为边缘才能在与主流秩序的冲撞中产生“抽象”感。&lt;/p&gt;
+
+
+
+&lt;p&gt;来自湖北钟祥的娜娜就是这样被一步步涂抹成了以卡戴珊同款造型登上时尚杂志的Lady Nana。这场大型戏仿狂欢进行到现在已经越发荒诞，也越发显出其讽刺意味——原本是用来表达不满的喊“退票”变成一种应援，原本属于钟祥方言的大舌音被关联上苏俄情。那艺娜带着身上残留的泥土气味闯进娱乐工业体系，她与这套体系格格不入却能意外收获热度，这本身就是对精英秩序的嘲讽。&lt;/p&gt;
+
+
+
+&lt;p&gt;另一方面，随着热度不断增加，也有越来越多酷儿群体以外的网友加入到这场游戏里，搞笑博主模仿她、音乐博主翻唱她、美妆博主仿妆她，在这些抽象、消解的方式背后，本质仍是发泄对当下主流生活秩序的不满——尽管在发泄之后依然只能回到秩序中，等待下一个用于发泄的抽象符号出现。&lt;/p&gt;
+
+
+
+&lt;p&gt;我们无法否定这种发泄方式的消极性，但它也绝不是仅用一句简单的“娱乐至死”就能概括的现象——在中国这样一个愈发密不透风的高压社会环境里，“娱乐”已经不够了，更多人需要的是“发疯”、是用过度参与的方式投身于消费体系。当娜娜在台上问出“我们在哪”，台下整齐高呼“莫斯科”时，这幕荒诞剧的导演早就是每一位观看者，伴随着她牛如叫的歌声，抽象作为一种时代情绪，也如火燃烧在心间。&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;div class=&quot;entry-footer border-t border-grey-400 pt-6&quot;&gt;
+
+&lt;div class=&quot;entry-copyright&quot;&gt;&lt;figure&gt;&lt;small&gt;
+&lt;p class=&quot;caption2&quot;&gt;
+本刊载内容版权为端传媒或相关单位所有，未经&lt;a href=&quot;mailto:editor@theinitium.com&quot;&gt;端传媒编辑部&lt;/a&gt;授权，请勿转载或拷贝，否则即为侵权。&lt;/p&gt;
+&lt;/small&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;/div&gt;</content><author><name>桃吐</name></author><category term="initium" /><category term="blog" /><summary type="html">抽象作为一种时代情绪，也如火燃烧在心间。 那艺娜身穿红裙昂首挺胸。网上图片</summary></entry><entry><title type="html">中国北方强降雨引发山区洪灾，至少40人死｜Whatsnew</title><link href="https://agora0.github.io/post/initium/2025/07/31/INITIUM-%E4%B8%AD%E5%9B%BD%E5%8C%97%E6%96%B9%E5%BC%BA%E9%99%8D%E9%9B%A8%E5%BC%95%E5%8F%91%E5%B1%B1%E5%8C%BA%E6%B4%AA%E7%81%BE-%E8%87%B3%E5%B0%9140%E4%BA%BA%E6%AD%BB-whatsnew.html" rel="alternate" type="text/html" title="中国北方强降雨引发山区洪灾，至少40人死｜Whatsnew" /><published>2025-07-31T06:58:00+08:00</published><updated>2025-07-31T06:58:00+08:00</updated><id>https://agora0.github.io/post/initium/2025/07/31/INITIUM-%E4%B8%AD%E5%9B%BD%E5%8C%97%E6%96%B9%E5%BC%BA%E9%99%8D%E9%9B%A8%E5%BC%95%E5%8F%91%E5%B1%B1%E5%8C%BA%E6%B4%AA%E7%81%BE-%E8%87%B3%E5%B0%9140%E4%BA%BA%E6%AD%BB-whatsnew</id><content type="html" xml:base="https://agora0.github.io/post/initium/2025/07/31/INITIUM-%E4%B8%AD%E5%9B%BD%E5%8C%97%E6%96%B9%E5%BC%BA%E9%99%8D%E9%9B%A8%E5%BC%95%E5%8F%91%E5%B1%B1%E5%8C%BA%E6%B4%AA%E7%81%BE-%E8%87%B3%E5%B0%9140%E4%BA%BA%E6%AD%BB-whatsnew.html">&lt;blockquote&gt;&lt;p&gt;&lt;em&gt;气候变化下，北方的防洪能力受压，涉灾新闻的真实性惹质疑。&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;   &lt;figure&gt;&lt;img src=&quot;https://theinitium.com/wp-content/uploads/2025/07/2025-07-28T102155Z_151446819_RC2KVFAG8GL7_RTRMADP_3_ASIA-WEATHER-CHINA_0a0f58.jpg?w=1080&quot; referrerpolicy=&quot;no-referrer&quot;&gt;  &lt;figcaption&gt;2025年7月28日，中国北京密云区，暴雨过后，一名女子站在公园里的冰箱旁。摄：Florence Lo/Reuters/达志影像&lt;/figcaption&gt;  &lt;/figure&gt;   
+&lt;div class=&quot;wkwp-post-content&quot;&gt;
+
+
+&lt;div id=&quot;block_917137a33b536c3a15db4906d1ea462d&quot; class=&quot;gutenberg-block block-explanation-note&quot;&gt;&lt;blockquote&gt;
+
+&lt;p&gt;&lt;b&gt;端传媒十岁了，邀请你填写&lt;/b&gt;&lt;a href=&quot;https://initium10th.typeform.com/to/lRKZzTZX&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&amp;nbsp;&lt;b&gt;2025 年度用户调研问卷&lt;/b&gt;&lt;/a&gt;&lt;b&gt;，让我们更了解你的需求，一起走向下一个十年。&lt;/b&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;完成问卷即可获得十周年电子书、年度调研视觉化报告。&lt;/li&gt;
+&lt;li&gt;前 100 位完成的读者，将获得“一年份尊享会籍”或等值礼物卡。&lt;/li&gt;
+&lt;li&gt;随机再抽 100 位用户赠送相同福利。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/blockquote&gt;&lt;/div&gt;
+
+
+
+&lt;p&gt;7月23日至29日，北京、河北、内蒙古连续遭遇强降雨，引发洪灾，目前已造成&lt;a href=&quot;https://china.caixin.com/2025-07-29/102346345.html&quot; data-type=&quot;link&quot; data-id=&quot;https://china.caixin.com/2025-07-29/102346345.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;至少40人&lt;/a&gt;遇难。其中，北京北郊山区密云死亡&lt;a href=&quot;https://mp.weixin.qq.com/s/cLAxt5NChGJ7D21VP8QJHQ&quot; data-type=&quot;link&quot; data-id=&quot;https://mp.weixin.qq.com/s/cLAxt5NChGJ7D21VP8QJHQ&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;28人&lt;/a&gt;，据报受灾严重。密云一间居住逾70名老人的养老院伤亡情况不明，引人关注。救援部门仍在搜救因灾失踪人员。&lt;/p&gt;
+
+
+
+&lt;p&gt;此次雨灾对于北京是非比寻常的。在密云郎房峪，气象部门录得了本轮降雨中的全市&lt;a href=&quot;https://www.bjnews.com.cn/detail/1753775688129439.html&quot; data-type=&quot;link&quot; data-id=&quot;https://www.bjnews.com.cn/detail/1753775688129439.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;最大降水量&lt;/a&gt;，为573.5毫米。作为对比，&lt;a href=&quot;https://www.ctdsb.net/c1716_202507/2496487.html&quot; data-type=&quot;link&quot; data-id=&quot;https://www.ctdsb.net/c1716_202507/2496487.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;北京的常年平均降水量&lt;/a&gt;不过是551.3毫米。&lt;/p&gt;
+
+
+
+&lt;p&gt;7月27日，密云水库报告了建库以来最大的入库流量，遂&lt;a href=&quot;https://news.qq.com/rain/a/20250728A09Q4V00&quot; data-type=&quot;link&quot; data-id=&quot;https://news.qq.com/rain/a/20250728A09Q4V00&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;开闸泄洪&lt;/a&gt;，泄流量达到500立方米每秒。密云水库是潮白河水系一部分，泄洪后下游的&lt;a href=&quot;https://www.163.com/dy/article/K5L9F8SH0545AZNT.html&quot; data-type=&quot;link&quot; data-id=&quot;https://www.163.com/dy/article/K5L9F8SH0545AZNT.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;天津发出洪水蓝色预警&lt;/a&gt;，多区&lt;a href=&quot;http://www.tjbh.com/c/2025-07-28/1456619.shtml&quot; data-type=&quot;link&quot; data-id=&quot;http://www.tjbh.com/c/2025-07-28/1456619.shtml&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;要求民众远离水域、避免涉水活动&lt;/a&gt;。&lt;/p&gt;
+
+
+
+&lt;p&gt;官方发布的灾情通报显示，北京受灾地区有31处道路损毁，136个村电力中断，62条光缆损坏，1825个基站退出服务。同时，北京全市转移了80332人，其中密云、怀柔转移人口均超万人，房山也转移了近万人。&lt;/p&gt;
+
+
+
+&lt;p&gt;受灾害影响的不止北京一地。在临近密云的河北滦平县，强降雨引起山体滑坡，&lt;a href=&quot;https://content-static.cctvnews.cctv.com/snow-book/index.html?item_id=8237015267122861029&amp;amp;toc_style_id=feeds_default&amp;amp;track_id=C54F257D-EBC2-489C-ACC3-B3195E76E912_775457910489&amp;amp;share_to=wechat&quot; data-type=&quot;link&quot; data-id=&quot;https://content-static.cctvnews.cctv.com/snow-book/index.html?item_id=8237015267122861029&amp;amp;toc_style_id=feeds_default&amp;amp;track_id=C54F257D-EBC2-489C-ACC3-B3195E76E912_775457910489&amp;amp;share_to=wechat&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;致一村落8人遇难&lt;/a&gt;，另有4人失联。河北其他地方据报也有人员死亡的情况。&lt;/p&gt;
+
+
+
+&lt;p&gt;截止到发稿时，尚未有对此次华北雨灾人员伤亡和财产损失情况的全面统计。&lt;/p&gt;
+
+
+
+&lt;p&gt;在近几十年的历史中，北京并不是会同“雨灾”、“洪灾”联系起来的地名。总体上说，中国南方气候较为湿润，北方气候偏向干燥。因此，强降水和洪灾一般和南方地区联系紧密，而同北方地区关系不大。本次灾情的发生，同大众的一般印象有别。&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-1&quot;&gt;气候变化下，中国北方防洪压力增大&lt;/h2&gt;
+
+
+
+&lt;p&gt;中国中央气象台专家&lt;a href=&quot;https://mp.weixin.qq.com/s/w8NMXJcFPOMcajvXiX-9Zg&quot; data-type=&quot;link&quot; data-id=&quot;https://mp.weixin.qq.com/s/w8NMXJcFPOMcajvXiX-9Zg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;解释了此次暴雨的成因&lt;/a&gt;，将原因归结到大气环流和地形两方面。他表示，自7月以来，西太平洋副热带高压强度偏强，位置偏北。由于副高边缘暖湿气流得到输送，北方地区水汽较充分，北京周边具备强降雨反复发生的环境条件。此次有不止一个对流云团连续经过同一地区，导致强降雨长时间持续，被气象学家称为“列车效应”。另一方面，北上的气流与华北的阴山、太行山以及燕山相撞，降水在山脉的迎风侧因地形原因增量明显。&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img decoding=&quot;async&quot; width=&quot;3500&quot; &quot;2333&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/GettyImages-2227480409_6a0ab7.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-292210&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;
+2025年7月28日，中国北京，救援人员使用前装载机转移受灾人员。摄：Wang Zicheng/VCG via Getty Images&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;上述解释集中于短期内的气象原因，值得留意的是，近年来强降水显示出向北方扩大的趋势。同样在北京，2023年7月底至8月初，西南部的门头沟遭遇了&lt;a href=&quot;https://www.beijing.gov.cn/ywdt/gzdt/202308/t20230809_3218806.html&quot; data-type=&quot;link&quot; data-id=&quot;https://www.beijing.gov.cn/ywdt/gzdt/202308/t20230809_3218806.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;罕见特大暴雨&lt;/a&gt;，导致31万人受灾。北京市气象局当时表示，&lt;a href=&quot;https://finance.sina.cn/2023-08-03/detail-imzextxt6426446.d.html&quot; data-type=&quot;link&quot; data-id=&quot;https://finance.sina.cn/2023-08-03/detail-imzextxt6426446.d.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;那场雨是北京140年来最大降雨&lt;/a&gt;。随后的2024年，河北省也在7、8月报告了多次&lt;a href=&quot;http://he.cma.gov.cn/xwdt/gzdt/202501/t20250107_6777013.html&quot; data-type=&quot;link&quot; data-id=&quot;http://he.cma.gov.cn/xwdt/gzdt/202501/t20250107_6777013.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;极端降水情况&lt;/a&gt;，一度&lt;a href=&quot;http://he.people.com.cn/BIG5/n2/2024/0730/c192235-40927654.html&quot; data-type=&quot;link&quot; data-id=&quot;http://he.people.com.cn/BIG5/n2/2024/0730/c192235-40927654.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;启动了重大气象灾害四级应急响应&lt;/a&gt;。&lt;/p&gt;
+
+
+
+&lt;p&gt;2021年，河南发生特大暴雨，郑州地铁5号线14人淹水遇难。次年，中国国家气候中心副主任萧潺已经表示，中国&lt;a href=&quot;https://www.cma.gov.cn/2011xzt/2022zt/20220330/2022033009/202208/t20220830_5060398.html&quot; data-type=&quot;link&quot; data-id=&quot;https://www.cma.gov.cn/2011xzt/2022zt/20220330/2022033009/202208/t20220830_5060398.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;近十年来雨带明显北扩&lt;/a&gt;，北方降水增多。他认为，在正常的气候演变之外，这种趋势也同全球暖化有关。&lt;/p&gt;
+
+
+
+&lt;p&gt;在北方降水增多趋势浮现后，早有声音提出，北方地区应当增强防汛、防涝能力，可能需要重新规划水利体系。近年来，中国政府已在北方投入资源进行防汛工程，2024年还特别提出“&lt;a href=&quot;https://finance.sina.cn/2024-04-02/detail-inaqmyns3800574.d.html&quot; data-type=&quot;link&quot; data-id=&quot;https://finance.sina.cn/2024-04-02/detail-inaqmyns3800574.d.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;提升京津冀等北方地区洪涝灾害防御能力&lt;/a&gt;”。不过，从此次灾情来看，中国北方在加强气候适应、防治过往不常见的气候灾害方面，仍有提升空间。即便是中心城市如北京，也存在不足之处。&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-2&quot;&gt;山区防洪的治理困境&lt;/h2&gt;
+
+
+
+&lt;p&gt;雨带北移以几十年为尺度。上溯到更早的历史时期，北方地区对水患并不都陌生。流经内蒙古、山西与京、津、冀的永定河，据说是由清康熙帝所赐名，之前曾被称为“无定河”，正得名于其连年泛滥的水情。&lt;/p&gt;
+
+
+
+&lt;p&gt;永定河是2023年遭受洪灾的门头沟区主要河流，与此次受密云水库开闸放水影响的潮白河同属海河水系。有专家对《中国新闻周刊》&lt;a href=&quot;https://mp.weixin.qq.com/s/w8NMXJcFPOMcajvXiX-9Zg&quot; data-type=&quot;link&quot; data-id=&quot;https://mp.weixin.qq.com/s/w8NMXJcFPOMcajvXiX-9Zg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;指出&lt;/a&gt;，海河流域的大洪水，大多发生在永定河所属的南系流域，而潮白河所属的北系流域，上次发生大洪水已是1939年。受灾较为严重的太师屯镇居民对封面新闻&lt;a href=&quot;https://m.thecover.cn/news_details.html?eid=FUrf/W9yWDqH90qSdq8Jkw==&amp;amp;channelId=null&amp;amp;timestamp=1753883854816&quot; data-type=&quot;link&quot; data-id=&quot;https://m.thecover.cn/news_details.html?eid=FUrf/W9yWDqH90qSdq8Jkw==&amp;amp;channelId=null&amp;amp;timestamp=1753883854816&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;表示&lt;/a&gt;，在新闻上注意到当地将有暴雨，也收到了预警短信，但从未想过当地会发生洪灾。居民称，当地的河流甚至从未漫进镇内。因此，密云、怀柔山区应对洪水的准备，明显不如门头沟、房山等永定河流域地区。&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img decoding=&quot;async&quot; width=&quot;3500&quot; &quot;2333&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/GettyImages-2226723817_a1683d.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-292209&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;2025年7月28日，中国北京密云区太师屯村，大雨过后，洪水淹没的区域道路被毁坏。摄：Jade Gao/AFP via Getty Images&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;此次面临洪灾的怀柔、密云和河北滦平、兴隆等地属于华北北部边缘的山区，山区人口主要分布在山间谷地。根据《中国新闻周刊》&lt;a href=&quot;https://mp.weixin.qq.com/s/w8NMXJcFPOMcajvXiX-9Zg&quot; data-type=&quot;link&quot; data-id=&quot;https://mp.weixin.qq.com/s/w8NMXJcFPOMcajvXiX-9Zg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;报导&lt;/a&gt;，有长期关注灾害援助的公益机构负责人称，此次洪水中最突出的灾情是山洪和中小河流洪水，而在极端暴雨中，山区内的河流容易暴涨暴落。他表示，这种洪水防范难度极大，也很容易造成断路、断电、断水等基础设施破坏。另外，近些年当地山区发展旅游业，有不少民宿直接建在山洪道上，增加了洪水溢出的风险。同时，中国“村村通”工程下修建的道路，不少都有沿河修建的水坝式路基，下埋排水涵管。在暴雨天气中，一旦杂物被冲下，堵塞涵管，容易造成路坝溃决，进一步放大了山洪危害。&lt;/p&gt;
+
+
+
+&lt;p&gt;有水利专家在上述报导中指出，治理山区洪水，不能单纯依赖疏浚河道加大行洪能力，而需要致力于消能和削峰。而治理有关的中小河流，需要以流域为单元推进，通过建设水库减缓山洪流速。尽管中国政府为治理中小河流提供了专项资金，但单个项目的资金只够治理一小段河道。推动以流域为单元的治理，仍是挑战所在。&lt;/p&gt;
+
+
+
+&lt;p&gt;同样值得注意的是，在农村空心化的背景下，山区救灾也在加大。经济欠发达地区的农村人口往往是老人和留守儿童。在洪灾中，这些脆弱人群受到的影响更为严重。有专家认为，面对这种情况，不能单纯发出转移通知，而是需要专人专策，提前转移。如果接受救援的人士中有失能者，则需要至少4个救援人员接力，不能依靠家属和护工。专家表示，这次太师屯镇救人最多的是当地居民，从中长期来看，需要发展社区救援力量应对灾害。&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-3&quot;&gt;灾害新闻失真影响公信&lt;/h2&gt;
+
+
+
+&lt;p&gt;在此次灾情中，出现了媒体发放失真新闻的情况，对于灾害应对体系的公信力难免造成影响。&lt;/p&gt;
+
+
+
+&lt;p&gt;北京市政府7月28日在官方网站转发《北京日报》&lt;a href=&quot;https://www.beijing.gov.cn/gate/big5/www.beijing.gov.cn/ywdt/yaowen/202507/t20250728_4159496.html&quot; data-type=&quot;link&quot; data-id=&quot;https://www.beijing.gov.cn/gate/big5/www.beijing.gov.cn/ywdt/yaowen/202507/t20250728_4159496.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;报导&lt;/a&gt;，称在密云转移人员，实现了“应转尽转”，无未联系上人员，也暂无人员伤亡。&lt;/p&gt;
+
+
+
+&lt;p&gt;28日晚，新华社&lt;a href=&quot;https://www.thepaper.cn/newsDetail_forward_31250448&quot; data-type=&quot;link&quot; data-id=&quot;https://www.thepaper.cn/newsDetail_forward_31250448&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;发表&lt;/a&gt;了习近平、李强两人的批示，后者在批示中称密云的洪涝灾害“造成重大人员伤亡”，并要求全力搜救失联人员。随后，内地媒体才得以报导是次灾情中的死亡人数的信息。注意到这一情况的《联合早报》引述一间中国中央官媒高管的微博，称“这个披露信息的方式太让人意外了”。&lt;/p&gt;
+
+
+
+&lt;p&gt;尽管官方已公布存在人员伤亡，一些相关报导仍存在可信性问题。&lt;/p&gt;
+
+
+
+&lt;p&gt;根据《北京日报》7月29日发布的&lt;a href=&quot;http://bj.people.com.cn/BIG5/n2/2025/0729/c14540-41305690.html&quot; data-type=&quot;link&quot; data-id=&quot;http://bj.people.com.cn/BIG5/n2/2025/0729/c14540-41305690.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;报导&lt;/a&gt;，密云太师屯镇养老照料中心被困人员安全脱险，4名失能老人获得转移。然而，小红书上有用户表示，其两位长辈均在该养老院被淹死。目前，该用户账号的帖文已全数清空。根据网络广告&lt;a href=&quot;https://www.sohu.com/a/905692423_122116734&quot; data-type=&quot;link&quot; data-id=&quot;https://www.sohu.com/a/905692423_122116734&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;资料&lt;/a&gt;，该中心接收一般老人入住，但以失能、半失能老人照护为特色。&lt;/p&gt;
+
+
+
+&lt;p&gt;《新京报》&lt;a href=&quot;https://www.bjnews.com.cn/detail/1753786335168147.html&quot; data-type=&quot;link&quot; data-id=&quot;https://www.bjnews.com.cn/detail/1753786335168147.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;报导&lt;/a&gt;指，太师屯养老照料中心灾前有70余名老人居住，大多腿脚不便，也有长期卧床的。《财新》&lt;a href=&quot;https://photos.caixin.com/red/2025-07-30/102346519.html?s=83a51ef786fe2397e23cdd3cb049b56fccd4101bc4d2c04e21c0489d8ba4aecd84d41c9bb6ff81aa&amp;amp;originReferrer=red&quot; data-type=&quot;link&quot; data-id=&quot;https://photos.caixin.com/red/2025-07-30/102346519.html?s=83a51ef786fe2397e23cdd3cb049b56fccd4101bc4d2c04e21c0489d8ba4aecd84d41c9bb6ff81aa&amp;amp;originReferrer=red&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;报导&lt;/a&gt;则指，太师屯镇养老照料中心水浸曾超两米，多人罹难，另有&lt;a href=&quot;https://china.caixin.com/2025-07-30/102346607.html&quot; data-type=&quot;link&quot; data-id=&quot;https://china.caixin.com/2025-07-30/102346607.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;报导&lt;/a&gt;分析出现水势形成的原因。目前，两间媒体的上述报导均已删除。文已全数清空。&lt;/p&gt;
+
+
+&lt;/div&gt;
+&lt;div class=&quot;entry-footer border-t border-grey-400 pt-6&quot;&gt;
+
+&lt;div class=&quot;entry-copyright&quot;&gt;&lt;figure&gt;&lt;small&gt;
+&lt;p class=&quot;caption2&quot;&gt;
+本刊载内容版权为端传媒或相关单位所有，未经&lt;a href=&quot;mailto:editor@theinitium.com&quot;&gt;端传媒编辑部&lt;/a&gt;授权，请勿转载或拷贝，否则即为侵权。&lt;/p&gt;
+&lt;/small&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;/div&gt;</content><author><name>特约撰稿人 羽炭</name></author><category term="initium" /><category term="blog" /><summary type="html">气候变化下，北方的防洪能力受压，涉灾新闻的真实性惹质疑。 2025年7月28日，中国北京密云区，暴雨过后，一名女子站在公园里的冰箱旁。摄：Florence Lo/Reuters/达志影像</summary></entry><entry><title type="html">以太坊創世十週年・下：百年以人</title><link href="https://agora0.github.io/post/matters/2025/07/31/MATTERS-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%89%B5%E4%B8%96%E5%8D%81%E9%80%B1%E5%B9%B4-%E4%B8%8B-%E7%99%BE%E5%B9%B4%E4%BB%A5%E4%BA%BA.html" rel="alternate" type="text/html" title="以太坊創世十週年・下：百年以人" /><published>2025-07-31T03:13:04+08:00</published><updated>2025-07-31T03:13:04+08:00</updated><id>https://agora0.github.io/post/matters/2025/07/31/MATTERS-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%89%B5%E4%B8%96%E5%8D%81%E9%80%B1%E5%B9%B4-%E4%B8%8B-%E7%99%BE%E5%B9%B4%E4%BB%A5%E4%BA%BA</id><content type="html" xml:base="https://agora0.github.io/post/matters/2025/07/31/MATTERS-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%89%B5%E4%B8%96%E5%8D%81%E9%80%B1%E5%B9%B4-%E4%B8%8B-%E7%99%BE%E5%B9%B4%E4%BB%A5%E4%BA%BA.html">&lt;p&gt;上期&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://ckxpress.com/ethereum-10th/&quot;&gt;〈十年以太〉&lt;/a&gt;的民意調查，問到以太坊十多年歷史中最令人難忘的事件，56 位參與者中，近一半對 2021、22 年的 NFT 炒風印象最深，令事件以 46% 高票勝出，原因或許是 NFT 最為出圈，又或許是近期偏誤（recency bias）影響判斷，但最能反映以太坊社群核心價值的，卻非民意調查中得票最低的 The DAO Hack 莫屬。&lt;/p&gt;&lt;figure class=&quot;image&quot;&gt;&lt;img src=&quot;https://imagedelivery.net/kDRCweMmqLnTPNlbum-pYA/prod/embed/bcf2e24b-8caa-4302-bc9f-f2b649c9dc5c.png/public&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;&lt;h2&gt;The DAO Hack&lt;/h2&gt;&lt;p&gt;有玩過大型網絡遊戲（MMORPG）的讀者，很可能遇過遊戲的程式碼出現漏洞，被部分玩家用以獲取稀有武器和大量遊戲幣，破壞遊戲世界的經濟及生態平衡。但凡遇上這類事件，遊戲廠商堵塞漏洞的同時有兩個選擇，要麼接受漏洞所帶來的後果，要麼回滾或更改數據庫，讓每位玩家回復到事前的狀態，前者表面上對不公平和經濟失衡視而不見，但同時也是最大程度尊重制度；後者雖然盡力彌補，但無可避免惹來參與者對官方濫用權力、肆意修改數據的擔憂。&lt;/p&gt;&lt;p&gt;2016 年，上線不足一年的以太坊面對 The DAO Hack，正好像個出現嚴重漏洞的 MMORPG，修補臭蟲毫無懸念，但對於應接受被盜 360 萬 ETH 的後果，還是該修改程式碼回收款項，社群展開激烈爭辯。有趣的是，以太坊最主要的創辦人 Vitalik 當初體會到中心化的弊病，正是始於玩《魔獸世界》（World of Warcraft）時，被遊戲廠商暴雪（Blizzard）在 2009 年的一次更新移除術士角色生命虹吸（Siphon Life）的傷害組件，一下子被廢武功。對於一個 MMORPG，遊戲廠商就是神，有絕對能力修改角色以至各種數據，七年過去，華語世界後來尊稱（也是戲稱）為「V 神」的 Vitalik 從玩家的身份換到區塊鏈「廠商」的位置，主張如何處理這起事件？&lt;/p&gt;&lt;p&gt;先來弄清 The DAO Hack 的規模。360 萬 ETH，當時市值「只有」約五千萬鎂，在區塊鏈史上連大型盜竊事件都稱不上；然而，那是以當時市值、美元本位而言，放在當下 ETH 兌 3,878 鎂算，這筆款項高達 139.6 億鎂。相對而言，發生於本年二月、史上最大規模的密碼貨幣盜竊案，Bybit 被盜的資產價格當時市值也「只不過」14.6 億鎂而已，即使以現時幣價算，也跟 The DAO Hack 規模相差六、七倍；再比對現時持有最多 ETH 的機構 BitMine，持倉 56 萬 ETH 左右，只及被盜 ETH 不到六分一。比較這些數字，不是說規模夠大就可以把原則拋諸腦後，但要作出這個艱難的決定，不可能不去考慮涉款額，尤其是當盜竊規模大得足以令生態一沉不起。&lt;/p&gt;&lt;p&gt;最終結果很多人早有聽聞，事件令社群分成兩派，一方以「code is law」為最高原則，寧可讓駭客領款離開（有人甚至會認為不該用上「駭客」這個帶有道德判斷的詞），包括 Vitalik 在內的另一方則主張加入程式碼阻止駭客領款，讓用戶取回款項；雖然從論壇和一幣一票的民意調查可看出後者意見較為主流，但由於主張不變的一方亦得到足夠多的礦工支持，最終硬分叉出兩個平行世界，前者成為 Ethereum Classic（ETC），後者才是今天公眾認識的以太坊和 ETH。&lt;/p&gt;&lt;p&gt;余生也晚，未能親身參與 The DAO Hack，回看資料，我認同加入程式碼阻止駭客的處理，表面上這跟我過往強調 code is law 的立場相左，實際上這反映的是對「law」的理解，也是我認為以太坊作風以人為本的開端。&lt;/p&gt;&lt;h2&gt;Code is Law 的背後需要人本主義&lt;/h2&gt;&lt;p&gt;無論民主國家還是威權社會，都沒有人會否定法律和「法治」的重要性，但演繹起來卻差之毫釐，前者 rule of law 以法律制衡政府避免權力過大；後者 rule by law 以法律整治人民藉以鞏固管治。前者的法律反映民意，立法過程獲人民授權；後者的法律反映政權意志，以法律服務行政，甚至有所謂「先立法後審議」的聖旨式立法（有別於太陽花運動提出的「先立法，再審查」，這裏指的是新法律條文即時頒布並生效，他日再作「審議」）。&lt;/p&gt;&lt;p&gt;回到 The DAO Hack，單憑透過加入程式碼回收被盜 ETH 的做法，不足以判斷對與錯，而要考慮社群在危機處理中有否盡量依循民主通則，鼓勵表達、溝通、討論，而不是借緊急為名，以專制或「多數人的暴政」行事。同理，單以「code is law」為由，不足以否定所有修改程式碼的需要，不能避免判斷某種行為是攻擊還是正常使用，更不可能因此就把 bug 視作 feature，否則，假如無論如何不應牽涉人的判斷，豈不是第一版本的程式碼公開使用後就成永恆不變的定律，從此不能更新。&lt;/p&gt;&lt;p&gt;眾所周知，台灣是個講求情、理、法的人情社會，情大於理、理先於法，跟上述情況類似，實踐得當是彰顯人情味，一旦被濫用就會變成敷衍塞責，有法不依。2014 年的太陽花運動，闖入立法院屬違法是客觀事實，但執法、司法考慮整體的脈絡、法律以外的情理，尊重民意予以酌情，反映的就是以民為先、以人為本。反觀有些社會，面向權貴就行使不起訴酌情權，面向公民就只管強調「&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://www.isd.gov.hk/chi/tvapi/20_ms292.html&quot;&gt;犯法就是犯法&lt;/a&gt;」，不犯法都極速度身訂造新法，這就是情、理、法的濫用，也是為甚麼 code is law 的背後，必須有人本主義的支持。&lt;/p&gt;&lt;p&gt;在物理世界，每個人都生而為Ｘ國人，想做別國國民，少數人可以選擇移民，多數人卻只能嘆句「來生不做Ｘ國人」；數位世界卻不一樣，區塊鏈是自由進出的生態（permissionless），有甚麼重大不滿隨時可以「用腳投票」，如反對聲音到達臨界點，更會產生「fork the government」的效果。&lt;/p&gt;&lt;p&gt;當初以太坊要修改程式碼處理 The DAO Hack，要不是礦工認同並配合升級節點，是絕不能單靠基金會或 Vitalik 的意願而行的，而往後分叉成 Ethereum 及 Ethereum Classic，最終哪個生態更蓬勃更持久，亦是整個社群持續以行動投票的結果。The DAO Hack 後，Ethereum 在困難中蓬勃發展至今，另邊廂的 Ethereum Classic 則多次遭遇 51% 攻擊，現市值不到前者 1%，多少反映出社群的選擇。&lt;/p&gt;&lt;h2&gt;科技以人為本&lt;/h2&gt;&lt;p&gt;打從「低能電話」諾基亞於九十年代以「科技以人為本」作廣告語，該說法就深入民心，仿佛無可爭議的共識，然而廣告畢竟只求意象，以人為本流於一句口號，對於當中意涵，往往莫衷一是。&lt;/p&gt;&lt;p&gt;以人為本最普遍也最能產生共鳴的理解，是簡單易用；這個理解沒有錯，科技產品理應讓阿嬤與小孩都懂，誰能反對？從這個角度看，不得不承認區塊鏈絕不及格，而架構龐大、包含 L2 等設計的以太坊，甚至比其他區塊鏈還要難用，即便是天天使用的我，上週也因為智能帳戶與多簽錢包介面不兼容的問題看上一整天，何況是新手。用戶體驗差的弱項不容否認，可幸的是以太坊社群積極面對，在成功擴容之後，開始透過智能帳戶等更新，逐步改善用戶體驗。&lt;/p&gt;&lt;p&gt;然而，簡單易用不是一切，更不應凌駕層次更高的價值，比如說微信很好用，但沒有點對點加密，支付完全中心化，就絕不是以人為本該有的樣子。真正的以人為本，照顧的並不只是廠商、風投，更不是強國、政府的利益，還會照顧魯蛇、邊緣人、弱勢者以至整體人類的長遠福祉；追求的不是短期幣價上揚，而是可持續、可負擔的合理價格；考慮的不單是效率和成本效益，更要兼顧私隱和韌性；關心的不只是人類，還包括環境和其他物種。&lt;/p&gt;&lt;p&gt;十分慶幸，以太坊十多年以來展現的核心價值，打從一開始不向風投傾斜，合理分配原始 ETH，到開發多年以轉用 PoS 令能源消耗大降 99%，繼而犧牲短期利益將大部分交易移師 L2，再到近年投入大量科研資源於零知識證明等技術提升私隱，都在體現我所嚮往的人本精神。&lt;/p&gt;&lt;p&gt;雖然事後看似理所當然，實際上在 Tron 靠攏強國而立於不敗之地、Solana 略為犧牲去中心化換取到強大性能、ETH 因著 L2 架構而需求大減幣價大跌等種種壓力下，在競爭激烈的商業環境下抵禦短期利益的誘惑，頂住質疑的聲音，還要兼顧人文關懷，難能可貴。&lt;/p&gt;&lt;p&gt;期望下一個、兩個、十個十年，以太坊仍能堅守長期主義，持續以韌性、私隱和公共利益為先，百年以人，超越民族國家的視野，為整體人類謀福祉。&lt;/p&gt;&lt;h2&gt;POLL&lt;/h2&gt;&lt;h3&gt;你怎樣看以太坊的未來？&lt;/h3&gt;&lt;ol&gt;&lt;li&gt;&lt;p&gt;比特幣才是王道，以太坊永遠無法超越，只能當老二。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;面對所有公鏈的競爭，以太坊即使守得住第二，市佔率也必然走下坡。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;以太坊終將超越比特幣，成為無可爭議的第一。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;市值第幾是其次，重點是以太坊始終最為去中心、具韌性、照顧私隱。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;以上皆非，讓我留言告訴大家。&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;hr&gt;&lt;p&gt;p.s. 六年來第二次，因需要更改收費帳戶，得主動把辛苦積累的所有付費用戶退訂兼退費，一鋪清零，上次用了整整幾年才回到原點，昨天只消一晚，就得到兩成原道友 Pro 體諒，重新訂閱，不少還付上窩心留言，即使最終失去一半訂戶，亦覺無憾。&lt;/p&gt;</content><author><name>ckxpress</name></author><category term="matters" /><category term="blog" /><summary type="html">上期〈十年以太〉的民意調查，問到以太坊十多年歷史中最令人難忘的事件，56 位參與者中，近一半對 2021、22 年的 NFT 炒風印象最深，令事件以 46% 高票勝出，原因或許是 NFT 最為出圈，又或許是近期偏誤（recency bias）影響判斷，但最能反映以太坊社群核心價值的，卻非民意調查中得票最低的 The DAO Hack 莫屬。The DAO Hack有玩過大型網絡遊戲（MMORPG）的讀者，很可能遇過遊戲的程式碼出現漏洞，被部分玩家用以獲取稀有武器和大量遊戲幣，破壞遊戲世界的經濟及生態平衡。但凡遇上這類事件，遊戲廠商堵塞漏洞的同時有兩個選擇，要麼接受漏洞所帶來的後果，要麼回滾或更改數據庫，讓每位玩家回復到事前的狀態，前者表面上對不公平和經濟失衡視而不見，但同時也是最大程度尊重制度；後者雖然盡力彌補，但無可避免惹來參與者對官方濫用權力、肆意修改數據的擔憂。2016 年，上線不足一年的以太坊面對 The DAO Hack，正好像個出現嚴重漏洞的 MMORPG，修補臭蟲毫無懸念，但對於應接受被盜 360 萬 ETH 的後果，還是該修改程式碼回收款項，社群展開激烈爭辯。有趣的是，以太坊最主要的創辦人 Vitalik 當初體會到中心化的弊病，正是始於玩《魔獸世界》（World of Warcraft）時，被遊戲廠商暴雪（Blizzard）在 2009 年的一次更新移除術士角色生命虹吸（Siphon Life）的傷害組件，一下子被廢武功。對於一個 MMORPG，遊戲廠商就是神，有絕對能力修改角色以至各種數據，七年過去，華語世界後來尊稱（也是戲稱）為「V 神」的 Vitalik 從玩家的身份換到區塊鏈「廠商」的位置，主張如何處理這起事件？先來弄清 The DAO Hack 的規模。360 萬 ETH，當時市值「只有」約五千萬鎂，在區塊鏈史上連大型盜竊事件都稱不上；然而，那是以當時市值、美元本位而言，放在當下 ETH 兌 3,878 鎂算，這筆款項高達 139.6 億鎂。相對而言，發生於本年二月、史上最大規模的密碼貨幣盜竊案，Bybit 被盜的資產價格當時市值也「只不過」14.6 億鎂而已，即使以現時幣價算，也跟 The DAO Hack 規模相差六、七倍；再比對現時持有最多 ETH 的機構 BitMine，持倉 56 萬 ETH 左右，只及被盜 ETH 不到六分一。比較這些數字，不是說規模夠大就可以把原則拋諸腦後，但要作出這個艱難的決定，不可能不去考慮涉款額，尤其是當盜竊規模大得足以令生態一沉不起。最終結果很多人早有聽聞，事件令社群分成兩派，一方以「code is law」為最高原則，寧可讓駭客領款離開（有人甚至會認為不該用上「駭客」這個帶有道德判斷的詞），包括 Vitalik 在內的另一方則主張加入程式碼阻止駭客領款，讓用戶取回款項；雖然從論壇和一幣一票的民意調查可看出後者意見較為主流，但由於主張不變的一方亦得到足夠多的礦工支持，最終硬分叉出兩個平行世界，前者成為 Ethereum Classic（ETC），後者才是今天公眾認識的以太坊和 ETH。余生也晚，未能親身參與 The DAO Hack，回看資料，我認同加入程式碼阻止駭客的處理，表面上這跟我過往強調 code is law 的立場相左，實際上這反映的是對「law」的理解，也是我認為以太坊作風以人為本的開端。Code is Law 的背後需要人本主義無論民主國家還是威權社會，都沒有人會否定法律和「法治」的重要性，但演繹起來卻差之毫釐，前者 rule of law 以法律制衡政府避免權力過大；後者 rule by law 以法律整治人民藉以鞏固管治。前者的法律反映民意，立法過程獲人民授權；後者的法律反映政權意志，以法律服務行政，甚至有所謂「先立法後審議」的聖旨式立法（有別於太陽花運動提出的「先立法，再審查」，這裏指的是新法律條文即時頒布並生效，他日再作「審議」）。回到 The DAO Hack，單憑透過加入程式碼回收被盜 ETH 的做法，不足以判斷對與錯，而要考慮社群在危機處理中有否盡量依循民主通則，鼓勵表達、溝通、討論，而不是借緊急為名，以專制或「多數人的暴政」行事。同理，單以「code is law」為由，不足以否定所有修改程式碼的需要，不能避免判斷某種行為是攻擊還是正常使用，更不可能因此就把 bug 視作 feature，否則，假如無論如何不應牽涉人的判斷，豈不是第一版本的程式碼公開使用後就成永恆不變的定律，從此不能更新。眾所周知，台灣是個講求情、理、法的人情社會，情大於理、理先於法，跟上述情況類似，實踐得當是彰顯人情味，一旦被濫用就會變成敷衍塞責，有法不依。2014 年的太陽花運動，闖入立法院屬違法是客觀事實，但執法、司法考慮整體的脈絡、法律以外的情理，尊重民意予以酌情，反映的就是以民為先、以人為本。反觀有些社會，面向權貴就行使不起訴酌情權，面向公民就只管強調「犯法就是犯法」，不犯法都極速度身訂造新法，這就是情、理、法的濫用，也是為甚麼 code is law 的背後，必須有人本主義的支持。在物理世界，每個人都生而為Ｘ國人，想做別國國民，少數人可以選擇移民，多數人卻只能嘆句「來生不做Ｘ國人」；數位世界卻不一樣，區塊鏈是自由進出的生態（permissionless），有甚麼重大不滿隨時可以「用腳投票」，如反對聲音到達臨界點，更會產生「fork the government」的效果。當初以太坊要修改程式碼處理 The DAO Hack，要不是礦工認同並配合升級節點，是絕不能單靠基金會或 Vitalik 的意願而行的，而往後分叉成 Ethereum 及 Ethereum Classic，最終哪個生態更蓬勃更持久，亦是整個社群持續以行動投票的結果。The DAO Hack 後，Ethereum 在困難中蓬勃發展至今，另邊廂的 Ethereum Classic 則多次遭遇 51% 攻擊，現市值不到前者 1%，多少反映出社群的選擇。科技以人為本打從「低能電話」諾基亞於九十年代以「科技以人為本」作廣告語，該說法就深入民心，仿佛無可爭議的共識，然而廣告畢竟只求意象，以人為本流於一句口號，對於當中意涵，往往莫衷一是。以人為本最普遍也最能產生共鳴的理解，是簡單易用；這個理解沒有錯，科技產品理應讓阿嬤與小孩都懂，誰能反對？從這個角度看，不得不承認區塊鏈絕不及格，而架構龐大、包含 L2 等設計的以太坊，甚至比其他區塊鏈還要難用，即便是天天使用的我，上週也因為智能帳戶與多簽錢包介面不兼容的問題看上一整天，何況是新手。用戶體驗差的弱項不容否認，可幸的是以太坊社群積極面對，在成功擴容之後，開始透過智能帳戶等更新，逐步改善用戶體驗。然而，簡單易用不是一切，更不應凌駕層次更高的價值，比如說微信很好用，但沒有點對點加密，支付完全中心化，就絕不是以人為本該有的樣子。真正的以人為本，照顧的並不只是廠商、風投，更不是強國、政府的利益，還會照顧魯蛇、邊緣人、弱勢者以至整體人類的長遠福祉；追求的不是短期幣價上揚，而是可持續、可負擔的合理價格；考慮的不單是效率和成本效益，更要兼顧私隱和韌性；關心的不只是人類，還包括環境和其他物種。十分慶幸，以太坊十多年以來展現的核心價值，打從一開始不向風投傾斜，合理分配原始 ETH，到開發多年以轉用 PoS 令能源消耗大降 99%，繼而犧牲短期利益將大部分交易移師 L2，再到近年投入大量科研資源於零知識證明等技術提升私隱，都在體現我所嚮往的人本精神。雖然事後看似理所當然，實際上在 Tron 靠攏強國而立於不敗之地、Solana 略為犧牲去中心化換取到強大性能、ETH 因著 L2 架構而需求大減幣價大跌等種種壓力下，在競爭激烈的商業環境下抵禦短期利益的誘惑，頂住質疑的聲音，還要兼顧人文關懷，難能可貴。期望下一個、兩個、十個十年，以太坊仍能堅守長期主義，持續以韌性、私隱和公共利益為先，百年以人，超越民族國家的視野，為整體人類謀福祉。POLL你怎樣看以太坊的未來？比特幣才是王道，以太坊永遠無法超越，只能當老二。面對所有公鏈的競爭，以太坊即使守得住第二，市佔率也必然走下坡。以太坊終將超越比特幣，成為無可爭議的第一。市值第幾是其次，重點是以太坊始終最為去中心、具韌性、照顧私隱。以上皆非，讓我留言告訴大家。p.s. 六年來第二次，因需要更改收費帳戶，得主動把辛苦積累的所有付費用戶退訂兼退費，一鋪清零，上次用了整整幾年才回到原點，昨天只消一晚，就得到兩成原道友 Pro 體諒，重新訂閱，不少還付上窩心留言，即使最終失去一半訂戶，亦覺無憾。</summary></entry><entry><title type="html">十年以太 百年以人：以太坊創世十週年</title><link href="https://agora0.github.io/post/matters/2025/07/31/MATTERS-%E5%8D%81%E5%B9%B4%E4%BB%A5%E5%A4%AA-%E7%99%BE%E5%B9%B4%E4%BB%A5%E4%BA%BA-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%89%B5%E4%B8%96%E5%8D%81%E9%80%B1%E5%B9%B4.html" rel="alternate" type="text/html" title="十年以太 百年以人：以太坊創世十週年" /><published>2025-07-31T02:56:38+08:00</published><updated>2025-07-31T02:56:38+08:00</updated><id>https://agora0.github.io/post/matters/2025/07/31/MATTERS-%E5%8D%81%E5%B9%B4%E4%BB%A5%E5%A4%AA-%E7%99%BE%E5%B9%B4%E4%BB%A5%E4%BA%BA-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%89%B5%E4%B8%96%E5%8D%81%E9%80%B1%E5%B9%B4</id><content type="html" xml:base="https://agora0.github.io/post/matters/2025/07/31/MATTERS-%E5%8D%81%E5%B9%B4%E4%BB%A5%E5%A4%AA-%E7%99%BE%E5%B9%B4%E4%BB%A5%E4%BA%BA-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%89%B5%E4%B8%96%E5%8D%81%E9%80%B1%E5%B9%B4.html">&lt;p&gt;2015 年，香港電影&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://www.imdb.com/title/tt5269560/&quot;&gt;《十年》&lt;/a&gt;上映，五位年輕新晉導演分別以五個短篇故事，透過影像描繪想像中十年後，也就是 2025 年的香港。《十年》的預算只有少得誇張的五十萬港元，從小規模上映到引發共鳴，喚醒港人埋藏心底的焦慮與恐懼，再奪得金像獎最佳電影，產生廣泛迴響。當時所有人都以為電影運用了誇張的表達手法，十年過去，才知道原來電影中的許多橋段，遠遠比不上現實荒謬。&lt;/p&gt;&lt;h2&gt;短期影響 vs 長期效應&lt;/h2&gt;&lt;p&gt;同樣發生在 2015 年，十年後的發展令人意想不到的，還有迴響更廣泛、更深遠的以太坊。2015 年 7 月 30 日，以太坊鑄造出創世區塊，以似慢實快的節奏，在金融、內容、協作等各個層面，逐步帶來不可逆轉的改變。&lt;/p&gt;&lt;p&gt;著名的阿瑪拉定律（&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://en.wikipedia.org/wiki/Roy_Amara&quot;&gt;Amara’s Law&lt;/a&gt;）指出，我們傾向於高估一項科技的短期影響，同時又低估它的長期效應。在很多人眼中，以太坊的發展很慢，明明十多年前就有 the world computer 的願景、七八年前就以為 web3 要來了，結果單是一個 Cryptokitties 小遊戲，就把這台「世界電腦」卡得死死，加上幣市轉熊，許多人都對以太坊甚或所有區塊鏈相關技術失望，繼而離場。&lt;/p&gt;&lt;p&gt;當公眾的心思和精力都轉投 AI、VR 等其他領域，有群人卻從未放棄，深耕細作，厚積薄發，到大家把 web3 忘記得七七八八，日積月累的微小改善逐漸令區塊鏈變得實用，如 USDT 等應用悄悄然在主流媒體的視野外深深紮根，近月美國政府的加持，不過是在已經燃起的火上加油而已，一下子，世界突然發現過往遠遠低估了比特幣、以太坊和穩定幣（大部份在以太坊發行）帶來的影響。&lt;/p&gt;&lt;p&gt;在最為困難、多方質疑的時刻，從未放緩開發步伐、不為短期幣價調整發展藍圖、不走捷徑跟強國靠攏而妥協去中心化，始終堅守長期主義的佼佼者，首推以太坊。&lt;/p&gt;&lt;h2&gt;以太簡史，一步一腳印&lt;/h2&gt;&lt;p&gt;要深入了解以太坊的發展史，恐怕要看上百網頁。以下我把以太坊自構想以來的歷史分成起、承、轉、合四個階段，再在每年列出最重要的一至數項重大事件，幫助讀者快速回顧以太坊如何一步一腳印，發展到獲得今天的成就。&lt;/p&gt;&lt;h3&gt;起：白皮書、募資、創世&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;2013 📜&lt;br class=&quot;smart&quot;&gt;Vitalik Buterin 以 &lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://ethereum.org/content/whitepaper/whitepaper-pdf/Ethereum_Whitepaper_-_Buterin_2014.pdf&quot;&gt;Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform&lt;/a&gt; 為題，撰寫以太坊白皮書。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2014 💰&lt;br class=&quot;smart&quot;&gt;以太坊群眾募資，成功籌得 31,529 BTC，當時市值約 1,800 萬鎂，賣出 60,102,216 ETH。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2015 🚀&lt;br class=&quot;smart&quot;&gt;7 月 30 日，以太坊主網上線，鑄造出創世區塊。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2016 💔&lt;br class=&quot;smart&quot;&gt;基於以太坊的專案 The DAO 出現漏洞，被盜取 360 萬 ETH，市值約 5 千萬鎂，最終社群以硬分叉處理，現時的 Ethereum 為加入程式碼取回被盜資產的分叉，而堅持「code is law」、接受被盜事實的原始鏈，則成為現今的 Ethereum Classic（ETC）。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;承：ICO、寒冬、DeFi&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;2017 📈&lt;br class=&quot;smart&quot;&gt;NFT 標準（ERC-721）出現，Cryptokitties 上線；ICO 熱潮催生出眾多建基於以太坊的專案；Byzantium 升級，挖礦獎勵由 5 ETH 調整至 3 ETH。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2018 ❄️&lt;br class=&quot;smart&quot;&gt;ICO 泡沫爆破加上比特幣四年週期效應，使 ETH 幣價從年初最高位 1,448 鎂，跌至年底低見 84 鎂，幅度超過九成，再加上 Constantinople 升級因技術問題延誤，以太坊步入低谷。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2019 🌱&lt;br class=&quot;smart&quot;&gt;年初 Constantinople、St. Petersburg 升級，挖礦奬勵進一步下調至 2 ETH，年底 Istanbul 升級，為日後 L2 及零知識證明奠定基礎；Uniswap、Compound、MakerDAO 等 DeFi 應用初見苗頭；ETH 幣價谷底回升。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2020 ☀️&lt;br class=&quot;smart&quot;&gt;Compound、Uniswap、Aave、Curve 等紛紛推出流動性挖礦，觸發 DeFi Summer，世界初次見識分散式金融的威力，同時凸顯以太坊吞吐量低、手續費高的毛病，L2 擴容迫在眉睫；年底信標鏈（Beacon Chain）上線，質押開始，踏出 PoS 的第一步。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;轉：NFT、PoS、L2&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;2021 🔥&lt;br class=&quot;smart&quot;&gt;Berlin、London、Altair 升級，其中的 London 的 EIP-1559，成功協調礦工的反對與抗議，銷毀交易費中的基礎部分，降低 ETH 的供應，產生通縮的可能；Arbitrum 及 Optimism L2 主網上線；BAYC 等頭像 NFT 專案引發熾熱炒風，將 ETH 幣價推上 4,878 鎂的歷史高位。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2022 🤝&lt;br class=&quot;smart&quot;&gt;The Merge 升級，正式終止工作證明（PoW）挖掘，踏入權益證明（PoS）的全新階段，減少能源消耗 99% 以上；伴隨技術突破而來的卻是幣價寒冬，Terra 崩盤、FTX 倒閉，再加上比特幣的再一個四年週期，讓 ETH 一度跌破 1,000 鎂。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2023 🔓&lt;br class=&quot;smart&quot;&gt;Shapella 升級，開放 ETH 質押的提領，正式完成 PoS 升級的最後一步；Arbitrum、Optimism 等 L2 逐漸成熟，同時以 ZK-Rollups 為基礎的 zkSync Era 和 StarkNet 也上線主網，由理論踏入實踐。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2024 🍃&lt;br class=&quot;smart&quot;&gt;Dencun 升級，其中 EIP-4844 引入臨時數據儲存空間，令 L2 交易費下降九成；美國證交會繼比特幣 ETF 後，批出以太幣現貨 ETF，象徵以太坊開始受國家政府及傳統金融業接納。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;合：匯合傳統金融、智能帳戶、走入民間&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;2025 🏗️&lt;br class=&quot;smart&quot;&gt;Pectra 升級，允許普通帳戶轉換成智能帳戶（smart account），另把驗證者質押數從固定的 32 ETH 改為 32-2048 ETH，降低驗證者數量，減輕網絡通訊負擔；市場方面，開始有機構以 ETH 作為儲備，同時成為驗證者以獲取報酬。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;相對於前面的起、承、轉，合的階段只過了半年，我沒有水晶球，但從多年的參與及觀察，我可以很有信心地判斷，未來數年的幾次技術更新，將令以太坊吞吐量更大、手續費更低、分散程度更高，更重要的是，隨著智能帳戶在錢包軟體與 dApps 的落實，開立與管理錢包將越來越簡單，用戶體驗變得平易近人，加上各國政府、傳統金融及大型機構的認可，以太坊將會大規模走入民間，成為不可或缺的基礎建設。&lt;/p&gt;&lt;h2&gt;待續&lt;/h2&gt;&lt;p&gt;以太坊的歷史我本來就知道，但在整理簡史的過程中重讀大量材料，我還是被這段不可思議的史詩式旅程震撼到，參與其中，即使只是小腳色，也深感榮幸。&lt;/p&gt;&lt;p&gt;談以太坊十週年，沒可能避開技術詞彙，希望讀者不會再次表示「每個字都明，但加起來不懂」。7 月 30 日，以太坊十週年當天，我將刊出〈十年以太 百年以人〉下集，探討以太坊的人文面向，請勿錯過。&lt;/p&gt;&lt;h2&gt;POLL&lt;/h2&gt;&lt;h3&gt;在以太坊十多年的歷程，哪件事令你最難忘？&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;以太坊的白皮書及群眾募資。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The DAO Hack。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;ICO 風潮及其後的爆破。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;DeFi Summer。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;NFT 炒風，生成式藝術的潮起潮落。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;p&gt;p.s. 2021 年 3 月，《小朋友齊打交》的開發者小熊推出 LF2 NFT，我二話不說買下經典角色 &lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://opensea.io/item/ethereum/0x55a7a2f764a86b4622510af16006c8017cdd76db/1&quot;&gt;#01 Davis&lt;/a&gt;，支持友人，推動創作。此後四年多，小熊善用出售 NFT 所得款項，夜以繼日持續開發，終於在上週推出&lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow&quot; href=&quot;https://store.steampowered.com/app/3249650/Little_Fighter_2_Remastered/&quot;&gt;《Little Fighter 2 remastered》&lt;/a&gt;，於 Steam 公開發售。誰說 NFT 只能用來炒賣？&lt;/p&gt;</content><author><name>ckxpress</name></author><category term="matters" /><category term="blog" /><summary type="html">2015 年，香港電影《十年》上映，五位年輕新晉導演分別以五個短篇故事，透過影像描繪想像中十年後，也就是 2025 年的香港。《十年》的預算只有少得誇張的五十萬港元，從小規模上映到引發共鳴，喚醒港人埋藏心底的焦慮與恐懼，再奪得金像獎最佳電影，產生廣泛迴響。當時所有人都以為電影運用了誇張的表達手法，十年過去，才知道原來電影中的許多橋段，遠遠比不上現實荒謬。短期影響 vs 長期效應同樣發生在 2015 年，十年後的發展令人意想不到的，還有迴響更廣泛、更深遠的以太坊。2015 年 7 月 30 日，以太坊鑄造出創世區塊，以似慢實快的節奏，在金融、內容、協作等各個層面，逐步帶來不可逆轉的改變。著名的阿瑪拉定律（Amara’s Law）指出，我們傾向於高估一項科技的短期影響，同時又低估它的長期效應。在很多人眼中，以太坊的發展很慢，明明十多年前就有 the world computer 的願景、七八年前就以為 web3 要來了，結果單是一個 Cryptokitties 小遊戲，就把這台「世界電腦」卡得死死，加上幣市轉熊，許多人都對以太坊甚或所有區塊鏈相關技術失望，繼而離場。當公眾的心思和精力都轉投 AI、VR 等其他領域，有群人卻從未放棄，深耕細作，厚積薄發，到大家把 web3 忘記得七七八八，日積月累的微小改善逐漸令區塊鏈變得實用，如 USDT 等應用悄悄然在主流媒體的視野外深深紮根，近月美國政府的加持，不過是在已經燃起的火上加油而已，一下子，世界突然發現過往遠遠低估了比特幣、以太坊和穩定幣（大部份在以太坊發行）帶來的影響。在最為困難、多方質疑的時刻，從未放緩開發步伐、不為短期幣價調整發展藍圖、不走捷徑跟強國靠攏而妥協去中心化，始終堅守長期主義的佼佼者，首推以太坊。以太簡史，一步一腳印要深入了解以太坊的發展史，恐怕要看上百網頁。以下我把以太坊自構想以來的歷史分成起、承、轉、合四個階段，再在每年列出最重要的一至數項重大事件，幫助讀者快速回顧以太坊如何一步一腳印，發展到獲得今天的成就。起：白皮書、募資、創世2013 📜Vitalik Buterin 以 Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform 為題，撰寫以太坊白皮書。2014 💰以太坊群眾募資，成功籌得 31,529 BTC，當時市值約 1,800 萬鎂，賣出 60,102,216 ETH。2015 🚀7 月 30 日，以太坊主網上線，鑄造出創世區塊。2016 💔基於以太坊的專案 The DAO 出現漏洞，被盜取 360 萬 ETH，市值約 5 千萬鎂，最終社群以硬分叉處理，現時的 Ethereum 為加入程式碼取回被盜資產的分叉，而堅持「code is law」、接受被盜事實的原始鏈，則成為現今的 Ethereum Classic（ETC）。承：ICO、寒冬、DeFi2017 📈NFT 標準（ERC-721）出現，Cryptokitties 上線；ICO 熱潮催生出眾多建基於以太坊的專案；Byzantium 升級，挖礦獎勵由 5 ETH 調整至 3 ETH。2018 ❄️ICO 泡沫爆破加上比特幣四年週期效應，使 ETH 幣價從年初最高位 1,448 鎂，跌至年底低見 84 鎂，幅度超過九成，再加上 Constantinople 升級因技術問題延誤，以太坊步入低谷。2019 🌱年初 Constantinople、St. Petersburg 升級，挖礦奬勵進一步下調至 2 ETH，年底 Istanbul 升級，為日後 L2 及零知識證明奠定基礎；Uniswap、Compound、MakerDAO 等 DeFi 應用初見苗頭；ETH 幣價谷底回升。2020 ☀️Compound、Uniswap、Aave、Curve 等紛紛推出流動性挖礦，觸發 DeFi Summer，世界初次見識分散式金融的威力，同時凸顯以太坊吞吐量低、手續費高的毛病，L2 擴容迫在眉睫；年底信標鏈（Beacon Chain）上線，質押開始，踏出 PoS 的第一步。轉：NFT、PoS、L22021 🔥Berlin、London、Altair 升級，其中的 London 的 EIP-1559，成功協調礦工的反對與抗議，銷毀交易費中的基礎部分，降低 ETH 的供應，產生通縮的可能；Arbitrum 及 Optimism L2 主網上線；BAYC 等頭像 NFT 專案引發熾熱炒風，將 ETH 幣價推上 4,878 鎂的歷史高位。2022 🤝The Merge 升級，正式終止工作證明（PoW）挖掘，踏入權益證明（PoS）的全新階段，減少能源消耗 99% 以上；伴隨技術突破而來的卻是幣價寒冬，Terra 崩盤、FTX 倒閉，再加上比特幣的再一個四年週期，讓 ETH 一度跌破 1,000 鎂。2023 🔓Shapella 升級，開放 ETH 質押的提領，正式完成 PoS 升級的最後一步；Arbitrum、Optimism 等 L2 逐漸成熟，同時以 ZK-Rollups 為基礎的 zkSync Era 和 StarkNet 也上線主網，由理論踏入實踐。2024 🍃Dencun 升級，其中 EIP-4844 引入臨時數據儲存空間，令 L2 交易費下降九成；美國證交會繼比特幣 ETF 後，批出以太幣現貨 ETF，象徵以太坊開始受國家政府及傳統金融業接納。合：匯合傳統金融、智能帳戶、走入民間2025 🏗️Pectra 升級，允許普通帳戶轉換成智能帳戶（smart account），另把驗證者質押數從固定的 32 ETH 改為 32-2048 ETH，降低驗證者數量，減輕網絡通訊負擔；市場方面，開始有機構以 ETH 作為儲備，同時成為驗證者以獲取報酬。相對於前面的起、承、轉，合的階段只過了半年，我沒有水晶球，但從多年的參與及觀察，我可以很有信心地判斷，未來數年的幾次技術更新，將令以太坊吞吐量更大、手續費更低、分散程度更高，更重要的是，隨著智能帳戶在錢包軟體與 dApps 的落實，開立與管理錢包將越來越簡單，用戶體驗變得平易近人，加上各國政府、傳統金融及大型機構的認可，以太坊將會大規模走入民間，成為不可或缺的基礎建設。待續以太坊的歷史我本來就知道，但在整理簡史的過程中重讀大量材料，我還是被這段不可思議的史詩式旅程震撼到，參與其中，即使只是小腳色，也深感榮幸。談以太坊十週年，沒可能避開技術詞彙，希望讀者不會再次表示「每個字都明，但加起來不懂」。7 月 30 日，以太坊十週年當天，我將刊出〈十年以太 百年以人〉下集，探討以太坊的人文面向，請勿錯過。POLL在以太坊十多年的歷程，哪件事令你最難忘？以太坊的白皮書及群眾募資。The DAO Hack。ICO 風潮及其後的爆破。DeFi Summer。NFT 炒風，生成式藝術的潮起潮落。p.s. 2021 年 3 月，《小朋友齊打交》的開發者小熊推出 LF2 NFT，我二話不說買下經典角色 #01 Davis，支持友人，推動創作。此後四年多，小熊善用出售 NFT 所得款項，夜以繼日持續開發，終於在上週推出《Little Fighter 2 remastered》，於 Steam 公開發售。誰說 NFT 只能用來炒賣？</summary></entry><entry><title type="html">李慧琼稱4年成立26個政策事宜小組委員會 盼施政報告吸納意見</title><link href="https://agora0.github.io/post/inmedia/2025/07/30/INMEDIA-%E6%9D%8E%E6%85%A7%E7%90%BC%E7%A8%B14%E5%B9%B4%E6%88%90%E7%AB%8B26%E5%80%8B%E6%94%BF%E7%AD%96%E4%BA%8B%E5%AE%9C%E5%B0%8F%E7%B5%84%E5%A7%94%E5%93%A1%E6%9C%83-%E7%9B%BC%E6%96%BD%E6%94%BF%E5%A0%B1%E5%91%8A%E5%90%B8%E7%B4%8D%E6%84%8F%E8%A6%8B.html" rel="alternate" type="text/html" title="李慧琼稱4年成立26個政策事宜小組委員會 盼施政報告吸納意見" /><published>2025-07-30T21:04:35+08:00</published><updated>2025-07-30T21:04:35+08:00</updated><id>https://agora0.github.io/post/inmedia/2025/07/30/INMEDIA-%E6%9D%8E%E6%85%A7%E7%90%BC%E7%A8%B14%E5%B9%B4%E6%88%90%E7%AB%8B26%E5%80%8B%E6%94%BF%E7%AD%96%E4%BA%8B%E5%AE%9C%E5%B0%8F%E7%B5%84%E5%A7%94%E5%93%A1%E6%9C%83-%E7%9B%BC%E6%96%BD%E6%94%BF%E5%A0%B1%E5%91%8A%E5%90%B8%E7%B4%8D%E6%84%8F%E8%A6%8B</id><content type="html" xml:base="https://agora0.github.io/post/inmedia/2025/07/30/INMEDIA-%E6%9D%8E%E6%85%A7%E7%90%BC%E7%A8%B14%E5%B9%B4%E6%88%90%E7%AB%8B26%E5%80%8B%E6%94%BF%E7%AD%96%E4%BA%8B%E5%AE%9C%E5%B0%8F%E7%B5%84%E5%A7%94%E5%93%A1%E6%9C%83-%E7%9B%BC%E6%96%BD%E6%94%BF%E5%A0%B1%E5%91%8A%E5%90%B8%E7%B4%8D%E6%84%8F%E8%A6%8B.html">&lt;img src=&quot;https://www.inmediahk.net/files/column_images/20250730nkjbhmb.png&quot; /&gt;&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot;&gt;&lt;p&gt;&lt;font color=&quot;#e4692b&quot;&gt;【獨媒報導】&lt;/font&gt;立法會今年底換屆，研究政策事宜小組委員會下午召開簡報會。內務委員會主席李慧琼指今屆立法會先後成立了26個政策事宜小組委員會，研究多項課題，包括促進粵港澳大灣區發展、推動國安及國民教育及北部都會區發展等，認為是「充分體現行政、立法之間良性互動，齊心為香港由治及興新階段發展出力」，期望9月份發表的施政報告會吸納當中意見。&lt;/p&gt;
 &lt;p&gt;內委會主席李慧琼先交代整體工作，指第七屆立法會在內務委員會及各事務委員會轄下，一共成立了26個政策事宜小組委員會研究多項課題，包括促進粵港澳大灣區發展、推動國安及國民教育、北部都會區發展、發展智慧城市、人口政策措施，以及工務工程效益成本等。她強調公共政策「沒有最好，只有更好」，小組委員會屝向政府當局提交相關政策研究報告，以及舉行跟進會議，認為安排「充分體現行政、立法之間良性互動，齊心為香港由治及興新階段發展出力」，期望9月份發表的施政報告會吸納小組委員會意見。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://live.staticflickr.com/65535/54688453476_7c97ecafaf_b.jpg&quot; /&gt;&lt;br /&gt;&lt;em&gt;李慧琼&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;鄧家彪倡訂九龍東核心商業區政策&lt;/strong&gt;&lt;/p&gt;
@@ -7279,358 +7939,4 @@ Dauven在訪問中提到，香港被視為一個非常現代化和國際化的�
 &lt;p class=&quot;caption2&quot;&gt;
 本刊载内容版权为端传媒或相关单位所有，未经&lt;a href=&quot;mailto:editor@theinitium.com&quot;&gt;端传媒编辑部&lt;/a&gt;授权，请勿转载或拷贝，否则即为侵权。&lt;/p&gt;
 &lt;/small&gt;&lt;/figure&gt;&lt;/div&gt;
-&lt;/div&gt;</content><author><name>端传媒记者 郑淑华、吴政霆</name></author><category term="initium" /><category term="blog" /><summary type="html">端传媒整理事件脉络，并透过访问几位港大女学生、法律评论者，聚焦探讨香港及各地相关深伪的现行法规。 香港大学有不少人观光拍照。摄：林振东/端传媒</summary></entry><entry><title type="html">第三期端传媒“专题记者成长计划”開放申请</title><link href="https://agora0.github.io/post/initium/2025/07/23/INITIUM-%E7%AC%AC%E4%B8%89%E6%9C%9F%E7%AB%AF%E4%BC%A0%E5%AA%92-%E4%B8%93%E9%A2%98%E8%AE%B0%E8%80%85%E6%88%90%E9%95%BF%E8%AE%A1%E5%88%92-%E9%96%8B%E6%94%BE%E7%94%B3%E8%AF%B7.html" rel="alternate" type="text/html" title="第三期端传媒“专题记者成长计划”開放申请" /><published>2025-07-23T06:59:00+08:00</published><updated>2025-07-23T06:59:00+08:00</updated><id>https://agora0.github.io/post/initium/2025/07/23/INITIUM-%E7%AC%AC%E4%B8%89%E6%9C%9F%E7%AB%AF%E4%BC%A0%E5%AA%92-%E4%B8%93%E9%A2%98%E8%AE%B0%E8%80%85%E6%88%90%E9%95%BF%E8%AE%A1%E5%88%92-%E9%96%8B%E6%94%BE%E7%94%B3%E8%AF%B7</id><content type="html" xml:base="https://agora0.github.io/post/initium/2025/07/23/INITIUM-%E7%AC%AC%E4%B8%89%E6%9C%9F%E7%AB%AF%E4%BC%A0%E5%AA%92-%E4%B8%93%E9%A2%98%E8%AE%B0%E8%80%85%E6%88%90%E9%95%BF%E8%AE%A1%E5%88%92-%E9%96%8B%E6%94%BE%E7%94%B3%E8%AF%B7.html">&lt;blockquote&gt;&lt;p&gt;&lt;em&gt;这一次，我们针对产业和时代的变化，推出三个专题组和一个受众参与特别组。&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;   &lt;figure&gt;&lt;img src=&quot;https://theinitium.com/wp-content/uploads/2025/07/2160-1440-cms-cs.png?w=1080&quot; referrerpolicy=&quot;no-referrer&quot;&gt;  &lt;figcaption&gt;图：Mantha Mok / 端传媒&lt;/figcaption&gt;  &lt;/figure&gt;   
-
-&lt;div id=&quot;block_080a1173dfb81ad28d43234a6c6667b8&quot; class=&quot;gutenberg-block block-explanation-note&quot;&gt;&lt;blockquote&gt;
-
-&lt;p style=&quot;text-align: left&quot;&gt;&lt;b&gt;端传媒十岁了，邀请你填写&lt;/b&gt;&lt;a href=&quot;https://initium10th.typeform.com/to/lRKZzTZX&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&amp;nbsp;&lt;b&gt;2025 年度用户调研问卷&lt;/b&gt;&lt;/a&gt;&lt;b&gt;，让我们更了解你的需求，一起走向下一个十年。&lt;/b&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li style=&quot;text-align: left&quot;&gt;完成问卷即可获得十周年电子书、年度调研视觉化报告。&lt;/li&gt;
-&lt;li style=&quot;text-align: left&quot;&gt;前 100 位完成的读者，将获得“一年份尊享会籍”或等值礼物卡。&lt;/li&gt;
-&lt;li style=&quot;text-align: left&quot;&gt;随机再抽 100 位用户赠送相同福利。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;/blockquote&gt;&lt;/div&gt;
-
-
-
-&lt;p&gt;&lt;strong&gt;第三期端传媒“专题记者成长计划”将于2025年9月开始，到2026年1月完结。&lt;/strong&gt;项目通过远程协作方式进行。&lt;/p&gt;
-
-
-
-&lt;p&gt;这一次，我们针对产业和时代的变化，推出&lt;strong&gt;三个专题组和一个受众参与（audience engagement）特别组&lt;/strong&gt;，从方法论、呈现方式和选题思路多个层面继续我们的专题报导成长之旅。&lt;/p&gt;
-
-
-
-&lt;p&gt;我们欢迎有志于中文报导的记者和自由撰稿人，也欢迎没有新闻工作经验，但有学术研究或非虚构写作背景的申请者，以及想要尝试重新想像新闻和社群﹑读者关系的媒体人申请成长计划，&lt;strong&gt;报名页面&lt;/strong&gt;请&lt;a href=&quot;https://docs.google.com/forms/d/11BRpBgAH8AkH0pC7BLWOcLoWZZ4wRedx_cL0ybYitHY/edit&quot; data-type=&quot;link&quot; data-id=&quot;https://docs.google.com/forms/d/11BRpBgAH8AkH0pC7BLWOcLoWZZ4wRedx_cL0ybYitHY/edit&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;点击这里&lt;/a&gt;。&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;strong&gt;报名截止日期：2025年8月13日（东八区时间 24:00）&lt;/strong&gt;&lt;/p&gt;
-
-
-
-&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img decoding=&quot;async&quot; width=&quot;1080&quot; &quot;720&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/2160-1440_f319be.png?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-290903&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;图：Mantha Mok / 端传媒&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-1&quot;&gt;你想做一名专题记者吗？你想要设计新闻与受众的互动吗？&lt;/h2&gt;
-
-
-
-&lt;p&gt;端传媒的专题记者成长计划已经做到第三期。这一年偶尔会被问：眼下媒体求存已经不易，为甚么还要投入资源做一个外部培训计划？&lt;/p&gt;
-
-
-
-&lt;p&gt;我们的答案是：因为一个媒体，不是一个密不透孔的瓶子，而是依存在一个生态系统中的生物体。你不能只看它自己这个“体”活得好不好，而不看它所依附、所渗透、所呼吸的环境是不是健康。&lt;/p&gt;
-
-
-
-&lt;p&gt;在生态学里，有个概念叫“生态位（niche）建构”——一些生物不只是适应环境，而是主动改造环境，创造出一个更适合自己生存的栖地。这本是人类最会做的事情，媒体也是这样。记者的生态不是媒体单方面可以撑起的，它需要一个思想流通、报导有价值、记者愿意投入、读者仍然相信公共知识的环境。而这样的环境，需要所有还想看到良好媒体生态的人共同建构。&lt;/p&gt;
-
-
-
-&lt;p&gt;一个记者的诞生与成长，当然需要记者本人的坚持，但也离不开来自行业网络的支持。一个选题从想法到成文，同样需要投入时间和资源，需要编辑的反复打磨。华文新闻产业当下无疑处于艰难时刻，我们可以等待、换轨、甚至退出。但新闻生态不会自行修复，重获活力。如果你还想做一名扎实的记者，我们愿意和你一起，一点一滴，帮你成长成为向往中那个专题记者的模样。&lt;/p&gt;
-
-
-
-&lt;p&gt;2024年5月，端传媒推出“专题记者成长计划”，两期合共收到近四百封申请，十多位记者获选加入，也产出了不少优秀报导。这是一个从实践﹑讨论中学习的计划：从选题发掘、资料研究、访问调查到写稿编辑，入选记者将在编辑的指导下，在三至五个月间，完成一篇或多篇深度专题报导。我们这次还开设了一个“新闻参与”特别组，招募有志重新想像新闻和社群﹑读者关系的媒体人。&lt;/p&gt;
-
-
-
-&lt;p&gt;2025年7月，第三期“专题记者成长计划”即将启动。我们再次向你发出邀请，和我们一起做新闻。&lt;/p&gt;
-
-
-
-&lt;p&gt;这一次，我们针对产业和时代的变化，推出三个专题组和一个受众参与（audience engagement）特别组，从方法论、呈现方式和选题思路多个层面继续我们的专题报导成长之旅：&lt;/p&gt;
-
-
-
-&lt;ul class=&quot;wp-block-list&quot;&gt;
-&lt;li&gt;【第一组】微观台海：捕捉台海局势对日常的改变&lt;/li&gt;
-
-
-
-&lt;li&gt;【第二组】解析世界：抓住事实、观点和世界的复杂性&lt;/li&gt;
-
-
-
-&lt;li&gt;【第三组】被AI重新定义的生活：探讨人类和科技的互动&lt;/li&gt;
-
-
-
-&lt;li&gt;【第四组】新闻参与特别组：设计进入新闻的入口&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;入选记者需要参与每周一次的专题会或项目推进会议，与导师一对一学习，并完成至少一篇深度报导或多篇深度解析，或一份让新闻与受众得以互动的作品。&lt;/p&gt;
-
-
-
-&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img decoding=&quot;async&quot; width=&quot;1080&quot; &quot;720&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/2160-1440_f319be.png?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-290903&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;图：Mantha Mok / 端传媒&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-2&quot;&gt;专题组“微观台海”：捕捉台海局势对日常的改变&lt;/h2&gt;
-
-
-
-&lt;p&gt;台海，涵盖了国际政治、军事、经济、历史与层叠交错的认知。它是每间新闻机构当下必须面对的“热门”议题，也是被宏观视角所限定的叙事。兵推、军演、共机绕台、中美对抗⋯⋯这些“硬核”词汇勾勒出台海议题的底色，却难以描摹战争阴影下被异化的社会、生活与个体。&lt;/p&gt;
-
-
-
-&lt;p&gt;我们希望，在台海议题日趋白热化的这个夏天，用有温度的、观察入微的记录，在官方与官方、政府与政府的叙事主场里，搭建普通人的故事。&lt;/p&gt;
-
-
-
-&lt;p&gt;“微观台海”邀请你：捕捉台海局势对日常的改变，并在资深编辑的帮助下，在三个月内完成一篇深度文字报导。你的选题可以是：因局势改变了人生选择的人（移民、海外置业、参军、积极投身政治）；被不同的身分认同所影响的亲密关系；由“避难包”兴起的产业；为“备战”考无人机执照、做近视雷射手术的人；在Threads上形成的新社群；陷入争议的网红；处境微妙的中配及中配二代⋯⋯我们鼓励你跳出上述案例的框架，进一步拓宽这个议题的辐射面。&lt;/p&gt;
-
-
-
-&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img decoding=&quot;async&quot; width=&quot;1080&quot; &quot;720&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/2160-1440-1_33ea53.png?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-290899&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;图：Mantha Mok / 端传媒&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-3&quot;&gt;专题组“解析世界”：抓住事实、观点和世界的复杂性&lt;/h2&gt;
-
-
-
-&lt;p&gt;解析性报导，在于从纷繁扰乱的新闻和争议中，做出条理清晰、平衡可靠的参考点；它是把单一现象和议题读厚的文体，也是把复杂事件精炼出脉络的文体。我们不叫它“解释性报导”，而是换了一个有双重意思的“解析”——我们希望，在端传媒，它是一种既重视事实，也不逃避观点的报导方法，一种面对复杂世界的知识劳动。&lt;/p&gt;
-
-
-
-&lt;p&gt;它需要拥有一定世界观的人，对包括数据在内的、不同来源的知识、历史、观点等资料，进行爬梳、整合、事实核准，甚至在此之上形成自己的观点；它也需要一双洞察的眼，对议题可能牵动的其他领域进行联想和连结，找到世界的复杂性、交叉性。&lt;/p&gt;
-
-
-
-&lt;p&gt;如果你对时下热点充满疑问，又或者，你能问出一个其他人都关心、但没有被好好回答过的问题，那么“解析世界”邀请你一起问问题，并在资深编辑的帮助下，在三个月内完成2-3篇、单篇约6000字的深度解析。选题可以比如是：美国﹑伊朗和以色列的&lt;a href=&quot;https://theinitium.com/article/20250623-international-explainer-iran-nuclear-israel-us&quot; data-type=&quot;link&quot; data-id=&quot;https://theinitium.com/article/20250623-international-explainer-iran-nuclear-israel-us&quot;&gt;冲突&lt;/a&gt;，会不会把我们都卷进核污染中？在新冠疫情期间的反疫苗运动的&lt;a href=&quot;https://theinitium.com/article/20220222-international-global-anti-vaccination&quot; data-type=&quot;link&quot; data-id=&quot;https://theinitium.com/article/20220222-international-global-anti-vaccination&quot;&gt;源头&lt;/a&gt;是甚么？香港政府的巨额&lt;a href=&quot;https://theinitium.com/article/20250224-hongkong-budget-deficit-data&quot; data-type=&quot;link&quot; data-id=&quot;https://theinitium.com/article/20250224-hongkong-budget-deficit-data&quot;&gt;赤字&lt;/a&gt;是怎么来的？当然，我们其实没有选题限制，欢迎你问出更多我们没想到的问题！&lt;/p&gt;
-
-
-
-&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1080&quot; &quot;720&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/2160-1440-2_ef058f.png?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-290900&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;图：Mantha Mok / 端传媒&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-4&quot;&gt;专题组“被AI重新定义的生活”：探讨人类和科技的互动&lt;/h2&gt;
-
-
-
-&lt;p&gt;AI正以前所未有的深度和广度，介入并重塑我们所身处的现实。从教育到医疗、司法到政治，人际关系到自我认知，AI正迅速渗透我们生活的每一个层面。连空调都接上大型语言模型，AI的风还是吹遍了每个角落。&lt;/p&gt;
-
-
-
-&lt;p&gt;可是太阳底下没有新鲜事：技术从来不是中立的工具，从摄影术发明到社群平台时代，现实都在文化与自然、人类与机器的协商互动中形成。面对“AI浪潮”，先知预告著AGI即将降临，但更平实的理解是人类成功将自然语言处理与人类智能脱钩。ChatGPT有其技术突破，但生活还是得过。&lt;/p&gt;
-
-
-
-&lt;p&gt;或许眼下正在发生的，是各种异质多元、新旧交杂的技术通通被贴上“AI”之名，从而实现一场以此为名的狂欢。人们不仅有了新的语言，去指称技术网络中这个新生成的节点，顶著AI名号的众多行动者，也因此获得大量权限和资源，能够创造前所未有的连结。身处这场狂欢，人们不得不学习新的方式，去理解、参与，甚至对抗被AI重新定义的生活。&lt;/p&gt;
-
-
-
-&lt;p&gt;“被AI重新定义的生活”专题组欢迎对AI报导感兴趣的文字记者，我们希望和你一起探讨人类与科技的互动，用五个月的时间完成一篇深度报导。我们想像的选题可能是：当人文学科毕业生成为&lt;a href=&quot;https://theinitium.com/article/20241211-the-techsmith-the-ghost-workers-behind-ai-training&quot; data-type=&quot;link&quot; data-id=&quot;https://theinitium.com/article/20241211-the-techsmith-the-ghost-workers-behind-ai-training&quot;&gt;训练AI的零工工人&lt;/a&gt;，谁在阻挠他们教会大型语言模型学说人话？或者从&lt;a href=&quot;https://theinitium.com/article/20240520-the-techsmith-chatgpt-speaks-cantonese-with-a-strange-accent&quot; data-type=&quot;link&quot; data-id=&quot;https://theinitium.com/article/20240520-the-techsmith-chatgpt-speaks-cantonese-with-a-strange-accent&quot;&gt;ChatGPT讲不好广东话出发&lt;/a&gt;，思考数位时代的弱势语言该如何发声。&lt;/p&gt;
-
-
-
-&lt;p&gt;我们相信，好的报导需要田野作为基础。所谓“田野”，可以是访谈、实作、社群参与、资料分析，或任何对真实与虚拟世界的细致观察。你不必局限于已有的现象，也可以报导你与AI互动的过程，如设计一系列指令去测试大型语言模型的边界。我们对“AI”的定义持开放态度，欢迎有创意的诠释和实验性提案。&lt;/p&gt;
-
-
-
-&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1080&quot; &quot;720&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/2160-1440-3_6e26b1.png?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-290901&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;图：Mantha Mok / 端传媒&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-5&quot;&gt;新闻参与特别组：设计进入新闻的入口&lt;/h2&gt;
-
-
-
-&lt;p&gt;不断会有人说：Journalism is dead.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;人类一直会生产“news”，但journalism——作为一种理解世界、介入公共讨论的专业实践——正在失去力量。新闻还在，但它的专业性、伦理性与公共角色正在被边缘化。到了2025年，这不再是危言耸听，而是我们所身处的现实。&lt;/p&gt;
-
-
-
-&lt;p&gt;我们都是未来资讯生态的参与者。新闻实践若能促进理解、信任与行动，我们还可以如何发挥它的价值？这正是本期成长计划的“新闻参与组”所关心的核心问题。&lt;/p&gt;
-
-
-
-&lt;p&gt;我们邀请你申请成为“新闻参与制作人”（Audience Engagement Producer），从读者的视角出发，带著创造力与责任感，重新设计新闻与其受众的互动方式。&lt;/p&gt;
-
-
-
-&lt;p&gt;你可能是记者、编辑，也可能是设计师、社群经营者、研究人员、技术人员，或任何一个对新闻的公共性和未来抱持想像的人。在这个组别中，你将在五个月内完成一件独立作品。它可能是一篇让读者能“参与其中”的报导、一场针对特定社群设计的对话实验、一组回应真实用户问题的内容原型，或是一项重新设计新闻叙事与受众互动方式的提案——形式不限。&lt;/p&gt;
-
-
-
-&lt;p&gt;我们希望，你能从一个具体的观察或困境出发，透过创意与设计，让一次新闻体验变得更丰富、更有参与感，也更贴近受众的真实生活。&lt;/p&gt;
-
-
-
-&lt;p&gt;新闻的价值还在，我们总是在不断重新发明它的入口。我们希望你设计的作品，不只是好看、好玩、好分享，更是对一个真实问题的回答：人们为什么要在今天愿意花时间、心力，甚至金钱，参与新闻？&lt;/p&gt;
-
-
-
-&lt;p&gt;入选者会得到端传媒特邀导师团队的支持，接触到不同媒体第一线受众研究和互动新闻制作的经验，并在过程中获得反馈与共创的机会。&lt;/p&gt;
-
-
-
-&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-6&quot;&gt;计划为你提供全面支持&lt;/h2&gt;
-
-
-
-&lt;ol class=&quot;wp-block-list&quot;&gt;
-&lt;li&gt;导师。我们邀请来自中港台和海外顶尖媒体的资深记者、编辑、制作人，成为你的一对一导师，全程指导、培训、协助和陪伴你完成至少一篇深度报导，或两至三篇深度解析，或一份让新闻与受众得以互动的作品。&lt;/li&gt;
-
-
-
-&lt;li&gt;课程。我们为你提供专业课程，帮助你学习和精进新闻报导的职业技能，熟悉职业环境和行业伦理。&lt;/li&gt;
-
-
-
-&lt;li&gt;专题报导编辑室。你将会和其他参与成长计划的记者组成专题报导编辑室，在专题编辑和导师编辑的督导下，定期参与选题会、编辑会，编辑室的所有成员将会一起汇报进度、讨论方向、分析挑战、突破瓶颈，在专注自己题目的同时，也为彼此提供支援。&lt;/li&gt;
-
-
-
-&lt;li&gt;端传媒的后台资源。“端传媒专题记者成长计划”依托于端传媒多部门，为参加计划的你提供不同采写阶段需要的平台资源——影像、音频、用户、社交媒体、公共活动等。&lt;/li&gt;
-
-
-
-&lt;li&gt;端传媒的跨平台资源。端传媒多年来持续和世界多个知名媒体、大学、公立机构合作新闻选题的采写、报导和发表，如果你的选题适合和其他媒体、机构合作，我们将会选择合作伙伴，引入外部资源，与你一起完成报导。&lt;/li&gt;
-
-
-
-&lt;li&gt;津贴补助。我们深知当下新闻从业者在产业结构中处于脆弱的位置，想要长期专注选题的同时，也不得不完成全职或兼职的工作。我们会为你提供2500美金的成长计划津贴，在项目期间减轻你的经济压力。同时，项目报导本身产生的差旅、研究等支出，我们也会你为你报销。&lt;/li&gt;
-
-
-
-&lt;li&gt;发表机会。你的报导完成后，端传媒会以文字、音频或其他出版形式进行发表。&lt;/li&gt;
-
-
-
-&lt;li&gt;学院网络。“端传媒专题记者成长计划”所连接的是这个生态中一个又一个的你，参与到计划中的每一个人都是互相学习和帮助的伙伴。你将会成为这个不断延续的计划中，不可或缺的一员。而你在这个网络中遇到的所有人，都会是你职业发展道路上的同伴。&lt;/li&gt;
-&lt;/ol&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;div class=&quot;entry-footer border-t border-grey-400 pt-6&quot;&gt;
-
-&lt;div class=&quot;entry-copyright&quot;&gt;&lt;figure&gt;&lt;small&gt;
-&lt;p class=&quot;caption2&quot;&gt;
-本刊载内容版权为端传媒或相关单位所有，未经&lt;a href=&quot;mailto:editor@theinitium.com&quot;&gt;端传媒编辑部&lt;/a&gt;授权，请勿转载或拷贝，否则即为侵权。&lt;/p&gt;
-&lt;/small&gt;&lt;/figure&gt;&lt;/div&gt;
-&lt;/div&gt;</content><author><name>端传媒编辑部</name></author><category term="initium" /><category term="blog" /><summary type="html">这一次，我们针对产业和时代的变化，推出三个专题组和一个受众参与特别组。 图：Mantha Mok / 端传媒</summary></entry><entry><title type="html">香港民间独立书商在书展外寻生存空间，遭左报指控软对抗｜Whatsnew</title><link href="https://agora0.github.io/post/initium/2025/07/23/INITIUM-%E9%A6%99%E6%B8%AF%E6%B0%91%E9%97%B4%E7%8B%AC%E7%AB%8B%E4%B9%A6%E5%95%86%E5%9C%A8%E4%B9%A6%E5%B1%95%E5%A4%96%E5%AF%BB%E7%94%9F%E5%AD%98%E7%A9%BA%E9%97%B4-%E9%81%AD%E5%B7%A6%E6%8A%A5%E6%8C%87%E6%8E%A7%E8%BD%AF%E5%AF%B9%E6%8A%97-whatsnew.html" rel="alternate" type="text/html" title="香港民间独立书商在书展外寻生存空间，遭左报指控软对抗｜Whatsnew" /><published>2025-07-23T06:58:00+08:00</published><updated>2025-07-23T06:58:00+08:00</updated><id>https://agora0.github.io/post/initium/2025/07/23/INITIUM-%E9%A6%99%E6%B8%AF%E6%B0%91%E9%97%B4%E7%8B%AC%E7%AB%8B%E4%B9%A6%E5%95%86%E5%9C%A8%E4%B9%A6%E5%B1%95%E5%A4%96%E5%AF%BB%E7%94%9F%E5%AD%98%E7%A9%BA%E9%97%B4-%E9%81%AD%E5%B7%A6%E6%8A%A5%E6%8C%87%E6%8E%A7%E8%BD%AF%E5%AF%B9%E6%8A%97-whatsnew</id><content type="html" xml:base="https://agora0.github.io/post/initium/2025/07/23/INITIUM-%E9%A6%99%E6%B8%AF%E6%B0%91%E9%97%B4%E7%8B%AC%E7%AB%8B%E4%B9%A6%E5%95%86%E5%9C%A8%E4%B9%A6%E5%B1%95%E5%A4%96%E5%AF%BB%E7%94%9F%E5%AD%98%E7%A9%BA%E9%97%B4-%E9%81%AD%E5%B7%A6%E6%8A%A5%E6%8C%87%E6%8E%A7%E8%BD%AF%E5%AF%B9%E6%8A%97-whatsnew.html">&lt;blockquote&gt;&lt;p&gt;&lt;em&gt;在官方书展运作期间，独立书店举办的民间书展遭左报放蛇，另有书商活动取消。&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;   &lt;figure&gt;&lt;img src=&quot;https://theinitium.com/wp-content/uploads/2025/07/3F2A2478-W.jpg?w=1080&quot; referrerpolicy=&quot;no-referrer&quot;&gt;  &lt;figcaption&gt;2025年7月19日，猎人书店自7月18日起一连四日举行的“无处不阅读”独立出版书展第二日，店外的人流。摄：邓家烜/端传媒&lt;/figcaption&gt;  &lt;/figure&gt;   
-&lt;div class=&quot;wkwp-post-content&quot;&gt;
-
-
-&lt;div id=&quot;block_0ab31ce947b62df11648befd2562a745&quot; class=&quot;gutenberg-block block-explanation-note&quot;&gt;&lt;blockquote&gt;
-
-&lt;p style=&quot;text-align: left&quot;&gt;&lt;b&gt;端传媒十岁了，邀请你填写&lt;/b&gt;&lt;a href=&quot;https://initium10th.typeform.com/to/lRKZzTZX&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&amp;nbsp;&lt;b&gt;2025 年度用户调研问卷&lt;/b&gt;&lt;/a&gt;&lt;b&gt;，让我们更了解你的需求，一起走向下一个十年。&lt;/b&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li style=&quot;text-align: left&quot;&gt;完成问卷即可获得十周年电子书、年度调研视觉化报告。&lt;/li&gt;
-&lt;li style=&quot;text-align: left&quot;&gt;前 100 位完成的读者，将获得“一年份尊享会籍”或等值礼物卡。&lt;/li&gt;
-&lt;li style=&quot;text-align: left&quot;&gt;随机再抽 100 位用户赠送相同福利。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;/blockquote&gt;&lt;/div&gt;
-
-
-
-&lt;p&gt;近日，香港深水埗的独立书店、食肆等连日被左报指控软对抗，另有团体活动取消、出版社无法参与香港书展等状况，反映文化出版界的困境。&lt;/p&gt;
-
-
-
-&lt;p&gt;今年7月，除了在香港会议展览中心举办的书展外，一批独立出版社亦在深水埗大南街的猎人书店，由7月18日起一连四日举行“无处不阅读”独立出版书展。该书展强调无审查自由，吸引被香港书展排除的出版社参与，而书籍涵盖社会议题、少数族裔、LGBTQ 等题材。&lt;/p&gt;
-
-
-
-&lt;p&gt;《文汇报》于周一（21日）头版报导猎人书店售卖反中乱港作家如民主党前主席刘慧卿的作品，更派记者放蛇，向职员查询会否售卖最近出版的《黎智英传》，质疑活动含“软对抗”意味。邻近的一拳书店则被指售卖记协锁匙扣；报导又指在旺角序言书店店外电梯内发现“黑暴文宣”，而没有参加独立书展的老牌书店乐文书店，亦因为售卖作家颜纯钩作品，有煽动之嫌。&lt;/p&gt;
-
-
-
-&lt;p&gt;周二（22日）《文汇报》继续头版报导指猎人书店所在的深水埗大南街、黄竹街一带多间食肆、零售店藉独立书展串连，组织“软对抗团伙”。报导指素食餐厅“素年”店内售卖的锁匙扣有“香港”字样、原子笔标示“2019年得奖设计限量版”为渲染黑暴年份。猎人书店负责人黄文萱表示，独立书展开锣两日内都有食环署职员到场巡查，称收到投诉指书店“未领有牌照举办公众娱乐活动”。&lt;/p&gt;
-
-
-
-&lt;p&gt;香港文学生活馆同样于7月18日举行“香港文学生活馆搬迁散书祭”，原定到27日结束，但是21日香港文学生活馆在社交平台指，因“不可抗力因素”活动须即日中止。筹办活动的文化人邓小桦接受&lt;a href=&quot;https://hk.news.yahoo.com/%E6%95%A3%E6%9B%B8%E7%A5%AD%E5%9B%A0%E3%80%8C%E4%B8%8D%E5%8F%AF%E6%8A%97%E5%8A%9B%E5%9B%A0%E7%B4%A0%E3%80%8D%E7%85%9E%E5%81%9C-%E9%84%A7%E5%B0%8F%E6%A8%BA%EF%BC%9A%E5%B8%8C%E6%9C%9B%E7%B6%93%E6%BF%9F%E5%B7%AE%E6%99%82%E4%B8%8D%E8%A6%81%E5%86%8D%E6%89%93%E6%93%8A%E5%B0%8F%E7%94%9F%E6%84%8F%EF%BD%9Cyahoo-101559975.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;查询&lt;/a&gt;时说，文学生活馆今年是自2018年来首次被拒参加香港书展，其他文艺组织、独立小型出版社同样缺席，希望经济差时不要再打击小生意。&lt;/p&gt;
-
-
-
-&lt;p&gt;翻查资料，近年多间独立出版社参展香港书展期间，曾被主办机构香港贸易发展局要求下架书籍，甚至被拒参展。今年香港书展拒绝至少三间书商参展，包括去年被要求下架区家麟、邵家臻著作的出版社“蓝蓝的天”，及“界限书店”。&lt;/p&gt;
-
-
-
-&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2000&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/TKH20250718W1328-W-W.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-290963&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;2025年7月18日，猎人书店“无处不阅读”独立出版书展。摄：邓家烜/端传媒&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-1&quot;&gt;风波中的文艺界：红线不明、巡查、追税等“行政问候”&lt;/h2&gt;
-
-
-
-&lt;p&gt;书展拒诸门外，各本地中小型出版社为谋求出路，于7月14日发布一项本地独立出版生态&lt;a href=&quot;https://thecollectivehk.com/%E7%8D%A8%E7%AB%8B%E6%9B%B8%E5%B1%95%EF%BD%9C%E7%8D%A8%E7%AB%8B%E5%87%BA%E7%89%88%E7%94%9F%E6%85%8B%E8%AA%BF%E6%9F%A5%EF%BC%9A%E5%9C%8B%E5%AE%89%E6%B3%95%E6%B8%9B%E5%89%B5%E4%BD%9C%E8%87%AA%E7%94%B1/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;调查&lt;/a&gt;。问卷调查由界限书店发起，获19间独立出版社回应，而当中有11间出版社于过去五年内成立，但有一半以上出版社没有或仅得小额资助。有5间为一人出版社，须一人兼顾编辑、行销、物流环节，即使有能力聘请员工，也仅以兼职为主。&lt;/p&gt;
-
-
-
-&lt;p&gt;调查亦指出，现时独立出版社多数出版文学、小说、社会科学、艺术设计，独立书店是最重要销售渠道。然而，猎人书店负责人黄文萱在发布会上表示，自从政府取消发放消费卷后，独立书店生意额下跌，零售黄金期亦随移民潮趋缓及疫情结束后，变得更加波动。《国安法》实施五年，业界同样忧虑未来的创作及出版自由，问卷显示6间出版社表乐观或非常乐观，8间中立，5间不乐观。&lt;/p&gt;
-
-
-
-&lt;p&gt;独立书店外，发布会上的出版社代表同样指出，即使和主流大型连锁书店如诚品书店、三联书店、中华书店、商务印书店等有合作销售，但合作会随作者立场等因素而随时取消。&lt;/p&gt;
-
-
-
-&lt;p&gt;经济不景气，生意难做之外，根据 Hong Kong Free Press &lt;a href=&quot;https://hongkongfp.com/2025/07/20/is-it-a-coincidence-hong-kong-independent-bookstores-publishers-face-simultaneous-tax-probes/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;报导&lt;/a&gt;，港府行政部门经常针对本地艺文或独立机构，无形中增加其经营成本。至少6间独立书店与出版社收到香港税务局的税务稽查，包括“猎人书店”与其他3间成立超过八年的业界机构，以及2间新近成立的出版社。税务稽查不仅涵盖公司帐目，还深入追查公司负责人的个人银行帐户，时间跨度达七年以上。&lt;/p&gt;
-
-
-
-&lt;p&gt;黄文萱受访时举例指，如果税务局稽查你2019年时的一笔300元转帐，你有可能记得当时是谁转帐吗？&lt;/p&gt;
-
-
-
-&lt;p&gt;除了多次收到税务局要求提供个人过往交易纪录、捐款来源、房租补贴等资料外，书店也多次被政府部门如食环署、消防处、警方及公司注册处上门巡查，虽然没有提出具体违法理由及执法行动，但她认为这种“行政问候”对业界人士而言属潜在震慑。&lt;/p&gt;
-
-
-
-
-
-
-
-&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;3000&quot; &quot;2000&quot; src=&quot;https://theinitium.com/wp-content/uploads/2025/07/3F2A2579-W.jpg?w=1024&quot; alt=&quot;&quot; class=&quot;wp-image-290961&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;2025年7月19日，猎人书店“无处不阅读”独立出版书展的顾客。摄：邓家烜/端传媒&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 class=&quot;wp-block-heading&quot; id=&quot;heading-2&quot;&gt;港府、建制媒体警告社会仍存“软对抗”&lt;/h2&gt;
-
-
-
-&lt;p&gt;今年为《港区国安法》实施第五年，集会、示威如六四悼念晚会、七一游行等已经消失，民主派初选案各被告亦于去年11月被定罪。然而，港府各级官员今年频频表示香港社会仍存“软对抗”，亲建制媒体亦不时放蛇，指控文艺活动为软对抗。保安局局长邓炳强于7月22日在《大公报》访问指，国安风险会以“软对抗”形式出现，“常以与国家安全无关的议题作切入点，通过舆情、网上发酵或文化渗透等手法分化社会，蛊惑人心。”&lt;/p&gt;
-
-
-
-&lt;p&gt;6月，文化体育及旅游局局长罗淑佩指出，“软对抗”可能以多种艺术形式出现，如表演、歌曲、故事情节等，当局在资助审批、场地表演、展览内容等方面会严格把关。行政长官李家超回应罗淑佩言论时指，有人打不同旗号，实际上是破坏国家安全，形容小人满街，不得不提防。&lt;/p&gt;
-
-
-
-&lt;p&gt;罗淑佩言论同时引起香港文艺界忧虑，担心“软对抗”会动辄成为取消场地租用、资助的口实。编剧家庄梅岩亦&lt;a href=&quot;https://news.mingpao.com/pns/%E6%B8%AF%E8%81%9E/article/20250623/s00002/1750615646208/%E5%9B%9E%E6%87%89%E7%BE%85%E6%B7%91%E4%BD%A9%E3%80%8C%E8%BB%9F%E5%B0%8D%E6%8A%97%E3%80%8D%E8%AB%96-%E8%8E%8A%E6%A2%85%E5%B2%A9-%E5%86%A4%E6%9E%89%E5%B9%BE%E5%A4%9A%E7%84%A1%E8%BE%9C%E4%BA%BA&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;回应指&lt;/a&gt;，“软对抗”等口号只会“纵容一班欺压艺术家的手下”、“冤枉几多无辜的人和作品”。她慨叹香港社会如今变得步步为营，矫枉过正。&lt;/p&gt;
-
-
-
-&lt;p&gt;庄梅岩强调，“软对抗”定义过于模糊，怀疑有人犯法可以执法、检控，但动辄指控“软对抗”会成为扰民的整治行动。&lt;/p&gt;
-
-
-
-
-
-
-&lt;/div&gt;
-&lt;div class=&quot;entry-footer border-t border-grey-400 pt-6&quot;&gt;
-
-&lt;div class=&quot;entry-copyright&quot;&gt;&lt;figure&gt;&lt;small&gt;
-&lt;p class=&quot;caption2&quot;&gt;
-本刊载内容版权为端传媒或相关单位所有，未经&lt;a href=&quot;mailto:editor@theinitium.com&quot;&gt;端传媒编辑部&lt;/a&gt;授权，请勿转载或拷贝，否则即为侵权。&lt;/p&gt;
-&lt;/small&gt;&lt;/figure&gt;&lt;/div&gt;
-&lt;/div&gt;</content><author><name>特约撰稿人 雍明</name></author><category term="initium" /><category term="blog" /><summary type="html">在官方书展运作期间，独立书店举办的民间书展遭左报放蛇，另有书商活动取消。 2025年7月19日，猎人书店自7月18日起一连四日举行的“无处不阅读”独立出版书展第二日，店外的人流。摄：邓家烜/端传媒</summary></entry><entry><title type="html">陳可辛的《醬園弄》為何兩邊不討好？</title><link href="https://agora0.github.io/post/matters/2025/07/22/MATTERS-%E9%99%B3%E5%8F%AF%E8%BE%9B%E7%9A%84-%E9%86%AC%E5%9C%92%E5%BC%84-%E7%82%BA%E4%BD%95%E5%85%A9%E9%82%8A%E4%B8%8D%E8%A8%8E%E5%A5%BD.html" rel="alternate" type="text/html" title="陳可辛的《醬園弄》為何兩邊不討好？" /><published>2025-07-22T23:53:18+08:00</published><updated>2025-07-22T23:53:18+08:00</updated><id>https://agora0.github.io/post/matters/2025/07/22/MATTERS-%E9%99%B3%E5%8F%AF%E8%BE%9B%E7%9A%84-%E9%86%AC%E5%9C%92%E5%BC%84-%E7%82%BA%E4%BD%95%E5%85%A9%E9%82%8A%E4%B8%8D%E8%A8%8E%E5%A5%BD</id><content type="html" xml:base="https://agora0.github.io/post/matters/2025/07/22/MATTERS-%E9%99%B3%E5%8F%AF%E8%BE%9B%E7%9A%84-%E9%86%AC%E5%9C%92%E5%BC%84-%E7%82%BA%E4%BD%95%E5%85%A9%E9%82%8A%E4%B8%8D%E8%A8%8E%E5%A5%BD.html">&lt;p&gt;香港導演現在大陸有多難？拍自己最擅長的娛樂片，人家說你吃老本，一點意思都沒有；拍部有點東西想講的，人家覺得你虛偽。&lt;/p&gt;&lt;p&gt;陳可辛的《醬園弄》在香港不受待見，是可預見的，但在大陸的成績似乎也不太好，罵聲一片，豆瓣只有5點幾分，屬於爛片級的分數。隨便看了兩眼豆瓣短評，差評主要針對三個方面，一是演員，二是導演，三是故事（這不廢話嗎），而後面兩個大概可以合併為一個，就是導演和故事不真誠，只是偽女性主義。&lt;/p&gt;&lt;p&gt;有那麼差嗎？我覺得沒有。就那些短評而言，也沒有太大說服力，只是一種關乎個人喜好的觀點，而沒有充分論述一一當然短評字數有限，很難做到詳盡的論述。以如今大陸電影市場運作的特點來說，我更覺得主要是宣傳方錢沒給夠，沒能造起話題來。&lt;/p&gt;&lt;p&gt;我以為，它至少比意大利那部票房冠軍、在大陸也大受好評的《明天還有夢》要好一些。我無法給女性主義定高低、辨真偽，只是以戲論戲而已（當然也有自己偏頗），我覺得《醬園弄》在女性角色的描寫和故事表達的層次上都比前者要好。它唯一不夠討好的，就是導演是一位早已功成名就的男性導演，用大陸時興的話說，就是「老登」。&lt;/p&gt;&lt;h2&gt;兩種「男權」的形式&lt;/h2&gt;&lt;p&gt;《醬園弄》裡章子怡既摧毀了肉體上的「男權」一一對她實施暴力的丈夫（當然以上集而言，人是不是她殺的也未有定案），又令自認為上海他說了算的全上海最有權勢的警察局長丟了臉面。這兩種男人已經是對男性權力很形象化的表達了，簡單來說，一種是身處社會底層但在家裡卻耀武揚威的男人（正如《明天還有夢》裡的丈夫），另一種是高居上位、在武力和權力上都碾壓女性的男人。在我看來，這比《明天還有夢》更直接地指出了兩種男權的存在，而章子怡式的反抗，不管她是出於「本能」，還是出於所謂「女性覺醒」，也比後者僅僅寄望投票權來改變男權社會要直接得多。我不否認投票權（政治權力）對於女性同樣重要甚至更為重要（這是中國電影和陳可辛不敢觸碰的議題），但為了表達民主和女性投票權的美好，《明天還有夢》甚至給人一種女性一夜翻身做主人的幻覺，無視女性在社會乃至政治參與上的真實歷史以及至今仍普遍存在的真實困境。至於片中有意無意將美軍塑造成女性救世主的形象，我們還是不要再提了，想起來都覺得有點無稽。&lt;/p&gt;&lt;p&gt;很多人討厭雷佳音的角色，說他像電影中的野豬一樣搶走了章子怡的戲份，甚者更說這部電影，雷佳音才是「大男主」（大陸用語，形容電影劇情只圍繞著男主角轉）。這兩種看法，我並不認同，但雷佳音的角色確實討厭，他唯一的「善舉」——釋放一位女性報刊主編，也只是為了彰顯他「上海我說了算」——這不恰恰是角色塑造成功的地方嗎？哪部「大男主」的電影不是為了讓戲裡的角色乃至觀眾愛上他，而是討厭他、憎恨他的呢？&lt;/p&gt;&lt;p&gt;有意思的是，同樣是家暴戲，我在豆瓣上幾乎沒看到誰說《明天還有夢》虐待女性，而《醬園弄》，卻有人說女性角色一個比一個慘，是虐待女性。女性電影什麼時候變成了不可以表現女性的苦難？我不是說一定要用女性主義的角度去觀賞《醬園弄》，它可能不是，陳可辛也可能虛偽，但如果女性主義電影不能表現女性的苦難，在這樣狹隘的定義下，《明天還有夢》顯然也不是。家暴當然也有不同的拍法，《明天還有夢》有意弱化暴力，甚至將之浪漫化，這種手法給人的感覺，更多反而是女主角的逆來順受；而《醬園弄》多個家暴鏡頭是從章子怡飾演的受虐者角度出發的，施暴者的猙獰嘴臉那樣出現在大螢幕前，受虐的猶如就是我們，的確難受得坐立不安，但恰恰如此，不是更能讓人感受「男權」的壓迫嗎？&lt;/p&gt;&lt;h2&gt;怎樣的女性角色才是女性主義&lt;/h2&gt;&lt;p&gt;有人用現代「女性覺醒」的框架去看片中的每一個女性角色，認為她們要麼只是求生的本能，要麼只是基於利益的互相利用，沒有一個真正符合「女性覺醒」，導演只是硬蹭女性主義，消費女性；也有人認為片中的女性力量過於強大，她們的「女性覺醒」脫離時代背景，不尊重歷史。持這兩種迥異觀點的人就可以吵上一架了，儘管她們可能都自認是女性主義者。&lt;/p&gt;&lt;p&gt;故事改編自民國時的真實案件，發生在日本佔領期間的上海，比起觸及當代中國的《中國女排》、《李娜》，顯然是一個相對保險的題材。然而，陳可辛考慮仍是不夠周全，雖然他沒有刻意美化日本人，但也沒有「客觀」描寫日本人的殘忍。片中一個日本人都沒有，壞人全是中國人。家暴章子怡的是中國男人，因為丟了顏面而一定要弄死章子怡的也是中國男人。&lt;/p&gt;&lt;p&gt;更何況，作為「舊社會」的上海在片中雖然黑暗得很——警暴毫無監管、官場貪污腐化，但是竟然有言論自由？陳可辛，你是在諷刺誰！&lt;/p&gt;&lt;p&gt;本片最大的不足（互文式的自我諷刺？）：《醬園弄》的英文名是「She's Got No Name」，而劇情中寫「為殺夫女辯」的女性專欄作家，她如此地為殺夫女聲張正義，為女性權益吶喊，卻在自己的文章裡也只稱她是「詹周氏」（詹還是冠的夫姓），不願給她一個屬於自己的名字。你大可以說，這是那位女性作家的「時代局限」，但作為超越時代的電影本身，它明明可以有方法還她一個自己的姓名。歷史上的詹周氏有自己的名字——周春蘭。&lt;/p&gt;&lt;p&gt;&lt;br class=&quot;smart&quot;&gt;&lt;/p&gt;</content><author><name>陳牛</name></author><category term="matters" /><category term="blog" /><summary type="html">香港導演現在大陸有多難？拍自己最擅長的娛樂片，人家說你吃老本，一點意思都沒有；拍部有點東西想講的，人家覺得你虛偽。陳可辛的《醬園弄》在香港不受待見，是可預見的，但在大陸的成績似乎也不太好，罵聲一片，豆瓣只有5點幾分，屬於爛片級的分數。隨便看了兩眼豆瓣短評，差評主要針對三個方面，一是演員，二是導演，三是故事（這不廢話嗎），而後面兩個大概可以合併為一個，就是導演和故事不真誠，只是偽女性主義。有那麼差嗎？我覺得沒有。就那些短評而言，也沒有太大說服力，只是一種關乎個人喜好的觀點，而沒有充分論述一一當然短評字數有限，很難做到詳盡的論述。以如今大陸電影市場運作的特點來說，我更覺得主要是宣傳方錢沒給夠，沒能造起話題來。我以為，它至少比意大利那部票房冠軍、在大陸也大受好評的《明天還有夢》要好一些。我無法給女性主義定高低、辨真偽，只是以戲論戲而已（當然也有自己偏頗），我覺得《醬園弄》在女性角色的描寫和故事表達的層次上都比前者要好。它唯一不夠討好的，就是導演是一位早已功成名就的男性導演，用大陸時興的話說，就是「老登」。兩種「男權」的形式《醬園弄》裡章子怡既摧毀了肉體上的「男權」一一對她實施暴力的丈夫（當然以上集而言，人是不是她殺的也未有定案），又令自認為上海他說了算的全上海最有權勢的警察局長丟了臉面。這兩種男人已經是對男性權力很形象化的表達了，簡單來說，一種是身處社會底層但在家裡卻耀武揚威的男人（正如《明天還有夢》裡的丈夫），另一種是高居上位、在武力和權力上都碾壓女性的男人。在我看來，這比《明天還有夢》更直接地指出了兩種男權的存在，而章子怡式的反抗，不管她是出於「本能」，還是出於所謂「女性覺醒」，也比後者僅僅寄望投票權來改變男權社會要直接得多。我不否認投票權（政治權力）對於女性同樣重要甚至更為重要（這是中國電影和陳可辛不敢觸碰的議題），但為了表達民主和女性投票權的美好，《明天還有夢》甚至給人一種女性一夜翻身做主人的幻覺，無視女性在社會乃至政治參與上的真實歷史以及至今仍普遍存在的真實困境。至於片中有意無意將美軍塑造成女性救世主的形象，我們還是不要再提了，想起來都覺得有點無稽。很多人討厭雷佳音的角色，說他像電影中的野豬一樣搶走了章子怡的戲份，甚者更說這部電影，雷佳音才是「大男主」（大陸用語，形容電影劇情只圍繞著男主角轉）。這兩種看法，我並不認同，但雷佳音的角色確實討厭，他唯一的「善舉」——釋放一位女性報刊主編，也只是為了彰顯他「上海我說了算」——這不恰恰是角色塑造成功的地方嗎？哪部「大男主」的電影不是為了讓戲裡的角色乃至觀眾愛上他，而是討厭他、憎恨他的呢？有意思的是，同樣是家暴戲，我在豆瓣上幾乎沒看到誰說《明天還有夢》虐待女性，而《醬園弄》，卻有人說女性角色一個比一個慘，是虐待女性。女性電影什麼時候變成了不可以表現女性的苦難？我不是說一定要用女性主義的角度去觀賞《醬園弄》，它可能不是，陳可辛也可能虛偽，但如果女性主義電影不能表現女性的苦難，在這樣狹隘的定義下，《明天還有夢》顯然也不是。家暴當然也有不同的拍法，《明天還有夢》有意弱化暴力，甚至將之浪漫化，這種手法給人的感覺，更多反而是女主角的逆來順受；而《醬園弄》多個家暴鏡頭是從章子怡飾演的受虐者角度出發的，施暴者的猙獰嘴臉那樣出現在大螢幕前，受虐的猶如就是我們，的確難受得坐立不安，但恰恰如此，不是更能讓人感受「男權」的壓迫嗎？怎樣的女性角色才是女性主義有人用現代「女性覺醒」的框架去看片中的每一個女性角色，認為她們要麼只是求生的本能，要麼只是基於利益的互相利用，沒有一個真正符合「女性覺醒」，導演只是硬蹭女性主義，消費女性；也有人認為片中的女性力量過於強大，她們的「女性覺醒」脫離時代背景，不尊重歷史。持這兩種迥異觀點的人就可以吵上一架了，儘管她們可能都自認是女性主義者。故事改編自民國時的真實案件，發生在日本佔領期間的上海，比起觸及當代中國的《中國女排》、《李娜》，顯然是一個相對保險的題材。然而，陳可辛考慮仍是不夠周全，雖然他沒有刻意美化日本人，但也沒有「客觀」描寫日本人的殘忍。片中一個日本人都沒有，壞人全是中國人。家暴章子怡的是中國男人，因為丟了顏面而一定要弄死章子怡的也是中國男人。更何況，作為「舊社會」的上海在片中雖然黑暗得很——警暴毫無監管、官場貪污腐化，但是竟然有言論自由？陳可辛，你是在諷刺誰！本片最大的不足（互文式的自我諷刺？）：《醬園弄》的英文名是「She's Got No Name」，而劇情中寫「為殺夫女辯」的女性專欄作家，她如此地為殺夫女聲張正義，為女性權益吶喊，卻在自己的文章裡也只稱她是「詹周氏」（詹還是冠的夫姓），不願給她一個屬於自己的名字。你大可以說，這是那位女性作家的「時代局限」，但作為超越時代的電影本身，它明明可以有方法還她一個自己的姓名。歷史上的詹周氏有自己的名字——周春蘭。</summary></entry></feed>
+&lt;/div&gt;</content><author><name>端传媒记者 郑淑华、吴政霆</name></author><category term="initium" /><category term="blog" /><summary type="html">端传媒整理事件脉络，并透过访问几位港大女学生、法律评论者，聚焦探讨香港及各地相关深伪的现行法规。 香港大学有不少人观光拍照。摄：林振东/端传媒</summary></entry></feed>
