@@ -1,0 +1,72 @@
+---
+layout: post
+title: 347 ～ Top K 频率的元素
+date: 2025-09-07 04:17:19.000000000 +00:00
+link: https://matters.news/@potato_pepper/347-top-k-%E9%A2%91%E7%8E%87%E7%9A%84%E5%85%83%E7%B4%A0-bafybeibz6cswf3evslbf2zvr2hda5yu3m6ez3reil6znfzxsuuzmmuvzry
+categories: matters
+tags: blog
+author: 土豆炒青椒
+---
+
+<p><strong>基本信息</strong></p><ul><li><p>题号：347</p></li><li><p>题厂：亚麻</p></li><li><p>难度系数：中</p></li></ul><hr><p>提供一个数组，里面都是数，返回出现频率最高的 k 个。（题目确保只有一个 unique 返回）</p><pre><code>例如 nums = [1,1,1,2,2,3], k = 2，返回 [1,2]。 因为最高频率出现的Top 2 是 1 和 2。</code></pre><p><strong>解题思路</strong></p><ol><li><p>说到计算频率，又给你一个数组，先想到用 hash map 来计算一下数字出现的频率。</p></li><li><p>第二步的话，解题思路可以用 bucket sort，或者 heap</p></li></ol><hr><pre><code> class Solution:
+    # max heap 解法
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        # 创建 hash map 用于计算频率，num: freq
+        count_map = {}
+
+        for num in nums:
+            count_map[num] = 1 + count_map.get(num, 0)
+
+        # 第二步创建 max heap，此时的频率为负 -freq
+        max_heap = [(-freq, num) for num, freq in count_map.items()]
+        heapq.heapify(max_heap)
+
+        # 返回Top k
+        result = []
+        for _ in range(k):
+            neg_freq, num = heapq.heappop(max_heap)
+            result.append(num)
+        
+        return result
+
+    # min heap 解法
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        # 第一步还是创建 hash map 计算频率 num: freq
+        count_map = {}
+
+        for num in nums:
+            count_map[num] = 1 + count_map.get(num, 0)
+
+        # min heap
+        heap = []
+        for num, freq in count_map.items():
+            heapq.heappush(heap, (freq, num))
+            if len(heap) > k:
+                heapq.heappop(heap)
+
+        res = []
+        for freq, num in heap:
+            res.append(num)
+
+        return res
+
+   # bucket sort 解法
+   def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        # 第一步还是创建 hash map 计算频率 num: freq
+        count_map = {}
+
+        for num in nums:
+            count_map[num] = 1 + count_map.get(num, 0)
+
+        # bucket array 
+        freq = [[] for i in range(len(nums) + 1)]
+
+        for num, count in count_map.items():
+            freq[count].append(num)
+
+        res = []
+        for i in range(len(freq) - 1, 0, -1):
+            for n in freq[i]:
+                res.append(n)
+                if len(res) == k:
+                    return res</code></pre><hr><p><strong>Constraints</strong></p><ul><li><p>1 <= nums.length <= 105</p></li><li><p>-104 <= nums[i] <= 104</p></li><li><p>k 在 [1, the number of unique elements in the array] 范围内</p></li></ul><hr><p><strong>测试</strong></p><ul><li><p>边界测试 nums = [1], k = 1),</p></li><li><p>……</p></li></ul><hr><h2><strong>Big O</strong></h2><h3><strong>时间复杂度：nlogn</strong></h3><ul><li><p>题目要求复杂度不超过 nlogn</p></li><li><p><strong>采用 heap 解法，时间复杂度为 nlogn</strong></p></li><li><p><strong>采用 bucket sort， 复杂度为 n</strong></p></li></ul><h3><strong>空间复杂度： O（n）</strong></h3><hr><p><strong>总结</strong></p><ul><li><p>不大喜欢这道题，但的确值得复习，充满了考点。</p></li><li><p>亚麻厂出题，肯定是要看你能不能提供超过 2+ 解法。需要熟悉 heap 和 bucket sort 的原理，还能清晰表述，熟悉时间空间复杂度计算。</p></li><li><p>除了面试，它也可以在遇到 Top K 优先级等实际问题中提供思路和代码帮助。</p></li><li><p>综上所述，347 值得反复研究琢磨。</p><p></p></li></ul>
