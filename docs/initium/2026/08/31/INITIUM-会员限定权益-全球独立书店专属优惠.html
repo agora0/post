@@ -83,22 +83,54 @@
     --gray-500:#9A9A9A;
     --text:#26292B;
     --text-soft:#5C5F61;
+    --surface:#fff;
     --radius:14px;
-    font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","PingFang TC","Microsoft JhengHei",Arial,sans-serif;
+  }
+  /* 端传媒网站本身用 <html data-color-scheme="light"|"dark"> 这个属性记录目前
+     的显示模式：手动选“日光”/“黑夜”时会直接写成 light/dark；选“自动”时，
+     网站会自己判断访客系统的深色/浅色设定，同样写成明确的 light 或 dark，
+     而不是留空。所以这里直接认这个属性来换色，三种模式（日光/黑夜/自动）都会
+     跟著网站当下真正显示的样子走。下面的 @media (prefers-color-scheme:dark)
+     只是保险：万一这个属性哪天不存在，才退回去看系统设定，平常不会用到。 */
+  @media (prefers-color-scheme:dark){
+    :root:not([data-color-scheme="light"]){
+      --gray-100:#26292B;
+      --gray-200:#303336;
+      --gray-300:#3A3D40;
+      --gray-500:#9A9A9A;
+      --text:#F2F2F2;
+      --text-soft:#B8BBBD;
+      --surface:#1C1E20;
+    }
+  }
+  :root[data-color-scheme="dark"]{
+    --gray-100:#26292B;
+    --gray-200:#303336;
+    --gray-300:#3A3D40;
+    --gray-500:#9A9A9A;
+    --text:#F2F2F2;
+    --text-soft:#B8BBBD;
+    --surface:#1C1E20;
   }
   *{box-sizing:border-box;}
-  body{
-    margin:0;
-    background:#fff;
-    color:var(--text);
-    line-height:1.6;
-  }
+  /* 注意：这里刻意不写 body{...} 的全站重置规则。
+     这段 HTML 卡是直接插入端传媒文章页面的 DOM 里，CSS 里的 body{} 选择器
+     指到的是“整个网页”的 <body>，不是这张卡自己的框——之前这里写过
+     body{background:#fff} 会把整个页面的背景强制盖成白色，导致切换成
+     黑夜/自动（深色）模式时，页面其他地方变黑，只有这张卡片这一段还是死白，
+     两者对不起来。拿掉之后，卡片背景改为透明，直接沿用页面本身当下的
+     背景色（不论是亮色、黑夜、或自动跟著系统），卡片内文字/卡片底色则靠
+     上面的 --text、--gray-100 等变数自动换色。
+     字体、行高则改成套在 .imc-container 上，只影响卡片内部，不影响全站。 */
   /* imc-container 是“量尺容器”：它的宽度就是 Ghost 实际给的可用宽度
      （文章栏宽/Wide/Full 皆不同），下面所有 @container 判断都是量它，
      不是量浏览器视窗，这样不管这段 HTML 卡被放在多窄或多宽的栏位里，
      版面永远对得上真正可用的空间，不会被“硬撑”成挤压的桌面版。 */
   .imc-container{
     container-type:inline-size;
+    color:var(--text);
+    line-height:1.6;
+    font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","PingFang TC","Microsoft JhengHei",Arial,sans-serif;
   }
   .imc-page{
     max-width:640px;
@@ -229,7 +261,7 @@
   }
   .imc-modal-overlay[hidden]{display:none;}
   .imc-modal{
-    background:#fff;
+    background:var(--surface);
     width:100%;
     max-width:360px;
     max-height:88vh;
